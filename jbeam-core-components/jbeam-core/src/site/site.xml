@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JBEAM-Core">
+  <body>
+
+    <menu name="JBEAM Core">
+      <item name="Overview" href="/index.html" />
+      <item name="FAQ" href="/faq.html"/>
+      <item name="Tutorial" href="/tutorial.html"/>
+      <item name="Tips" href="/tips.html"/>
+    </menu>
+    
+    <menu name="Development">
+      <item name="Issue Tracking"          href="/issue-tracking.html"/>
+      <item name="Team"                    href="/team-list.html"/>
+      <item name="Source Repository"       href="/source-repository.html"/>
+      <item name="Change Log"              href="/changes-report.html"/>
+      <item name="Javadoc (latest)"        href="/apidocs/index.html"/>
+      <item name="Dependencies"        href="/dependency-management.html"/>
+    </menu>
+
+  </body>
+</project>

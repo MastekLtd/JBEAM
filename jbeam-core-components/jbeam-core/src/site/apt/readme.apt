@@ -1,0 +1,60 @@
+ --------
+Mastek - P&C - JBEAM [Java Batch Execution And Monitoring]
+ --------
+ --------
+27 July 2011
+ --------
+
+Read Me
+
+  Core is a commonly referred name of JBEAM Core. JBEAM stands for Java based Batch Execution And Monitoring. Core is the heart of this 
+  batch or also called as off-line scheduled processing.
+
+ 
+
+
+
+* DOCUMENTATION
+
+   All documentation with this library is supplied either as
+
+      A UserGuide covering basic use and FAQs, in the "Jbeam-Manual.pdf" file
+      
+
+* BUG REPORTS AND SUPPORT
+
+    Bug Reports can be submitted to mandar.vaidya@mastek.com and kedar.raybagkar@mastek.com. Please include the following information:
+
+        [[a]] The output of "java -version" and the Operating system you're using.
+
+        [[b]] The version number of the library
+
+        [[c]] The error message reported by the library (if applicable)
+
+        [[d]] The console log file (if applicable)
+
+ 
+*  External Dependencies and License Information
+
+** Core Communication Channel
+
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| <<Open Source Vendor>>      | <<Jar Name>>                   | <<License Information>> |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| Sun Microsystems            | mail.jar, activation.jar       | http://java.sun.com/products/javamail/            |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| Apache Logging Services     | log4j                          | http://logging.apache.org/log4j/1.2/license.html  |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| MajescoMastek               | JDBCPool                       |                                                   |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| Apache CXF                  | Refer to CXF library files     | http://cxf.apache.org                             |
+|                             | including Jetty application    |                                                   |
+|                             | server                         |                                                   |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| Apache Commons              | commons-logging,               | http://commons.apache.org/license.html            | 
+|                             | commons-configuration,         |                                                   |
+|                             | commons-collections            |                                                   |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| Bouncy Castle               | bcprov-*.jar                   | http://bouncycastle.org/licence.html              |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+

@@ -1,0 +1,21 @@
+ --------
+JBEAM Tutorial
+ --------
+ Kedar Raybagkar
+ --------
+03 August 2011
+ --------
+
+JBEAM - Java Batch Execution And Monitoring Tutorial
+
+* How to upgrade from JBEAM 3.3 to 4.0.0
+
+  In JBEAM 4.0 the core API has changed. The {IExecutableBatchJob} has undergone changes. Now the releases are made 
+  available through maven. In eclipse, install the maven plugin.
+  
+  
+=================================================================================================  
+
+  <<<The above code is provided without any warranty and is to be taken as an example provided for educational purpose.
+  The JBEAM Team is not liable for any issues it may cause or bring to your application. You may though use the above code
+  in your programs without any need of any form of consent, either written or verbal, from the JBEAM Team.>>>

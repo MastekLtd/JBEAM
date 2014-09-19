@@ -1,0 +1,39 @@
+ --------
+Mastek - P&C - JBEAM [Java Batch Execution And Monitoring]
+ --------
+ --------
+27 July 2011
+ --------
+
+JBEAM - Java Batch Execution And Monitoring
+
+* Introduction
+
+  JBEAM stands for Java Batch Execution And Monitoring. It acts like a server for batch processing.
+
+* Rationale
+
+  The requirements framed for the new system is, in reality, the limitations of the prevailing system. The requirement 
+  also includes enhancement and have been designed with an eye on having provisions for new "unknown" requirements in the future.
+  
+  In reality, there is no one existing system that can be considered as the base system. The legacy system was developed 
+  in PRO*C and later it was rewritten using the JAVA technology, which in itself has become a legacy code. As and when the need arise 
+  for the system (either PRO*C or JAVA) in new implementations, it is then modified directly in the source code as used. 
+  This has resulted in a system that can not be used "as it is" and no separation between core processing and implementation specific 
+  logics or requirements. The drawbacks of following such a system are manifold and can be summarized as below.
+
+  * The CORE system cannot be used "as it is". The implementation specific logics and needs are so hard wired into the system 
+	  and that one cannot separate those and use just the processing system. The code has hence become uncategorized and extremely difficult to 
+      understand and maintain. The execution logic has (over the period of time) becomes so complex that routines have thousands of line of code.
+  
+  * OOP is lost. The components are not structured and hence are less flexible with new requirements or changes.
+  
+  * Logging is done in data files that are difficult to understand and hence it is less useful to build historical statistics that 
+      could be used to better the system and overall batch processing efficiency. It becomes difficult to build a "Monitor User Interface (UI)" 
+      over such data files to give the system "online" kind of behavior.
+  
+  * Documenting such a system is extremely difficult resulting in lack of knowledge transfer to new project implementation.
+  
+  * The pre-processing logic and post-processing logic is a part of the main execution unit there by cannot be configured and changed at runtime.
+  
+  Jbeam tries to address the above issues.

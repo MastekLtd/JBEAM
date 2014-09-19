@@ -1,0 +1,10 @@
+String str  = "update batch_executor  set  be_status = '" + 
+		OBJECT_STATUS.PROCREATED.getID() + "', be_list_ind = null " +
+			" where  be_status in ('" + OBJECT_STATUS.FAILED.getID() + "', '" +
+					OBJECT_STATUS.UNDERCONSIDERATION.getID() + "', '" +
+							OBJECT_STATUS.SUSPENDED.getID() + "', '" +
+									OBJECT_STATUS.NC.getID() + "', '" +
+											OBJECT_STATUS.FAILEDOVER.getID() + "', '" +
+													OBJECT_STATUS.PROCREATED.getID() + "')";
+System.out.println(str);
+

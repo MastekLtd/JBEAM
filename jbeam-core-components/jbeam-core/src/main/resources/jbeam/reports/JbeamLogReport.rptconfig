@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.21" id="1">
+    <list-property name="configVars">
+        <structure>
+            <property name="name">__isdisplay__rpBatchNo_178_0</property>
+            <property name="value">5742</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__rpInstallationName_425_1</property>
+            <property name="value">Kedar</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__rpBatchRevNo_1061_2</property>
+            <property name="value">1</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__rpDatabaseURL_1162_3</property>
+            <property name="value">jdbc:oracle:thin:@172.16.209.120:1602:qc_bill_03</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__rpDatabaseUserId_1163_4</property>
+            <property name="value">bpms_core</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__rpDatabasePassword_1164_5</property>
+            <property name="value">bpms_core</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__rpDriver_1165_6</property>
+            <property name="value">oracle.jdbc.driver.OracleDriver</property>
+        </structure>
+        <structure>
+            <property name="name">rpBatchRevNo_1061_7</property>
+            <property name="value">1</property>
+        </structure>
+        <structure>
+            <property name="name">rpBatchRevNo_1061_type_</property>
+            <property name="value">integer</property>
+        </structure>
+        <structure>
+            <property name="name">rpBatchNo_178_8</property>
+            <property name="value">5742</property>
+        </structure>
+        <structure>
+            <property name="name">rpBatchNo_178_type_</property>
+            <property name="value">integer</property>
+        </structure>
+        <structure>
+            <property name="name">rpDatabaseURL_1162_9</property>
+            <property name="value">jdbc:oracle:thin:@172.16.209.120:1602:qc_bill_03</property>
+        </structure>
+        <structure>
+            <property name="name">rpDatabaseURL_1162_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">rpInstallationName_425_10</property>
+            <property name="value">Kedar</property>
+        </structure>
+        <structure>
+            <property name="name">rpInstallationName_425_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">rpDatabaseUserId_1163_11</property>
+            <property name="value">bpms_core</property>
+        </structure>
+        <structure>
+            <property name="name">rpDatabaseUserId_1163_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">rpDriver_1165_12</property>
+            <property name="value">oracle.jdbc.driver.OracleDriver</property>
+        </structure>
+        <structure>
+            <property name="name">rpDriver_1165_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">rpDatabasePassword_1164_13</property>
+            <property name="value">bpms_core</property>
+        </structure>
+        <structure>
+            <property name="name">rpDatabasePassword_1164_type_</property>
+            <property name="value">string</property>
+        </structure>
+    </list-property>
+</report>

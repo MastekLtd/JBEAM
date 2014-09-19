@@ -1,0 +1,267 @@
+ --------
+JBEAM Tutorial
+ --------
+ Kedar Raybagkar
+ --------
+03 August 2011
+ --------
+
+JBEAM - Java Batch Execution And Monitoring Tutorial
+
+* Create a Java Batch Job
+
+  A Java Batch job is created by implementing com.stgmastek.core.interfaces.IExecutableBatchJob interface.
+  A sample code is as given below.
+  
++------------------------------------------------------------------------------------------------------
+public class AgencyClearingProcess implements IExecutableBatchJob {
+
+
+	//Define program specific variables
+	private static final String AGENCY_CLEARING_PROCESS = 
+		"{call AGENCY_CLEARING.CLEARING_PROCESS(?)}";
+
+	//Define logger
+	private static final transient Logger logger = Logger.getLogger(ProcessAutoWriteOffBatchJob.class);
++-------------------------------------------------------------------------------------------------------
+  
+  The method init is called by JBEAM by passing the batch context and batch object that must be acted upon.
+ 
++--------------------------------------------------------------------------------------------------------
+	public void init(BatchContext batchContext) {
+		//perform any activity that you may need it on a global level.
+		//example creating a ThreadPoolExecutor object, etc.
+	}
++--------------------------------------------------------------------------------------------------------
+
+  Implement the method execute. There are few things that are mandatory and must be executed prior to executing
+  the batch object. Namely marking the batch object as UC and then setting of global parameters only in case 
+  of <Constants.SET_GLOBAL_PARAMETERS>.
+  
++--------------------------------------------------------------------------------------------------------
+	public void execute(BatchContext batchContext, BatchObject batchObject) throws BatchException {
+		
+        CallableStatement cs = null;
+        String successFailure = "99";
+        String message = "";
+        CConnection connection = null;
+        if (logger.isInfoEnabled()) {
+            logger.info("Trying to execute AGENCY_CLEARING.CLEARING_PROCESS..");
+        }
+        IAppDao dao = DaoFactory.getAppDao();
+        try{
+	        connection = batchContext.getApplicationConnection();
+			//First mark the status as 'UC'
+			dao.markUC(appConnection, batchObject);
+			
+			if(Constants.SET_GLOBAL_PARAMETERS){
+				dao.setGlobalParameters(connection, batchContext, batchObject);
+			}
+			
+	        cs = connection.prepareCall(AGENCY_CLEARING_PROCESS);
+	        cs.registerOutParameter(1,Types.VARCHAR);
+	        cs.execute();
+	        successFailure = cs.getString(1);
+	        if("00".equals(successFailure)) {
+	        	batchObject.setStatus("CO");
+	        }
+	        if(!"00".equals(successFailure)) {
+	        	throw new BatchException(message);	
+	        }
+		} catch (SQLException e) {
+			logger.error("SQLException caught " + e.getMessage(), e);
+	        throw new BatchException(e);
+	    } finally {
+	    	dao.releaseResources(null, cs, connection);
+	    }
+	}
++--------------------------------------------------------------------------------------------------------
+
+  The java batch job is complete. Now you need to configure the same in the JBEAM. Either it can be in the form
+  of PRE/POST job or it can be a <i>batch_executor</i> job.
+
+
+* Creating a Batch Execution Handler
+
+  The execution handler responsibility is to execute or handle a particular type of objects. The object need not be just java or PL/SQL 
+  or event parser object but they can be of any nature. Example is say your project has got lot of shell scripts that must be executed as
+  a part of Batch Execution. Then one can create a handler and implement the functionality. The handler gets to hold the ObjectMapDetails 
+  object that is associated with the BatchObject which otherwise is not available to the IExecutableBatchJob.
+
+  The example uses {{{http://commons.apache.org/exec/}Apache Commons Exec}} framework. The following example shows how an Execution Handler
+  can be written.
+
++--------------------------------------------------------------------------------------------------------
+
+public class ShellScriptExecutionHandler extends BaseExecutionHandler {
+
+	private static final Logger logger = Logger.getLogger(ShellScriptExecutionHandler.class);
+
+
+	/* (non-Javadoc)
+	 * @see com.stgmastek.core.logic.BaseExecutionHandler#execute(
+	 			com.stgmastek.core.util.BatchObject, 
+	 			com.stgmastek.core.util.ObjectMapDetails, 
+				com.stgmastek.core.util.BatchContext)
+	 */
+	@Override
+	public BatchObject execute(BatchObject batchObject, ObjectMapDetails objectMapDetails,
+			BatchContext batchContext) throws BatchException {
+		Connection conn = null;
+		IAppDao aDao = DaoFactory.getAppDao();
+		try {
+
+			//Get the connection object
+			conn = batchContext.getApplicationConnection();
+
+			//Mark the object as UC
+			aDao.markUC(conn, batchObject);
+
+			//Create a common environment for executing the shell scripts
+			Map<String, String> environmentMap = new HashMap<String, String>();
+			environmentMap.put("SomeKey", "SomeValue");
+
+			//Get the name of the shell script from the ObjectMapDetails
+			String executable = objectMapDetails.getObjectName();
+
+			//Get the parameters from the batch object taskname
+			String[] parameters = batchObject.getTaskname().split(";");
+
+			CommandLine cmd = new CommandLine(executable);
+			for (String parameter : parameters) {
+				cmd.addArgument(parameter);
+			}
+
+			//Create a default executor
+			DefaultExecutor executor = new DefaultExecutor();
+			PumpStreamHandler handler = new PumpStreamHandler();
+			executor.setStreamHandler(handler);
+
+			//Execute the command
+			int returnValue = executor.execute(cmd, environmentMap);
+
+			//Identify if the return exit value equals 0
+			if (returnValue == 0) {
+				batchObject.setStatus("CO");
+			} else {
+				batchObject.setStatus("99");
+			}
+		} catch (Exception e) {
+			logger.fatal(e);
+			batchObject.setStatus("99");
+		} finally {
+			if (batchObject.getStatus() == null) {
+				batchObject.setStatus("99");
+			}
+			aDao.releaseResources(null, null, conn);
+		}
+
+		return batchObject;
+	}
+
+}
++--------------------------------------------------------------------------------------------------------
+
+* A more complex batch job.
+
+  The example given below is from coreprint batch job. The init methods initializes the Thread Pool executor 
+  service and destroy method shuts the service down.
+
++--------------------------------------------------------------------------------------------------------
+
+public class PrintExecutorBatchJob {
+
+    /**
+     * The Thread Pool executor.
+     */
+    private ThreadPoolExecutor executor;
+
+    /**
+     * 
+     */
+    private LinkedBlockingQueue<Runnable> printQueue;
+
+    /* (non-Javadoc)
+    * @see com.stgmastek.core.interfaces.IExecutableBatchJob#destroy(com.stgmastek.core.util.BatchContext)
+    */
+    public void destroy(BatchContext batchContext) {
+        executor.shutdown();
+    }
+
+    /* (non-Javadoc)
+     * @see com.stgmastek.core.interfaces.IExecutableBatchJob#execute(com.stgmastek.core.util.BatchContext, 
+     *            com.stgmastek.core.util.BatchObject)
+     */
+    public void execute(BatchContext batchContext, BatchObject batchObject)
+            throws BatchException {
+        PreparedStatement psSelectPE = null;
+        ResultSet rsSelectPE = null;
+        CConnection con = null;
+        try {
+            con = batchContext.getApplicationConnection();
+            //First mark all print executor tasks as 99 as it gets updated to CO when the actual job gets executed successfully.
+            //Otherwise it remains in 99 status.
+            PrintExecutorDAO.updatePrintExecutorBatch(con, "99", new Date(), batchContext.getBatchInfo().getBatchRunDate().getTime());
+            psSelectPE = con
+                    .prepareStatement(PrintExecutorDAO.SELECT_PRINT_EXECUTOR_SQL);
+            psSelectPE.setTimestamp(1, new java.sql.Timestamp(batchContext.getBatchInfo()
+                    .getBatchRunDate().getTime()));
+            rsSelectPE = psSelectPE.executeQuery();
+            rsSelectPE.setFetchSize(500);
+
+            while (rsSelectPE.next()) {
+                PrintExecutorVO vo = populate(rsSelectPE);
+                PrintExecutorTask task = null;
+                // currently this is hardcoded but can be modified later to read
+                // from either a database or xml.
+                if (!"ALW".equalsIgnoreCase(vo.getPrintType())) {
+                    String programName = (vo.getProgramName() == null ? "REP"
+                            : vo.getProgramName());
+                    if (programName.toLowerCase().indexOf(".pdf") > -1) {
+                        task = new CopyFilePETask("Copy", batchContext, vo);
+                    } else {
+                        task = new ExecuteReportPETask("ExecuteReport", batchContext, vo);
+                    }
+                } else {
+                    task = new AlwPETask("ALW", batchContext, vo);
+                }
+                System.out.println("Executing task " + task.getTaskInfo());
+                executor.execute(task);
+            }
+            batchObject.setStatus("CO");
+        } catch (Exception e) {
+            batchObject.setStatus("99");
+            throw new BatchException(e);
+        } finally {
+            PrintExecutorDAO.close(rsSelectPE, psSelectPE, con);
+            executor.shutdown();
+            while (executor.isTerminating()) {
+                System.out.println("Still not terminated.. Waiting... #" + executor.getActiveCount());
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                }
+            }
+        }
+    }
+
+    /* (non-Javadoc)
+     * @see com.stgmastek.core.interfaces.IExecutableBatchJob#init(com.stgmastek.core.util.BatchContext)
+     */
+    public void init(BatchContext batchContext) {
+        printQueue = new LinkedBlockingQueue<Runnable>();
+        executor = new ThreadPoolExecutor(5, 5, 10, TimeUnit.MINUTES,
+                printQueue);
+        // new LinkedBlockingQueue());
+        executor
+                .setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        executor.allowCoreThreadTimeOut(true);
+    }
+}
++--------------------------------------------------------------------------------------------------------
+
+=================================================================================================  
+
+  <<<The above code is provided without any warranty and is to be taken as an example provided for educational purpose.
+  The JBEAM Team is not liable for any issues it may cause or bring to your application. You may though use the above code
+  in your programs without any need of any form of consent, either written or verbal, from the JBEAM Team.>>>

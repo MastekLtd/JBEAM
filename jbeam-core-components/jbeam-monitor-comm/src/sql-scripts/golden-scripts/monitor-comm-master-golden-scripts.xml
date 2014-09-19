@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+	<changeSet author='jbeam-admin' id='1'> 
+		<sqlFile path="Monitor_Complete_DB_Scripts.sql" stripComments="true"/>
+	</changeSet>
+	<changeSet author="jbeam-admin" id="2">
+		<createProcedure>
+			--------------------------------------------------------
+			--  DDL for Trigger TRIG_CALENDAR_LOG
+			--------------------------------------------------------
+
+			  CREATE OR REPLACE TRIGGER "TRIG_CALENDAR_LOG" 
+			AFTER INSERT ON CALENDAR_LOG
+			FOR EACH ROW 
+			BEGIN
+			  IF INSERTING THEN  
+				INSERT INTO O_QUEUE 
+					(
+					id
+					, message
+					, param
+					, installation_code
+				)
+					VALUES 
+					(
+					o_queue_seq.nextval
+					, 'BSCALENDAR'
+					, 'installationCode=' || :new.INSTALLATION_CODE || 
+					  ', calendarName=' || :new.CALENDAR_NAME ||
+					  ', year=' || :new.YEAR
+					, :new.INSTALLATION_CODE
+				);		
+				END IF;
+			END;
+			/
+		</createProcedure>
+		<createProcedure>	
+			--------------------------------------------------------
+			--  DDL for Trigger TRIG_INSTRUCTION_LOG
+			--------------------------------------------------------
+
+			  CREATE OR REPLACE TRIGGER "TRIG_INSTRUCTION_LOG" 
+			AFTER INSERT OR UPDATE ON INSTRUCTION_LOG
+			FOR EACH ROW 
+			BEGIN
+			  IF INSERTING THEN  
+				INSERT INTO O_QUEUE 
+					(
+					id
+					, message
+					, param
+					, installation_code
+				)
+					VALUES 
+					(
+					o_queue_seq.nextval
+					, :new.MESSAGE
+					, 'seqNo=' || :new.SEQ_NO
+					, :new.INSTALLATION_CODE
+				);		
+				END IF;
+			END;
+			/
+		</createProcedure>
+	</changeSet>
+</databaseChangeLog>

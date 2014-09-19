@@ -1,0 +1,171 @@
+<pack name="JBEAM" type="Application" version="${application.version}">
+	<subpack name="MONITOR-COMM" componentName="jbeam-monitor-comm.zip">
+		<config location="poolconfig.xml" type="file">
+			<properties type="database" databaseConnName="MONITOR-COMM" displayName="Monitor-Comm Database">
+				<property key="db.monitor.comm.url" displayName="Connection URL" description="" type="url"/>
+				<property key="db.monitor.comm.username" displayName="Username" description="" type="username"/>
+				<property key="db.monitor.comm.password" displayName="Password" description="" type="password"/>
+				<property key="db.monitor.comm.driver_class" displayName="Driver Class" description="" type="driver"/>
+				<property key="db.monitor.comm.vendor" displayName="Vendor" description="ORACLE" type="text" />
+				<property key="db.monitor.comm.maximum-capacity" displayName="Maximum Capacity" default="5" type="text" />												
+				<property key="db.monitor.comm.capacity-increament" displayName="Capacity Increment" default="1" type="text" /> 
+				<property key="db.monitor.comm.critical-operation-time-limit" displayName="Critical Operation Time Limit" description=""  default="1000" type="text" />
+				<property key="db.monitor.comm.inactive-time-out" displayName="Inactive Time Out" description="" default="6" type="text" />
+				<property key="db.monitor.comm.initial-connections" displayName="Initial Connections" description="" default="0" type="text" /> 
+				<property key="db.monitor.comm.shrink-pool-interval" displayName="Shrink Pool Interval" description="" default="-1" type="text" />
+				<property key="db.monitor.comm.schema" displayName="Schema/ Database/ Service Name" description="" type="schema"/>
+			</properties>
+		</config>
+		<config location="sql-scripts\golden-scripts\Monitor_Complete_DB_Scripts.sql" type="file">
+			<properties type="sql" displayName="Monitor Comm Properties">
+				<property key="installationCode" displayName="Installation Code" description="" type="text"/>
+				<property key="installationDesc" displayName="Installation Description" description="" type="text"/>
+				<property key="Installion_IP_Port" displayName="Installation IP Port" description="" type="text"/>
+				<property key="instShortform" displayName="Installer Short Form for Mail" description="" type="text"/>
+				<property key="monitorCommIPPort" displayName="Monitor Comm IP Port" description="" type="text"/>
+				<property key="monitorServicesIPPort" displayName="Monitor Services IP Port" description="" type="text"/>
+				<property key="smptServer" displayName="SMTP Server" description="" type="text"/>
+				<property key="purgeDirPath" displayName="Purge Dirctory Path" description="" type="text"/>
+			</properties>
+		</config>
+	</subpack>
+	<subpack name="CORE-COMM" componentName="jbeam-core-comm.zip">
+		<config location="poolconfig.xml" type="file">
+			<properties type="database" databaseConnName="CORE-COMM" displayName="Core-Comm Database">
+				<property key="db.core.comm.url" displayName="Connection URL" description="" type="url" alias="db.monitor.comm.url"/>
+				<property key="db.core.comm.username" displayName="Username" description="" type="username"/>
+				<property key="db.core.comm.password" displayName="Password" description="" type="password"/>
+				<property key="db.core.comm.schema" displayName="Schema/ Database/ Service Name" description="" type="schema" alias="db.monitor.comm.schema"/>
+				<property key="db.core.comm.driver_class" displayName="Driver Class" description="" type="driver" alias="db.monitor.comm.driver_class"/>
+				<property key="db.core.comm.vendor" displayName="Vendor" description="ORACLE" type="text"  alias="db.monitor.comm.vendor"/>
+				<property key="db.core.comm.maximum-capacity" displayName="Maximum Capacity" default="5" type="text"  alias="db.monitor.comm.maximum-capacity"/>
+				<property key="db.core.comm.capacity-increament" displayName="Capacity Increment" default="1" type="text"  alias="db.monitor.comm.capacity-increament"/> 
+				<property key="db.core.comm.critical-operation-time-limit" displayName="Critical Operation Time Limit" description=""  default="1000" type="text"  alias="db.monitor.comm.critical-operation-time-limit"/>
+				<property key="db.core.comm.inactive-time-out" displayName="Inactive Time Out" description="" default="6" type="text"  alias="db.monitor.comm.inactive-time-out"/>
+				<property key="db.core.comm.initial-connections" displayName="Initial Connections" description="" default="0" type="text"  alias="db.monitor.comm.initial-connections"/> 
+				<property key="db.core.comm.shrink-pool-interval" displayName="Shrink Pool Interval" description="" default="-1" type="text"  alias="db.monitor.comm.shrink-pool-interval"/>
+			</properties>
+		</config>
+		<config location="sql-scripts\golden-scripts\Core_Complete_DB_Scripts.sql" type="file">
+			<properties type="sql" displayName="Core Comm Properties">
+				<property key="Birt_Runtime_Logs_Path" displayName="Birt Runtime Logs Path" description="" type="text"/>
+				<property key="Critical_Email_Ids" displayName="Critical Email id's" description="" type="text"/>
+				<property key="Notification_Group_Email_Ids" displayName="Notification Group Email id's" description="" type="text"/>
+				<property key="High_Email_Ids" displayName="High Priority Email id's" description="" type="text"/>
+				<property key="Low_Email_Ids" displayName="Low Priority Email id's" description="" type="text"/>
+				<property key="Medium_Email_Ids" displayName="Medium Priority Email id's" description="" type="text"/>
+				<property key="Savepoints_Path" displayName="Save Points Path" description="" type="text"/>
+				<property key="Batch_Logs_Path" displayName="Batch Logs Path" description="" type="text"/>
+				<property key="installationCode" displayName="Installation Code" description="" type="text"/>
+				<property key="installation_IP_Port" displayName="Installation IP Port" description="" type="text"/>
+				<property key="monitor_Comm_IP_Port" displayName="Monitor Comm IP Port" description="" type="text"/>
+				<property key="birt_Runtime_ReportEngine_Path" displayName="Birt Runtime Report Engine Path" description="" type="text"/>
+				<property key="Reports_Path" displayName="Reports Path" description="" type="text"/>
+				<property key="retain_Days" displayName="Retain Days" description="" type="text"/>
+				<property key="backup_Dir_Path" displayName="Backup Directory Path" description="" type="text"/>
+				<property key="installation_Desc" displayName="Installation Description" description="" type="text"/>
+				<property key="ICD_End_Point_URL" displayName="ICD Endpoint URL" description="" type="text"/>
+				<property key="ICD_Service_UserId" displayName="ICD Service User Id" description="" type="text"/>
+				<property key="ICD_Service_Password" displayName="ICD Service Password" description="" type="password"/>
+			</properties>
+		</config>
+	</subpack>
+	<subpack name="PRE 30" componentName="jbeam-core.zip">
+		<config location="resources\system.properties" type="file">
+			<properties type="other" displayName="System Properties">
+				<property key="jbeam.pre30.app.dao.impl" displayName="App Dao Implementation" description="" type="text" />
+			</properties>
+		</config>
+		<config location="resources\mail.properties" type="file">
+			<properties type="other" displayName="Mail Properties">
+				<property key="jbeam.pre30.smtp.server.host" displayName="SMTP Server Host" description="" type="text"/>
+				<property key="jbeam.pre30.sender.address" displayName="Sender Address" description="" type="text"/>
+				<property key="jbeam.pre30.recepient.to.address" displayName="Recepient Address" description="" type="text"/>
+				<property key="jbeam.pre30.monitor.normal.recepient.to.address" displayName="Normal Recepient Address" description="" type="text"/>
+				<property key="jbeam.pre30.monitor.critical.recepient.to.address" displayName="Critical Recepient Address" description="" type="text"/>
+			</properties>
+		</config>
+		<config location="resources\poolconfig.xml" type="file">
+			<properties type="database" databaseConnName="ST" displayName="ST Database">
+				<property key="db.pre30.st.url" displayName="Connection URL" description="" type="url" alias="db.pre30.batch.url"/>
+				<property key="db.pre30.st.username" displayName="Username" description="" type="username" alias="db.pre30.batch.username"/>
+				<property key="db.pre30.st.password" displayName="Password" description="" type="password" alias="db.pre30.batch.password"/>
+				<property key="db.pre30.st.driver_class" displayName="Driver Class" description="" type="driver" alias="db.pre30.batch.driver_class"/>
+				<property key="db.pre30.st.schema" displayName="Schema/ Database/ Service Name" description="" type="schema" alias="db.pre30.batch.schema"/>
+				<property key="db.pre30.st.vendor" displayName="Vendor" description="ORACLE" type="text"  alias="db.pre30.batch.vendor"/>
+				<property key="db.pre30.st.maximum-capacity" displayName="Maximum Capacity" default="5" type="text"  alias="db.pre30.batch.maximum-capacity"/>
+				<property key="db.pre30.st.capacity-increament" displayName="Capacity Increment" default="1" type="text"  alias="db.pre30.batch.capacity-increament"/> 
+				<property key="db.pre30.st.critical-operation-time-limit" displayName="Critical Operation Time Limit" description=""  default="1000" type="text"  alias="db.pre30.batch.critical-operation-time-limit"/>
+				<property key="db.pre30.st.inactive-time-out" displayName="Inactive Time Out" description="" default="6" type="text"  alias="db.pre30.batch.inactive-time-out"/>
+				<property key="db.pre30.st.initial-connections" displayName="Initial Connections" description="" default="0" type="text" alias="db.pre30.batch.initial-connections"/> 
+				<property key="db.pre30.st.shrink-pool-interval" displayName="Shrink Pool Interval" description="" default="-1" type="text"  alias="db.pre30.batch.shrink-pool-interval"/>
+			</properties>
+			<properties type="database" databaseConnName="BATCH" displayName="Batch Database">
+				<property key="db.pre30.batch.url" displayName="Connection URL" description="" type="url" alias="db.core.comm.url"/>
+				<property key="db.pre30.batch.username" displayName="Username" description="" type="username" alias="db.core.comm.username"/>
+				<property key="db.pre30.batch.password" displayName="Password" description="" type="password" alias="db.core.comm.password"/>
+				<property key="db.pre30.batch.driver_class" displayName="Driver Class" description="" type="driver" alias="db.core.comm.driver_class"/>
+				<property key="db.pre30.batch.schema" displayName="Schema/ Database/ Service Name" description="" type="schema" alias="db.core.comm.schema"/>
+				<property key="db.pre30.batch.vendor" displayName="Vendor" description="ORACLE" type="text"  alias="db.core.comm.vendor"/>
+				<property key="db.pre30.batch.maximum-capacity" displayName="Maximum Capacity" default="5" type="text"  alias="db.core.comm.maximum-capacity"/>
+				<property key="db.pre30.batch.capacity-increament" displayName="Capacity Increment" default="1" type="text"  alias="db.core.comm.capacity-increament"/> 
+				<property key="db.pre30.batch.critical-operation-time-limit" displayName="Critical Operation Time Limit" description=""  default="1000" type="text"  alias="db.core.comm.critical-operation-time-limit"/>
+				<property key="db.pre30.batch.inactive-time-out" displayName="Inactive Time Out" description="" default="6" type="text"  alias="db.core.comm.inactive-time-out"/>
+				<property key="db.pre30.batch.initial-connections" displayName="Initial Connections" description="" default="0" type="text" alias="db.core.comm.initial-connections"/> 
+				<property key="db.pre30.batch.shrink-pool-interval" displayName="Shrink Pool Interval" description="" default="-1" type="text"  alias="db.core.comm.shrink-pool-interval"/>
+			</properties>
+			<properties type="database" databaseConnName="APPLICATION" displayName="Application Database">
+				<property key="db.pre30.application.url" displayName="Connection URL" description="" type="url" alias="db.stgicdapp.url"/>
+				<property key="db.pre30.application.username" displayName="Username" description="" type="username" alias="db.stgicdapp.username"/>
+				<property key="db.pre30.application.password" displayName="Password" description="" type="password" alias="db.stgicdapp.password"/>
+				<property key="db.pre30.application.driver_class" displayName="Driver Class" description="" type="driver" alias="db.stgicdapp.driver_class"/>
+				<property key="db.pre30.application.schema" displayName="Schema/ Database/ Service Name" description="" type="schema" alias="db.stgicdapp.schema"/>
+				<property key="db.pre30.application.vendor" displayName="Vendor" description="ORACLE" type="text"  alias="db.pre30.batch.vendor"/>
+				<property key="db.pre30.application.maximum-capacity" displayName="Maximum Capacity" default="5" type="text"  alias="db.pre30.batch.maximum-capacity"/>
+				<property key="db.pre30.application.capacity-increament" displayName="Capacity Increment" default="1" type="text"  alias="db.pre30.batch.capacity-increament"/> 
+				<property key="db.pre30.application.critical-operation-time-limit" displayName="Critical Operation Time Limit" description=""  default="1000" type="text"  alias="db.pre30.batch.critical-operation-time-limit"/>
+				<property key="db.pre30.application.inactive-time-out" displayName="Inactive Time Out" description="" default="6" type="text"  alias="db.pre30.batch.inactive-time-out"/>
+				<property key="db.pre30.application.initial-connections" displayName="Initial Connections" description="" default="0" type="text" alias="db.pre30.batch.initial-connections"/> 
+				<property key="db.pre30.application.shrink-pool-interval" displayName="Shrink Pool Interval" description="" default="-1" type="text"  alias="db.pre30.batch.shrink-pool-interval"/>
+			</properties>
+		</config>
+	</subpack>
+	<!--<subpack name="ST">
+		<script location="Content Database\golden-scripts\table1-golden-script.sql" type="initial" />
+		<script location="Content Database\v1.1\table1-script.sql" type="upgrade" />
+	</subpack>-->
+	<subpack name="MONITOR_WS" componentName="jbeam-monitor-services.zip">
+		<config location="poolconfig.xml" type="file">
+			<properties type="database" databaseConnName="MONITOR_WS" displayName="Monitor Services Database">
+				<property key="db.monitor.services.url" displayName="Connection URL" description="" type="url" alias="db.monitor.comm.url"/>
+				<property key="db.monitor.services.username" displayName="Username" description="" type="username" alias="db.monitor.comm.username"/>
+				<property key="db.monitor.services.password" displayName="Password" description="" type="password" alias="db.monitor.comm.password"/>
+				<property key="db.monitor.services.driver_class" displayName="Driver Class" description="" type="driver" alias="db.monitor.comm.driver_class"/>
+				<property key="db.monitor.services.schema" displayName="Schema/ Database/ Service Name" description="" type="schema" alias="db.monitor.comm.schema"/>
+				<property key="db.monitor.services.vendor" displayName="Vendor" description="ORACLE" type="text"  alias="db.monitor.comm.vendor"/>
+				<property key="db.monitor.services.maximum-capacity" displayName="Maximum Capacity" default="5" type="text"  alias="db.monitor.comm.maximum-capacity"/>
+				<property key="db.monitor.services.capacity-increament" displayName="Capacity Increment" default="1" type="text"  alias="db.monitor.comm.capacity-increament"/> 
+				<property key="db.monitor.services.critical-operation-time-limit" displayName="Critical Operation Time Limit" description=""  default="1000" type="text"  alias="db.monitor.comm.critical-operation-time-limit"/>
+				<property key="db.monitor.services.inactive-time-out" displayName="Inactive Time Out" description="" default="6" type="text"  alias="db.monitor.comm.inactive-time-out"/>
+				<property key="db.monitor.services.initial-connections" displayName="Initial Connections" description="" default="0" type="text"  alias="db.monitor.comm.initial-connections"/> 
+				<property key="db.monitor.services.shrink-pool-interval" displayName="Shrink Pool Interval" description="" default="-1" type="text"  alias="db.monitor.comm.shrink-pool-interval"/>
+			</properties>
+		</config>
+	</subpack>
+	<subpack name="Database">
+		<scripts type="initial" database="MONITOR-COMM">
+			<script location="jbeam-monitor-comm.zip\sql-scripts\golden-scripts\monitor-comm-master-golden-scripts.xml"/>
+		</scripts>
+		<scripts type="incremental" database="MONITOR-COMM">
+			<script location="jbeam-monitor-comm.zip\sql-scripts\incremental-scripts\monitor-comm-master-incremental-scripts.xml" /> 
+		</scripts>
+		
+		<scripts type="initial" database="CORE-COMM">
+			<script location="jbeam-core-comm.zip\sql-scripts\golden-scripts\core-comm-master-golden-scripts.xml" /> 
+		</scripts>
+		<scripts type="incremental" database="CORE-COMM">
+			<script location="jbeam-core-comm.zip\sql-scripts\incremental-scripts\core-comm-master-incremental-scripts.xml" /> 
+		</scripts>
+	</subpack>
+
+</pack>

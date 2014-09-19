@@ -1,0 +1,427 @@
+<?xml version="1.0"?>
+<faqs xmlns="http://maven.apache.org/FML/1.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+	title="Frequently Asked Questions" toplink="true">
+
+	<part id="general">
+		<title>General</title>
+		<faq id="gen-1">
+			<question>Does JBEAM offer the same/similar features/functionality of
+				pro*C or JBatch?</question>
+			<answer>
+				<p>JBEAM does offer similar features and functionality of pro*C or
+					JBatch and much more. It has been developed using OOP concepts
+					and
+					provides a framework that can be extended to suite your needs.
+					JBEAM provides it's own basic implementation of the framework
+					and
+					therefore one can replace the old batch with JBEAM within a very
+					short time frame. In a nut shell, JBEAM allows configuration
+					of
+					PRE/POST jobs, plug-in framework to add new batch jobs, monitoring
+					of batch execution, escalation, email and much more.
+					Refer the JBEAM
+					manual more more details.</p>
+			</answer>
+		</faq>
+		<faq id="gen-2">
+			<question>Old JBatch or Pro*C batch used to generate a BM or BL Log
+				files. Can I get the same from JBEAM?</question>
+			<answer>
+				<p>
+					No. These are not required. The Process Request Engine log itself is
+					sufficient to understand the details of what happened during the
+					batch life cycle. Also, there is a text logging that can be
+					configured by setting the field
+					<font face="courier">value</font>
+					from table
+					<font face="courier">Configuration</font>
+					where code1,code2 and code3 has the values
+					<font face="courier">CORE,TEXT_LOGGING,ENABLED</font>
+					and
+					<font face="courier">CORE,TEXT_LOGGING,FILE_PATH</font> value
+					points to a correct physical
+					path
+					and filename. This logging is again
+					not as it was in <font face="courier">BM</font> or <font face="courier">BL</font>
+					log
+					files.
+				</p>
+			</answer>
+		</faq>
+		<faq id="gen-3">
+			<question>In <font face="courier">configurations</font> I see entries for <font face="courier">code1,code2</font> as
+				<font face="courier">CORE,DEL_INSTR_PARAMS</font>. Can I delete them?</question>
+			<answer>
+				<p>No. These are internal settings and should not be touched.</p>
+			</answer>
+		</faq>
+		<faq id="gen-4">
+			<question>JBeam-Impl and CorePrint! Does product team maintain these?
+				Is the ownership of these jar files with Product Team?</question>
+			<answer>
+				<p>
+					The answer to both the questions is
+					<font face="courier">NO</font>
+					. The maintenance and the ownership of these jar files is not with
+					the Product Team.
+					The project team is the rightful owner of these
+					jars and the source
+					code must be maintained by the project team.
+				</p>
+			</answer>
+		</faq>
+	</part>
+	<part id="configuration">
+		<title>Configuration</title>
+		<faq id="dependency">
+			<question>How to define the dependency between PRE/POST jobs?
+			</question>
+			<answer>
+				<p>
+					The field
+					<font face="courier">priority_code1</font>
+					from table
+					<font face="courier">META_DATA</font>
+					defines the dependency between various
+					jobs that are configured for
+					that installation. If all pre-jobs are
+					configured in a sequential
+					manner then
+					they are executed one after the another in the ascending
+					order of
+					priority code1. In case they are configured
+					in such a way
+					that one or more jobs share the same priority code1
+					then they are
+					executed in parallel by the JBEAM.
+				</p>
+			</answer>
+		</faq>
+		<faq id="stopbatch">
+			<question>How do I make the JBEAM stop the execution if one job
+				fails?</question>
+			<answer>
+				<p>
+					The field
+					<font face="courier">fail_on_exit</font>
+					from table
+					<font face="courier">Object_Map</font>
+					must be set to
+					<font face="courier">Y</font>
+					in order to stop the batch
+					from executing further jobs.
+				</p>
+			</answer>
+		</faq>
+		<faq id="plsql_meta_job">
+			<question>Can I configure a PL/SQL job in the PRE/POST jobs?
+			</question>
+			<answer>
+				<p>
+					Yes. Make sure that the PL/SQL job does not accept any parameters.
+					Configure the job in table
+					<font face="courier">META_DATA</font>
+					whose
+					<font face="courier">job_type</font>
+					is defined as <font face="courier">PL</font>.
+				</p>
+			</answer>
+		</faq>
+		<faq id="plsql_meta_job_params">
+			<question>What if my PL/SQL job has parameters then is there no way I
+				can configure it in PRE/POST jobs?</question>
+			<answer>
+				<p>
+					In this case, you will have to create a java wrapper class that
+					implements the interface
+					<font face="courier">com.stgmastek.core.interfaces.IExecutableBatchJob</font>
+					and then you may call the PL/SQL program by passing the desired parameters. As the
+					BatchContext is available you may get all required details from within.
+				</p>
+			</answer>
+		</faq>
+	</part>
+	<part id="jobs">
+		<title>JOBS</title>
+		<faq id="jobs-1">
+			<question>How do I create a batch job?</question>
+			<answer>
+				<p>
+					Three basic type of jobs are provided as below:
+					<object>
+						<ol>
+							<li>
+								A batch job is created by implementing interface
+								com.stgmastek.core.interfaces.IExecutableBatchJob. The type of
+								this batch job is
+								<font face="courier">JV</font>
+								.
+							</li>
+							<li>
+								Another way is to create a PL/SQL Procedure. The type of
+								this
+								batch job is
+								<font face="courier">PL</font>
+								.
+							</li>
+							<li>
+								And the last way is to create a PL/SQL Procedure that integrates
+								with an Event Parser PL/SQL job. The type of
+								this batch job is
+								<font face="courier">EV</font>
+								.
+							</li>
+						</ol>
+					</object>
+				</p>
+			</answer>
+		</faq>
+		<faq id="jobs-1.1">
+			<question>Are there only 3 types of Batch Jobs namely <font face="courier">JV, PL</font> and <font face="courier">EV</font>?
+			</question>
+			<answer>
+				<p>
+					These are the three basic types of jobs that come along with
+					JBEAM default implementation. JBEAM offers a framework through
+					which, you can add more with the help of your own Execution
+					Handlers.
+				</p>
+			</answer>
+		</faq>
+		<faq id="jobs-2">
+			<question>What is an execution handler?</question>
+			<answer>
+				<p>
+					An execution handler is any class that extends the
+					<font face="courier">com.stgmastek.core.logic.BaseExecutionHandler</font>
+					and implements the abstract method of execute.
+				</p>
+			</answer>
+		</faq>
+		<faq id="jobs-3">
+			<question>Why is an execution handler required?</question>
+			<answer>
+				<p>
+					An execution handler is responsible to actually execute the given
+					batch object. There are three basic types of execution handlers
+					that the JBEAM provides. They are Java execution handler, PLSQL
+					execution handler and EventParser execution handler. These handlers
+					then execute the configured batch object. Java Execution handler is
+					responsible to execute the batch objects whose
+					<font face="courier">job_type</font>
+					equals "JV".
+					Similarly, PLSQL executes the batch objects whose
+					<font face="courier">job_type</font>
+					equals "PL" and EventParser executes batch jobs.
+					<br></br>
+					<br></br>
+					Another case is that say you have a requirement to execute shell
+					scripts from JBEAM and there are many of them each with varied
+					parameters.
+					Then in this case, instead of creating a
+					IExecutableBatchJob for each
+					individual shell script, you can create
+					a <font face="courier">ShellScriptExecutionHandler</font>
+					and then configure the class in the
+					table
+					<font face="courier">configurations</font>
+					where the
+					<font face="courier">code1,code2</font>
+					has the value
+					<font face="courier">CORE,EXECUTION_HANDLER</font>
+					with the field
+					<font face="courier">code3</font>
+					having a value of say SH. Then you can safely configure SH jobs in
+					<font face="courier">object_map</font>
+					or
+					<font face="courier">meta_data</font>
+					.
+				</p>
+			</answer>
+		</faq>
+		<faq id="jobs-4">
+			<question>While executing the batch my job fails and after
+				debugging I
+				found that the PL/SQL is unable to parse the date
+				parameter. How do I
+				fix this?</question>
+			<answer>
+				<p>
+					The batch run date format is defined in configurations table. Refer
+					to the <font face="courier">code1,code2,code3</font> for values
+					<font face="courier">CORE,DATE_FORMAT,BATCH_JOB_DATE</font>.
+					You may change the value to any
+					desired format.
+					<br></br>
+					<b>Note:</b>
+					that this change in format is a global change and all jobs will get
+					date in
+					the same format.
+				</p>
+			</answer>
+		</faq>
+	</part>
+	<part id="Email">
+		<title>Email</title>
+		<faq id="email">
+			<question>How do I configure JBEAM to send email for a failure of
+				specific jobs to a group email id and for other jobs to another
+				group?
+			</question>
+			<answer>
+				<p>
+					There are 4 types of email categories that have been defined namely
+					<font face="courier">CRITICAL, HIGH, MEDIUM</font> and <font face="courier">LOW</font>. These categories can be associated
+					to the field
+					<font face="courier">escalation_level</font>
+					from table
+					<font face="courier">Object_Map</font>
+					for each batch job and; in the configurations table you can specify
+					the
+					email id(s) or a group email id against each escalation level.
+				</p>
+			</answer>
+		</faq>
+		<faq id="email">
+			<question>I am unable to receive email even though I have configured
+				the SMTP server details?</question>
+			<answer>
+				<p>
+					There can be various reasons why an email is not received. We will
+					take a look at the following scenarios:
+					<br></br>
+					<object>
+						<ol>
+							<li>
+								First and foremost check in the configurations if the value is
+								set to
+								<b>Y</b>
+								for code1,code2,code3 combination is CORE,EMAIL,NOTIFICATION.
+							</li>
+							<li>Secondly check in the <font face="courier">pr.properties</font> whether the property <font face="courier">mailnotification</font>
+								is <font face="courier">ON</font> or <font face="courier">OFF</font>.
+								In case it is OFF then the email will not be transported.
+							</li>
+							<li>Check for any error logged in the pre.log file. If there is
+								any error then check with your network team.</li>
+							<li>Lastly if the log file shows that the email is transported
+								then check with your EMAIL server configuration
+								if JBEAM email
+								are
+								marked as JUNK and therefore not delivered.</li>
+						</ol>
+					</object>
+				</p>
+			</answer>
+		</faq>
+	</part>
+	<part id="Time">
+		<title>JBEAM Time</title>
+		<faq id="time-1">
+			<question>Which time does JBEAM pick while processing? Is it SERVER
+				or DATABASE?</question>
+			<answer>
+				<p>
+					JBEAM uses the time as configured in the properties file
+					<font face="courier">pr.properties</font> having property
+					<font face="courier">currenttimestamp</font>
+					. If the value
+					defined is SERVER then it takes the SERVER time else
+					if it is DATABASE
+					then it fires a query to retrieve the time.
+				</p>
+			</answer>
+		</faq>
+		<faq id="time-2">
+			<question>How do I access the time?</question>
+			<answer>
+				<p>
+					A factory class is made available namely
+					<font face="courier">com.stgmastek.core.util.time.JBeamTimeFactory</font>
+					that exhibits two methods.
+					One takes the
+					<font face="courier">java.sql.Connection</font>
+					object as a parameter while the other method takes
+					<font face="courier">BatchContext</font>
+					as a parameter.
+					These method returns
+					<font face="courier">java.sql.Timestamp</font>
+					. As a programmer you should not be bothered about how the time is
+					retrieved.
+					The Factory class will make sure that an appropriate time
+					is returned.
+				</p>
+			</answer>
+		</faq>
+	</part>
+	<part id="Upgrade to 3.3">
+		<title>Upgrade from previous versions to 3.3</title>
+		<faq id="3.2.5">
+			<question>When I add the 3.3 core jar file into my project's
+				classpath the jbeam-impl project does show compile time errors for
+				Execution Handlers. Has
+				the API changed?</question>
+			<answer>
+				<p>Yes. The API has changed for the Execution Handler abstract
+					class. Earlier the batch object and object map details were sent in
+					the constructor
+					wherein now they are passed along with the execute
+					method.</p>
+			</answer>
+		</faq>
+	</part>
+	<part id="Upgrade to 4.0.0">
+		<title>Upgrade from 3.3 to 4.0.0</title>
+		<faq id="4.0-1">
+			<question>Upgraded to 4.0.0 and now all jobs are giving compile time
+				errors barring the Execution Handlers.</question>
+			<answer>
+				<p>The IExecutableBatchJob API has been revamped. The init, execute,
+					destroy methods have changed such that
+					the BatchContext is passed to
+					init and destroy methods and
+					BatchContext as well as BatchObject is
+					passed to the
+					execute method. The Job once instantiated is pooled
+					and will remain in the
+					memory till the lifecyle of the batch.
+					The
+					init and destroy method are called only once and execute method
+					will be called multiple times as and when a
+					JOB demands it.</p>
+			</answer>
+		</faq>
+		<faq id="4.0-2">
+			<question>When I upgraded to 4.0.0 the jobs are exhibiting
+				concurrency
+				issues? Why is that so and how do I resolve them?
+			</question>
+			<answer>
+				<p>As the JOB instance is now pooled the same instance is passed to
+					all the
+					listeners (or calling threads). Thus if the job exhibits any
+					class variables
+					then they
+					would lead to concurrency issues. The JOB
+					should not maintain
+					state. If they do then the state should be
+					generic enough
+					so as not
+					to result into concurrency.</p>
+			</answer>
+		</faq>
+		<faq id="4.0-3">
+			<question>Was it necessary to add pooling?</question>
+			<answer>
+				<p>Yes. It improves the performance drastically. For each job that
+					the listener took for execution,
+					it used to create new instances every time it encountered the same
+					job. The only difference was in
+					the data that was being passed to the job. As we envisage java jobs
+					playing a bigger role than what
+					it is doing today; it was important to introduce this change.</p>
+			</answer>
+		</faq>
+	</part>
+</faqs>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+	<changeSet author='jbeam-admin' id='1'> 
+		<sqlFile path="Core_Complete_DB_Scripts.sql" stripComments="true"/> 
+	</changeSet>
+	<changeSet author="jbeam-admin" id="2">
+		<createProcedure>
+			--------------------------------------------------------
+			--  DDL for Trigger TRIG_BATCH
+			--------------------------------------------------------
+
+			  CREATE OR REPLACE TRIGGER "TRIG_BATCH" 
+			AFTER INSERT OR UPDATE ON BATCH
+			FOR EACH ROW
+			BEGIN
+				IF INSERTING THEN
+					INSERT INTO O_QUEUE 
+					(
+					id
+					, message
+					, param
+				)
+					VALUES
+					(
+					o_queue_seq.nextval
+					, 'BSADDBATCH'
+					, 'batchNo=' || :new.BATCH_NO || ', batchRevNo=' || :new.BATCH_REV_NO
+				); 
+				ELSIF UPDATING THEN
+					INSERT INTO O_QUEUE 
+					(
+					id
+					, message
+					, param
+				)
+					VALUES
+					(
+					o_queue_seq.nextval
+					, 'BSUPDBATCH'
+					, 'batchNo=' || :new.BATCH_NO || ', batchRevNo=' || :new.BATCH_REV_NO
+				);
+				END IF;  
+			END;
+			/
+		</createProcedure>
+		<createProcedure>
+			--------------------------------------------------------
+			--  DDL for Trigger TRIG_INSTRUCTION_LOG
+			--------------------------------------------------------
+
+			create or replace TRIGGER  "TRIG_INSTRUCTION_LOG" 
+			AFTER INSERT OR UPDATE ON INSTRUCTION_LOG
+			FOR EACH ROW 
+			BEGIN
+			  IF INSERTING THEN  
+				IF :new.MESSAGE = 'BSSTOBATCH' 
+				  THEN 
+					INSERT INTO I_QUEUE 
+					(
+						  id
+						, message
+						, param
+					)
+					VALUES 
+					(
+						1 -- it is OK to hard code 1 as well. ID is retained for probable future changes
+						, :new.MESSAGE
+						, 'UserId=' || :new.INSTRUCTING_USER
+					);		
+				 ELSIF :new.MESSAGE = 'BSRUNBATCH' 
+				  THEN
+					INSERT INTO O_QUEUE 
+					(
+						id
+						, message
+						, param
+					)
+					VALUES
+					(
+						o_queue_seq.nextval
+						, 'BSADDINSLG'
+						, 'seqNo=' || to_char(:new.SEQ_NO)
+					); 
+				   END IF;
+				ELSIF UPDATING THEN 
+				  INSERT INTO O_QUEUE 
+					(
+						id
+						, message
+						, param
+					)
+					VALUES
+					(
+						o_queue_seq.nextval
+						, 'BSUPDINSLG'
+						, 'seqNo=' || to_char(:new.SEQ_NO)
+					);        
+			   END IF;
+			END;
+			/
+		</createProcedure>
+		<createProcedure>
+			--------------------------------------------------------
+			--  DDL for Trigger TRIG_LOG
+			--------------------------------------------------------
+
+			  CREATE OR REPLACE TRIGGER "TRIG_LOG" 
+			AFTER INSERT OR UPDATE ON LOG
+			FOR EACH ROW
+			DECLARE
+			   mmyMessage VARCHAR2(10);
+			BEGIN
+				IF INSERTING THEN
+				  mmyMessage := 'BSADDBALOG';
+				ELSE 
+				  mmyMessage := 'BSUPDBALOG';
+				END IF;
+				
+				INSERT INTO O_QUEUE 
+					(
+					id
+					, message
+					, param
+				)
+					VALUES
+					(
+					o_queue_seq.nextval
+					, mmyMessage
+					, 'batchSeqNo=' || to_char(:new.SEQ_NO)
+				); 
+			END;
+			/
+		</createProcedure>
+		<createProcedure>
+			--------------------------------------------------------
+			--  DDL for Trigger TRIG_PROGRESS_LEVEL
+			--------------------------------------------------------
+
+			  CREATE OR REPLACE TRIGGER "TRIG_PROGRESS_LEVEL" 
+			AFTER INSERT OR UPDATE ON PROGRESS_LEVEL
+			FOR EACH ROW
+			BEGIN
+				IF INSERTING THEN
+					INSERT INTO O_QUEUE 
+					( 
+					id
+					, message
+					, param
+				)
+				VALUES
+				( 
+					o_queue_seq.nextval
+					, 'SSADDBAPRG'
+					, 'batchNo=' || :new.BATCH_NO || ', batchRevNo=' || :new.BATCH_REV_NO || 
+								', indicatorNo=' || :new.INDICATOR_NO ); 
+				ELSIF UPDATING THEN
+					INSERT INTO O_QUEUE
+					(
+					id
+					, message
+					, param
+				)
+					VALUES
+					(
+					o_queue_seq.nextval
+					, 'SSUPDBAPRG'
+					, 'batchNo=' || :new.BATCH_NO || ', batchRevNo=' || :new.BATCH_REV_NO || 
+								', indicatorNo=' || :new.INDICATOR_NO ); 
+				END IF;  
+			END;
+			/
+		</createProcedure>
+		<createProcedure>
+			--------------------------------------------------------
+			--  DDL for Trigger TRIG_SYSTEM_INFO
+			--------------------------------------------------------
+
+			  CREATE OR REPLACE TRIGGER "TRIG_SYSTEM_INFO" 
+			AFTER INSERT ON SYSTEM_INFO
+			FOR EACH ROW
+			BEGIN
+			  IF INSERTING THEN  
+			  INSERT INTO O_QUEUE 
+					(
+					id
+					, message
+					, param
+				)
+					VALUES
+					(
+					o_queue_seq.nextval
+					, 'SSADDSYSIN'
+					, 'batchNo=' || :new.BATCH_NO || ', batchRevNo=' || :new.BATCH_REV_NO
+				);		
+				END IF;
+			END;
+			/
+		</createProcedure>
+	</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,74 @@
+ --------
+Mastek - P&C - JBEAM [Java Batch Execution And Monitoring]
+ --------
+Kedar Raybagkar
+ --------
+27 July 2011
+ --------
+ 
+JBEAM TIPS
+
+* <Tip 1>: Future Run Restriction
+
+  The configuration table has an entry for <<<code1='CORE' code2='FUTURE_DATE_RUN'>>> and <<<code3='MAX_NO_OF_DAYS'>>>. 
+  The default value goes as '50000'. This means that JBEAM core can allow the batch to be executed even if the 
+  batch run date is greater than the 50000 days. Please make sure that the value is changed to 1 or maximum 2. 
+  So that the JBEAM core will throw an exception if the batch run date is greater than system date by 1 or 2 
+  days respectively.
+  
+* <Tip 2>: Terminate the Batch in case a critical batch job fails
+
+  In the object_map table there is a provision to set a flag indicating the JBEAM to exit in case of a batch job
+  fails. The flag is <<<on_fail_exit>>> should be kept as Y.
+  
+      Recently Rider NI team faced an issue where the outputs were generated in the output folder directly instead 
+      of generating within a date directory inside output folder. The reason was that the generate file name job 
+      was failing due to unique constraint violation. Due to this the print generation job was generating the 
+      outputs in the output folder directly. So in order to fail the subsequent jobs from executing, once the prior 
+      job fails, please make sure the <<<object_map>>> is updated for field <<<on_fail_exit>>> = 'Y'.
+
+* <Tip 3>: Create your project specific jars using ANT or Maven or any other build tool..
+
+  Automating the build process helps you to avoid human errors as well as it standardizes or adheres to a predefined 
+  release process. With the build automation it is possible to create a versioning of the JAR file by adding your 
+  version numbers to the MANIFEST along with creation time, etc. A sample entries from MANIFEST of JBEAM core are 
+  provided below.
+	
+     * Manifest-Version: 1.0
+     
+     * Ant-Version: Apache Ant 1.7.0
+     
+     * Created-By: 19.1-b02 (Sun Microsystems Inc.)
+     
+     * Bundle-SymbolicName: core
+     
+     * Bundle-Name: JBEAM Core
+     
+     * Bundle-Activator: com.stgmastek.core.main.StartCore
+     
+     * Bundle-Version: V3.3
+     
+     * Major-Version: V3
+     
+     * Minor-Version: 3
+     
+     * Build-Number: 49
+     
+     * Bundle-Vendor: STGMastek
+     
+     * Bundled-By: kedar460043
+     
+     * Bundled-On: 20110617 16:49:36
+     
+     * Main-class: com.stgmastek.core.main.StartCore
+
+   Thus it is then possible to find when the jar was created, who created it, what was the Major-Minor version as well 
+   as the build number of the JAR. So please make sure that you use such ANT or MAVEN or any other build automation 
+   tool to package your classes (coreprint and jbeam-impl) into JAR files to ease the confusion around the creation 
+   timestamp of the jar file.
+
+* <Tip 4>: Speed up the waiting time between the Processor and Listener
+
+   JBeam uses PRE (Process Request Engine) as an executor/scheduler. The value of the property <<<waitinterval>>> in file <<<pr.properties>>>
+   should be lowered to decrease the wait period between two scans for queued requests.
+

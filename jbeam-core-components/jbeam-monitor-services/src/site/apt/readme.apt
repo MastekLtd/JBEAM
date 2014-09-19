@@ -1,0 +1,59 @@
+ --------
+Mastek - P&C - JBEAM [Java Batch Execution And Monitoring]
+ --------
+ --------
+27 July 2011
+ --------
+
+Read Me
+
+  Monitor-Services is a part of JBEAM that is responsible to communicate with the Flex AIR installer and the database.
+
+ 
+
+* DOCUMENTATION
+
+   All documentation with this library is supplied either as
+
+      A UserGuide covering basic use and FAQs, in the "Jbeam-Manual.pdf" file
+      Please refer to the following URL (works within Mastek network) for the latest available documentation.
+      http://172.16.211.149/jbeam/jbeam-monitor-services/
+      
+
+* BUG REPORTS AND SUPPORT
+
+    Bug Reports can be submitted to mandar.vaidya@mastek.com and kedar.raybagkar@mastek.com. Please include the following information:
+
+        [[a]] The output of "java -version" and the Operating system you're using.
+
+        [[b]] The version number of the library
+
+        [[c]] The error message reported by the library (if applicable)
+
+        [[d]] The console log file (if applicable)
+
+ 
+*  External Dependencies and License Information
+
+** Core Communication Channel
+
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| <<Open Source Vendor>>      | <<Jar Name>>                   | <<License Information>> |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| Sun Microsystems            | mail.jar, activation.jar       | http://java.sun.com/products/javamail/            |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| Apache Logging Services     | log4j                          | http://logging.apache.org/log4j/1.2/license.html  |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| MajescoMastek               | JDBCPool                       |                                                   |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| Apache CXF                  | Refer to CXF library files     | http://cxf.apache.org                             |
+|                             | including Jetty application    |                                                   |
+|                             | server                         |                                                   |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| Apache Commons              | commons-logging,               | http://commons.apache.org/license.html            | 
+|                             | commons-configuration,         |                                                   |
+|                             | commons-collections            |                                                   |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+| Bouncy Castle               | bcprov-*.jar                   | http://bouncycastle.org/licence.html              |
+*-----------------------------+--------------------------------+---------------------------------------------------+
+

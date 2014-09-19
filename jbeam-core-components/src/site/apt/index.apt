@@ -1,0 +1,14 @@
+ --------
+Mastek - P&C - JBEAM [Java Batch Execution And Monitoring]
+ --------
+ --------
+12 September 2012
+ --------
+
+JBEAM - Java Batch Execution And Monitoring
+
+* Introduction
+
+  JBEAM stands for Java Batch Execution And Monitoring. It acts like a server for batch processing.
+
+  Further documentation is available within each module.

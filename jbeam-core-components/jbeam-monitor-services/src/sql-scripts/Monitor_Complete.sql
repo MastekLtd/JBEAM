@@ -1,0 +1,933 @@
+--------------------------------------------------------
+--  File created - Thursday-August-05-2010   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence INSTRUCTION_LOG_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "INSTRUCTION_LOG_SEQ"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence O_QUEUE_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "O_QUEUE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Table BATCH
+--------------------------------------------------------
+
+  CREATE TABLE "BATCH" 
+   (	"INSTALLATION_CODE" VARCHAR2(10), 
+	"BATCH_NO" NUMBER(10,0), 
+	"BATCH_REV_NO" NUMBER(3,0), 
+	"BATCH_NAME" VARCHAR2(25), 
+	"BATCH_TYPE" VARCHAR2(20), 
+	"EXEC_START_TIME" TIMESTAMP (3), 
+	"EXEC_END_TIME" TIMESTAMP (3), 
+	"BATCH_START_USER" VARCHAR2(30), 
+	"BATCH_END_USER" VARCHAR2(30), 
+	"PROCESS_ID" NUMBER(12,0), 
+	"BATCH_END_REASON" VARCHAR2(25), 
+	"FAILED_OVER" VARCHAR2(1), 
+	"INSTRUCTION_SEQ_NO" NUMBER(19,0)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table CALENDAR_LOG
+--------------------------------------------------------
+
+  CREATE TABLE "CALENDAR_LOG" 
+   (	"INSTALLATION_CODE" VARCHAR2(20), 
+	"CALENDAR_NAME" VARCHAR2(30), 
+	"YEAR" VARCHAR2(4), 
+	"NON_WORKING_DATE" DATE, 
+	"REMARK" VARCHAR2(50), 
+	"USER_ID" VARCHAR2(20)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table COLUMN_MAP
+--------------------------------------------------------
+
+  CREATE TABLE "COLUMN_MAP" 
+   (	"INSTALLATION_CODE" VARCHAR2(10), 
+	"ENTITY" VARCHAR2(20), 
+	"LOOKUP_COLUMN" VARCHAR2(30), 
+	"LOOKUP_VALUE" VARCHAR2(30), 
+	"VALUE_COLUMN" VARCHAR2(1000), 
+	"PRECEDENCE_ORDER" NUMBER(3,0), 
+	"ON_ERROR_FAIL_ALL" VARCHAR2(1), 
+	"DESCRIPTION" VARCHAR2(2000)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table CONFIGURATION
+--------------------------------------------------------
+
+  CREATE TABLE "CONFIGURATION" 
+   (	"CODE1" VARCHAR2(20), 
+	"CODE2" VARCHAR2(20), 
+	"CODE3" VARCHAR2(25), 
+	"VALUE" VARCHAR2(100), 
+	"VALUE_TYPE" VARCHAR2(2), 
+	"DESCRIPTION" VARCHAR2(1000)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table DEAD_MESSAGE_QUEUE
+--------------------------------------------------------
+
+  CREATE TABLE "DEAD_MESSAGE_QUEUE" 
+   (	"ID" NUMBER(10,0), 
+	"I_O_MODE" VARCHAR2(1), 
+	"INSTALLATION_CODE" VARCHAR2(10), 
+	"MESSAGE" VARCHAR2(10), 
+	"PARAM" VARCHAR2(100), 
+	"ERROR_DESCRIPTION" VARCHAR2(4000)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table FUNCTION_MASTER
+--------------------------------------------------------
+
+  CREATE TABLE "FUNCTION_MASTER" 
+   (	"FUNCTION_ID" VARCHAR2(30), 
+	"FUNCTION_NAME" VARCHAR2(30), 
+	"FUNCTION_INFO" VARCHAR2(500), 
+	"EFF_DATE" DATE, 
+	"EXP_DATE" DATE, 
+	"CREATED_ON" DATE, 
+	"CREATED_BY" VARCHAR2(30), 
+	"PRIOR_FUNCTION_ID" VARCHAR2(30)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table FUNCTION_ROLE_MASTER
+--------------------------------------------------------
+
+  CREATE TABLE "FUNCTION_ROLE_MASTER" 
+   (	"ROLE_ID" VARCHAR2(30), 
+	"FUNCTION_ID" VARCHAR2(30), 
+	"EFF_DATE" DATE, 
+	"EXP_DATE" DATE, 
+	"CREATED_ON" DATE, 
+	"CREATED_BY" VARCHAR2(30), 
+	"USER_ID" VARCHAR2(30)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table GRAPH_DATA_LOG
+--------------------------------------------------------
+
+  CREATE TABLE "GRAPH_DATA_LOG" 
+   (	"INSTALLATION_CODE" VARCHAR2(10), 
+	"GRAPH_ID" VARCHAR2(100), 
+	"BATCH_NO" NUMBER(10,0), 
+	"BATCH_REV_NO" NUMBER(3,0), 
+	"COLLECT_TIME" TIMESTAMP (6), 
+	"GRAPH_X_AXIS" VARCHAR2(100), 
+	"GRAPH_Y_AXIS" VARCHAR2(100), 
+	"GRAPH_VALUE" NUMBER(12,2)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table INSTALLATION
+--------------------------------------------------------
+
+  CREATE TABLE "INSTALLATION" 
+   (	"INSTALLATION_CODE" VARCHAR2(10), 
+	"INSTALLATION_DESC" VARCHAR2(200), 
+	"EFF_DATE" DATE, 
+	"EXP_DATE" DATE, 
+	"CREATED_ON" DATE, 
+	"CREATED_BY" VARCHAR2(30), 
+	"MODIFIED_ON" DATE, 
+	"MODIFIED_BY" VARCHAR2(30), 
+	"BATCH_NO" NUMBER(10,0), 
+	"BATCH_REV_NO" NUMBER(3,0), 
+	"TIMEZONE_ID" VARCHAR2(50)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table INSTRUCTION_LOG
+--------------------------------------------------------
+
+  CREATE TABLE "INSTRUCTION_LOG" 
+   (	"INSTALLATION_CODE" VARCHAR2(10), 
+	"SEQ_NO" NUMBER(10,0), 
+	"BATCH_NO" NUMBER(10,0), 
+	"BATCH_REV_NO" NUMBER(3,0), 
+	"MESSAGE" VARCHAR2(10), 
+	"MESSAGE_PARAM" VARCHAR2(100), 
+	"INSTRUCTING_USER" VARCHAR2(30), 
+	"INSTRUCTION_TIME" TIMESTAMP (3), 
+	"BATCH_ACTION" VARCHAR2(500), 
+	"BATCH_ACTION_TIME" TIMESTAMP (3)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table INSTRUCTION_PARAMETERS
+--------------------------------------------------------
+
+  CREATE TABLE "INSTRUCTION_PARAMETERS" 
+   (	"INSTRUCTION_LOG_NO" NUMBER(10,0), 
+	"SL_NO" NUMBER(3,0), 
+	"NAME" VARCHAR2(25), 
+	"VALUE" VARCHAR2(100), 
+	"TYPE" VARCHAR2(5)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table LOG
+--------------------------------------------------------
+
+  CREATE TABLE "LOG" 
+   (	"INSTALLATION_CODE" VARCHAR2(10), 
+	"BATCH_NO" NUMBER(10,0), 
+	"BATCH_REV_NO" NUMBER(3,0), 
+	"BE_SEQ_NO" VARCHAR2(12), 
+	"TASK_NAME" VARCHAR2(2000), 
+	"OBJ_EXEC_START_TIME" TIMESTAMP (3), 
+	"OBJ_EXEC_END_TIME" TIMESTAMP (3), 
+	"STATUS" VARCHAR2(2), 
+	"SYS_ACT_NO" VARCHAR2(25), 
+	"USER_PRIORITY" VARCHAR2(2), 
+	"PRIORITY_CODE1" NUMBER(10,0), 
+	"PRIORITY_CODE2" NUMBER(10,0), 
+	"PRE_POST" VARCHAR2(20), 
+	"JOB_TYPE" VARCHAR2(2), 
+	"LINE" VARCHAR2(10), 
+	"SUBLINE" VARCHAR2(10), 
+	"BROKER" VARCHAR2(20), 
+	"POLICY_NO" VARCHAR2(20), 
+	"POLICY_RENEW_NO" VARCHAR2(2), 
+	"VEH_REF_NO" VARCHAR2(12), 
+	"CASH_BATCH_NO" VARCHAR2(25), 
+	"CASH_BATCH_REV_NO" VARCHAR2(2), 
+	"GBI_BILL_NO" VARCHAR2(24), 
+	"PRINT_FORM_NO" VARCHAR2(8), 
+	"NOTIFY_ERROR_TO" VARCHAR2(10), 
+	"DATE_GENERATE" DATE, 
+	"GENERATE_BY" VARCHAR2(30), 
+	"REC_MESSAGE" VARCHAR2(80), 
+	"JOB_DESC" VARCHAR2(80), 
+	"OBJECT_NAME" VARCHAR2(100), 
+	"DATE_EXECUTED" DATE, 
+	"LIST_IND" NUMBER(3,0), 
+	"ENTITY_TYPE" VARCHAR2(15), 
+	"ENTITY_CODE" VARCHAR2(20), 
+	"REF_SYSTEM_ACTIVITY_NO" VARCHAR2(14), 
+	"ERROR_TYPE" VARCHAR2(25), 
+	"ERROR_DESCRIPTION" VARCHAR2(4000), 
+	"TIME_TAKEN" NUMBER(10,0), 
+	"CYCLE_NO" NUMBER(10,0), 
+	"USED_MEMORY_BEFORE" NUMBER(19,0), 
+	"USED_MEMORY_AFTER" NUMBER(19,0), 
+	"SEQ_NO" NUMBER, 
+    "LAST_UPDATED_ON" TIMESTAMP (3)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table O_QUEUE
+--------------------------------------------------------
+
+  CREATE TABLE "O_QUEUE" 
+   (	"ID" NUMBER(10,0), 
+	"MESSAGE" VARCHAR2(10), 
+	"PARAM" VARCHAR2(100), 
+	"INSTALLATION_CODE" VARCHAR2(10)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table PROGRESS_LEVEL
+--------------------------------------------------------
+
+  CREATE TABLE "PROGRESS_LEVEL" 
+   (	"INSTALLATION_CODE" VARCHAR2(10), 
+	"BATCH_NO" NUMBER(10,0), 
+	"BATCH_REV_NO" NUMBER(3,0), 
+	"INDICATOR_NO" NUMBER(4,0), 
+	"PRG_LEVEL_TYPE" VARCHAR2(10), 
+	"PRG_ACTIVITY_TYPE" VARCHAR2(20), 
+	"CYCLE_NO" NUMBER(3,0), 
+	"STATUS" VARCHAR2(2), 
+	"START_DATETIME" TIMESTAMP (3), 
+	"END_DATETIME" TIMESTAMP (3), 
+	"ERROR_DESC" VARCHAR2(100), 
+	"FAILED_OVER" VARCHAR2(1)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table ROLE_MASTER
+--------------------------------------------------------
+
+  CREATE TABLE "ROLE_MASTER" 
+   (	"ROLE_ID" VARCHAR2(30), 
+	"ROLE_NAME" VARCHAR2(50), 
+	"EFF_DATE" DATE, 
+	"EXP_DATE" DATE, 
+	"CREATED_ON" DATE, 
+	"CREATED_BY" VARCHAR2(30)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table SYSTEM_INFO
+--------------------------------------------------------
+
+  CREATE TABLE "SYSTEM_INFO" 
+   (	"INSTALLATION_CODE" VARCHAR2(10), 
+	"BATCH_NO" NUMBER(10,0), 
+	"BATCH_REV_NO" NUMBER(3,0), 
+	"JAVA_VERSION" VARCHAR2(20), 
+	"PRE_VERSION" VARCHAR2(50), 
+	"OS_CONFIG" VARCHAR2(200), 
+	"OUTPUT_DIR_PATH" VARCHAR2(500), 
+	"OUTPUT_DIR_FREE_MEM" VARCHAR2(50), 
+	"MAX_MEMORY" NUMBER(19,0), 
+	"USED_MEMORY" NUMBER(19,0)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table USER_INSTALLATION_ROLE
+--------------------------------------------------------
+
+  CREATE TABLE "USER_INSTALLATION_ROLE" 
+   (	"USER_ID" VARCHAR2(30), 
+	"INSTALLATION_CODE" VARCHAR2(10), 
+	"ROLE_ID" VARCHAR2(30)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table USER_MASTER
+--------------------------------------------------------
+
+  CREATE TABLE "USER_MASTER" 
+   (	"USER_ID" VARCHAR2(30), 
+	"USER_NAME" VARCHAR2(50), 
+	"TELEPHONE_NO" VARCHAR2(15), 
+	"FAX_NO" VARCHAR2(15), 
+	"EMAIL_ID" VARCHAR2(50), 
+	"EFF_DATE" DATE, 
+	"EXP_DATE" DATE, 
+	"CREATED_ON" DATE, 
+	"CREATED_BY" VARCHAR2(30), 
+	"PASSWORD" VARCHAR2(30), 
+	"FORCE_PASSWORD_FLAG" VARCHAR2(1) DEFAULT 'Y', 
+	"MODIFIED_BY" VARCHAR2(30), 
+	"MODIFIED_ON" DATE, 
+	"HINT_QUESTION" VARCHAR2(200), 
+	"HINT_ANSWER" VARCHAR2(50), 
+	"ADMIN_ROLE" VARCHAR2(1) DEFAULT 'Y', 
+	"CONNECT_ROLE" VARCHAR2(1) DEFAULT 'Y', 
+	"DEFAULT_VIEW" VARCHAR2(20) DEFAULT 'PODS_VIEW'
+   ) ;
+
+  CREATE TABLE "REPORT_MASTER" 
+   (		"INSTALLATION_CODE" VARCHAR2(20 BYTE) ,
+        "ID" VARCHAR2(15 CHAR), 
+        "NAME" VARCHAR2(50 CHAR), 
+        "PROG_NAME" VARCHAR2(2000 CHAR), 
+        "SR_NO" VARCHAR2(20 CHAR), 
+	      "COMPANY_CODE" VARCHAR2(20 CHAR), 
+	      "PARENT_ID" NUMBER, 
+	      "SQL_QUERY" VARCHAR2(4000 BYTE), 
+	      "TYPE" VARCHAR2(10 BYTE)
+   );
+ 
+
+
+  CREATE TABLE "REPORT_PARAMETERS" 
+   (	  "INSTALLATION_CODE" VARCHAR2(10),
+        "ID" VARCHAR2(15 CHAR), 
+        "PARAM_NAME" VARCHAR2(50 CHAR) , 
+        "PARAM_ORDER" NUMBER(2,0),
+        "DATA_TYPE" CHAR(1 CHAR), 
+        "LENGTH" NUMBER(5,0), 
+        "FIXED_LENGTH" CHAR(1 CHAR), 
+        "DEFAULT_VALUE" VARCHAR2(70 CHAR), 
+        "HINT" VARCHAR2(100 CHAR), 
+        "LABEL" VARCHAR2(50 CHAR), 
+        "QUERY_YN" CHAR(1 CHAR), 
+        "QUERY" VARCHAR2(2000 BYTE), 
+        "MANDATORY_YN" CHAR(1 CHAR), 
+        "STATIC_DYNAMIC_FLAG" VARCHAR2(1 CHAR) DEFAULT 'S', 
+        "PARAM_DATA_TYPE" VARCHAR2(50 BYTE), 
+        "OPERATOR" VARCHAR2(15 BYTE), 
+        "PARAM_FIELD" VARCHAR2(50 BYTE)
+   ) ;
+    
+CREATE TABLE PROCESS_REQUEST_SCHEDULE
+   (	"INSTALLATION_CODE" VARCHAR2(15 BYTE) NOT NULL ENABLE,
+    "BATCH_NAME" VARCHAR2(25 BYTE),
+   	"SCH_ID" NUMBER(12,0) NOT NULL ENABLE, 
+	"FREQ_TYPE" VARCHAR2(10 BYTE) NOT NULL ENABLE, 
+	"RECUR" NUMBER(10,0) NOT NULL ENABLE, 
+	"START_DT" DATE NOT NULL ENABLE, 
+	"SCH_STAT" VARCHAR2(2 BYTE) NOT NULL ENABLE, 
+	"USER_ID" VARCHAR2(15 BYTE) NOT NULL ENABLE, 
+	"ON_WEEK_DAY" VARCHAR2(7 BYTE), 
+	"END_DT" DATE, 
+	"END_OCCUR" NUMBER(12,0), 
+	"ENTRY_DT" DATE, 
+	"MODIFY_ID" VARCHAR2(10 BYTE), 
+	"MODIFY_DT" DATE, 
+	"REQ_STAT" VARCHAR2(2 BYTE), 
+	"OCCUR_COUNTER" NUMBER(12,0), 
+	"PROCESS_CLASS_NM" VARCHAR2(500 BYTE), 
+	"START_TIME" DATE, 
+	"END_TIME" DATE, 
+	"FUTURE_SCHEDULING_ONLY" VARCHAR2(1 BYTE) DEFAULT 'Y', 
+	"FIXED_DATE" VARCHAR2(1 BYTE) DEFAULT 'N', 
+	"EMAIL_IDS" VARCHAR2(2000 BYTE), 
+	"SKIP_FLAG" VARCHAR2(2 BYTE) DEFAULT NULL, 
+	"WEEKDAY_CHECK_FLAG" VARCHAR2(2 BYTE) DEFAULT NULL, 
+	"END_REASON" VARCHAR2(2000 BYTE) DEFAULT NULL, 
+	"KEEP_ALIVE" VARCHAR2(1 BYTE) DEFAULT 'N', 
+	 CONSTRAINT "PK_PROCESS_REQUEST_SCHEDULE" PRIMARY KEY ("SCH_ID")
+   ) ;  
+   
+---------------------------------------------------
+--   DATA FOR TABLE FUNCTION_ROLE_MASTER
+--   FILTER = none used
+---------------------------------------------------
+REM INSERTING into FUNCTION_ROLE_MASTER
+Insert into FUNCTION_ROLE_MASTER (ROLE_ID,FUNCTION_ID,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,USER_ID) values ('OPERATOR','Schedule',to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'ADMIN','jbeam');
+Insert into FUNCTION_ROLE_MASTER (ROLE_ID,FUNCTION_ID,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,USER_ID) values ('ADMIN','User Master',to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','jbeam');
+Insert into FUNCTION_ROLE_MASTER (ROLE_ID,FUNCTION_ID,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,USER_ID) values ('OPERATOR','Run',to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','jbeam');
+Insert into FUNCTION_ROLE_MASTER (ROLE_ID,FUNCTION_ID,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,USER_ID) values ('USER','Profile',to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'ADMIN','jbeam');
+Insert into FUNCTION_ROLE_MASTER (ROLE_ID,FUNCTION_ID,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,USER_ID) values ('USER','Batch',to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'ADMIN','jbeam');
+Insert into FUNCTION_ROLE_MASTER (ROLE_ID,FUNCTION_ID,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,USER_ID) values ('USER','Reports',to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'ADMIN','jbeam');
+Insert into FUNCTION_ROLE_MASTER (ROLE_ID,FUNCTION_ID,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,USER_ID) values ('ADMIN','Profile',to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','jbeam');
+Insert into FUNCTION_ROLE_MASTER (ROLE_ID,FUNCTION_ID,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,USER_ID) values ('CONNECT','Profile',to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('08-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','jbeam');
+
+
+---------------------------------------------------
+--   END DATA FOR TABLE FUNCTION_ROLE_MASTER
+---------------------------------------------------
+SET DEFINE ON
+Accept installationCode VARCHAR2 PROMPT 'Enter Installation Code:'
+---------------------------------------------------
+--   DATA FOR TABLE INSTALLATION
+--   FILTER = none used
+---------------------------------------------------
+REM INSERTING into INSTALLATION
+Insert into INSTALLATION (INSTALLATION_CODE,INSTALLATION_DESC,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,MODIFIED_ON,MODIFIED_BY,BATCH_NO,BATCH_REV_NO,TIMEZONE_ID) values ('&installationCode','&installationDesc',to_timestamp('01-JAN-00 12.00.00.000000000 AM','DD-MON-RR HH.MI.SS.FF AM'),null,to_timestamp('01-JAN-00 12.00.00.000000000 AM','DD-MON-RR HH.MI.SS.FF AM'),'JOHN',null,null,null,null,'America/Los_Angeles');
+
+---------------------------------------------------
+--   END DATA FOR TABLE INSTALLATION
+---------------------------------------------------
+
+---------------------------------------------------
+--   DATA FOR TABLE FUNCTION_MASTER
+--   FILTER = none used
+---------------------------------------------------
+REM INSERTING into FUNCTION_MASTER
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Schedule','Schedule','Schedule Menu',to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM',null);
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('View Schedules','View Schedules','View Schedules Menu',to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','Schedule');
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Run','Run','Run Menu',to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM',null);
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Define Calendar','Define Calendar','Define Calendar Menu',to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','Run');
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('User Master','User Master','User Master Menu',to_timestamp('17-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('17-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM',null);
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Manage User','Manage User','Create User Menu',to_timestamp('17-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('17-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','User Master');
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Change Password','Change Password','Change Password Menu',to_timestamp('17-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('17-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','Profile');
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Run Batch','Run Batch','Run Batch Menu',to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','Run');
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Reports','Reports','Reports Menu',to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM',null);
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Generate Reports','Generate Reports','Generate Reports Menu',to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','Reports');
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Batch','Batch','Batch Menu',to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM',null);
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Current','Current','Current Batch Menu',to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','Batch');
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Search','Search','Search Completed Batch Menu',to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('07-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','Batch');
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Profile','Profile','Profile Menu',to_timestamp('17-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('17-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM',null);
+Insert into FUNCTION_MASTER (FUNCTION_ID,FUNCTION_NAME,FUNCTION_INFO,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PRIOR_FUNCTION_ID) values ('Edit Profile','Edit Profile','Edit Profile Menu',to_timestamp('17-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),null,to_timestamp('17-06-2010 11:59:59','DD-MM-RR HH12:MI:SSXFF AM'),'JBEAM','Profile');
+---------------------------------------------------
+--   END DATA FOR TABLE FUNCTION_MASTER
+---------------------------------------------------
+
+---------------------------------------------------
+--   DATA FOR TABLE ROLE_MASTER
+--   FILTER = none used
+---------------------------------------------------
+REM INSERTING into ROLE_MASTER
+Insert into ROLE_MASTER (ROLE_ID,ROLE_NAME,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY) values ('OPERATOR','OPERATOR',to_timestamp('29-DEC-09 12.00.00.000000000 AM','DD-MON-RR HH.MI.SS.FF AM'),to_timestamp('29-DEC-99 12.00.00.000000000 AM','DD-MON-RR HH.MI.SS.FF AM'),to_timestamp('29-DEC-09 12.00.00.000000000 AM','DD-MON-RR HH.MI.SS.FF AM'),'ADMIN');
+Insert into ROLE_MASTER (ROLE_ID,ROLE_NAME,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY) values ('USER','USER',to_timestamp('29-DEC-09 12.00.00.000000000 AM','DD-MON-RR HH.MI.SS.FF AM'),to_timestamp('29-DEC-99 12.00.00.000000000 AM','DD-MON-RR HH.MI.SS.FF AM'),to_timestamp('29-DEC-09 12.00.00.000000000 AM','DD-MON-RR HH.MI.SS.FF AM'),'ADMIN');
+
+---------------------------------------------------
+--   END DATA FOR TABLE ROLE_MASTER
+---------------------------------------------------
+
+---------------------------------------------------
+--   DATA FOR TABLE COLUMN_MAP
+--   FILTER = none used
+---------------------------------------------------
+REM INSERTING into COLUMN_MAP
+Insert into COLUMN_MAP (INSTALLATION_CODE,ENTITY,LOOKUP_COLUMN,LOOKUP_VALUE,VALUE_COLUMN,PRECEDENCE_ORDER,ON_ERROR_FAIL_ALL,DESCRIPTION) values ('&installationCode','PRE','PRE_POST','PRE','PRIORITY_CODE_1',1,null,'Enter the priority code 1 to execute all PRE events associated with it.');
+Insert into COLUMN_MAP (INSTALLATION_CODE,ENTITY,LOOKUP_COLUMN,LOOKUP_VALUE,VALUE_COLUMN,PRECEDENCE_ORDER,ON_ERROR_FAIL_ALL,DESCRIPTION) values ('&installationCode','POLICY','POLICY_NO',null,'POLICY_NO#POLICY_RENEW_NO',2,'Y','Enter the policy number ''#'' renew number. Two parameters required to be separated with ''#''. Use ''/'' as an escape character.');
+Insert into COLUMN_MAP (INSTALLATION_CODE,ENTITY,LOOKUP_COLUMN,LOOKUP_VALUE,VALUE_COLUMN,PRECEDENCE_ORDER,ON_ERROR_FAIL_ALL,DESCRIPTION) values ('&installationCode','ACCOUNT','ENTITY_TYPE','ACCOUNT','ENTITY_CODE',4,'Y','Enter the ACCOUNT_SYSTEM_CODE.');
+Insert into COLUMN_MAP (INSTALLATION_CODE,ENTITY,LOOKUP_COLUMN,LOOKUP_VALUE,VALUE_COLUMN,PRECEDENCE_ORDER,ON_ERROR_FAIL_ALL,DESCRIPTION) values ('&installationCode','BROKER','ENTITY_TYPE','BROKER','ENTITY_CODE',5,'Y','Enter the BROKER_SYSTEM_CODE.');
+Insert into COLUMN_MAP (INSTALLATION_CODE,ENTITY,LOOKUP_COLUMN,LOOKUP_VALUE,VALUE_COLUMN,PRECEDENCE_ORDER,ON_ERROR_FAIL_ALL,DESCRIPTION) values ('&installationCode','GENERAL','JOB_SEQ',null,'JOB_SEQ',6,null,'Enter the job sequence number');
+Insert into COLUMN_MAP (INSTALLATION_CODE,ENTITY,LOOKUP_COLUMN,LOOKUP_VALUE,VALUE_COLUMN,PRECEDENCE_ORDER,ON_ERROR_FAIL_ALL,DESCRIPTION) values ('&installationCode','POST','PRE_POST','POST','PRIORITY_CODE_1',999,null,'Enter the priority code 1 to execute the POST jobs associated with it');
+
+---------------------------------------------------
+--   END DATA FOR TABLE COLUMN_MAP
+---------------------------------------------------
+
+---------------------------------------------------
+--   DATA FOR TABLE CONFIGURATION
+--   FILTER = none used
+---------------------------------------------------
+--REM INSERTING into CONFIGURATION
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','PASSWORD','RNDFORMAT','Aa9##99aa#9#','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('&installationCode','COLLATOR','WAIT_PERIOD','10000','I','The collator wait period for installation &installationCode');
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('&installationCode','PERSCANCOLLATOR','WAIT_PERIOD','1','I','This value is defined for per scan execution count collator. The time is in minutes, default is 1.');
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('INSTALLATION_WS','&installationCode','SERVICES','&Installion_IP_Port','S','The <IP>:<PORT> of the published communication services for the installation');
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','MAIL','mailnotification','ON','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','MAIL','senderaddress','jbeam.&instShortform@mastek.com ','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR_WS','OUTBOUND_Q_POLLER','WAIT_PERIOD','15000','I','The monitor poller waiting period');
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','MAIL','defaultsubjectpassword','Your password has been reset','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','MAIL','SMTPServerPort','37529','I',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR_WS','MONITOR_WS','SERVICES','&monitorCommIPPort','S','The <IP>:<PORT> to publish the monitor communication services');
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR_WS','MONITOR_UI_WS','SERVICES','&monitorServicesIPPort','S','The <IP>:<PORT> to publish the monitor services for the UI');
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','MAIL','SMTPServer','&smptServer','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','MAIL','defaultsubjectuser','New user registration','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','PURGE','RETAIN_DAYS','517','I','No fo days to retain.');
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','PURGE','BACKUP_DIR','&purgeDirPath','S','The directory where the backup script files stored.');
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','WEEKDAY','1','Monday','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','WEEKDAY','0','Sunday','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','WEEKDAY','3','Wednesday','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','WEEKDAY','4','Thursday','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','WEEKDAY','5','Friday','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','WEEKDAY','6','Saturday','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','WEEKDAY','2','Tuesday','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','SKIP_SCHEDULE_CODE','D-','Prepone Day by 1 (D-)','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','SKIP_SCHEDULE_CODE','NA','Not Applicable','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','SKIP_SCHEDULE_CODE','D+','Postpone Day by 1 (D+)','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','SKIP_SCHEDULE_CODE','SS','Skip Schedule','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','REPORT_FORMAT','RTF','Rich Text Format','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','REPORT_FORMAT','XLS','Excel','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','REPORT_FORMAT','PDF','Adobe PDF','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','REPORT_FORMAT','DOC','WORD','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','REPORT_FORMAT','PPT','Power Point','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','FIRST_MTH','First [day] of the Month','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','FOURTH_MTH','Fourth [day] of the Month','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','HOUR','Hour','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','LAST_MTH','Last [day] of the Month','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','LDMONTH','Last Date of the Month','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','MINUTE','Minute','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','MONTH','Month','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','PREDEFINED','Pre Programmed Frequency','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','SECOND_MTH','Second [day] of the Month','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','THIRD_MTH','Third [day] of the Month','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','LAST_YR','Last [day] of the Year',null,null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','WEEK','Week','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','THIRD_YR','Third [day] of the Year',null,null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','FOURTH_YR','Fourth [day] of the Year',null,null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','YEAR','Year','S',null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','FIRST_YR','First [day] of the Year',null,null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','SECOND_YR','Second [day] of the Year',null,null);
+Insert into CONFIGURATION (CODE1,CODE2,CODE3,VALUE,VALUE_TYPE,DESCRIPTION) values ('MONITOR','FREQUENCY','DAY','Day','S',null);
+
+---------------------------------------------------
+--   END DATA FOR TABLE CONFIGURATION
+---------------------------------------------------
+--------------------------------------------------------
+--  Constraints for Table BATCH
+--------------------------------------------------------
+
+  ALTER TABLE "BATCH" ADD CONSTRAINT "PK2" PRIMARY KEY ("INSTALLATION_CODE", "BATCH_NO", "BATCH_REV_NO") ENABLE;
+ 
+  ALTER TABLE "BATCH" MODIFY ("INSTALLATION_CODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "BATCH" MODIFY ("BATCH_NO" NOT NULL ENABLE);
+ 
+  ALTER TABLE "BATCH" MODIFY ("BATCH_REV_NO" NOT NULL ENABLE);
+ 
+  ALTER TABLE "BATCH" MODIFY ("BATCH_NAME" NOT NULL ENABLE);
+ 
+  ALTER TABLE "BATCH" MODIFY ("BATCH_TYPE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "BATCH" MODIFY ("EXEC_START_TIME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table CALENDAR_LOG
+--------------------------------------------------------
+
+  ALTER TABLE "CALENDAR_LOG" MODIFY ("INSTALLATION_CODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "CALENDAR_LOG" MODIFY ("CALENDAR_NAME" NOT NULL ENABLE);
+ 
+  ALTER TABLE "CALENDAR_LOG" MODIFY ("YEAR" NOT NULL ENABLE);
+ 
+  ALTER TABLE "CALENDAR_LOG" MODIFY ("NON_WORKING_DATE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "CALENDAR_LOG" MODIFY ("USER_ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table COLUMN_MAP
+--------------------------------------------------------
+
+  ALTER TABLE "COLUMN_MAP" MODIFY ("INSTALLATION_CODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "COLUMN_MAP" MODIFY ("ENTITY" NOT NULL ENABLE);
+ 
+  ALTER TABLE "COLUMN_MAP" MODIFY ("PRECEDENCE_ORDER" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table CONFIGURATION
+--------------------------------------------------------
+
+  ALTER TABLE "CONFIGURATION" MODIFY ("CODE1" NOT NULL ENABLE);
+ 
+  ALTER TABLE "CONFIGURATION" MODIFY ("VALUE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table DEAD_MESSAGE_QUEUE
+--------------------------------------------------------
+
+  ALTER TABLE "DEAD_MESSAGE_QUEUE" MODIFY ("ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "DEAD_MESSAGE_QUEUE" MODIFY ("I_O_MODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "DEAD_MESSAGE_QUEUE" MODIFY ("INSTALLATION_CODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "DEAD_MESSAGE_QUEUE" MODIFY ("MESSAGE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table FUNCTION_MASTER
+--------------------------------------------------------
+
+  ALTER TABLE "FUNCTION_MASTER" ADD CONSTRAINT "PK15" PRIMARY KEY ("FUNCTION_ID") ENABLE;
+ 
+  ALTER TABLE "FUNCTION_MASTER" MODIFY ("FUNCTION_ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "FUNCTION_MASTER" MODIFY ("FUNCTION_NAME" NOT NULL ENABLE);
+ 
+  ALTER TABLE "FUNCTION_MASTER" MODIFY ("FUNCTION_INFO" NOT NULL ENABLE);
+ 
+  ALTER TABLE "FUNCTION_MASTER" MODIFY ("EFF_DATE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "FUNCTION_MASTER" MODIFY ("CREATED_ON" NOT NULL ENABLE);
+ 
+  ALTER TABLE "FUNCTION_MASTER" MODIFY ("CREATED_BY" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table FUNCTION_ROLE_MASTER
+--------------------------------------------------------
+
+  ALTER TABLE "FUNCTION_ROLE_MASTER" MODIFY ("ROLE_ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "FUNCTION_ROLE_MASTER" MODIFY ("FUNCTION_ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "FUNCTION_ROLE_MASTER" MODIFY ("EFF_DATE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "FUNCTION_ROLE_MASTER" MODIFY ("CREATED_ON" NOT NULL ENABLE);
+ 
+  ALTER TABLE "FUNCTION_ROLE_MASTER" MODIFY ("CREATED_BY" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table GRAPH_DATA_LOG
+--------------------------------------------------------
+
+  ALTER TABLE "GRAPH_DATA_LOG" MODIFY ("INSTALLATION_CODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "GRAPH_DATA_LOG" MODIFY ("GRAPH_ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "GRAPH_DATA_LOG" MODIFY ("BATCH_NO" NOT NULL ENABLE);
+ 
+  ALTER TABLE "GRAPH_DATA_LOG" MODIFY ("BATCH_REV_NO" NOT NULL ENABLE);
+ 
+  ALTER TABLE "GRAPH_DATA_LOG" MODIFY ("COLLECT_TIME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table INSTALLATION
+--------------------------------------------------------
+
+  ALTER TABLE "INSTALLATION" ADD CONSTRAINT "PK29" PRIMARY KEY ("INSTALLATION_CODE") ENABLE;
+ 
+  ALTER TABLE "INSTALLATION" MODIFY ("INSTALLATION_CODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "INSTALLATION" MODIFY ("EFF_DATE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "INSTALLATION" MODIFY ("CREATED_ON" NOT NULL ENABLE);
+ 
+  ALTER TABLE "INSTALLATION" MODIFY ("CREATED_BY" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table INSTRUCTION_LOG
+--------------------------------------------------------
+
+  ALTER TABLE "INSTRUCTION_LOG" ADD CONSTRAINT "INSTRUCTION_LOG_PK" PRIMARY KEY ("SEQ_NO") ENABLE;
+ 
+  ALTER TABLE "INSTRUCTION_LOG" MODIFY ("INSTALLATION_CODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "INSTRUCTION_LOG" MODIFY ("SEQ_NO" NOT NULL ENABLE);
+ 
+  ALTER TABLE "INSTRUCTION_LOG" MODIFY ("MESSAGE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "INSTRUCTION_LOG" MODIFY ("INSTRUCTING_USER" NOT NULL ENABLE);
+ 
+  ALTER TABLE "INSTRUCTION_LOG" MODIFY ("INSTRUCTION_TIME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table INSTRUCTION_PARAMETERS
+--------------------------------------------------------
+
+  ALTER TABLE "INSTRUCTION_PARAMETERS" MODIFY ("INSTRUCTION_LOG_NO" NOT NULL ENABLE);
+ 
+  ALTER TABLE "INSTRUCTION_PARAMETERS" MODIFY ("SL_NO" NOT NULL ENABLE);
+ 
+  ALTER TABLE "INSTRUCTION_PARAMETERS" MODIFY ("NAME" NOT NULL ENABLE);
+ 
+  ALTER TABLE "INSTRUCTION_PARAMETERS" MODIFY ("VALUE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "INSTRUCTION_PARAMETERS" MODIFY ("TYPE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table LOG
+--------------------------------------------------------
+
+  ALTER TABLE "LOG" MODIFY ("INSTALLATION_CODE" NOT NULL ENABLE NOVALIDATE);
+ 
+  ALTER TABLE "LOG" MODIFY ("BATCH_NO" NOT NULL ENABLE NOVALIDATE);
+ 
+  ALTER TABLE "LOG" MODIFY ("BATCH_REV_NO" NOT NULL ENABLE NOVALIDATE);
+ 
+  ALTER TABLE "LOG" MODIFY ("BE_SEQ_NO" NOT NULL ENABLE);
+ 
+  ALTER TABLE "LOG" MODIFY ("TASK_NAME" NOT NULL ENABLE NOVALIDATE);
+ 
+  ALTER TABLE "LOG" MODIFY ("OBJ_EXEC_START_TIME" NOT NULL ENABLE NOVALIDATE);
+ 
+  ALTER TABLE "LOG" MODIFY ("STATUS" NOT NULL ENABLE NOVALIDATE);
+--------------------------------------------------------
+--  Constraints for Table O_QUEUE
+--------------------------------------------------------
+
+  ALTER TABLE "O_QUEUE" MODIFY ("ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "O_QUEUE" MODIFY ("MESSAGE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table PROGRESS_LEVEL
+--------------------------------------------------------
+
+  ALTER TABLE "PROGRESS_LEVEL" MODIFY ("INDICATOR_NO" NOT NULL ENABLE);
+ 
+  ALTER TABLE "PROGRESS_LEVEL" MODIFY ("PRG_ACTIVITY_TYPE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "PROGRESS_LEVEL" MODIFY ("STATUS" NOT NULL ENABLE);
+ 
+  ALTER TABLE "PROGRESS_LEVEL" MODIFY ("START_DATETIME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table ROLE_MASTER
+--------------------------------------------------------
+
+  ALTER TABLE "ROLE_MASTER" ADD CONSTRAINT "PK17" PRIMARY KEY ("ROLE_ID") ENABLE;
+ 
+  ALTER TABLE "ROLE_MASTER" MODIFY ("ROLE_ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ROLE_MASTER" MODIFY ("ROLE_NAME" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ROLE_MASTER" MODIFY ("EFF_DATE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ROLE_MASTER" MODIFY ("CREATED_ON" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ROLE_MASTER" MODIFY ("CREATED_BY" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table SYSTEM_INFO
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM_INFO" MODIFY ("INSTALLATION_CODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "SYSTEM_INFO" MODIFY ("BATCH_NO" NOT NULL ENABLE);
+ 
+  ALTER TABLE "SYSTEM_INFO" MODIFY ("BATCH_REV_NO" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table USER_INSTALLATION_ROLE
+--------------------------------------------------------
+
+  ALTER TABLE "USER_INSTALLATION_ROLE" ADD CONSTRAINT "PK_USER_INSTALL_ROLE" PRIMARY KEY ("USER_ID", "INSTALLATION_CODE", "ROLE_ID") ENABLE;
+ 
+  ALTER TABLE "USER_INSTALLATION_ROLE" MODIFY ("USER_ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "USER_INSTALLATION_ROLE" MODIFY ("INSTALLATION_CODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "USER_INSTALLATION_ROLE" MODIFY ("ROLE_ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table USER_MASTER
+--------------------------------------------------------
+
+  ALTER TABLE "USER_MASTER" ADD CONSTRAINT "PK16" PRIMARY KEY ("USER_ID") ENABLE;
+ 
+  ALTER TABLE "USER_MASTER" MODIFY ("USER_ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "USER_MASTER" MODIFY ("USER_NAME" NOT NULL ENABLE);
+ 
+  ALTER TABLE "USER_MASTER" MODIFY ("EMAIL_ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "USER_MASTER" MODIFY ("EFF_DATE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "USER_MASTER" MODIFY ("CREATED_ON" NOT NULL ENABLE);
+ 
+  ALTER TABLE "USER_MASTER" MODIFY ("FORCE_PASSWORD_FLAG" NOT NULL ENABLE);
+ 
+  ALTER TABLE "USER_MASTER" MODIFY ("ADMIN_ROLE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "USER_MASTER" MODIFY ("CONNECT_ROLE" NOT NULL ENABLE);
+  
+  
+---------------------------------------------------
+--   DATA FOR TABLE USER_MASTER
+--   FILTER = none used
+---------------------------------------------------
+Insert into USER_MASTER (USER_ID,USER_NAME,TELEPHONE_NO,FAX_NO,EMAIL_ID,EFF_DATE,EXP_DATE,CREATED_ON,CREATED_BY,PASSWORD,FORCE_PASSWORD_FLAG,MODIFIED_BY,MODIFIED_ON,HINT_QUESTION,HINT_ANSWER,ADMIN_ROLE,CONNECT_ROLE) values ('jbeam','JBEAM ADMIN','null','342423432','Jbeam.admin@mastek.com',to_timestamp('01-JAN-2001','DD-MON-YYYY HH.MI.SSXFF AM'),to_timestamp('30-DEC-2050','DD-MON-YYYY HH.MI.SSXFF AM'),to_timestamp('01-JAN-2010','DD-MON-YYYY HH.MI.SSXFF AM'),'USER','cojt0Pw//L6ToM8G41aOKFIWh7w=','Y','jbeam',to_timestamp('28-JUL-2010','DD-MON-YYYY HH.MI.SSXFF AM'),'Admin','0DPiKuNIrrVmD8IUCuw1hQxNqZc=','Y','Y');
+
+---------------------------------------------------
+--   END DATA FOR TABLE USER_MASTER
+---------------------------------------------------
+
+---------------------------------------------------
+--   DATA FOR TABLE USER_INSTALLATION_ROLE
+--   FILTER = none used
+---------------------------------------------------
+REM INSERTING into USER_INSTALLATION_ROLE
+Insert into USER_INSTALLATION_ROLE (INSTALLATION_CODE,ROLE_ID,USER_ID) values ('null','ADMIN','jbeam');
+Insert into USER_INSTALLATION_ROLE (INSTALLATION_CODE,ROLE_ID,USER_ID) values ('null','CONNECT','jbeam');
+Insert into USER_INSTALLATION_ROLE (INSTALLATION_CODE,ROLE_ID,USER_ID) values ('&installationCode','USER','jbeam');
+Insert into USER_INSTALLATION_ROLE (INSTALLATION_CODE,ROLE_ID,USER_ID) values ('&installationCode','OPERATOR','jbeam');
+---------------------------------------------------
+--   END DATA FOR TABLE USER_INSTALLATION_ROLE
+---------------------------------------------------
+---------------------------------------------------
+--   DATA FOR TABLE REPORT_MASTER
+--   FILTER = none used
+---------------------------------------------------
+REM INSERTING into REPORT_MASTER
+Insert into REPORT_MASTER (INSTALLATION_CODE,ID,NAME,PROG_NAME,SR_NO,COMPANY_CODE,PARENT_ID,SQL_QUERY,TYPE) values ('&installationCode','1','Purge Routine Core','com.stgmastek.core.purge.PurgeBatchDetails','1','ALL',null,null,null);
+
+---------------------------------------------------
+--   END DATA FOR TABLE REPORT_MASTER
+---------------------------------------------------
+SET DEFINE OFF
+
+create unique index log_i1 on log  ( installation_code,batch_no ,batch_rev_no ,be_seq_no ) parallel;
+--------------------------------------------------------
+--  DDL for Index INSTRUCTION_PARAMETERS_INDEX1
+--------------------------------------------------------
+
+  CREATE INDEX "INSTRUCTION_PARAMETERS_INDEX1" ON "INSTRUCTION_PARAMETERS" ("INSTRUCTION_LOG_NO") 
+  ;
+--------------------------------------------------------
+--  DDL for Index REF29
+--------------------------------------------------------
+
+  CREATE INDEX "REF29" ON "SYSTEM_INFO" ("INSTALLATION_CODE", "BATCH_NO", "BATCH_REV_NO") 
+  ;
+--------------------------------------------------------
+--  DDL for Index REF2920
+--------------------------------------------------------
+
+  CREATE INDEX "REF2920" ON "BATCH" ("INSTALLATION_CODE") 
+  ;
+--------------------------------------------------------
+--  Ref Constraints for Table BATCH
+--------------------------------------------------------
+
+  ALTER TABLE "BATCH" ADD CONSTRAINT "REFBPMS_INSTALLATION20" FOREIGN KEY ("INSTALLATION_CODE")
+	  REFERENCES "INSTALLATION" ("INSTALLATION_CODE") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table FUNCTION_ROLE_MASTER
+--------------------------------------------------------
+
+  ALTER TABLE "FUNCTION_ROLE_MASTER" ADD CONSTRAINT "REFFUNCTION_MASTER14" FOREIGN KEY ("FUNCTION_ID")
+	  REFERENCES "FUNCTION_MASTER" ("FUNCTION_ID") ENABLE;
+ 
+  ALTER TABLE "FUNCTION_ROLE_MASTER" ADD CONSTRAINT "REFROLE_MASTER13" FOREIGN KEY ("ROLE_ID")
+	  REFERENCES "ROLE_MASTER" ("ROLE_ID") DISABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table INSTRUCTION_PARAMETERS
+--------------------------------------------------------
+
+  ALTER TABLE "INSTRUCTION_PARAMETERS" ADD CONSTRAINT "INSTRUCTION_PARAMETERS_IN_FK1" FOREIGN KEY ("INSTRUCTION_LOG_NO")
+	  REFERENCES "INSTRUCTION_LOG" ("SEQ_NO") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table LOG
+--------------------------------------------------------
+
+  ALTER TABLE "LOG" ADD CONSTRAINT "REFBPMS_BATCH19" FOREIGN KEY ("INSTALLATION_CODE", "BATCH_NO", "BATCH_REV_NO")
+	  REFERENCES "BATCH" ("INSTALLATION_CODE", "BATCH_NO", "BATCH_REV_NO") ENABLE NOVALIDATE;
+--------------------------------------------------------
+--  Ref Constraints for Table PROGRESS_LEVEL
+--------------------------------------------------------
+
+  ALTER TABLE "PROGRESS_LEVEL" ADD CONSTRAINT "REFBPMS_BATCH5" FOREIGN KEY ("INSTALLATION_CODE", "BATCH_NO", "BATCH_REV_NO")
+	  REFERENCES "BATCH" ("INSTALLATION_CODE", "BATCH_NO", "BATCH_REV_NO") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table SYSTEM_INFO
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM_INFO" ADD CONSTRAINT "REFBPMS_BATCH9" FOREIGN KEY ("INSTALLATION_CODE", "BATCH_NO", "BATCH_REV_NO")
+	  REFERENCES "BATCH" ("INSTALLATION_CODE", "BATCH_NO", "BATCH_REV_NO") ENABLE;
+
+--------------------------------------------------------
+--  Ref Constraints for Table USER_INSTALLATION_ROLE
+--------------------------------------------------------
+
+  ALTER TABLE "USER_INSTALLATION_ROLE" ADD CONSTRAINT "FK_USER" FOREIGN KEY ("USER_ID")
+	  REFERENCES "USER_MASTER" ("USER_ID") ENABLE;
+    
+--------------------------------------------------------
+--  Constraints for Table REPORT_MASTER
+--------------------------------------------------------
+
+  ALTER TABLE "REPORT_MASTER" ADD CONSTRAINT "PK_REPORT_MASTER" PRIMARY KEY ("INSTALLATION_CODE", "ID") ENABLE;
+ 
+  ALTER TABLE "REPORT_MASTER" MODIFY ("INSTALLATION_CODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "REPORT_MASTER" MODIFY ("ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "REPORT_MASTER" MODIFY ("NAME" NOT NULL ENABLE);
+ 
+  ALTER TABLE "REPORT_MASTER" MODIFY ("COMPANY_CODE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table REPORT_PARAMETERS
+--------------------------------------------------------
+
+  ALTER TABLE "REPORT_PARAMETERS" ADD CONSTRAINT "PK_REPORT_PRAMETERS" PRIMARY KEY ("INSTALLATION_CODE", "ID", "PARAM_NAME") ENABLE;
+ 
+  ALTER TABLE "REPORT_PARAMETERS" MODIFY ("INSTALLATION_CODE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "REPORT_PARAMETERS" MODIFY ("ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "REPORT_PARAMETERS" MODIFY ("PARAM_NAME" NOT NULL ENABLE);
+ 
+  ALTER TABLE "REPORT_PARAMETERS" MODIFY ("PARAM_ORDER" NOT NULL ENABLE);
+
+--------------------------------------------------------
+--  Ref Constraints for Table REPORT_PARAMETERS
+--------------------------------------------------------
+
+  ALTER TABLE "REPORT_PARAMETERS" ADD CONSTRAINT "FK_RP_RM" FOREIGN KEY ("INSTALLATION_CODE", "ID")
+	  REFERENCES "REPORT_MASTER" ("INSTALLATION_CODE", "ID") ENABLE;
+
+--------------------------------------------------------
+--  DDL for Trigger TRIG_CALENDAR_LOG
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "TRIG_CALENDAR_LOG" 
+AFTER INSERT ON CALENDAR_LOG
+FOR EACH ROW 
+BEGIN
+  IF INSERTING THEN  
+    INSERT INTO O_QUEUE 
+		(
+        id
+        , message
+        , param
+        , installation_code
+    )
+		VALUES 
+		(
+        o_queue_seq.nextval
+        , 'BSCALENDAR'
+        , 'installationCode=' || :new.INSTALLATION_CODE || 
+          ', calendarName=' || :new.CALENDAR_NAME ||
+          ', year=' || :new.YEAR
+        , :new.INSTALLATION_CODE
+    );		
+	END IF;
+END;
+/
+--------------------------------------------------------
+--  DDL for Trigger TRIG_INSTRUCTION_LOG
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "TRIG_INSTRUCTION_LOG" 
+AFTER INSERT OR UPDATE ON INSTRUCTION_LOG
+FOR EACH ROW 
+BEGIN
+  IF INSERTING THEN  
+    INSERT INTO O_QUEUE 
+		(
+        id
+        , message
+        , param
+        , installation_code
+    )
+		VALUES 
+		(
+        o_queue_seq.nextval
+        , :new.MESSAGE
+        , 'seqNo=' || :new.SEQ_NO
+        , :new.INSTALLATION_CODE
+    );		
+	END IF;
+END;
+/
