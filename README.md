@@ -20,9 +20,11 @@ This section describes some of the basics to developers and contributors new to 
 How to build
 ------------
 
- git clone git://github.com/MastekLtd/JBEAM.git
- cd jbeam\jbeam-core-components
- mvn clean install
+ ` git clone git://github.com/MastekLtd/JBEAM.git`
+ 
+ ` cd jbeam\jbeam-core-components`
+ 
+ ` mvn clean install`
 
 Resources
 ---------
@@ -32,4 +34,6 @@ Resources
 Working with JBEAM Source
 -------------------------
 
-Refer to the [Developer guide] () 
+Refer to the [Developer guide] () for detail help on 
+   * setting up workspace
+   * sample code on writing new batch jobs and batch execution hanlders.
