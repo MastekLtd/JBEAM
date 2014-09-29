@@ -36,4 +36,9 @@ Working with JBEAM Source
 
 Refer to the [Developer guide] () for detail help on 
    * setting up workspace
-   * sample code on writing new batch jobs and batch execution hanlders.
+   * sample code on writing new batch jobs and batch execution handlers.
+   * important classes of the framework and it's significance
+   * build instructions for core components and UI components
+   * debugging tips
+   * database design and table structure of core and monitor
+   
