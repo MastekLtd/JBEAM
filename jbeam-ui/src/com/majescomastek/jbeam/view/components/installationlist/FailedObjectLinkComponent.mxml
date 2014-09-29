@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:LinkButton xmlns:mx="http://www.adobe.com/2006/mxml" textAlign="right" click="activityTypeClickHandler(event)">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.model.vo.BatchDetailsData;
+			import com.majescomastek.jbeam.model.vo.InstallationData;
+			
+			import mx.core.Window;
+			override public function set data(value:Object):void 
+			{
+				if(value!=null)
+				{
+					super.data = value;
+					this.label = data.totalFailedObjects;
+					if(data != null && data.totalFailedObjects > 0)
+					{
+						this.styleName = "popupWindow";
+						this.mouseEnabled = true;
+					}
+					else
+					{
+						this.styleName = "pageContent";
+						this.mouseEnabled = false;						
+					}
+				}
+			}
+			
+			private function activityTypeClickHandler(event:Event):void
+			{
+				if(this.data != null && this.data.totalFailedObjects > 0)
+				{
+					var instData:InstallationData = new InstallationData();
+					instData.batchNo = this.data.batchNo;
+					instData.batchRevNo = this.data.batchRevNo;
+					instData.installationCode = this.data.installationCode;
+					
+					var batchDetails:BatchDetailsData = new BatchDetailsData();
+					batchDetails.batchStatus = this.data.batchStatus;
+					
+					var parent:InstallationModule = InstallationModule(this.parentDocument);
+					var window:FailedObjectsWindow = new FailedObjectsWindow();
+					(window as Window).open();
+					var windowData:Object = {
+						'view': window,
+						'requestListenerInfo': parent.getRequestListenerInfo(instData),
+						'batchDetails': batchDetails
+					};
+					parent.sendDataEvent(InstallationModule.FAILED_OBJECT_CLICK, windowData);
+				}								
+			}
+		]]>
+	</mx:Script>
+</mx:LinkButton>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with JBEAM. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author Gourav Rai
+ * 
+ *
+ * $Revision::                         $
+ *	
+ * $Header::  $	
+ *
+ * $Log::  $
+ * 
+ * 
+ --> 
+<mx:ModuleLoader xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%"
+	xmlns:progressbar="com.majescomastek.flexcontrols.progressbar.*" 
+	ready="onReady(event)" setup="onSetup(event)"  applicationDomain="{ApplicationDomain.currentDomain}"
+	error="onError(event)" horizontalAlign="center" verticalAlign="middle">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.view.IModule;
+			import mx.utils.ObjectUtil;
+			import mx.events.ModuleEvent;
+			
+			public function moduleLoad(urlMapping:String):void
+			{
+				this.loadModule(urlMapping);				
+			}
+			
+			public function reloadModule():void
+			{
+				loadModule(this.url);
+			}
+			
+			override public function loadModule(url:String=null, bytes:ByteArray=null):void
+			{
+				this.unloadModule();
+				super.loadModule(url, bytes);
+			}
+			
+			private function onReady(event:ModuleEvent):void
+			{
+			}
+			
+			private function onError(event:ModuleEvent):void
+			{
+//				trace("-----Error while loading--"+moduleDetails.urlMapping+"-&&-"+event.errorText);
+			}
+			
+						
+			private function onSetup(event:ModuleEvent):void
+			{
+				this.currentState = "";
+				//applicationDomain = ApplicationDomain.currentDomain;
+			}
+			
+			override public function unloadModule():void
+			{
+				if((this.child as IModule) != null){
+					(this.child as IModule).cleanup();
+				}
+				super.unloadModule();
+			}
+		]]>
+	</mx:Script>	
+</mx:ModuleLoader>

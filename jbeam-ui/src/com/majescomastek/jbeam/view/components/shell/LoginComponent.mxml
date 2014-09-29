@@ -1,0 +1,97 @@
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" height="100%"
+	width="90%" xmlns:flexcontrols="com.majescomastek.flexcontrols.*"
+	styleName="vboxCommon" horizontalAlign="center" verticalAlign="top"
+	implements="com.majescomastek.jbeam.view.components.IViewComponent"
+	creationComplete="loadFile()">
+	
+	<mx:Script source="../../scripts/shell/LoginScript.as" />
+	
+	<!--<mx:ArrayCollection id="linkDetails">
+		<mx:Object label="{resourceManager.getString('Login', 'privacy_policy')}"
+			data="PRIVACY_POLICY" />
+		<mx:Object label="{resourceManager.getString('Login', 'terms_of_use')}"
+			data="TERMS_OF_USE" />
+		<mx:Object label="{resourceManager.getString('Login', 'sitemap')}"
+			data="SITEMAP" />
+		<mx:Object label="{resourceManager.getString('Login', 'contact_us')}"
+			data="CONTACT_US" />
+	</mx:ArrayCollection>-->
+	<mx:ArrayCollection id="serverList"/>
+	<mx:StringValidator id="valUserID" required="true"
+		source="{txtUserId}" property="text" enabled="false"
+		requiredFieldError="{resourceManager.getString('Login', 'userid_required')}" />
+	<mx:StringValidator id="valPassword" required="true"
+		source="{txtPassword}" property="text" enabled="false"
+		requiredFieldError="{resourceManager.getString('Login', 'password_required')}" />
+	<mx:NumberValidator id="serverValidator" required="true" source="{cmbServerList}"
+		property="selectedIndex" minValue="1" enabled="false"
+		lowerThanMinError="Please select a server" />
+	<mx:VBox styleName="vboxCommon" height="100%" width="100%" id="vbLogin">
+		<!--<mx:Box id="boxStrip" minHeight="6" height="6%" width="100%"
+			styleName="bannerStrip" />-->
+		<mx:Canvas id="cvLoginBody"
+			backgroundImage="{resourceManager.getString('Image', 'fire_flame_with_tags')}"
+			width="730" minHeight="500" height="80%">
+			<mx:Image x="44" y="71"
+				source="{clientLogo}" id="clientLogo1" />
+			<mx:Text styleName="pageLabel1"
+				text="{resourceManager.getString('Login', 'user_id')}" x="470" y="161"				
+				fontSize="12" creationComplete="setFocusOnIt();" tabIndex="0" />
+			<mx:TextInput id="txtUserId" x="470" y="189" text="" 
+				creationComplete="event.currentTarget.setFocus()" />
+			<mx:Text styleName="pageLabel1"
+				text="{resourceManager.getString('Login', 'password')}" x="470" y="219" />
+			<mx:TextInput id="txtPassword" x="470" y="245" text="jbeam"
+				keyDown="onEnterClick(event);" displayAsPassword="true" />
+			<mx:Text styleName="pageLabel1"
+				text="{resourceManager.getString('Login', 'choose_server')}" x="470"
+				y="275" />
+			<mx:ComboBox id="cmbServerList" labelField="serverName"
+				x="472" y="301" width="125" dataProvider="{serverList}"
+				change="changeEvt(event)"/>
+			
+			<!--<mx:Button x="472" y="340"
+				label="{resourceManager.getString('Login', 'login')}" styleName="button"
+				keyDown="onEnterClick(event);" click="onCheckCompatibility();" />-->
+			<mx:Button x="472" y="340" enabled="{enableLoginButton}"
+				label="{resourceManager.getString('Login', 'login')}" styleName="button"
+				keyDown="onEnterClick(event);" click="submitLoginDetails();" />
+			<mx:LinkButton x="600" y="301" 
+				styleName="normalLink" 
+				label="{resourceManager.getString('Login', 'configure_server')}"				
+				click="openServerConfigurationWindow();" />
+			<mx:LinkButton x="472" y="375" 
+				styleName="normalLink" 
+				label="{resourceManager.getString('Login', 'forgot_password')}" 
+				fontSize="12"  click="openForgotPasswordWindow();" />			
+		</mx:Canvas>
+		<!--<mx:VBox height="{vbLogin.height-boxStrip.height-cvLoginBody.height}"-->
+		<mx:VBox height="20%"
+			styleName="vboxCommon" verticalAlign="bottom" minHeight="80" width="100%"
+			horizontalAlign="center">
+			<mx:Canvas backgroundImage="assets/images/footerDeco.png"
+				width="800" minHeight="80">				
+				<mx:Image id="imgMastekLogo" source="{mastekLogo}"
+					bottom="31" left="605" width="105" />
+				<mx:LinkBar y="58" dataProvider="{parentDocument.linkDetails}"
+					styleName="footerLinkBar" x="16" height="20" />
+				<mx:Text text="{resourceManager.getString('Login', 'copy_right')}"
+					styleName="copyRight" right="5" y="58" />
+			</mx:Canvas>
+		</mx:VBox>
+	</mx:VBox>
+</mx:VBox>

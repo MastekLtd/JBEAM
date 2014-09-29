@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:view="com.majescomastek.jbeam.view.components.shell.*"
+	layout="absolute" width="100%" height="100%">
+	<mx:Script>
+		<![CDATA[
+			import mx.resources.ResourceBundle;
+		]]>
+	</mx:Script>
+	
+	<mx:Style source="assets/css/bpmscsr.css" />
+	<mx:Style source="assets/css/bpmsui.css" />
+	<mx:Style source="assets/css/bpmsStyles.css" />
+
+	<!--
+	Ideally shouldn't have a separate properties file for this module since then translating
+	becomes quite a task. Make sure all locale sensitive text is placed in a single file
+	e.g. jbeam.properties.
+	--> 
+	<mx:Metadata>
+		[ResourceBundle("ServerConfiguration")]
+		[ResourceBundle("jbeam")]
+		[ResourceBundle("Login")]
+		[ResourceBundle("Image")]
+		[ResourceBundle("StartBatchProperties")]
+		[ResourceBundle("InstallationProperties")]
+		[ResourceBundle("SearchBatch")]
+		[ResourceBundle("BatchProperties")]
+		[ResourceBundle("SharedResources")]
+	</mx:Metadata>
+	
+	<view:Shell width="100%" height="100%" />
+
+</mx:WindowedApplication>

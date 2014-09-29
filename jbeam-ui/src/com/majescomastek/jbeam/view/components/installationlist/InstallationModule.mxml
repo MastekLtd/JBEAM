@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+		   implements="com.majescomastek.jbeam.view.IModule" width="100%" height="100%"
+		   creationComplete="onCreationComplete(event)"
+		   xmlns:installationlist="com.majescomastek.jbeam.view.components.installationlist.*">
+	
+	<mx:Script source="../../scripts/installationlist/InstallationModuleScript.as" />
+	
+	<mx:DateFormatter id="formatDateTimeUSD"
+					  formatString="{resourceManager.getString('jbeam','date_format')}" />
+	
+	<mx:VBox width="100%" height="100%" styleName="innerCanvas"
+			 paddingLeft="10" paddingTop="10" paddingRight="10" paddingBottom="10">
+		<!--<mx:HBox height="5%" width="100%">			
+			<mx:Label id="lblInstallationsListView" text="List View"
+						   height="5%" styleName="pageLabelLeft" fontSize="15" />
+		</mx:HBox>-->
+		<mx:Panel title="Installations" width="100%" height="100%"
+				  styleName="styleA">
+			<mx:DataGrid id="dgInstallations" width="100%" height="100%" >
+				<mx:columns>
+					<mx:DataGridColumn width="20"
+									   headerText="{resourceManager.getString('jbeam','installation_code')}"
+									   dataField="installationCode" sortable="true" textAlign="center" wordWrap="true" />
+					<mx:DataGridColumn width="10"
+									   headerText="{resourceManager.getString('jbeam','batch_no')}"
+									   dataField="batchNo" sortable="true" textAlign="right" wordWrap="true"
+									   headerWordWrap="true" />
+					<mx:DataGridColumn width="10"
+									   headerText="{resourceManager.getString('jbeam','batch_rev_no')}"
+									   dataField="batchRevNo" sortable="true" textAlign="right"
+									   headerWordWrap="true" />					
+					<mx:DataGridColumn width="25"
+									   headerText="{resourceManager.getString('jbeam','batch_start_date')}"
+									   dataField="batchStartTime" sortable="true" textAlign="center"
+									   itemRenderer="com.majescomastek.jbeam.view.components.installationlist.DatagridUSDDateComponent"
+									   headerWordWrap="true" />
+					<mx:DataGridColumn width="25"
+									   headerText="{resourceManager.getString('jbeam','batch_end_date')}"
+									   dataField="batchEndTime" sortable="true" textAlign="center"
+									   itemRenderer="com.majescomastek.jbeam.view.components.installationlist.DatagridUSDDateComponent"
+									   headerWordWrap="true" />								
+					<mx:DataGridColumn width="17"
+									   headerText="{resourceManager.getString('jbeam','listener_obj_executed')}"
+									   dataField="totalObjects" sortable="true" textAlign="right"
+									   headerWordWrap="true" />
+					<mx:DataGridColumn width="17" 
+									   headerText="{resourceManager.getString('jbeam','listener_obj_failed')}"
+									   dataField="totalFailedObjects"
+									   itemRenderer="com.majescomastek.jbeam.view.components.installationlist.FailedObjectLinkComponent"
+									   headerWordWrap="true"/>
+					<mx:DataGridColumn width="60"
+									   headerText="{resourceManager.getString('jbeam','batch_progress')}"
+									   dataField="progressLevelDataList" 
+									   itemRenderer="com.majescomastek.jbeam.view.components.installationlist.BatchProgressBarComponent"
+									   headerWordWrap="true"/>								
+					<mx:DataGridColumn width="15" 
+									   headerText=""  textAlign="left"
+									   itemRenderer="com.majescomastek.jbeam.view.components.installationlist.BatchDetailsLinkComponent" />								
+				</mx:columns>
+			</mx:DataGrid>
+		</mx:Panel>
+		<mx:HBox height="5%" width="100%">			
+			<mx:LinkButton id="btnToggle" label="Pods View"
+						   height="5%" styleName="normalLink" fontSize="15" click="onSwitchToPortletViewClick(event)" />
+		</mx:HBox>
+	</mx:VBox>
+</mx:Module>

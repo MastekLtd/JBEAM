@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" textAlign="center" width="100%">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.common.CommonConstants;
+			import com.majescomastek.jbeam.model.vo.Entity;
+			import com.majescomastek.jbeam.model.vo.ProgressLevelData;
+			
+			import mx.collections.ArrayCollection;
+			import mx.core.Window;
+			
+			
+			[Bindable]
+			/** The variable holding the visible state of the batchProgressBar */
+			private var batchProgressBarVisible:Boolean;
+			
+			private var progressBarLength:uint= 10;
+			
+			[Bindable]
+			/** The dataprovider for the entity list */
+			private var entityDataProvider:ArrayCollection;
+			
+			override public function set data(value:Object):void
+			{
+				if(value != null)
+				{
+					super.data = value;
+					if(data != null && data.progressLevelDataList != null)
+					{
+						batchProgressBarVisible = true;
+						populateEntityDataProvider(data.entityList);
+						populateBatchProgressBar(data.progressLevelDataList);
+					}
+					else
+					{
+						batchProgressBarVisible = false;
+					}					
+				}
+			}
+			
+			/**
+			 * To display the progress bar. 
+			 */
+			public function populateBatchProgressBar(progressLevelDataList:ArrayCollection):void
+			{
+				//Entity list lenght + 2 for Init and closure
+				if(entityDataProvider == null && progressLevelDataList == null) return;
+				
+				progressBarLength = entityDataProvider.length + 2;
+				
+				if(progressLevelDataList != null && progressLevelDataList.length > 0)
+				{
+					for(var i:int = 0; i < progressLevelDataList.length; i++)
+					{	
+						var progressLevelData:ProgressLevelData = progressLevelDataList[i];
+						var nextProgressLevelDataValue:ProgressLevelData = new ProgressLevelData();
+						
+						//Condition to display the batch current status.	
+						if(i == 0 && progressLevelData != null) 
+						{	
+							for(var ent:int = 0; ent < entityDataProvider.length; ent++)
+							{
+								if(progressLevelData.prgLevelType == null)
+								{
+									if(progressLevelData.prgActivityType == CommonConstants.INITIALIZATON)
+									{
+										this.instProgressBar.label = CommonConstants.INITIALIZATON;
+										this.instProgressBar.setProgress(1, entityDataProvider.length+2);
+									}
+									else if(progressLevelData.prgActivityType == CommonConstants.STOPPED)
+									{
+										for(var k:int = 0; k < entityDataProvider.length; k++)
+										{
+											if(progressLevelDataList[i + 1] != null)
+											{
+												nextProgressLevelDataValue = progressLevelDataList[i + 1];
+												
+												if(entityDataProvider[k].label == nextProgressLevelDataValue.prgLevelType)
+												{
+													this.instProgressBar.label = entityDataProvider[k].label + " - " + CommonConstants.STOPPED;
+													this.instProgressBar.setProgress(k + 1 , entityDataProvider.length+2);
+													break;
+												}
+											}									
+										}								
+									}
+									else if(progressLevelData.prgActivityType == CommonConstants.CLOSURE)
+									{
+										this.instProgressBar.label = CommonConstants.CLOSURE;
+										this.instProgressBar.setProgress(entityDataProvider.length+2, entityDataProvider.length+2);
+									}
+									break;
+								}
+								else 
+								{
+									if(entityDataProvider[ent].label == progressLevelData.prgLevelType)
+									{
+										this.instProgressBar.label = entityDataProvider[ent].label;
+										this.instProgressBar.setProgress((ent+1), entityDataProvider.length+2);
+										break;
+									}
+								}
+							}
+						}
+					}
+					batchProgressBarVisible = true;
+				} 
+				else
+				{
+					batchProgressBarVisible = false;
+				}
+			}
+			
+			/**
+			 * To populate the entity combo box 
+			 */
+			public function populateEntityDataProvider(batchEntityList:ArrayCollection):void
+			{
+				if (batchEntityList == null ) return;
+				entityDataProvider = new ArrayCollection();
+				entityDataProvider.addItem({label:"-SELECT-", data:0});
+				if(batchEntityList != null)
+				{
+					for(var i:int =0 ; i < batchEntityList.length; i++)
+					{
+						var entityData:Entity = batchEntityList[i];
+						entityDataProvider.addItem({label:entityData.entityName, data:(i+1)});				
+					}			
+				}
+			}
+		]]>
+	</mx:Script>
+	<mx:ProgressBar id="instProgressBar" labelPlacement="center"
+					minimum="1" maximum="{2}"  
+					barColor="haloBlue" fontSize="12"
+					trackColors="[white, haloSilver]" direction="right" 
+					mode="manual" width="250"
+					trackHeight="14"  height="15" visible="{batchProgressBarVisible}"/>
+</mx:HBox>

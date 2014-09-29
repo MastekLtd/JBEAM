@@ -1,0 +1,2165 @@
+/*Billing UI - Start*/
+/* Generic styles */
+@namespace mx "library://ns.adobe.com/flex/mx";
+mx|Application {
+	backgroundColor: #bbbbbb;
+   	backgroundGradientColors: #bbbbbb, #333333;
+   	backgroundGradientAlphas: 0.66, 1;
+   	themeColor: #00ADEF;
+   	font-family: Arial;
+   	font-size: 11;
+}
+.outerBox
+{
+	background-color: #F1F1F1;
+	borderStyle: solid;
+	borderColor: #F1F1F1;
+	horizontalAlign: center; 
+	verticalAlign: middle;  
+	paddingBottom:5;
+	paddingTop:5;
+	padding-left: 5;
+	padding-right: 5;
+	vertical-gap: 5;
+}
+mx|VBox.outerBoxA
+{
+	background-color: #F1F1F1;
+	borderStyle: solid;
+	borderColor: #CCCCCC;
+	paddingBottom:5;
+	paddingTop:5;
+	padding-left: 5;
+	padding-right: 5;
+	vertical-gap: 5;
+	borderThickness: 3;
+	cornerRadius: 6;
+}
+mx|Button.hide
+{
+	disabledSkin: Embed(source="assets/images/hideshow/hidemenu_disabled.png");
+	downSkin: Embed(source="assets/images/hideshow/hidemenu_selected.png");
+	overSkin: Embed(source="assets/images/hideshow/hidemenu_rollover.png");
+	upSkin: Embed(source="assets/images/hideshow/hidemenu_up.png");
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingTop: 0;
+	paddingBottom: 0;
+}
+mx|Button.show
+{
+	disabledSkin: Embed(source="assets/images/hideshow/showmenu_disabled.png");
+	downSkin: Embed(source="assets/images/hideshow/showmenu_selected.png");
+	overSkin: Embed(source="assets/images/hideshow/showmenu_up.png");
+	upSkin: Embed(source="assets/images/hideshow/showmenu_rollover.png");
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingTop: 0;
+	paddingBottom: 0;
+}
+.homeHeading
+{
+	font-weight:bold;
+	font-size: 18;
+	font-style:italic;
+	color: #000000;
+	fontFamily: Arial;
+	leading :0;
+}
+
+.homeHeading1
+{
+	color: #000000;
+	font-size: 13;
+	font-weight: bold;
+	fontFamily: Arial;
+	leading :0;
+}
+
+.homeHeading2
+{
+	color: #000000;
+	font-size: 13;
+	font-weight: normal;
+	fontFamily: Arial;
+	leading :0;
+	
+}
+.innerHbox
+{
+	background-color: #FFFFFF;
+}
+.innerCanvas
+{
+	background-color: #FFFFFF;
+}
+.innerHeadContent
+{
+	background-color: #CDCDCD;
+}
+.innerVbox
+{
+	background-color: #FFFFFF;
+}
+.verticalStripShow{
+	background-color: #666666;
+}
+.verticalStripHide{
+	background-color: #cb3d2b;
+}
+.outerPlainVbox
+{
+	horizontal-gap: 5;
+	vertical-gap: 5;
+}
+.outerPlainHbox
+{
+	horizontal-gap: 5;
+}
+.horizotalBox
+{
+	horizontal-gap: 0;
+}
+.customPanelControlBarB
+{
+	gradientType: "linear";
+	fillColors: #FCCF4D, #F8E5BF;
+	fillAlphas:  1,1;
+	gradientRatio: 0,255;
+	angle: 90;
+	offsetX: 0;
+	offsetY: 0;
+	cornerRadius: 0;
+	spreadMethod: "pad";
+	interpolationMethod: "rgb";
+	focalPointRatio: 0;
+	titleStyleName: panelTitleA;
+	
+}
+
+
+.diaryPanel
+{
+	background-color: #FDF5BD;
+	padding-bottom: 5;
+	padding-right: 5;
+	padding-left: 5;
+	padding-top: 5;
+}
+.customPanelHeader
+{
+	gradientType: "linear";
+	fillColors: #E6E6E6, #F5f5f5;
+	fillAlphas:  1,1;
+	gradientRatio: 0,255;
+	angle: 90;
+	offsetX: 0;
+	offsetY: 0;
+	cornerRadius: 0;
+	spreadMethod: "pad";
+	interpolationMethod: "rgb";
+	focalPointRatio: 0;
+	titleStyleName: panelTitleA;
+	
+}
+mx|Form
+{
+	indicatorGap: 0;
+
+	paddingBottom: 0;
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingTop: 0;
+	verticalGap: 0;
+	horizontalGap: 0;
+}
+mx|FormItemLabel
+{
+	textAlign: right;
+	paddingLeft: 5;
+	paddingRight: 0;
+	paddingTop: 0;
+	paddingBottom: 0;
+}
+mx|FormItem
+{
+	textAlign: left;
+	color: #333333;
+}
+mx|TabBar.tabBar {
+	/*corner-radius: 0;
+   	background-alpha: 1;
+   	background-color: #DDDDDD;
+   	border-color: #666666;
+   	drop-shadow-enabled: false;
+	border-style: solid;
+	border-thickness: 1;*/
+	tabHeight: 22;
+	horizontalGap: 1;
+	paddingBottom: 5;
+	paddingLeft: 5;
+	paddingRight: 5;
+	paddingTop: 5;
+	tabStyleName: tabs;
+	selectedTabTextStyleName: selectedTab;
+}
+.tabs {
+	cornerRadius: 8;
+   	fillAlphas: 1, 1;
+   	fillColors: #DD0000, #990000;
+  	backgroundAlpha: 1;
+   	backgroundColor: #dddddd;
+   	borderColor: #666666;
+   	color: #EEEEEE;
+   	textRollOverColor: #000000;
+   	themeColor: #990000;
+   	fontFamily: Arial;
+   	fontSize: 11;
+   	fontWeight: bold;
+	paddingLeft: 8;
+	paddingRight: 8;
+	textSelectedColor: #000000;
+	leading: 2;
+}
+.selectedTab {
+    color: #000000;
+   textRollOverColor: #990000;
+   fontFamily: Arial;
+   fontWeight: bold;
+}
+.messageBox
+{
+	backgroundColor: #FDF5D7;  
+	borderColor: #CCCCCC;
+	borderStyle: solid;
+	cornerRadius: 4;
+	borderThickness: 2;
+	paddingLeft: 5;
+	paddingRight: 5;
+	paddingTop: 2;
+	paddingBottom: 2;
+
+}
+.messageText
+{
+	color: #D80000;
+	backgroundColor: #FDF5D7;  
+	fontWeight: bold;
+	fontSize: 11;
+}
+mx|ToggleButtonBar.hbuttonBar
+{
+	button-style-name:buttonBarButton;
+	horizontalGap: 1;
+}
+mx|ButtonBar.vbuttonBar
+{
+	button-style-name:buttonBarButton;
+	horizontalGap: 1;
+	verticalGap: 1;
+}
+.buttonBarButton
+{
+	cornerRadius: 6;
+	fillAlphas: 0.7, 1.0, 0.9, 1.0;
+	fillColors: #FFFFFF, #B0AFAF, #FFCB05, #FFCB05;
+	textAlign: left;
+	textRollOverColor: #AE0000;
+	textSelectedColor: #990000;
+	color: #333333;
+	letter-spacing:0;
+	themeColor: #FFCB05;
+	borderColor: #DDDDDD;
+	horizontalGap: 4;
+	fontWeight: normal;
+	font-size: 11;
+	upIcon: Embed(source="assets/images/buttondeco/button_deco_black.png");
+	overIcon: Embed(source="assets/images/buttondeco/button_deco_red.png");
+	downIcon: Embed(source="assets/images/buttondeco/button_deco_darkRed.png");
+	disabledIcon: Embed(source="assets/images/buttondeco/button_deco_grey.png");
+	selectedUpIcon: Embed(source="assets/images/buttondeco/button_deco_red.png");
+	selectedOverIcon: Embed(source="assets/images/buttondeco/button_deco_darkRed.png");
+	selectedDownIcon: Embed(source="assets/images/buttondeco/button_deco_black.png");
+	selectedDisabledIcon: Embed(source="assets/images/buttondeco/button_deco_grey.png");
+}
+mx|Accordion {
+   headerHeight: 22;
+   fillColors: #990000, #e61010, #ffffff, #eeeeee;
+   headerStyleName: "myaccordionHeader";
+	color: #EEEEEE;
+	textRollOverColor: #AE0000;
+	textSelectedColor: #990000;
+	borderStyle: solid;
+	borderColor: #B3B3B3;
+	borderThickness: 3;
+	backgroundColor: #333333;
+	disabledColor: #999999;
+}
+.paddinQuickBar
+{
+	paddingLeft: 2;
+	paddingRight: 2;
+	paddingBottom: 5;
+	paddingTop: 2;
+	verticalGap: 2;
+} 
+.myaccordionHeader {
+   letterSpacing: 0;
+   color: #EEEEEE;
+   fontFamily: Arial;
+   fontSize: 11;
+   fontWeight: bold;
+	fillAlphas: 1.0, 1.0, 0.9, 1.0;
+   	fillColors: #DD0000, #990000, #FFCB05, #FFCB05 ;
+	textRollOverColor: #000000;
+	textSelectedColor: #330000;
+	paddingLeft: 5;
+	paddingRight: 5;
+	themeColor: #FFCB05;
+	borderColor: #BBBBBB;
+}
+mx|Panel.styleA
+{
+	borderSkin: Embed(source='assets/images/panel/panelStyleA.swf', symbol='Panel_styleTypeA_borderSkin');
+	titleStyleName: panelTitleA;
+	headerHeight: 32;
+	statusStyleName: panelStatus;
+	paddingTop: 30;
+	paddingRight: 8;
+	paddingBottom: 8;
+	paddingLeft: 8;
+	verticalGap: 0;
+	controlBarStyleName: panelControlBar;
+}
+mx|Panel.styleAControlbar
+{
+	borderSkin: Embed(source='assets/images/panel/panelStyleA.swf', symbol='Panel_styleTypeA_borderSkin');
+	titleStyleName: panelTitleA;
+	headerHeight: 32;
+	statusStyleName: panelStatus;
+	paddingTop: 30;
+	paddingRight: 8;
+	paddingBottom: 35;
+	paddingLeft: 8;
+	verticalGap: 2;
+	controlBarStyleName: panelControlBar;
+}
+mx|Panel.styleB
+{
+	borderSkin: Embed(source='assets/images/panel/panelStyleB.swf', symbol='Panel_styleTypeB_borderSkin');
+	titleStyleName: panelTitleB;
+	headerHeight: 32;
+	statusStyleName: panelStatus;
+	paddingTop: 30;
+	paddingRight: 12;
+	paddingBottom: 12;
+	paddingLeft: 12;
+	verticalGap: 2;
+	controlBarStyleName: panelControlBar;
+}
+mx|Panel.styleBControlbar
+{
+	borderSkin: Embed(source='assets/images/panel/panelStyleB.swf', symbol='Panel_styleTypeB_borderSkin');
+	titleStyleName: panelTitleB;
+	headerHeight: 32;
+	statusStyleName: panelStatus;
+	paddingTop: 30;
+	paddingRight: 12;
+	paddingBottom: 40;
+	paddingLeft: 12;
+	verticalGap: 2;
+	controlBarStyleName: panelControlBarB;
+}
+mx|Panel.styleC
+{
+	borderSkin: Embed(source='assets/images/panel/panelStyleC.swf', symbol='Panel_styleTypeC_borderSkin');
+	titleStyleName: panelTitleA;
+	headerHeight: 32;
+	statusStyleName: panelStatus;
+	paddingTop: 30;
+	paddingRight: 8;
+	paddingBottom: 12;
+	paddingLeft: 8;
+
+}
+
+mx|Panel.styleD
+{
+	borderSkin: Embed(source='assets/images/panel/panelStyleD.swf', symbol='Panel_styleTypeD_borderSkin');
+	titleStyleName: panelTitleD;
+	statusStyleName: panelStatus;
+	paddingTop: 35;
+	paddingRight: 10;
+	paddingBottom: 40;
+	paddingLeft: 10;
+	color: #000000;
+	headerHeight: 30;
+	controlBarStyleName: panelControlBarD;
+	verticalGap: 2;
+}
+.panelTitle
+{
+	fontWeight: bold;
+	fontSize: 12;
+	color: #666666;
+}
+.panelTitleA
+{
+	fontWeight: bold;
+	fontSize: 12;
+	color: #444444;
+	textIndent: 13;
+}
+.panelTitleB
+{
+	fontWeight: bold;
+	fontSize: 12;
+	color: #000000;
+	textIndent: 13;
+}
+.panelTitleD
+{
+	fontWeight: bold;
+	color: #EEEEEE;
+	font-size: 11;
+}
+.panelStatus
+{
+	color: #666666;
+	textRollOverColor: #B70D0D;
+	textSelectedColor: #000000;
+	fontFamily: Arial;
+	fontSize: 10;
+}
+.panelControlBarD
+{
+	paddingTop: 5;
+	paddingRight: 10;
+	paddingBottom: 10;
+	paddingLeft: 10;
+}
+.panelControlBar
+{
+	paddingLeft: 6;
+	paddingRight: 6;
+	paddingTop: 2;
+	paddingBottom: 6;
+	color: #003333;
+	horizontalGap: 0;
+	horizontalAlign: center;
+}
+.panelControlBarB
+{
+	paddingLeft: 12;
+	paddingRight: 12;
+	paddingTop: 2;
+	paddingBottom: 12;
+	color: #003333;
+	horizontalGap: 0;
+	horizontalAlign: center;
+}
+mx|TitleWindow.popupWindowBox
+{
+	borderSkin: Embed(source='assets/images/panel/titleWindowStyleA.swf', symbol='TitleWindow_styleTypeA_borderSkin');
+	paddingTop: 45;
+	paddingRight: 10;
+	paddingBottom: 10;
+	paddingLeft: 10;
+	color: #000000;
+	headerHeight: 35;
+	verticalGap: 2;
+	titleStyleName: titleWindowTitle;
+	statusStyleName: titleWindowStatus;
+	modalTransparencyBlur: 2;
+    modalTransparency: 0.6;
+    modalTransparencyColor: #000000;
+    modalTransparencyDuration: 200;
+	closeButtonUpSkin: Embed(source='assets/images/panel/titleWindowStyleA.swf', symbol='TitleWindow_styleTypeA_closeButtonUpSkin');
+	closeButtonOverSkin: Embed(source='assets/images/panel/titleWindowStyleA.swf', symbol='TitleWindow_styleTypeA_closeButtonOverSkin');
+	closeButtonDownSkin: Embed(source='assets/images/panel/titleWindowStyleA.swf', symbol='TitleWindow_styleTypeA_closeButtonDownSkin');
+	closeButtonDisabledSkin: Embed(source='assets/images/panel/titleWindowStyleA.swf', symbol='TitleWindow_styleTypeA_closeButtonDisabledSkin');
+}
+mx|TextArea.insideContent
+{
+	borderStyle: none;
+	fontSize: 11;
+	color: #333333;
+
+}
+mx|Button
+{
+	borderColor: #CCCCCC;
+	cornerRadius: 6;
+	fillAlphas: 0.7, 1.0, 0.9, 1.0;
+	fillColors: #FFFFFF, #B0AFAF, #FFCB05, #FFCB05;
+	themeColor: #FFCB05;
+	textRollOverColor: #AE0000;
+	textSelectedColor: #900000;
+	disabledColor: #999999;
+	leading: 0;
+	paddingTop: 0;
+	paddingBottom: 0;
+
+}
+mx|TitleWindow
+{
+	borderAlpha: 0.8;
+	borderThicknessLeft: 5;
+	borderThicknessTop: 0;
+	borderThicknessBottom: 5;
+	borderThicknessRight: 5;
+	roundedBottomCorners: true;
+	dropShadowEnabled: true;
+	shadowDirection: center;
+	modalTransparencyBlur: 2;
+    modalTransparency: 0.6;
+    modalTransparencyColor: #000000;
+    modalTransparencyDuration: 200;
+	titleStyleName: titleWindowTitle;
+	statusStyleName: titleWindowStatus;
+	closeButtonUpSkin: Embed(source='assets/images/panel/titleWindowStyleA.swf', symbol='TitleWindow_styleTypeA_closeButtonUpSkin');
+	closeButtonOverSkin: Embed(source='assets/images/panel/titleWindowStyleA.swf', symbol='TitleWindow_styleTypeA_closeButtonOverSkin');
+	closeButtonDownSkin: Embed(source='assets/images/panel/titleWindowStyleA.swf', symbol='TitleWindow_styleTypeA_closeButtonDownSkin');
+	closeButtonDisabledSkin: Embed(source='assets/images/panel/titleWindowStyleA.swf', symbol='TitleWindow_styleTypeA_closeButtonDisabledSkin');
+	backgroundSize: "100%";
+	backgroundAlpha: 0.9;
+	backgroundImage: Embed(source='assets/images/panel/box.swf', symbol='box');
+ 	borderColor: #000000; 
+	backgroundColor: #000000; 
+	headerHeight: 30;
+	controlBarStyleName: titleWindowControlBar;
+	paddingTop: 8;
+	paddingRight: 8;
+	paddingLeft: 8;
+	color: #000000;
+	paddingBottom: 8;
+}
+.titleWindowStatus
+{
+	color: #eeeeee;
+	textRollOverColor: #B70D0D;
+	textSelectedColor: #000000;
+	fontFamily: Arial;
+	fontSize: 10;
+}
+.titleWindowTitle
+{
+   letterSpacing: 0;
+   color: #eeeeee;
+   fontFamily: Arial;
+   fontSize: 12;
+   fontWeight: bold;
+} 
+.titleWindowControlBar
+{
+	color: #000000;
+	backgroundSize: "100%";
+}
+
+
+.boxStyle
+{
+	borderSkin: Embed(source='assets/images/panel/panelStyleA.swf', symbol='Panel_styleTypeA_borderSkin');
+	titleStyleName: panelTitleA;
+	headerHeight: 32;
+	paddingTop: 40;
+	paddingRight: 8;
+	paddingBottom: 8;
+	paddingLeft: 8;
+	verticalGap: 2;
+}
+
+.boxStyleRounded
+{
+	borderSkin: Embed(source='assets/images/panel/box.swf', symbol='box');
+	titleStyleName: panelTitleA;
+	headerHeight: 0;
+	paddingTop: 8;
+	paddingRight: 8;
+	paddingBottom: 8;
+	paddingLeft: 8;
+	verticalGap: 2;
+	border-thickness: 2;
+}
+.boxStyleRoundedA
+{
+	borderSkin: Embed(source='assets/images/panel/box.swf', symbol='box');
+	titleStyleName: panelTitleA;
+	background-color: #F1F1F1;
+	headerHeight: 0;
+	paddingTop: 8;
+	paddingRight: 8;
+	paddingBottom: 8;
+	paddingLeft: 8;
+	verticalGap: 2;
+	border-thickness: 2;
+}
+.panelTitleA
+{
+	fontWeight: bold;
+	fontSize: 12;
+	color: #444444;
+	textIndent: 13;
+}
+mx|Alert {
+	modalTransparencyBlur: 2;
+    modalTransparency: 0.6;
+    modalTransparencyColor: #000000;
+    modalTransparencyDuration: 200;
+    background-color:#EEEEEE;
+	color:#000000;
+	borderColor: #900000;
+	borderStyle: solid;
+	roundedBottomCorners: true;
+	borderThickness: 8;
+	titleStyleName: alertTitle;
+}
+.alertTitle
+{
+	fontWeight: bold;
+	fontSize: 12;
+}
+
+mx|Button.plusMinus
+{
+	upIcon: Embed(source="assets/images/minus_plus/plus_up.png");
+	overIcon: Embed(source="assets/images/minus_plus/plus_over.png");
+	downIcon: Embed(source="assets/images/minus_plus/plus_down.png");
+	disabledIcon: Embed(source="assets/images/minus_plus/plus_disabled.png");
+	selectedUpIcon: Embed(source="assets/images/minus_plus/minus_up.png");
+	selectedOverIcon: Embed(source="assets/images/minus_plus/minus_over.png");
+	selectedDownIcon: Embed(source="assets/images/minus_plus/minus_down.png");
+	selectedDisabledIcon: Embed(source="assets/images/minus_plus/minus_disabled.png");	
+	upSkin: Embed(source="assets/images/spacer.png");
+	overSkin: Embed(source="assets/images/spacer.png");
+	downSkin: Embed(source="assets/images/spacer.png");
+	disabledSkin: Embed(source="assets/images/spacer.png");
+	selectedUpSkin: Embed(source="assets/images/spacer.png");
+	selectedOverSkin: Embed(source="assets/images/spacer.png");
+	selectedDownSkin: Embed(source="assets/images/spacer.png");
+	selectedDisabledSkin: Embed(source="assets/images/spacer.png");
+	fontWeight: normal;
+	paddingLeft: 0;
+	paddingRight: 0;
+	fontSize: 11;
+}
+mx|Button.rolloverWindow
+{
+	upIcon: Embed(source="assets/images/rollover/rollover_up.png");
+	overIcon: Embed(source="assets/images/rollover/rollover_over.png");
+	downIcon: Embed(source="assets/images/rollover/rollover_down.png");
+	disabledIcon: Embed(source="assets/images/rollover/rollover_disabled.png");
+	selectedUpIcon: Embed(source="assets/images/rollover/rollover_over.png");
+	selectedOverIcon: Embed(source="assets/images/rollover/rollover_up.png");
+	selectedDownIcon: Embed(source="assets/images/rollover/rollover_down.png");
+	selectedDisabledIcon: Embed(source="assets/images/rollover/rollover_disabled.png");
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingTop: 0;
+	paddingBottom: 0;
+	upSkin: Embed(source="assets/images/spacer.png");
+	overSkin: Embed(source="assets/images/spacer.png");
+	downSkin: Embed(source="assets/images/spacer.png");
+	disabledSkin: Embed(source="assets/images/spacer.png");
+	selectedUpSkin: Embed(source="assets/images/spacer.png");
+	selectedOverSkin: Embed(source="assets/images/spacer.png");
+	selectedDownSkin: Embed(source="assets/images/spacer.png");
+	selectedDisabledSkin: Embed(source="assets/images/spacer.png");
+	color: #3C6699;
+	fontSize: 11;
+	fontWeight: normal;
+}
+mx|Button.roverPosAmtWindow
+{
+	upIcon: Embed(source="assets/images/rollover/rollover_up.png");
+	overIcon: Embed(source="assets/images/rollover/rollover_over.png");
+	downIcon: Embed(source="assets/images/rollover/rollover_down.png");
+	disabledIcon: Embed(source="assets/images/rollover/rollover_disabled.png");
+	selectedUpIcon: Embed(source="assets/images/rollover/rollover_over.png");
+	selectedOverIcon: Embed(source="assets/images/rollover/rollover_up.png");
+	selectedDownIcon: Embed(source="assets/images/rollover/rollover_down.png");
+	selectedDisabledIcon: Embed(source="assets/images/rollover/rollover_disabled.png");
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingTop: -2;
+	paddingBottom: 0;
+	text-align: right;
+	upSkin: Embed(source="assets/images/spacer.png");
+	overSkin: Embed(source="assets/images/spacer.png");
+	downSkin: Embed(source="assets/images/spacer.png");
+	disabledSkin: Embed(source="assets/images/spacer.png");
+	selectedUpSkin: Embed(source="assets/images/spacer.png");
+	selectedOverSkin: Embed(source="assets/images/spacer.png");
+	selectedDownSkin: Embed(source="assets/images/spacer.png");
+	selectedDisabledSkin: Embed(source="assets/images/spacer.png");
+	color: #3C6699;
+	fontSize: 11;
+	fontWeight: normal;
+}
+mx|Button.roverNegAmtWindow
+{
+	upIcon: Embed(source="assets/images/rollover/rollover_up.png");
+	overIcon: Embed(source="assets/images/rollover/rollover_over.png");
+	downIcon: Embed(source="assets/images/rollover/rollover_down.png");
+	disabledIcon: Embed(source="assets/images/rollover/rollover_disabled.png");
+	selectedUpIcon: Embed(source="assets/images/rollover/rollover_over.png");
+	selectedOverIcon: Embed(source="assets/images/rollover/rollover_up.png");
+	selectedDownIcon: Embed(source="assets/images/rollover/rollover_down.png");
+	selectedDisabledIcon: Embed(source="assets/images/rollover/rollover_disabled.png");
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingTop: -2;
+	paddingBottom: 0;
+	text-align: right;
+	upSkin: Embed(source="assets/images/spacer.png");
+	overSkin: Embed(source="assets/images/spacer.png");
+	downSkin: Embed(source="assets/images/spacer.png");
+	disabledSkin: Embed(source="assets/images/spacer.png");
+	selectedUpSkin: Embed(source="assets/images/spacer.png");
+	selectedOverSkin: Embed(source="assets/images/spacer.png");
+	selectedDownSkin: Embed(source="assets/images/spacer.png");
+	selectedDisabledSkin: Embed(source="assets/images/spacer.png");
+	color: #CC0000;
+	fontSize: 11;
+	fontWeight: normal;
+}
+mx|Button.zeroAmt
+{
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingTop: -2;
+	paddingBottom: 0;
+	text-align: right;
+	upSkin: Embed(source="assets/images/spacer.png");
+	overSkin: Embed(source="assets/images/spacer.png");
+	downSkin: Embed(source="assets/images/spacer.png");
+	disabledSkin: Embed(source="assets/images/spacer.png");
+	selectedUpSkin: Embed(source="assets/images/spacer.png");
+	selectedOverSkin: Embed(source="assets/images/spacer.png");
+	selectedDownSkin: Embed(source="assets/images/spacer.png");
+	selectedDisabledSkin: Embed(source="assets/images/spacer.png");
+	color: #000000;
+	text-roll-over-color: #000000;
+	fontSize: 11;
+	fontWeight: normal;
+}
+mx|ViewStack.tabSection{
+	background-color: #F1F1F1;
+	borderStyle: solid;
+	borderColor: #F1F1F1;
+	horizontalAlign: center; 
+	verticalAlign: middle;  
+	paddingBottom:5;
+	paddingTop:5;
+}
+mx|Button.mainButton
+{
+	color: #FFFFFF;
+	fillAlphas: 0.9, 1.0, 0.9, 1.0;
+	fillColors: #AE0000, #AE0000, #FFCB05, #FFCB05;
+	disabledColor: #A6A5A5;
+	font-weight:bold;
+	fontSize: 11;
+	borderColor: #CCCCCC;
+	cornerRadius: 6;
+	letter-spacing: 0;
+	leading: 0;
+	themeColor: #FFCB05;
+	textRollOverColor: #AE0000;
+	textSelectedColor: #900000;
+	disabledColor: #999999;
+	padding-bottom:0;
+	padding-top: 0;
+	fontFamily: Arial;
+}
+
+mx|Button.subButton
+{
+	font-weight:bold;
+	fontSize: 11;
+	borderColor: #CCCCCC;
+	cornerRadius: 6;
+	letter-spacing: 0;
+	leading: 0;
+	fillAlphas: 0.7, 1.0, 0.9, 1.0;
+	fillColors: #FFFFFF, #B0AFAF, #FFCB05, #FFCB05;
+	themeColor: #FFCB05;
+	textRollOverColor: #AE0000;
+	textSelectedColor: #900000;
+	disabledColor: #999999;
+	padding-bottom:0;
+	padding-top: 0;
+	fontFamily: Arial;
+
+}
+mx|Button.popupWindow
+{
+	upIcon: Embed(source="assets/images/popup/popup_up.png");
+	overIcon: Embed(source="assets/images/popup/popup_over.png");
+	downIcon: Embed(source="assets/images/popup/popup_down.png");
+	disabledIcon: Embed(source="assets/images/popup/popup_disabled.png");
+	selectedUpIcon: Embed(source="assets/images/popup/popup_over.png");
+	selectedOverIcon: Embed(source="assets/images/popup/popup_down.png");
+	selectedDownIcon: Embed(source="assets/images/popup/popup_up.png");
+	selectedDisabledIcon: Embed(source="assets/images/popup/popup_disabled.png");
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingTop: 0;
+	paddingBottom: 0;
+	font-size: 11;
+	font-family:Arial;
+	textRollOverColor: #B40000;
+	textSelectedColor: #900000;
+	font-weight: bold;
+	color: #3C6699;
+	upSkin: Embed(source="assets/images/spacer.png");
+	overSkin: Embed(source="assets/images/spacer.png");
+	downSkin: Embed(source="assets/images/spacer.png");
+	disabledSkin: Embed(source="assets/images/spacer.png");
+	selectedUpSkin: Embed(source="assets/images/spacer.png");
+	selectedOverSkin: Embed(source="assets/images/spacer.png");
+	selectedDownSkin: Embed(source="assets/images/spacer.png");
+	selectedDisabledSkin: Embed(source="assets/images/spacer.png");
+	/* selectedUpIcon: Embed(source="assets/images/popup/pdf_over.png");
+	selectedOverIcon: Embed(source="assets/images/popup/pdf_down.png");
+	selectedDownIcon: Embed(source="assets/images/popup/pdf_up.png"); 
+	selectedDisabledIcon: Embed(source="assets/images/popup/pdf_disabled.png"); */
+}
+
+mx|ComboBox {
+    color: #000000;
+   	iconColor: #990000;
+   	selectionColor: #996666;
+   	textSelectedColor: #990000;
+   	rollOverColor: #FFCB05;
+   	textRollOverColor: #AE0000;
+   	alternatingItemColors: #ffffff, #eeeeee;
+   	fontFamily: Arial;
+   	fontSize: 11;
+   	dropdownStyleName: "myComboBoxDropDowns";
+	disabledColor: #999999;
+	borderColor: #CCCCCC;
+	fillAlphas: 0.7, 1.0, 0.9, 1.0;
+	fillColors: #FFFFFF, #B0AFAF, #FFCB05, #FFCB05;
+	fontWeight: normal;
+	paddingLeft: 3;
+	paddingRight: -2;
+	paddingBottom: -2;
+	paddingTop: -2;
+}
+.myComboBoxDropDowns {
+   	cornerRadius: 0;
+   	color: #333333;
+   	fontFamily: Arial;
+   	fontWeight: normal;
+   	fontStyle: normal;
+   	textDecoration: none;
+   	dropShadowEnabled: true;
+	borderColor: #BBBBBB;
+	text-align:left;
+	textRollOverColor: #AE0000;
+	textSelectedColor: #990000;
+	disabledColor: #999999;
+	rollOverColor: #F9EDB2;
+	selectionColor: #F6E17F;
+	selectionDisabledColor: #DDDDDD;
+	leading: 0;
+	paddingTop: 0;
+	paddingBottom: 0;
+	paddingLeft: 2;
+}
+mx|ComboBox.comboGrid {
+    color: #000000;
+   	iconColor: #990000;
+   	selectionColor: #996666;
+   	textSelectedColor: #990000;
+   	rollOverColor: #FFCB05;
+   	textRollOverColor: #AE0000;
+   	alternatingItemColors: #ffffff, #eeeeee;
+   	fontFamily: Arial;
+   	fontSize: 11;
+   	dropdownStyleName: "myComboBoxDropDowns";
+	disabledColor: #999999;
+	borderColor: #CCCCCC;
+	fillAlphas: 0.7, 1.0, 0.9, 1.0;
+	fillColors: #FFFFFF, #B0AFAF, #FFCB05, #FFCB05;
+	fontWeight: normal;
+	paddingLeft: 3;
+	paddingRight: -2;
+	paddingBottom: -2;
+	paddingTop: -2;
+}
+mx|RadioButton
+{
+	iconColor: #660000;
+   	disabledIconColor: #cccccc;
+   	color: #000000;
+   	textSelectedColor: #660000;
+   	textRollOverColor: #990000;
+    themeColor: #990000;  
+   	fontFamily: Arial;
+   	disabledColor: #cccccc;
+	fontSize: 11;
+ 	fillAlphas: 0.7, 1.0, 0.9, 1.0;
+	fillColors: #FFFFFF, #B0AFAF, #FFCB05, #FFCB05; 
+}
+mx|CheckBox
+{
+    iconColor: #660000; 
+   	disabledIconColor: #cccccc;
+   	color: #000000;
+    fillColors: #FFFFFF, #B0AFAF, #FFCB05, #FFCB05;
+   	fillAlphas: 0.71, 1.0, 0.9, 1.0; 
+   	textSelectedColor: #660000;
+  	textRollOverColor: #990000;
+   	themeColor: #990000; 
+   	fontFamily: Arial;
+   	disabledColor: #cccccc;
+	fontSize: 11;
+	paddingTop: 0;
+	paddingBottom: 0;
+	paddingLeft: 0;
+	paddingRight: 0;
+}  
+mx|DateChooser
+{
+   	borderThickness: 2;
+   	todayColor: #CCCCCC;
+   	rollOverColor: #f9edb2;
+   	selectionColor: #FFC600;
+   	color: #333333;
+   	borderColor: #999999;
+   	iconColor: #990000;
+   	themeColor: #f6e17f; 
+   	fontFamily: Arial;
+	headerColors: #FFFCFC, #C6C6C6;
+	cornerRadius: 6;
+	fontSize: 11;
+	disabledColor: #DDDDDD;
+	headerStyleName: dateChooserHeader;
+	horizontalGap: 8;
+	todayStyleName: dateChooserToday;
+	/*nextMonthUpSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_nextMonthUpSkin');
+	nextMonthOverSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_nextMonthOverSkin');
+	nextMonthDownSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_nextMonthDownSkin');
+	nextMonthDisabledSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_nextMonthDisabledSkin');
+	prevMonthUpSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_prevMonthUpSkin');
+	prevMonthOverSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_prevMonthOverSkin');
+	prevMonthDownSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_prevMonthDownSkin');
+	nextYearUpSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_nextYearUpSkin');
+	nextYearOverSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_nextYearOverSkin');
+	nextYearDownSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_nextYearDownSkin');
+	prevYearUpSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_prevYearUpSkin');
+	prevYearOverSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_prevYearOverSkin');
+	prevYearDownSkin: Embed(source='assets/images/date.swf', symbol='DateChooser_prevYearDownSkin'); */
+	weekDayStyleName: dateChooserWeekDay;
+}
+
+.dateChooserHeader
+{
+	color: #900000;
+	fontWeight: bold;
+	fontSize: 12;
+	paddingLeft: 25;
+}
+.dateChooserToday
+{
+	color: #DD0000;
+}
+mx|DataGrid {
+	alternatingItemColors: #FFFFFF, #EEEEEE;
+	headerColors: #EEEEEE, #CCCCCC;
+	color: #333333;
+	selectionColor: #f6e17f;
+	rollOverColor: #F9EDB2;
+	fontFamily: Arial;
+	horizontalGridLines: true;
+	verticalGridLineColor: #DDDDDD;
+	horizontalGridLineColor: #DDDDDD;
+	headerStyleName: dataGridHeader;
+	iconColor: #660000;
+	verticalAlign: middle;
+	fontSize: 11;
+	borderColor: #BBBBBB;
+	disabledColor: #999999;
+	selectionDisabledColor: #DDDDDD;
+	paddingTop: 1;
+	paddingLeft: 1;
+	paddingBottom: 1;
+	leading: 0;
+	text-align:left;
+}
+.dataGridHeader
+{
+	color: #333333;
+	fontWeight: bold;
+	textAlign: center;
+	disabledColor: #DDDDDD;
+	paddingLeft: 0;
+	paddingRight: 0;
+	textIndent: 0;
+	fontFamily: Arial;
+	fontSize: 11;
+}
+
+mx|HScrollBar {
+   fillAlphas: 0.6, 0.1, 0.75, 0.65;
+   fillColors: #ffffff, #990000, #ffffff, #eeeeee;
+   themeColor: #F6E17F;
+   iconColor: #660000;
+   thumbOffset: 0;
+}
+mx|VScrollBar {
+   fillAlphas: 0.6, 0.1, 0.75, 0.65;
+   fillColors: #ffffff, #990000, #ffffff, #eeeeee;
+   themeColor: #F6E17F;
+   iconColor: #660000;
+   thumbOffset: 0;
+}
+mx|AdvancedDataGrid
+{
+	themeColor: #EDC300;
+	headerColors: #E4E0E0, #CECECE;
+	color: #333333;
+	selectionColor: #F6E17F;
+	rollOverColor: #F9EDB2;
+	sortFontFamily: Arial;
+	fontFamily: Arial;
+	font-size: 11;
+	horizontalGridLines: true;
+	verticalGridLineColor: #DDDDDD;
+	horizontalGridLineColor: #DDDDDD;
+	headerStyleName: advancedDataGridHeader;
+	iconColor: #660000;
+}
+.advancedDataGridHeader
+{
+	color: #333333;
+	fontWeight: bold;
+	font-size: 11;
+	textAlign: center;
+}
+mx|Button.searchIconSmall
+{
+	textSelectedColor: #990000;
+	disabledColor: #999999;	
+	textRollOverColor: #AE0000;
+	color: #000000;
+	fontFamily: Arial;
+	upSkin: Embed(source="assets/images/spacer.png");
+	overSkin: Embed(source="assets/images/spacer.png");
+	downSkin: Embed(source="assets/images/spacer.png");
+	disabledSkin: Embed(source="assets/images/spacer.png");
+	selectedUpSkin: Embed(source="assets/images/spacer.png");
+	selectedOverSkin: Embed(source="assets/images/spacer.png");
+	selectedDownSkin: Embed(source="assets/images/spacer.png");
+	selectedDisabledSkin: Embed(source="assets/images/spacer.png");
+	disabledIcon: Embed(source='assets/images/search/searchIconSmall.swf', symbol='searchIconSmall_disabledSkin');
+	downIcon: Embed(source='assets/images/search/searchIconSmall.swf', symbol='searchIconSmall_downSkin');
+	overIcon: Embed(source='assets/images/search/searchIconSmall.swf', symbol='SearchIconSmall_overSkin');
+	upIcon: Embed(source='assets/images/search/searchIconSmall.swf', symbol='searchIconSmall_upSkin');
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingBottom: 0;
+	paddingTop: 0;
+	fontWeight: normal;
+	selectedUpIcon: Embed(source='assets/images/search/searchIconSmall.swf', symbol='SearchIconSmall_overSkin');
+	selectedOverIcon: Embed(source='assets/images/search/searchIconSmall.swf', symbol='searchIconSmall_downSkin');
+	selectedDownIcon: Embed(source='assets/images/search/searchIconSmall.swf', symbol='searchIconSmall_upSkin');
+	selectedDisabledIcon: Embed(source='assets/images/search/searchIconSmall.swf', symbol='searchIconSmall_disabledSkin');
+	fontSize: 11;
+}
+mx|LinkButton
+{
+	color: #3C6699;
+	cornerRadius: 4;
+	textAlign: left;
+	paddingLeft: 2;
+	paddingRight: 2;
+	padding-bottom: 0;
+	padding-top: 0;
+	fontWeight: bold;
+	font-size: 11;
+	horizontalGap: 2;
+	disabledColor: #999999;
+	textRollOverColor: #B40000;
+	textSelectedColor: #900000;
+ 	themeColor: #FFCB05; 
+ 	rollOverColor: #FFEFB4; 
+	selectionColor: #FFCB05; 
+	fontFamily: Arial;
+}
+mx|LinkButton.quickLinksControl
+{
+	color: #3C6699;
+	cornerRadius: 4;
+	textAlign: left;
+	paddingLeft: 2;
+	paddingRight: 2;
+	padding-bottom: 0;
+	padding-top: 0;
+	fontWeight: bold;
+	font-size: 11;
+	horizontalGap: 2;
+	disabledColor: #999999;
+	textRollOverColor: #B40000;
+	textSelectedColor: #900000;
+ 	themeColor: #FFCB05; 
+ 	rollOverColor: #FFEFB4; 
+	selectionColor: #FFCB05; 
+	upIcon: Embed(source="assets/images/arrows/arrow_left_blue.png");
+	overIcon: Embed(source="assets/images/arrows/arrow_left_red.png");
+	downIcon: Embed(source="assets/images/arrows/arrow_left_black.png");
+	disabledIcon: Embed(source="assets/images/arrows/arrow_left_grey.png");
+	fontFamily: Arial;
+}
+mx|LinkButton.quickLinksAccord
+{
+	color: #EEEEEE;
+	paddingLeft: 2;
+	paddingRight: 2;
+	cornerRadius: 4;
+	textAlign: left;
+	padding-bottom: 0;
+	padding-top: 0;
+	fontWeight: bold;
+	font-size: 11;
+	horizontalGap: 2;
+	textRollOverColor: #B40000;
+	textSelectedColor: #900000;
+	rollOverColor: #FFEFB4;
+	themeColor: #FFCB05;
+	selectionColor: #FFCB05;
+	upIcon: Embed(source="assets/images/arrows/arrow_left_white.png");
+	overIcon: Embed(source="assets/images/arrows/arrow_left_red.png");
+	downIcon: Embed(source="assets/images/arrows/arrow_left_black.png");
+	disabledIcon: Embed(source="assets/images/arrows/arrow_left_grey.png");
+	disabledColor: #777777;
+} 
+/*Text controllers*/
+
+mx|Text.pageLabel {
+	color: #000000;
+	font-size: 11;
+	font-weight: bold;
+	fontFamily: Arial;
+	text-align: right;
+	padding-top: -2;
+	padding-left: 0;
+	padding-bottom: -2;
+	paddingRight: 0;
+	leading: 0;
+}
+mx|Text.pageLabelLeft {
+	color: #000000;
+	font-size: 11;
+	font-weight: bold;
+	fontFamily: Arial;
+	text-align: left;
+	padding-top: 0;
+	padding-left: 0;
+	paddingBottom: 0;
+	paddingRight: 0;
+	leading: 0;
+}
+mx|Text.pageLabel1{
+	color: #000000;
+	font-size: 12;
+	font-weight: bold;
+	fontFamily: Arial;
+	text-align: right;
+	padding-top: 0;
+	padding-left: 0;
+	paddingBottom: 0;
+	paddingRight: 0;
+	leading: 0;
+}
+mx|Text.pageContent
+{
+	color: #000000;
+	font-size: 11;
+	font-weight: normal;
+	fontFamily: Arial;
+	padding-top: -2;
+	padding-left: 0;
+	paddingBottom: -2;
+	paddingRight: 0;
+	leading: 0;
+}
+mx|Text.pageContent1
+{
+	color: #000000;
+	font-size: 12;
+	font-weight: normal;
+	fontFamily: Arial;
+	padding-top: 0;
+	padding-left: 0;
+	paddingBottom: 0;
+	paddingRight: 0;
+	leading: 0;
+}
+mx|Text.copyRight
+{
+	color: #000000;
+	font-size: 11;
+	font-weight: normal;
+	fontFamily: Arial;
+	padding-top: 0;
+	padding-left: 0;
+	paddingBottom: 0;
+	paddingRight: 0;
+	leading: 0;
+}
+mx|Text.textAsLink
+{
+	color: #0066CC;
+	font-size: 11;
+	font-weight: normal;
+	fontFamily: Arial;
+	text-decoration: underline;
+	padding-bottom: 0;
+	padding-top: 0;
+	padding-right: 0;
+	padding-left: 0;
+}
+mx|Text.pageSectionHeaderContent {
+	color: #ffffff;
+	font-size: 12;
+	font-weight: bold;
+	fontFamily: Arial;
+}
+.pageSectionHeader {
+	gradientType: "linear";
+	fillColors: #353535, #B4B4B4;
+	fillAlphas:  1,1;
+	gradientRatio: 0,255;
+	angle: -90;
+	offsetX: 0;
+	offsetY: 0;
+	cornerRadius: 2;
+	spreadMethod: "pad";
+	interpolationMethod: "rgb";
+	focalPointRatio: 0;
+}
+mx|Text.popupHeaderContent {
+	color: #ffffff;
+	font-size: 13;
+	font-weight: bold;
+	fontFamily: Arial;
+}
+.popupSectionHeader {
+	gradientType: "linear";
+	fillColors: #353535, #B4B4B4;
+	fillAlphas:  1,1;
+	gradientRatio: 0,255;
+	angle: -90;
+	offsetX: 0;
+	offsetY: 0;
+	cornerRadius: 2;
+	spreadMethod: "pad";
+	interpolationMethod: "rgb";
+	focalPointRatio: 0;
+}
+.popupHeader {
+	gradientType: "linear";
+	fillColors: #0A0A0A, #B4B4B4;
+	fillAlphas:  1,1;
+	gradientRatio: 0,255;
+	angle: 0;
+	offsetX: 0;
+	offsetY: 0;
+	cornerRadius: 2;
+	spreadMethod: "pad";
+	interpolationMethod: "rgb";
+	focalPointRatio: 0;
+}
+mx|Text.popupSectionHeaderContent {
+	color: #ffffff;
+	font-size: 12;
+	font-weight: bold;
+	fontFamily: Arial;
+}
+mx|Text.popupLabel {
+	color: #000000;
+	font-size: 11;
+	font-weight: bold;
+	fontFamily: Arial;
+}
+.searchCriteriaHeader {
+	gradientType: "linear";
+	fillColors: #373737, #C0C0C0;
+	fillAlphas:  .7,.5;
+	gradientRatio: 0,251;
+	angle: 0;
+	offsetX: 0;
+	offsetY: 0;
+	cornerRadius: 0;
+	spreadMethod: "pad";
+	interpolationMethod: "rgb";
+	focalPointRatio: 0;
+}
+mx|LinkBar.footerLinkBar
+{
+	fontWeight: normal;
+	color: #000000;
+	link-button-style-name: footerLinkButtonStyle;
+	separatorColor: #919191;
+	textRollOverColor: #870303;
+	textSelectedColor: #870303;
+	rollOverColor: #FFE062;
+	selectionColor: #FFCB05;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+.footerLinkButtonStyle{
+	font-family: Arial;
+	font-size: 11;
+	color: #000000;
+	font-weight: normal;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+mx|LinkBar.headerLinkBar
+{
+	fontWeight: normal;
+	color: #000000;
+	link-button-style-name: headerLinkButtonStyle;
+	separatorColor: #919191;
+	textRollOverColor: #870303;
+	textSelectedColor: #870303;
+	rollOverColor: #FFE062;
+	selectionColor: #FFCB05;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+.headerLinkButtonStyle{
+	font-family: Arial;
+	font-size: 11;
+	color: #000000;
+	font-weight: normal;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+/* Text.boldText2
+{
+	color: #000000;
+	font-size: 12;
+	font-weight: bold;
+	fontFamily: Arial;
+} */
+mx|Text.boldText
+{
+	color: #000000; 
+	font-size: 13;
+	font-weight: bold;
+	fontFamily: Arial;
+}
+/*Ritesh 040809 */
+mx|Text.resultContent
+{
+	color: #CC0000;
+	fontStyle: italic;
+	fontWeight: bold;
+	fontFamily: Arial;
+	fontSize: 11; 
+}
+
+/*Pankaj  */
+mx|Text.resultMsgSuccessContent
+{
+	color: #ACE1AF;
+	fontStyle: italic;
+	fontWeight: bold;
+	fontFamily: Arial;
+	fontSize: 12; 
+}
+
+/*Pankaj  */
+mx|Text.resultMsgFailureContent
+{
+	color: #CC0000;
+	fontStyle: italic;
+	fontWeight: bold;
+	fontFamily: Arial;
+	fontSize: 12; 
+}
+
+mx|Text.popupContent
+{
+	color: #000000;
+	font-size: 11;
+	font-weight: normal;
+	fontFamily: Arial;
+}
+
+mx|Text.menuText
+{
+	color: #08F5ED;
+	font-size: 12;
+	font-weight: bold;
+	fontFamily: Arial;
+}
+mx|Text.headerContent
+{
+	color: #000000; 
+	font-size: 11;
+	padding-bottom: 0;
+	padding-top: 0;
+	font-weight: normal;
+	fontFamily: Arial;
+}
+mx|Text.headerLabel
+{
+	color: #000000;
+	font-size: 11;
+	padding-bottom: 0;
+	padding-top: 0;
+	font-weight: bold;
+	text-align: right;
+	fontFamily: Arial;
+}
+
+mx|Text.titleText
+{
+	color: #000000;
+	font-size: 13;
+	padding-bottom: 0;
+	padding-top: 0;
+	font-weight: bold;
+	fontFamily: Arial;
+}
+
+mx|Text.titleTextXL
+{
+	color: #000000;
+	font-size: 20;
+	padding-bottom: -3;
+	padding-top: -3;
+	font-weight: bold;
+	fontFamily: Arial;
+}
+mx|Text.txtNegative{
+	color: #F61414;
+	font-size: 11;
+	font-weight: normal;
+	fontFamily: Arial;
+}
+mx|TextInput.textInput
+{
+	fontFamily: Arial;
+	fontSize: 11;
+	font-weight: normal;
+	backgroundDisabledColor: #E5E3E3;
+	disabledColor: #000000;
+	borderColor: #9B9B9B;
+	padding-bottom: 0;
+	padding-top: 0;
+	paddingLeft: 0;
+	paddingRight: 0;
+}
+mx|TextInput.amountInput
+{
+	fontFamily: Arial;
+	fontSize: 11;
+	backgroundDisabledColor: #E5E3E3;
+	disabledColor: #000000;
+	borderColor: #9B9B9B;
+	text-align: right;
+	padding-bottom: 0;
+	padding-top: 0;
+	paddingLeft: 0;
+	paddingRight: 0;
+}
+mx|Text.rightAlignText
+{
+	color: #000000;
+	font-size: 11;
+	font-weight: normal;
+	fontFamily: Arial;
+	text-align:right;
+}
+
+/*end of the TextColtrollers*/
+mx|VBox.vBox
+{
+	background-alpha: 0.1;
+	background-color: #969595;
+}
+mx|VScrollBar.vscrollbar 
+{
+   theme-color: #fc0000;
+   border-color: #cc0000;
+   icon-color: #cc0000;
+}
+
+.innerFrame
+{
+	background-color: #ededed;
+	background-gradient-colors:#E6E6E6, #E6E6E6;
+	background-gradient-alphas:1.0,1.0;
+	fontFamily: Arial;
+}
+mx|Application.mainFrame
+{
+	background-color: #FFFFFF;
+	theme-color: #FFCB05;
+	fontFamily: Arial;
+	backgroundGradientAlphas: 1.0, 1.0;
+	backgroundGradientColors: #FFFFFF, #FFFFFF;
+}
+mx|TextInput.textInput{
+	border-style:solid;
+	color: #000000;
+}
+/*
+Canvas.outerCanvas
+{
+	fontFamily: Arial;
+	font-size:11; 
+	border-color:#009DFF; 
+	border-style:solid;
+}
+*/
+/* Ritesh040809 */
+.outerContainer{
+	background-color: #F1F1F1;
+	borderStyle: solid;
+	borderColor: #F1F1F1;
+	horizontal-align: center;
+	vertical-align: middle;
+	paddingBottom:5;
+	paddingTop:5;
+	padding-left: 5;
+	padding-right: 5;
+}  
+
+mx|Canvas.policyHeader
+{
+	gradientType: "linear";
+	fillColors: #A9A9A9, #EAEAEA;
+	fillAlphas:  1,1;
+	gradientRatio: 0,251;
+	angle: 90;
+	offsetX: 0;
+	offsetY: 0;
+	cornerRadius: 0;
+	spreadMethod: "reflect";
+	interpolationMethod: "rgb";
+	focalPointRatio: 0;
+}
+mx|Canvas.accountHeader
+{
+	gradientType: "linear";
+	fillColors: #A9A9A9, #EAEAEA;
+	fillAlphas:  1,1;
+	gradientRatio: 0,251;
+	angle: -90;
+	offsetX: 0;
+	offsetY: 0;
+	cornerRadius: 0;
+	spreadMethod: "reflect";
+	interpolationMethod: "rgb";
+	focalPointRatio: 0;
+}
+mx|Canvas.fieldset
+{
+	border-style:solid;
+	border-color:#848487;
+	border-thickness:2;
+	corner-radius:5;
+	font-weight: bold;
+	color: #000000;	
+	background-color: #ffffff;
+	font-size:12;
+}
+mx|Canvas.titleWindowHeader
+{
+	background-color:#BDBDBD;
+	border-color:#91730D;
+	border-thickness:1;
+	border-style:none;
+}
+mx|Canvas.titleWindowCanvas
+{
+	background-color:#FFFFFF;
+	border-style:solid;
+	border-color:#000000;
+}
+mx|Canvas.menu
+{
+	background-color: #312C2C;
+	corner-radius: 7;
+	border-style: solid;
+	border-color: #BFC8CE;
+	background-alpha: 1.0;
+}
+mx|Canvas.title
+{
+	background-color: #CCCCCC;
+}
+mx|LinkButton.zeroAmtLink
+{
+	color: #000000;
+	fontSize: 11;
+	fontWeight:normal;
+	fontFamily: Arial;
+	padding-top:0;
+	padding-bottom:2;
+	rollOverColor:#DFD8BC;
+	selectionColor:#DFD8BC;
+}
+mx|LinkButton.posAmtLink
+{
+	rollOverColor:#7BB0E6;
+	selectionColor:#478FD9;
+	textRollOverColor:#000000;
+	textSelectedColor:#000000;
+	padding-bottom:0;
+	padding-left:1;
+	padding-top:0;
+	padding-right:1;
+	color: #0066CC;
+	fontSize: 11;
+	fontWeight:normal;
+	textDecoration: underline;
+	fontFamily: Arial;
+	themeColor: #000000; 
+}
+
+mx|LinkButton.negAmtLink
+{
+	rollOverColor:#F0A2A2;
+	selectionColor:#E87575;
+	textRollOverColor:#000000;
+	textSelectedColor:#000000;
+	color: #CC0000;
+	fontSize: 11;
+	fontWeight: normal;
+	textDecoration: underline;
+	fontFamily: Arial;
+	themeColor: #000000;
+}
+mx|LinkButton.normalLink
+{
+	rollOverColor:#7BB0E6;
+	selectionColor:#478FD9;
+	textRollOverColor:#000000;
+	textSelectedColor:#000000;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	color: #0066CC;
+	fontSize: 11;
+	fontWeight: bold;
+	textDecoration: underline;
+	fontFamily: Arial;
+	themeColor: #FF8500;
+}
+mx|LinkButton.normalLinkOnHeader
+{
+	rollOverColor:#7BB0E6;
+	selectionColor:#478FD9;
+	textRollOverColor:#FFFFFF;
+	textSelectedColor:#FFFFFF;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	color: #FFFFFF;
+	fontSize: 11;
+	fontWeight: bold;
+	textDecoration: underline;
+	fontFamily: Arial;
+	themeColor: #FF8500;
+}
+mx|LinkButton.headerLink
+{
+	rollOverColor:#7BB0E6;
+	selectionColor:#478FD9;
+	textRollOverColor:#000000;
+	textSelectedColor:#000000;
+	padding-bottom:0;
+	padding-left:1;
+	padding-top:0;
+	padding-right:1;
+	color: #0066CC;
+	fontSize: 11;
+	fontWeight:normal;
+	textDecoration: underline;
+	fontFamily: Arial;
+	themeColor: #000000; 
+}
+mx|FormItem.menuItem
+{
+	background-color: #969595;
+	backgroundAlpha: 0.3;
+}
+
+mx|VBox.parentContainer{
+	padding-bottom: 5;
+	padding-left: 8;
+	padding-right: 8;
+	padding-top: 5;
+	vertical-gap: 3;
+	horizontal-align : left;
+	
+}
+/* Ritesh 040809*/
+/*  CheckBox.checkBoxOnHeader
+{
+	padding-bottom:0;
+	padding-left:0;
+	padding-right:0;
+	padding-top:0;
+	horizontalGap: 1;
+	color: #FFFFFF;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor: #FFFFFF;
+	fontFamily: Arial;
+	fontSize: 11;
+}  */
+mx|VBox.vbStyle
+{
+	vertical-gap: 0;
+}
+mx|VBox.vboxCommon{
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	vertical-gap: 0;
+	vertical-align: middle;
+	horizontal-align: center;
+}
+mx|HBox.hboxCommon{
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	horizontal-gap: 0;
+	vertical-align: middle;
+	horizontal-align: center;
+} 
+mx|VBox.vboxOuter{
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	vertical-gap: 0;
+	vertical-align: middle;
+	horizontal-align: center;
+	background-color: #E4E4E4;
+}
+mx|VBox.vboxOuterWithBorder{
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	vertical-gap: 0;
+	vertical-align: middle;
+	horizontal-align: center;
+	background-color: #E4E4E4;
+	borderColor: #747474;
+	borderStyle: solid;
+}
+mx|VBox.vboxOuterWithDarkBorder{
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	vertical-gap: 0;
+	vertical-align: middle;
+	horizontal-align: center;
+	background-color: #0F0E0E;
+	borderColor: #747474;
+	borderStyle: solid;
+	
+}
+mx|HBox.hboxOuterWithBorder{
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	horizontal-gap: 0;
+	vertical-align: middle;
+	horizontal-align: center;
+	background-color: #E4E4E4;
+	borderColor: #747474;
+	borderStyle: solid;
+}
+mx|VBox.vboxInner{
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	vertical-gap: 0;
+	vertical-align: middle;
+	horizontal-align: center;
+	background-color: #FFFFFF;
+}
+mx|HBox.hboxInner{
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	horizontal-gap: 0;
+	vertical-align: middle;
+	horizontal-align: center;
+	background-color: #FFFFFF;
+}
+/** Style classes for rendering amount fields */
+.negAmt {
+	color: Red;
+	text-align: right;
+}
+
+.posAmt {
+	color: Black;
+	text-align: right;
+}
+
+/** The link style sheets used in transactions business flow */
+.noLink {
+	text-decoration: none;
+	color: #000000;
+}
+
+.link {
+	text-decoration: underline;
+	color: #0066CC;
+}
+
+.linkHalo {
+	focus-skin: HaloBorder;
+}
+
+mx|Canvas.loaderBackground{
+	background-color:#E6E6E6;
+}
+mx|DataGrid.dataGrid {
+    fontFamily: Arial;
+    fontSize: 11;
+    headerStyleName: dataGridHeader1;
+	alternatingItemColors: #F7F7F7, #F0F0F0;
+	backgroundDisabledColor: #EEE9C6;
+	selectionColor: #E1E1E1;
+	textSelectedColor: #000000;
+	textRollOverColor: #000000;
+	color: #000000;
+	headerColors: #D2D2D2, #D2D2D2;
+	rollOverColor: #E8E8E8;
+	horizontalGridLines: true;
+	horizontalGridLineColor: #959595;
+	verticalGridLineColor: #959595;
+}
+
+.dataGridHeader1 {
+   fontFamily: Arial;
+   text-roll-over-color: #000000;
+   fontWeight: bold;
+   fontSize: 11;
+   fontStyle: normal;
+   textDecoration: none;
+	color: #000000;
+	text-align:center
+}
+
+.gridLeftHeader {
+   fontFamily: Arial;
+   text-roll-over-color: #000000;
+   fontWeight: bold;
+   fontSize: 11;
+   fontStyle: normal;
+   textDecoration: none;
+   color: #000000;
+   text-align:left;
+}
+mx|TitleWindow.titleWindowSearch
+{
+	border-color: #E7E7EF;
+	background-color: #E7E7EF;
+	border-thickness-bottom: 0;	
+	border-thickness-left: 0;
+	border-thickness-right:0;
+	borderAlpha: 1.0;
+	title-style-name: "titleStyle";
+	roundedBottomCorners: true;
+	header-height: 0;
+	cornerRadius: 20;
+	borderThicknessTop: 0;
+	
+}
+.myToolTip{
+ 	background-alpha: .7;
+   cornerRadius: 4;
+   backgroundColor: #000000;
+   color: #ffffff;
+   textAlign: center;
+   fontWeight: bold;
+ }
+.searchResultHeader{
+	gradientType: "linear";
+	fillColors: #7E7E7E, #D8D8D8, #7E7E7E;
+	fillAlphas:  1,1,1;
+	gradientRatio: 0,128,255;
+	angle: 90;
+	offsetX: 0;
+	offsetY: 0;
+	cornerRadius: 0;
+	spreadMethod: "reflect";
+	interpolationMethod: "rgb";
+	focalPointRatio: 0;
+	border-style:none;
+}
+/* Ritesh040809 */
+mx|Canvas.innerCanvas1{
+	background-color: #FFFFFF;
+	borderStyle: solid;
+	borderColor: #909090;
+	fontFamily: Arial;
+	font-size:10;
+}
+
+mx|Canvas.innerHeaderCanvas{
+	background-color: #F1F1F1;
+	
+	borderColor: #F1F1F1;
+}
+.pageHeaderContainer{
+	background-color: #000000;
+	borderStyle: none;
+	padding-bottom: 0;
+	padding-left: 0;
+	vertical-gap: 0;
+}
+.sectionTitle{
+	font-family: Arial;
+	color: #000000;
+	font-size: 11;
+	letter-spacing: .1;
+	font-weight: bold;
+	padding-top: 0;
+	padding-bottom: 0;	
+}
+
+.sectionTitle2{
+	font-family: Arial;
+	color: #000000;
+	font-size: 11;
+	letter-spacing: .1;
+	font-weight: bold;
+	padding-top: 3;
+	padding-bottom: 0;	
+	padding-right: 3;
+	padding-left: 3;
+}
+/* Ritesh040809 */
+
+ 
+mx|TabNavigator.navigatortab {
+    backgroundColor: #E4E4E4;
+    cornerRadius: 0;
+    tabStyleName: "MyTabs";
+    firstTabStyleName: "MyFirstTab";
+    lastTabStyleName: "MyLastTab";
+    selectedTabTextStyleName: "MySelectedTab";
+	backgroundAlpha: 1.0;
+	fontFamily: Arial;
+	fontSize: 11;
+	paddingTop: 0;
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingBottom: 0;
+	text-roll-over-color: #FFFFFF;
+}
+
+.MyTabs {
+    backgroundColor: black;
+    cornerRadius: 0;
+    color: #FFFFFF;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor: #FFFFFF;
+}
+
+.MyFirstTab,
+.MyLastTab {
+    backgroundColor: black;
+    cornerRadius: 6;
+    color: #FFFFFF;
+	fillAlphas: 1.0, 1.0;
+	fillColors: #473030, #BCA5A5, #5B4747, #E8D9D9;
+	themeColor: #0C181F;
+	horizontalGap: 4;
+	textRollOverColor: #FFFFFF;
+	disabledColor: #FFFFFF;
+	textSelectedColor: #F7F9FB;
+	font-weight: bold;
+	fontFamily: Arial;
+	fontSize: 11;
+}
+
+.MySelectedTab {
+    backgroundColor: haloWhite;
+    color: #FFFFFF;
+    textRollOverColor: haloWhite;
+	fontFamily: Arial;
+	fontSize: 11;
+	text-roll-over-color: #FFFFFF;
+}
+mx|TitleWindow.popupheaderText{
+	color:#FFFFFF;
+	font-family:Arial; 
+	font-Size:16;
+	font-weight:bold; 
+	font-style:italic;
+	
+}
+
+.boxBackground{
+	background-color:#E4E4E4
+}
+
+.innerBoxBackground{
+	background-color:#F2F2F2;
+	font-family:Arial; 
+	font-Size:11;
+	font-weight:normal;
+}
+.popupBox{
+	font-family:Arial;
+	font-weight:bold;
+	font-size:11;
+	color:#FFFFFF;
+}
+.popupBoxLabel{
+	font-family:Arial;
+	font-size:11;
+	color:red;
+}
+mx|Text.popupContent2
+{
+	color: #FFFFFF;
+	font-size: 11;
+	font-weight: normal;
+	fontFamily: Arial;
+}
+
+mx|LinkButton.normalLink2
+{
+	rollOverColor:#333333;
+	selectionColor:#333333;
+	textRollOverColor:#FFFFFF;
+	textSelectedColor:#FFFFFF;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	color: #FFFFFF;
+	fontSize: 11;
+	fontWeight:normal;
+	textDecoration: underline;
+	font-family: Arial;
+}
+
+mx|Menu.homeMenu
+{
+	fontWeight: normal;
+	fontSize: 12;
+	paddingRight: 0;
+	paddingTop: 3;
+	borderThickness: 2;
+	rollOverColor: #5E5E5E;
+	selectionColor: #5E5E5E;
+	color: #000000;
+	textRollOverColor: #D6D6D6;
+	textSelectedColor: #D6D6D6;
+	borderStyle: solid;
+	borderColor: #CCCCCC;
+	backgroundDisabledColor: #CCCCCC;
+	selectionDisabledColor: #CCCCCC;
+	disabledColor: #FF0000;
+	backgroundColor: #EAE7E7;
+	leftIconGap: 2;
+	useRollOver: true;
+	backgroundAlpha: 0.95;
+}
+mx|MenuBar.menuBar
+{
+	 backgroundSkin: Embed(source='assets/images/menuBar.swf', symbol='MenuBar_backgroundSkin');
+	itemUpSkin: Embed(source='assets/images/menuBar.swf', symbol='MenuBar_itemUpSkin');
+	itemOverSkin: Embed(source='assets/images/menuBar.swf', symbol='MenuBar_itemOverSkin');
+	itemDownSkin: Embed(source='assets/images/menuBar.swf', symbol='MenuBar_itemDownSkin'); 
+	fontSize: 12;
+	fontFamily: Arial;
+	fontWeight: bold;
+}
+.searchIcon
+{
+	disabledSkin: Em bed(source="assets/images/searchIconSkin.swf", symbol="searchIcon_disabledSkin");
+	downSkin: Embed(source="assets/images/searchIconSkin.swf", symbol="searchIcon_downSkin");
+	overSkin: Embed(source="assets/images/searchIconSkin.swf", symbol="SearchIcon_overSkin");
+	upSkin: Embed(source="assets/images/searchIconSkin.swf", symbol="searchIcon_upSkin"); 
+}
+
+.diaryIcon
+{
+	disabledSkin: Embed(source="assets/images/diaryIconSkin.swf", symbol="diaryIcon_disabledSkin");
+	downSkin: Embed(source="assets/images/diaryIconSkin.swf", symbol="diaryIcon_downSkin");
+	overSkin: Embed(source="assets/images/diaryIconSkin.swf", symbol="diaryIcon_overSkin");
+	upSkin: Embed(source="assets/images/diaryIconSkin.swf", symbol="diaryIcon_upSkin"); 
+}
+
+
+
+
+
+.bannerStrip
+{
+	background-color: #EB1C24;
+}
+mx|Canvas.headerMsgField{
+	background-color: #FFFFC6;
+}
+.alertmsgstyle{
+		color : #0f3177;
+		title-style-name : "alertTitle";
+		header-height:19;
+		border-thickness: 3;
+		background-color: #000000;
+		border-style :solid;
+		border-color : #FFFFFF;
+		color: #FFFFFF;
+		font-family :Arial;
+		font-size :12;
+		text-align :left;
+		}
+		
+		.alertTitle{
+		font-family :Arial;
+		font-size :12;
+		font-weight :bold;
+		text-align :left;
+		color :#ffffff;
+		}
+
+
+
+/** Style classes for rendering amount fields */
+.negAmt {
+	color: Red;
+	text-align: right;
+}
+mx|Text.link {
+	text-decoration: underline;
+	color: #0066CC;
+}
+.posAmt {
+	color: Black;
+	text-align: right;
+}
+.dateChooserWeekDay
+{
+	color: #AE0000;
+	fontWeight: bold;
+}

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<Pod xmlns="com.majescomastek.common.containers.dashboard.*"
+	xmlns:flexcontrols="com.majescomastek.flexcontrols.*" xmlns:mx="http://www.adobe.com/2006/mxml"
+	width="100%" height="100%" title="Batch Summary">
+	<mx:Script source="../../scripts/batchdetails/BatchSummaryScript.as" />
+	<mx:DateFormatter id="formatDateTimeUSD"
+		formatString="{resourceManager.getString('jbeam','date_format')}" />
+	<mx:VBox label="BatchSummary" width="100%" height="100%"
+		verticalGap="1" id="vbBatchSummary">
+		<mx:Canvas y="0" name="cvBatchSummary" width="100%" height="100%">
+			<flexcontrols:FieldSet label="Batch Summary - Batch # {batchDetails.batchNo}"
+				horizontalScrollPolicy="off" styleName="jbeamFieldSet" id="fsBatchSummary"
+				verticalScrollPolicy="off" name="fsBatchSummary" x="0" y="0" width="100%"
+				height="100%">
+				<mx:Text x="5" y="20" styleName="boldText2" text="Batch #" />
+				<mx:Label x="115" y="25" id="batch_no" styleName="normalText22"
+					text="{batchSummary.batchNo}" width="100%" color="#090101" />
+				<mx:Text x="5" y="40" styleName="boldText2" text="Batch Name" />
+				<mx:Label x="115" y="45" id="batch_name" styleName="normalText22"
+					text="{batchSummary.batchName}" width="100%" />
+				<mx:Text x="5" y="60" styleName="boldText2" text="Batch Type" />
+				<mx:Label x="115" y="65" id="batch_type" styleName="normalText22"
+					text="{batchSummary.batchType}" width="100%" />
+				<mx:Text x="5" y="80" styleName="boldText2" text="Batch Date" />
+				<mx:Label x="115" y="85" id="batch_date" styleName="normalText22"
+					text="{formatDateTimeUSD.format(new Date(batchDetails.execStartTime))}"
+					width="100%" />
+				<mx:Text x="5" y="100" styleName="boldText2" text="Process Id" />
+				<mx:Label x="115" y="105" id="batch_ProcessId" styleName="normalText22"
+					text="{batchSummary.processId}" width="100%" />
+				<mx:Text x="5" y="120" styleName="boldText2" text="Failed Over" />
+				<mx:Label x="115" y="125" id="batch_isFailedOver"
+					styleName="normalText22" text="{batchSummary.failedOver == 'N' ? 'No' : 'Yes' }"
+					width="100%" />
+				<mx:HBox x="25" y="150" width="216" height="30">
+					<mx:Button enabled="{!startButtonEnabled}" visible="{startButtonVisible}" 
+							   click="onStartButtonClick(event)"
+							   id="btnBatchStart" label="{startButtonLabel}" />
+					<mx:Button enabled="{stopButtonEnabled}" visible="{stopButtonVisible}" 
+							   click="onStopButtonClick(event)"
+							   id="btnBatchStop" label="STOP" />
+				</mx:HBox>
+				<mx:Panel title="Batch Parameters" x="354" y="22"
+					visible="{batchParametersVisible}" id="pnlBatchParametersData"
+					styleName="styleA" width="35%"  height="70%">
+					<mx:DataGrid id="dgBatchParameters" width="100%" height="100%"
+						styleName="jbeamDataGrid" dataProvider="{batchParametersDataProvider}"
+						rowHeight="20">
+						<mx:columns>		
+							<mx:DataGridColumn width="10" textAlign="right" dataField="slNo"
+								headerText="#" headerWordWrap="true" />					
+							<mx:DataGridColumn width="20" headerText="Entity"
+								dataField="name" headerWordWrap="true" />
+							<mx:DataGridColumn width="32" textAlign="left"
+								dataField="value" wordWrap="true" headerText="Value"
+								headerWordWrap="true" />
+						</mx:columns>
+					</mx:DataGrid>
+				</mx:Panel>
+			</flexcontrols:FieldSet>
+		</mx:Canvas>
+	</mx:VBox>
+</Pod>

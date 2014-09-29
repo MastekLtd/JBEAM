@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%"
+	height="100%" creationComplete="shellCreationComplete(this)"
+	xmlns:shell="com.majescomastek.jbeam.view.components.shell.*"
+	xmlns:model="com.majescomastek.jbeam.model.screenvo.*">
+	<mx:Script source="../../scripts/shell/ShellScript.as" />
+
+	<mx:ArrayCollection id="linkDetails">
+		<!--<model:ShellScreenVO
+			label="{resourceManager.getString('Login', 'privacy_policy')}" code="PRIVACY_POLICY" />
+		<model:ShellScreenVO
+			label="{resourceManager.getString('Login', 'terms_of_use')}" code="TERMS_OF_USE" />
+		<model:ShellScreenVO label="{resourceManager.getString('Login', 'sitemap')}"
+			code="SITEMAP" />
+		<model:ShellScreenVO
+			label="{resourceManager.getString('Login', 'contact_us')}" code="CONTACT_US" />-->
+	</mx:ArrayCollection>
+
+	<mx:ViewStack id="shellViewStack" height="100%" width="100%"
+		backgroundColor="#FFFFFF" creationPolicy="all">
+		<shell:LoginComponent height="100%" width="100%" />
+		<mx:VBox id="vbox" styleName="vboxCommon" width="100%" height="100%"
+			backgroundColor="#FFFFFF" verticalAlign="top">
+			<shell:TopBanner minHeight="76" id="header" />
+			<mx:MenuBar id="menuBar" labelField="functionName" 
+				dataProvider="{defaultMenuList}"
+				menuStyleName="homeMenu" disabledColor="red" styleName="menuBar"
+				itemClick="itemClickHandler(event);" width="100%" />
+			<mx:ModuleLoader id="modBody"
+				minHeight="{vbox.height-header.height-footer.height-menuBar.height}"
+				width="100%" height="100%" ready="moduleReadyHandler(event);"
+				backgroundColor="#FFFFFF" />
+			<shell:Footer minHeight="70" id="footer" />
+		</mx:VBox>
+		<shell:ServerComponent height="100%" width="100%" />
+	</mx:ViewStack>	
+</mx:Canvas>

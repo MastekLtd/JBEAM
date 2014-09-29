@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<flexControl:MultilineLabel xmlns:mx="http://www.adobe.com/2006/mxml"
+							xmlns:flexControl="com.majescomastek.flexcontrols.*" 
+							textAlign="center">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.common.CommonUtils;
+			import com.majescomastek.jbeam.common.ScheduleUtils;
+			
+			import mx.controls.DataGrid;
+			import mx.controls.dataGridClasses.DataGridColumn;
+			import mx.controls.listClasses.BaseListData;
+			import mx.events.FlexEvent;
+			
+			private var _dataField:String;
+			
+			override public function set listData(value:BaseListData):void
+			{
+				super.listData = value;
+				if(value!=null)
+				{
+					var dg:DataGrid = value.owner as DataGrid;
+					var dgc:DataGridColumn = dg.columns[value.columnIndex] as DataGridColumn;
+					_dataField = dgc.dataField;
+				}
+			}
+			
+			override public function set data(value:Object):void
+			{				
+				if(value!=null)
+				{
+					super.data = value;
+					if(data != null && _dataField!=null && data.hasOwnProperty(_dataField) && data[_dataField] != null)
+					{
+						this.text = ScheduleUtils.showSkipSchedule(data[_dataField]);
+					}
+					else
+					{
+						this.text = "NA";
+					}					
+				}
+			}			
+
+		]]>
+	</mx:Script>
+</flexControl:MultilineLabel>

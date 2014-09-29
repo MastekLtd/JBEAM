@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	implements="com.majescomastek.jbeam.view.IModule" width="100%" height="100%"
+	creationComplete="onCreationComplete(event)" 
+	xmlns:vo="com.majescomastek.jbeam.model.vo.*"
+	xmlns:flexcontrols="com.majescomastek.flexcontrols.*" 
+	xmlns:usermaster="com.majescomastek.jbeam.view.components.usermaster.*">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.common.CommonUtils;
+		]]>
+	</mx:Script>
+	<mx:Script source="../../scripts/usermaster/UserProfileModuleScript.as" />
+	<mx:DateFormatter id="formatDateTimeUSD" formatString="MM/DD/YYYY HH:NN:SS" />
+	<mx:StringValidator id="valUserId" required="true"
+		source="{txtUserId}" property="text"
+		requiredFieldError="{resourceManager.getString('jbeam', 'user_id_required')}" />
+	<mx:StringValidator id="valUserName" required="true"
+		source="{txtUserName}" property="text"
+		requiredFieldError="{resourceManager.getString('jbeam', 'user_name_required')}" />		
+	<mx:EmailValidator id="valEmailId" required="true"
+		source="{txtEmailId}" property="text"
+		requiredFieldError="{resourceManager.getString('jbeam', 'email_id_required')}" />
+	<mx:StringValidator id="valHintQuestion" required="true"
+		source="{txtHintQuestion}" property="text"
+		requiredFieldError="{resourceManager.getString('jbeam', 'hint_question_required')}" />
+	<mx:StringValidator id="valHintAnswer" required="true"
+		source="{txtHintAnswer}" property="text"
+		requiredFieldError="{resourceManager.getString('jbeam', 'hint_answer_required')}" />
+	<mx:WipeLeft id="myWL" />
+	<mx:HBox width="100%" height="100%">
+		<mx:Canvas width="80%" height="100%">
+			<mx:Panel id="mainPanel" styleName="styleC" width="55%"
+				height="55%" x="10" y="10" title="Profile" layout="horizontal">
+				<mx:HBox styleName="outerContainer" width="100%" height="90%"
+					borderThickness="0" paddingLeft="10" paddingTop="10" paddingBottom="10"
+					paddingRight="10" horizontalGap="0" id="searchSection" horizontalAlign="left">
+					<mx:VBox height="100%" width="100%" styleName="innerCanvas"
+						borderThickness="1" horizontalAlign="left">
+						<mx:Grid horizontalGap="5" verticalGap="0" paddingTop="5"
+							height="100%" width="100%">
+							<mx:GridRow height="25%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">									
+									<flexcontrols:FormLabel 
+										text="{resourceManager.getString('jbeam', 'user_id')}"
+										styleName="pageLabel"/>
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:TextInput id="txtUserId" width="130"
+										text="{userData.userId}"
+										styleName="textInput" maxChars="30" enabled="{enableUserId}" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="25%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<flexcontrols:FormLabel 
+										text="{resourceManager.getString('jbeam', 'user_name')}"
+										mandatory="true"
+										styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:TextInput id="txtUserName" width="130"
+										text="{userData.userName}"
+										styleName="textInput" maxChars="50" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="25%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<flexcontrols:FormLabel
+										text="{resourceManager.getString('jbeam', 'email_id')}"
+										mandatory="true" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:TextInput id="txtEmailId" width="150"
+										text="{userData.emailId}"
+										styleName="textInput" maxChars="50" />
+								</mx:GridItem>
+							</mx:GridRow>							
+							<mx:GridRow height="25%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<flexcontrols:FormLabel 
+										text="{resourceManager.getString('jbeam', 'phone_no')}"
+										styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:TextInput id="txtPhoneNo" width="130"
+										text="{userData.contactNumber == 'null' ? '' : userData.contactNumber}"
+										change="CommonUtils.enableNumberEntry(event)" 
+										styleName="textInput" maxChars="10" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="25%" width="100%">
+								<mx:GridItem>
+									<flexcontrols:FormLabel
+										text="{resourceManager.getString('jbeam', 'hint_question')}"
+										mandatory="true" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem>
+									<mx:TextInput id="txtHintQuestion" width="150"
+										text="{userData.hintQuestion}"
+										styleName="textInput" maxChars="200"
+										enabled="{hintQuestionEnable}" />
+								</mx:GridItem>								
+							</mx:GridRow>
+							<mx:GridRow height="25%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<flexcontrols:FormLabel
+										text="{resourceManager.getString('jbeam', 'hint_answer')}"
+										mandatory="true"										
+										id="frmLblHintAnswer" styleName="pageLabel"
+										visible="{hintAnswerVisible}" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:TextInput id="txtHintAnswer"
+										text="{userData.hintAnswer}" 
+										width="130" enabled="{hintAnswerEnable}"
+										visible="{hintAnswerVisible}"
+										styleName="textInput" maxChars="50" 
+										displayAsPassword="true" />
+								</mx:GridItem>								
+							</mx:GridRow>
+							<mx:GridRow height="25%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<flexcontrols:FormLabel
+										text="{resourceManager.getString('jbeam', 'default_installation_view')}"																			
+										id="frmLblDefaultInstallationView" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">									
+									<mx:RadioButtonGroup id="radioGroup" />
+									<mx:RadioButton id="radBtnPodView" label="PODS VIEW" value="PODS_VIEW"
+													group="{radioGroup}" width="100" />
+									<mx:RadioButton id="radBtnListView" label="LIST VIEW" value="LIST_VIEW"
+													group="{radioGroup}" width="100" />
+								</mx:GridItem>								
+							</mx:GridRow>
+						</mx:Grid>
+					</mx:VBox>
+				</mx:HBox>
+				<mx:ControlBar>
+					<mx:Button 
+						label="{resourceManager.getString('jbeam', 'reset')}"
+						styleName="subButton" left="10"
+						top="10" click="clearUserData()" />
+					<mx:Spacer width="100%" />
+					<mx:Button id="btnEditUserProfile" 
+						label="{resourceManager.getString('jbeam', 'submit')}" 
+						styleName="mainButton"
+						click="editUserProfile(event)" />
+				</mx:ControlBar>
+			</mx:Panel>
+		</mx:Canvas>
+	</mx:HBox>
+</mx:Module>

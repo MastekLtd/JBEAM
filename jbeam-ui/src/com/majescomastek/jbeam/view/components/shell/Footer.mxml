@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%"
+	height="75" horizontalCenter="0" bottom="0" creationComplete="loadDefaultLogo()">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.common.CommonConstants;
+			import com.majescomastek.jbeam.common.CommonUtils;
+			
+			import mx.events.FlexEvent;
+			
+			[Bindable]
+			private var mastekLogo:String;
+			
+			private function loadDefaultLogo():void
+			{
+				mastekLogo = resourceManager.getString('Image', 'stg_billing_logo_small');
+				trace("IN footer >> "+ mastekLogo); 
+			}
+			
+			public function loadLogo(data:Object):void
+			{
+				mastekLogo = data as String;//CommonConstants.COMPANY_LOGO_SMALL;	
+				if(mastekLogo == null)
+					mastekLogo = resourceManager.getString('Image', 'stg_billing_logo_small');
+				trace("In footer >> "+ mastekLogo); 
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Image source="{resourceManager.getString('Image', 'footer_deco2')}"
+		bottom="0" maintainAspectRatio="false" width="100%" right="0" />
+	<mx:Text text="{resourceManager.getString('Login', 'copy_right')}"
+		styleName="copyRight" right="160" bottom="1" />
+	<mx:Image source="{mastekLogo}"
+		right="5" bottom="0" height="25" />
+	<mx:LinkBar styleName="footerLinkBar" dataProvider="{parentDocument.linkDetails}"
+		left="10" bottom="0">
+	</mx:LinkBar>
+</mx:Canvas>

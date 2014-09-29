@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with JBEAM. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author gourav.rai
+ *
+ * $Revision:: 1                                                                                                       $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/common/puremvc/controls/view/compon $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/common/puremvc/controls/view/compon $
+ * 
+ * 1     3/05/10 4:26p Sanjay.sharma
+ * Initial commit of base flex controls and advanced datagrid control
+ * 
+ * 6     3/04/10 4:31p Sandeepa
+ * to invisible the pagenation settings
+ * 
+ * 5     3/04/10 4:23p Sandeepa
+ * 
+ * 3     3/04/10 2:54p Sandeepa
+ * to change the mapping
+ * 
+ * 2     3/04/10 2:33p Sandeepa
+ * to add new features to the datagrid
+ * 
+ * 1     3/03/10 12:51p Admin
+ * 
+ * 2     2/25/10 7:27p Sanjay.sharma
+ * Added header
+ * 
+-->
+<controls:BaseCheckBox xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:controls="com.majescomastek.common.controls.framework.*"
+	label="{data.headerText}" change="onChange(event)" >
+	 <mx:Script>
+	 	<![CDATA[	 		
+	 		private function onChange(event:Event):void
+	 		{
+	 			event.currentTarget.data.visible = event.currentTarget.selected;
+	 		}
+	 		
+	 		override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
+	 		{
+	 			this.enabled = !(data.mandatory);
+	 			super.updateDisplayList(unscaledWidth, unscaledHeight);
+	 		}
+	 		
+	 		override public function set data(value:Object):void
+	 		{
+	 			super.data = value;
+	 			this.selected = data.visible;
+	 		}
+	 	]]>
+	 </mx:Script>
+</controls:BaseCheckBox>

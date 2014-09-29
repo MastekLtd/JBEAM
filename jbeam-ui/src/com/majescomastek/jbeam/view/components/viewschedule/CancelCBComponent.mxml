@@ -1,0 +1,81 @@
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
+		 width="100%" textAlign="center">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.common.CommonConstants;
+			import com.majescomastek.jbeam.model.vo.ProcessRequestScheduleData;
+			
+			import mx.controls.dataGridClasses.DataGridItemRenderer;
+			import mx.controls.dataGridClasses.DataGridListData;
+			import mx.controls.listClasses.BaseListData;
+			import mx.controls.listClasses.ListBase;
+			import mx.controls.listClasses.ListData;
+			import mx.events.FlexEvent;
+			
+			private var scheduleData:ProcessRequestScheduleData;
+			
+			/** The enabled status of the Cancel button */			
+			[Bindable]
+			private var cancelButtonEnabled:Boolean;
+			
+			/** The visible status of the Cancel button */			
+			[Bindable]
+			private var cancelButtonVisible:Boolean;
+			
+			override public function set data(value:Object):void
+			{
+				cancelButtonVisible = CommonConstants.HAVE_OPERATOR_ROLE;
+				if(value != null)
+				{
+					super.data = value;
+					if(cancelButtonVisible && data != null)
+					{
+						cancelButtonEnabled = !isScheduleCancelled(data as ProcessRequestScheduleData);						
+					}									
+				}
+			}
+			
+			private function isScheduleCancelled(installationData:ProcessRequestScheduleData):Boolean
+			{
+				// If the batchNo & batchRevNo are null, the batch is invalid.
+				var invalid:Boolean = installationData.schStat == 'C' || installationData.schStat == 'X';
+				return invalid;
+			}
+			
+//			override public function get data():Object {
+//				return super.data;
+//			}
+//			
+//			public function get listData():BaseListData
+//			{
+//				return _listData;
+//			}
+//			
+//			public function set listData(value:BaseListData):void
+//			{
+//				_listData = DataGridListData(value);
+//			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:CheckBox id="followUpCB" 
+				 visible="{cancelButtonVisible}" enabled="{cancelButtonEnabled}"
+				 click="data.checked=!data.checked" selected="{data.checked}" paddingLeft="15"/>
+
+</mx:HBox>

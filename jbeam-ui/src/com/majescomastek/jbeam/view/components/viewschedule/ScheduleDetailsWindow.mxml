@@ -1,0 +1,158 @@
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<?xml version="1.0" encoding="utf-8"?>
+<flexcontrols:JbeamNativeWindow xmlns:mx="http://www.adobe.com/2006/mxml"
+	width="600" height="500" xmlns:flexcontrols="com.majescomastek.flexcontrols.*"
+	title="{batchObjectTitle}" alwaysInFront="true"
+	implements="com.majescomastek.jbeam.view.components.IViewComponent"
+	close="performCleanup(event)">
+	
+	<mx:Script source="../../scripts/viewschedule/ScheduleDetailsWindowScript.as" />
+	
+	<mx:Canvas label="{resourceManager.getString('jbeam','sch_details_title')}"
+		width="100%" height="100%"  styleName="outerCanvas" 
+		horizontalCenter="0" verticalCenter="0">
+			
+		<mx:Panel id="pnlBatchObject" styleName="styleC" width="100%" height="100%"
+			title="{resourceManager.getString('jbeam','sch_details_title')}">
+			<mx:HBox styleName="outerContainer" width="100%" height="90%"
+					 borderThickness="0" paddingLeft="10" paddingTop="10" paddingBottom="10"
+					 paddingRight="10" horizontalGap="0" id="searchSection3">
+				<mx:VBox height="100%" width="100%" styleName="innerCanvas"
+						 borderThickness="1">
+					<mx:ControlBar width="100%">
+						<mx:Spacer width="100%" />
+						<mx:Button id="btnRefresh" label="Refresh" 
+								   textAlign="center" 
+								   click="refreshClick(event)" />
+					</mx:ControlBar>
+					<mx:Grid horizontalGap="0" verticalGap="0" paddingTop="5"
+							 height="100%" width="90%">
+						<mx:GridRow height="18%" width="100%">
+							<mx:GridItem borderStyle="none" horizontalAlign="left"
+										 width="20%">
+								<mx:FormItem label="Frequency" styleName="pageLabel" />
+							</mx:GridItem>
+							<mx:GridItem borderStyle="none">
+								<mx:Text text="WEEK" styleName="pageLabel" id="txtFrequency" />
+							</mx:GridItem>
+						</mx:GridRow>
+						<mx:GridRow height="18%" width="100%">
+							<mx:GridItem borderStyle="none" horizontalAlign="left">
+								<mx:FormItem label="Recur Every" styleName="pageLabel" />
+							</mx:GridItem>
+							<mx:GridItem borderStyle="none">
+								<mx:NumericStepper id="recurrenceStepper" enabled="false"
+												   minimum="1" maximum="100" />
+							</mx:GridItem>
+						</mx:GridRow>
+						<mx:GridRow height="10%">
+							<mx:GridItem borderStyle="none" horizontalAlign="left">
+								<mx:FormItem label="End On" styleName="pageLabel" />
+							</mx:GridItem>
+						</mx:GridRow>
+						<mx:GridRow height="18%" width="100%" id="grdEndOnDate">
+							<mx:GridItem borderStyle="none" horizontalAlign="left">
+							</mx:GridItem>
+							<mx:GridItem borderStyle="none">			            	
+								<mx:TextInput id="dcEndOnDate" width="150" textAlign="left" styleName="pageLabel" enabled="false" />
+							</mx:GridItem>
+						</mx:GridRow>
+						<mx:GridRow height="18%" width="100%" id="grdEndOntime">
+							<mx:GridItem borderStyle="none" horizontalAlign="left">
+							</mx:GridItem>
+							<mx:GridItem borderStyle="none">			            	
+								<mx:HBox>
+									<mx:ComboBox id="comboEndOnHr" dataProvider="{endOnTimeList}"
+												 labelField="object" width="50" editable="false" />
+									<mx:Label text=":" />
+									<mx:ComboBox id="comboEndOnMM" dataProvider="{endOnTimeMinList}"
+												 labelField="object" width="50" editable="false" />
+									<mx:Label text=":" />
+									<mx:ComboBox id="comboEndOnSS" dataProvider="{endOnTimeSecList}"
+												 labelField="object" width="50" editable="false" />	
+								</mx:HBox>
+							</mx:GridItem>
+						</mx:GridRow>
+						<mx:GridRow height="18%" width="100%" id="grdEndOnOccur">
+							<mx:GridItem borderStyle="none" height="66">
+							</mx:GridItem>
+							<mx:GridItem borderStyle="none" height="66">
+								<mx:NumericStepper id="endOnOccuranceStepper" minimum="1" maximum="100" 
+												   enabled="false" />
+							</mx:GridItem>
+						</mx:GridRow>
+						<mx:GridRow height="26%" width="100%">
+							<mx:GridItem borderStyle="none" horizontalAlign="left">
+								<mx:FormItem label="Week Day" styleName="pageLabel" />
+							</mx:GridItem>
+							<mx:GridItem borderStyle="none">
+								<mx:VBox>
+									<mx:HBox>
+										<mx:CheckBox id="chkSunday" label="Sunday" />
+										<mx:CheckBox id="chkMonday" label="Monday" />
+										<mx:CheckBox id="chkTuesday" label="Tuesday" />
+										<mx:CheckBox id="chkWednesday" label="Wednesday" />
+										<mx:CheckBox id="chkThursday" label="Thursday" />
+									</mx:HBox>
+									<mx:HBox>
+										<mx:CheckBox id="chkFriday" label="Friday" />
+										<mx:CheckBox id="chkSaturday" label="Saturday" />
+									</mx:HBox>
+								</mx:VBox>
+							</mx:GridItem>
+						</mx:GridRow>
+						<mx:GridRow height="18%" width="100%">
+							<mx:GridItem borderStyle="none" horizontalAlign="left">
+								<mx:FormItem label="Skip Flag" styleName="pageLabel" />
+							</mx:GridItem>
+							<mx:GridItem borderStyle="none">
+								<mx:ComboBox id="comboSkipFlag" labelField="flagObject" 
+											 dataProvider="{skipFlagList}" />
+							</mx:GridItem>
+						</mx:GridRow>
+						<mx:GridRow height="18%" width="100%">
+							<mx:GridItem borderStyle="none" horizontalAlign="left">
+								<mx:FormItem id="lblCalendar" label="Calendar"
+											 styleName="pageLabel" />
+							</mx:GridItem>
+							<mx:GridItem borderStyle="none">
+								<mx:Text id="txtBatchCalendar" text="Batch Calendar"
+										 styleName="pageLabel" />
+							</mx:GridItem>
+						</mx:GridRow>
+						<mx:GridRow height="18%" width="100%">
+							<mx:GridItem borderStyle="none" horizontalAlign="left">
+								<mx:FormItem label="Keep Alive" styleName="pageLabel" />
+							</mx:GridItem>
+							<mx:GridItem borderStyle="none">
+								<mx:ComboBox id="comboKeepAlive" labelField="flagObject"
+											 dataProvider="{keepAliveList}"  />
+							</mx:GridItem>
+						</mx:GridRow>
+						<mx:GridRow height="18%" width="100%">
+							<mx:GridItem borderStyle="none" horizontalAlign="left">
+								<mx:FormItem label="End Reason" styleName="pageLabel" />
+							</mx:GridItem>
+							<mx:GridItem borderStyle="none">
+								<mx:Label id="lblEndReason" />
+							</mx:GridItem>
+						</mx:GridRow>
+					</mx:Grid>
+				</mx:VBox>
+			</mx:HBox>
+		</mx:Panel>
+	</mx:Canvas>
+</flexcontrols:JbeamNativeWindow>

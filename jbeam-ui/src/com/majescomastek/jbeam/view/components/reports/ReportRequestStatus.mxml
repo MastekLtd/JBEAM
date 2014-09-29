@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * @author Gourav Rai
+ * 
+ *
+ * $Revision:: 2                        $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/ReportRequestStatus.mxm $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/ReportRequestStatus.m $
+ * 
+ * 2     4/25/10 7:54p Gourav.rai
+ * 
+ * 1     4/07/10 12:00p Gourav.rai
+ * Added by Gourav Rai
+ * 
+ * 
+ --> 
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%"  
+	disabledOverlayAlpha="0" xmlns:reports="com.majescomastek.jbeam.view.components.reports.*" xmlns:vo="com.majescomastek.jbeam.model.vo.*" xmlns:datagrid="com.majescomastek.common.puremvc.controls.view.components.datagrid.*" xmlns:framework="com.majescomastek.common.controls.framework.*">
+	<mx:Script source="../../scripts/reports/ReportRequestStatusScript.as"/>	
+	<mx:Panel id="panelId" title="{resourceManager.getString('jbeam', 'req_status')}" styleName="boxStyle" 
+		verticalGap="3" width="100%">
+		<mx:Grid  width="100%" styleName="main">
+			<mx:GridRow width="100%" height="100%">
+				<mx:GridItem width="100%" height="100%" styleName="gridItem" horizontalAlign="right">
+					<mx:Label text="{resourceManager.getString('jbeam','req_id')}" styleName="pageLabel"/>										
+				</mx:GridItem>
+				<mx:GridItem width="100%" height="100%" styleName="gridItem">
+					<mx:Label id="requestId"/>										
+				</mx:GridItem>
+				<mx:GridItem width="100%" height="100%" styleName="gridItem" horizontalAlign="right">
+					<mx:Label text="{resourceManager.getString('jbeam','user_id')}" styleName="pageLabel"/>										
+				</mx:GridItem>
+				<mx:GridItem width="100%" height="100%" styleName="gridItem">
+					<mx:Label id="userId"/>										
+				</mx:GridItem>
+				<mx:GridItem width="100%" height="100%" styleName="gridItem" horizontalAlign="right">
+					<mx:Label text="{resourceManager.getString('jbeam','sch_id')}" styleName="pageLabel"/>										
+				</mx:GridItem>
+				<mx:GridItem width="100%" height="100%" styleName="gridItem">
+					<mx:Label id="scheduleId"/>										
+				</mx:GridItem>
+			</mx:GridRow>
+			<mx:GridRow width="100%" height="100%">
+				<mx:GridItem width="100%" height="100%" styleName="gridItem" horizontalAlign="right">
+					<mx:Label text="{resourceManager.getString('jbeam','sch_start_date_time')}" styleName="pageLabel"/>										
+				</mx:GridItem>
+				<mx:GridItem width="100%" height="100%" styleName="gridItem">
+					<mx:Label id="scheduleStartDateTimeId"/>										
+				</mx:GridItem>
+				<mx:GridItem width="100%" height="100%" styleName="gridItem" horizontalAlign="right">
+					<mx:Label text="{resourceManager.getString('jbeam','sch_end_date_time')}" styleName="pageLabel"/>										
+				</mx:GridItem>
+				<mx:GridItem width="100%" height="100%" styleName="gridItem">
+					<mx:Label id="scheduleEndDateTimeId"/>										
+				</mx:GridItem>
+				<mx:GridItem width="100%" height="100%" styleName="gridItem" horizontalAlign="right">
+					<mx:Label text="{resourceManager.getString('jbeam','req_status')}" styleName="pageLabel"/>										
+				</mx:GridItem>
+				<mx:GridItem width="100%" height="100%" styleName="gridItem">
+					<mx:Label id="reqStatuId"/>										
+				</mx:GridItem>
+			</mx:GridRow>
+		</mx:Grid>
+		<!--<mx:DataGrid id="dgReportRequestStatusId" sortableColumns="true" minWidth="800" width="100%" height="100%">-->
+		<datagrid:CustomDataGridContainer id="dgReportRequestStatusId" headerHeight="40" wordWrap="true" 
+			height="100%" textAlign="center" rowHeight="25" width="100%" minWidth="800"
+			rowCount="5" paginationEnabled="false" screenName="REPORT_REQUEST_STATUS">
+			<datagrid:columns>
+				<framework:BaseDataGridColumn minWidth="95" identifier="dgcRequestId" dataField="requestId" headerText="{resourceManager.getString('jbeam','req_id')}" headerWordWrap="true" wordWrap="true" 
+					sortCompareFunction="sortByRequestId" itemRenderer="com.majescomastek.jbeam.view.components.reports.ReportCustomLinkButton"/>
+				<framework:BaseDataGridColumn minWidth="95" identifier="dgcRequestDate" dataField="requestDate" headerText="{resourceManager.getString('jbeam','req_date')}" headerWordWrap="true" wordWrap="true" 
+					sortCompareFunction="sortByRequestDate"/>
+				<framework:BaseDataGridColumn minWidth="95" identifier="dgcUserId" dataField="userId" headerText="{resourceManager.getString('jbeam','user_id')}" headerWordWrap="true" wordWrap="true"
+					itemRenderer="com.majescomastek.jbeam.view.components.reports.ReportCustomLinkButton"/>
+				<framework:BaseDataGridColumn minWidth="95" identifier="dgcRequestState" dataField="requestState" headerText="{resourceManager.getString('jbeam','req_status')}" headerWordWrap="true" wordWrap="true"
+					itemRenderer="com.majescomastek.jbeam.view.components.reports.ReportCustomLinkButton"/>
+				<framework:BaseDataGridColumn minWidth="95" identifier="dgcScheduleDate" dataField="scheduleDate" headerText="{resourceManager.getString('jbeam','schedule_date')}" headerWordWrap="true" wordWrap="true" 
+					sortCompareFunction="sortByScheduleDate"/>
+				<framework:BaseDataGridColumn minWidth="95" identifier="dgcStartDate" dataField="startDate" headerText="{resourceManager.getString('jbeam','req_start_date')}" headerWordWrap="true" wordWrap="true" 
+					sortCompareFunction="sortByStartDate"/>
+				<framework:BaseDataGridColumn minWidth="95" identifier="dgcEndDate" dataField="endDate" headerText="{resourceManager.getString('jbeam','req_end_date')}" headerWordWrap="true" wordWrap="true" 
+					sortCompareFunction="sortByEndDate"/>
+				<framework:BaseDataGridColumn minWidth="95" identifier="dgcMenuId" dataField="menuId" headerText="{resourceManager.getString('jbeam','proc_name')}" headerWordWrap="true" wordWrap="true"
+					itemRenderer="com.majescomastek.jbeam.view.components.reports.ReportCustomLinkButton"/>
+				<framework:BaseDataGridColumn minWidth="95" identifier="dgcReqLogFileName" dataField="reqLogFileName" headerText="{resourceManager.getString('jbeam','req_log_file_name')}" headerWordWrap="true" wordWrap="true"
+					sortCompareFunction="sortReqLogFileName" itemRenderer="com.majescomastek.jbeam.view.components.reports.ReportCustomLinkButton"/>
+				<framework:BaseDataGridColumn minWidth="95" identifier="dgcScheduleId" dataField="scheduleId" headerText="{resourceManager.getString('jbeam','schedule')}" headerWordWrap="true" wordWrap="true" 
+					sortCompareFunction="sortBySchedule" itemRenderer="com.majescomastek.jbeam.view.components.reports.ReportCustomLinkButton"/>
+			</datagrid:columns>
+		</datagrid:CustomDataGridContainer>
+		<mx:HBox width="100%" id="controlBarId">			
+			<mx:Button label="{resourceManager.getString('jbeam', 'back')}" click="onBack(event)"/>
+		</mx:HBox>
+	</mx:Panel>	
+</mx:VBox>

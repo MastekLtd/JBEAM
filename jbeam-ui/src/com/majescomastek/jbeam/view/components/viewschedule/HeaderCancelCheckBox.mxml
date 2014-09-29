@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:CheckBox xmlns:mx="http://www.adobe.com/2006/mxml"
+			 change="onChange(event)">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.flexcontrols.dg.BaseDataGridColumn;
+			import com.majescomastek.jbeam.model.vo.ProcessRequestScheduleData;
+			
+			import mx.collections.ArrayCollection;
+			import mx.controls.DataGrid;
+						
+			private function onChange(event:Event):void
+			{
+				var dg:DataGrid = listData.owner as DataGrid;
+				var dgc:BaseDataGridColumn = dg.columns[listData.columnIndex] as BaseDataGridColumn;
+				dgc.selected = event.currentTarget.selected;
+				headerCheck(dgc.selected,dg);
+			}
+			
+			override public function set data(value:Object):void
+			{
+				if(value != null)
+				{
+					super.data = value;
+					this.selected = (value as BaseDataGridColumn).selected;
+				}
+				else
+				{
+					this.selected = false;
+				}
+				var selectedIndex:int = (parentDocument as ViewScheduleModule).comboScheduleTypes.selectedIndex;				
+				if(selectedIndex == 0)
+				{
+					this.enabled = true;
+				}
+				else if(selectedIndex == 1)
+				{
+					this.enabled = false;
+				}					
+				
+				var dg:DataGrid = listData.owner as DataGrid;
+				var dgc:BaseDataGridColumn = dg.columns[listData.columnIndex] as BaseDataGridColumn;
+				refreshHeader(dgc.selected, dg);
+				
+			}
+			
+			private function isScheduleCancelled(scheduleData:ProcessRequestScheduleData):Boolean
+			{
+				// If the schedule status is 'C' / 'X', the schedule is in cancelled state.
+				var invalid:Boolean = scheduleData.schStat != 'A';// || scheduleData.schStat == 'X';
+				return invalid;
+			}
+			
+			private function headerCheck(value:Boolean,dg:DataGrid):void
+			{
+				var scheduleList:ArrayCollection = dg.dataProvider as ArrayCollection;
+				if(scheduleList == null || scheduleList.length == 0)
+					return;
+				
+				for each(var item:ProcessRequestScheduleData in scheduleList )
+				{
+					if(!isScheduleCancelled(item))
+					{
+						item.checked = value;
+					}
+				}
+			}
+			
+			private function refreshHeader(value:Boolean,dg:DataGrid):void
+			{
+				var indexCheck:Number = 0;
+				var scheduleList:ArrayCollection = dg.dataProvider as ArrayCollection;
+				if(scheduleList == null || scheduleList.length == 0)
+					return;
+				
+				for each(var item:ProcessRequestScheduleData in scheduleList )
+				{
+					if(!item.checked)
+					{
+						indexCheck++;						
+					}
+				}
+				
+				if(indexCheck == scheduleList.length)
+				{
+					this.selected = false;
+				}
+			}
+			
+			
+		]]>
+	</mx:Script>	
+
+</mx:CheckBox>

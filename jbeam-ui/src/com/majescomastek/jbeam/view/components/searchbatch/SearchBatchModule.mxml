@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	implements="com.majescomastek.jbeam.view.IModule" width="100%" height="100%"
+	creationComplete="onCreationComplete(event);">
+	
+	<mx:Script source="../../scripts/searchbatch/SearchBatchModuleScript.as" />
+	
+	<mx:DateFormatter id="dateFormatterDB" formatString="DD-MMM-YYYY" />
+	<mx:DateFormatter id="formatDateTime" formatString="DD-MMM-YYYY HH:NN:SS" />
+	<mx:DateFormatter id="formatDateTimeUSD" formatString="MM/DD/YYYY HH:NN:SS" />
+	<mx:DateFormatter id="formatDate" formatString="DD-MMM-YYYY" />
+	
+	<mx:VBox width="100%" height="100%" styleName="innerCanvas"
+		paddingLeft="10" paddingTop="10" paddingRight="10" paddingBottom="10">
+		<mx:Panel title="Search Batch Details" styleName="styleAControlbar"
+			left="10" top="10" layout="horizontal" width="65%" height="80%">
+			<mx:HBox styleName="outerContainer" width="100%" height="100%"
+				borderThickness="0" paddingLeft="10" paddingTop="10" paddingBottom="10"
+				paddingRight="10" horizontalGap="0">
+				<mx:VBox styleName="innerCanvas" paddingLeft="5" paddingTop="5"
+					paddingRight="5" paddingBottom="5" verticalGap="0" width="50%"
+					height="100%">
+					<mx:Canvas height="100%" left="5" top="5"
+						right="5" bottom="5" width="100%">
+						<mx:Label x="0" y="10" text="Batch #" fontWeight="bold" />
+						<mx:TextInput x="82" y="8" id="txtBatchNo" maxChars="10" />
+						<mx:HRule x="0" y="42" width="100%" />
+						<mx:Label x="1" y="55" text="Batch Name" fontWeight="bold" />
+						<mx:TextInput x="83" y="52" id="txtBatchName" maxChars="25" />
+						<mx:HRule x="0" y="89" width="100%" />
+						<mx:Label text="Status" fontWeight="bold" x="1" y="102" />
+						<mx:ComboBox x="83" y="99" id="comboStatus" dataProvider="{batchEndReasonList}"
+							labelField="name" />
+					</mx:Canvas>
+				</mx:VBox>
+				<mx:VBox styleName="innerCanvas" paddingLeft="5" paddingTop="5"
+					paddingRight="5" paddingBottom="5" verticalGap="0" width="50%"
+					height="100%">
+					<mx:Canvas height="100%" left="5" top="5"
+						right="5" bottom="5" width="100%">
+						<mx:Label text="Batch Type" fontWeight="bold" x="0" y="10" />
+						<mx:ComboBox x="82" y="8" id="comboBatchType" dataProvider="{batchTypeList}"
+							labelField="name" />
+						<mx:HRule x="0" y="42" width="100%" />
+						<mx:Label text="Batch Date" fontWeight="bold" x="0" y="55" />
+						<mx:DateField x="82" y="52" width="160" id="txtBatchDate"
+							change="dateChanged(DateField(event.target).selectedDate)" />
+						<mx:HRule x="0" y="89" width="100%" />
+					</mx:Canvas>
+				</mx:VBox>
+			</mx:HBox>
+			<mx:ControlBar width="100%">
+				<mx:Button label="Clear" styleName="subButton" left="10"
+					top="10" click="clearAllParams()" />
+				<mx:Spacer width="100%" />
+				<mx:Button label="Search" styleName="mainButton" 
+						   keyDown="onEnterClick(event);"
+						   click="searchData()" />
+			</mx:ControlBar>
+		</mx:Panel>
+		<mx:Panel title="Batch Search Result" width="100%" height="100%"
+			styleName="styleA">
+			<mx:HBox id="hboxAlertMessage" styleName="messageBox" height="5%" minHeight="25" width="100%">
+				<mx:Text styleName="messageText" width="{this.width*0.9}" text="{alertMessage}" maxWidth="800"/>
+			</mx:HBox>
+			<mx:DataGrid id="dgSearchResult" width="100%" height="100%"
+				dataProvider="{searchBatchResultList}"				
+				itemClick="itemClickEvent(event);">
+				<mx:columns>
+					<mx:DataGridColumn width="20"
+						headerText="{resourceManager.getString('SearchBatch','bbcd_batch_no')}"
+						dataField="batchNo" sortable="true" textAlign="right" wordWrap="true" />
+					<mx:DataGridColumn width="20"
+						headerText="{resourceManager.getString('SearchBatch','bbcd_batch_rev_no')}"
+						dataField="batchRevNo" sortable="true" textAlign="right" />
+					<mx:DataGridColumn width="50"
+						headerText="{resourceManager.getString('SearchBatch','bbcd_batch_name')}"
+						dataField="batchName" sortable="true" textAlign="left" />
+					<mx:DataGridColumn width="20"
+						headerText="{resourceManager.getString('SearchBatch','bbcd_batch_type')}"
+						dataField="batchType" sortable="true" textAlign="left" />
+					<mx:DataGridColumn width="40"
+						headerText="{resourceManager.getString('SearchBatch','bbcd_batch_start_date')}"
+						dataField="execStartTime" sortable="true" textAlign="center"						
+						headerWordWrap="true" />
+					<mx:DataGridColumn width="40"
+						headerText="{resourceManager.getString('SearchBatch','bbcd_batch_end_date')}"
+						dataField="execEndTime" sortable="true" textAlign="center"
+						headerWordWrap="true" />
+					<mx:DataGridColumn width="40"
+						headerText="{resourceManager.getString('SearchBatch','bbcd_status')}"
+						dataField="batchEndReason" sortable="true" textAlign="left"
+						headerWordWrap="true" />
+					<mx:DataGridColumn width="20"
+						headerText="{resourceManager.getString('SearchBatch','bbcd_processId')}"
+						dataField="processId" sortable="true" textAlign="right"
+						headerWordWrap="true" />
+				</mx:columns>
+			</mx:DataGrid>
+			<mx:HBox width="100%">
+				<mx:ControlBar width="100%">
+					<mx:Button label="Clear" styleName="subButton" left="10"
+							   top="10" click="clearSearchData()" />				
+				</mx:ControlBar>
+			</mx:HBox>
+		</mx:Panel>
+	</mx:VBox>
+</mx:Module>

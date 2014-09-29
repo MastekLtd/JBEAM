@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * @author Mandar Vaidya
+ *
+ * $Revision:: 1                                                                                                       $
+ *	
+ * $Header::  $	
+ *
+ * $Log::  $
+ * 
+ -->
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" styleName="boxStyle" width="100%"
+	xmlns:custom="com.majescomastek.flexcontrols.custom.*" height="100%" creationComplete="onCreationComplete()"
+	title="{resourceManager.getString('jbeam','security_head')}">
+
+	<mx:Script source="../../scripts/forgotpassword/ValidateSecurityQuestionsScript.as"/> 
+
+	<mx:StringValidator id="valAnswer" source="{txtAnswer}" property="text"
+		requiredFieldError="{resourceManager.getString('jbeam','answer_required')}"/>
+
+	<mx:VBox styleName="outerContainer" width="100%" height="100%">
+		<mx:Form styleName="innerContainer" width="100%" height="100%">
+			<mx:FormItem id="txtQuestion" styleName="pageLabel1">
+				<custom:CustomTextInput id="txtAnswer" textAlign="left"
+					creationComplete="event.currentTarget.setFocus()" 
+					displayAsPassword="true"
+					maxChars="40" tabIndex="1"/>
+			</mx:FormItem>
+		</mx:Form>
+	</mx:VBox>
+	<mx:HBox width="100%" horizontalAlign="right">		
+		<custom:ActionButton id="btnSubmit" styleName="mainButton" tabIndex="3" 
+		label="{resourceManager.getString('jbeam','submit')}" click="submitAnswers()"/>
+	</mx:HBox>
+</mx:Panel>

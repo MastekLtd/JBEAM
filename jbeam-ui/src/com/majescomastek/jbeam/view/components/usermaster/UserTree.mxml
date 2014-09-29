@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * @author mandar.vaidya
+ *
+ * $Revision:: 2                                                                                                       $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/createcashb $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/createcashb $
+ * 
+ * 
+ -->
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml">
+	<mx:Script>
+		<![CDATA[
+			import mx.events.ListEvent;
+			import com.majescomastek.jbeam.model.vo.UserProfile;
+			import com.majescomastek.jbeam.model.vo.ReqUserDetails;
+			include "../../../common/CommonScript.as"
+			
+			import flash.net.sendToURL;
+			import mx.utils.ObjectUtil;
+			import mx.collections.SortField;
+			import mx.collections.Sort;
+			import mx.collections.GroupingCollection;
+			import mx.collections.Grouping;
+			import mx.collections.GroupingField;
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]public var field1:String = null;
+			[Bindable]public var field2:String = null;
+			[Bindable]public var field3:String = null;
+			
+			private var _userDetails:ArrayCollection = null;
+			
+			/** The event constant used to denote the request to get user details */
+			public static const GET_USER_DETAILS_REQUEST:String = 'GET_USER_DETAILS_REQUEST';
+			
+			/** The event constant used to denote the request to clear user details */
+			public static const CLEAR_USER_DETAILS_REQUEST:String = 'CLEAR_USER_DETAILS_REQUEST';
+
+			public function set userDetails(_userDetails:ArrayCollection):void
+			{
+				this._userDetails = ObjectUtil.copy(_userDetails) as ArrayCollection;
+				if(_userDetails!=null)
+				{
+					var sort:Sort = new Sort();
+					sort.fields = [new SortField(field1),new SortField(field2),new SortField(field3)]
+					_userDetails.sort = sort;
+					_userDetails.refresh();
+				}				
+				dispatchEvent(new Event("USER_DETAILS"));
+				assignCollection();
+			}
+			
+			[Bindable(event="USER_DETAILS")]
+			public function get userDetails():ArrayCollection
+			{
+				return this._userDetails;
+			}
+			
+			public function assignCollection():void
+			{
+				if(userTree!=null)
+				{
+					grouping.refresh(true);
+					userTree.dataProvider = grouping;
+				}
+			}
+			
+			private function onClick(event:ListEvent):void
+			{
+				var groupValue:String = null;
+				var value:String = null;
+				if(event['itemRenderer'].listData.depth == 1)
+				{
+					value = field1;
+					groupValue = event['itemRenderer'].data.GroupLabel;
+				}
+				else if(event['itemRenderer'].listData.depth == 2)
+				{
+					value = field2;
+					groupValue = event['itemRenderer'].data.GroupLabel;
+				}
+				else if(event['itemRenderer'].listData.depth == 3)
+				{
+					value = field3; 
+					groupValue = event['itemRenderer'].data[field3];
+				}
+				switch(value)
+				{
+					case "userId":
+						if(groupValue != null)
+						{
+							var userProfile:UserProfile = new UserProfile();
+							userProfile.userId = groupValue;
+							sendDataEvent(GET_USER_DETAILS_REQUEST, userProfile);
+						}
+						break;						
+					case "roleId":						
+					case "installationCode":												
+						sendEvent(CLEAR_USER_DETAILS_REQUEST);
+						break;
+				}				
+			}
+		]]>
+	</mx:Script>
+	<mx:GroupingCollection id="grouping" source="{userDetails}"> 
+        <mx:grouping> 
+          <mx:Grouping> 
+            <mx:GroupingField name="{field1}"/> 
+            <mx:GroupingField name="{field2}"/> 
+          </mx:Grouping> 
+        </mx:grouping> 
+      </mx:GroupingCollection>
+		
+      <mx:AdvancedDataGrid id="userTree" width="100%" height="100%"
+		horizontalCenter="0" headerHeight="0" itemClick="onClick(event)">
+      	<mx:columns>
+      		<mx:AdvancedDataGridColumn dataField="{field3}"/>
+      	</mx:columns>
+      </mx:AdvancedDataGrid>
+</mx:Canvas>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<flexcontrols:JbeamNativeWindow xmlns:mx="http://www.adobe.com/2006/mxml"
+	width="600" height="400" xmlns:flexcontrols="com.majescomastek.flexcontrols.*"
+	title="{listenerTitle}" alwaysInFront="true"
+	implements="com.majescomastek.jbeam.view.components.IViewComponent"
+	close="performCleanup(event)">
+	<mx:Script source="../../scripts/batchdetails/ListenerWindowScript.as" />
+	<mx:DateFormatter id="formatDateTimeUSD"
+		formatString="{resourceManager.getString('jbeam','date_format')}" />
+	<mx:Canvas
+		label="{resourceManager.getString('jbeam','listener_details_title')}"
+		width="100%" height="100%" styleName="outerCanvas"
+		horizontalCenter="0" verticalCenter="0">
+		<mx:Panel id="pnlListener" styleName="styleA"
+			x="0" y="0" width="100%" height="100%"	title="{listenerTitle}">
+			<mx:ControlBar width="100%">
+				<mx:Spacer width="100%" />
+				<mx:Button id="btnRefresh" label="Refresh" 
+					textAlign="center" enabled="{refreshButtonEnabled}" />
+			</mx:ControlBar>
+			<mx:Spacer width="100%" />
+			<mx:DataGrid id="dgListnerData" width="100%" height="100%" dataProvider="{listenerList}"
+				styleName="dataGrid" itemClick="onFailedObjectClick(event)">
+				<mx:columns>
+					<mx:DataGridColumn width="60" headerWordWrap="true"
+						textAlign="center"
+						headerText="{resourceManager.getString('jbeam','listener_no')}"
+						dataField="listenerId" />
+					<mx:DataGridColumn width="120" headerWordWrap="true"
+						textAlign="center"
+						headerText="{resourceManager.getString('jbeam','listener_obj_executed')}"
+						sortable="true" dataField="noOfObjectsExecuted" />
+					<mx:DataGridColumn width="120" headerWordWrap="true"
+						textAlign="center"
+						headerText="{resourceManager.getString('jbeam','listener_obj_failed')}"
+						dataField="noOfObjectsFailed" />
+					<mx:DataGridColumn width="120" headerWordWrap="true"
+						textAlign="right"
+						headerText="{resourceManager.getString('jbeam','listener_time_taken')}"
+						dataField="timeTaken" />
+				</mx:columns>
+			</mx:DataGrid>
+		</mx:Panel>
+	</mx:Canvas>
+</flexcontrols:JbeamNativeWindow>

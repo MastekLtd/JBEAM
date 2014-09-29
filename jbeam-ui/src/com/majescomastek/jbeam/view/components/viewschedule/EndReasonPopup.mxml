@@ -1,0 +1,79 @@
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:flexcontrols="com.majescomastek.flexcontrols.*"
+	layout="vertical" styleName="popupWindowBox" title="End Reason"
+	width="500" height="200" creationComplete="titlewindow1_creationCompleteHandler(event)"
+	showCloseButton="true" close="closePopup(event)" >
+
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.model.vo.ProcessRequestScheduleData;
+			
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			
+			[Bindable]
+			private var scheduleData:ProcessRequestScheduleData;
+			[Bindable]
+			private var schEndReasonTitle:String;
+			
+			private function closePopup(event:Event):void
+			{
+				PopUpManager.removePopUp(this);
+			}
+			
+			public function handleStartupComplete(data:Object):void
+			{
+				if(data == null)	return;
+				
+				scheduleData = ProcessRequestScheduleData(data);
+				derivePageState();	
+				this.endReason.text = scheduleData.endReason;
+			}
+			
+			
+			
+			/**
+			 * Derive the state of the view variables based on the initialization data.
+			 */
+			private function derivePageState():void
+			{
+				schEndReasonTitle = "Schedule End Reason for id # " + scheduleData.schId;
+			}
+			
+			protected function titlewindow1_creationCompleteHandler(event:FlexEvent):void
+			{
+				trace("Event = " + event);
+				this.endReason = event.currentTarget.endReason;
+				
+			}
+			
+		]]>
+	</mx:Script>
+		
+	<!--<mx:Form>
+		<mx:FormItem label="User Name">
+			<mx:TextInput id="username" width="100%"/>
+		</mx:FormItem>		
+	</mx:Form>
+-->
+	<mx:Panel id="pnlEndReason" 
+			  title="End Reason" 
+			  styleName="styleA"	width="100%" height="100%">			
+		<flexcontrols:MultilineLabel id="endReason" text="{scheduleData.endReason}" width="100%"    />						
+	</mx:Panel>
+</mx:TitleWindow>

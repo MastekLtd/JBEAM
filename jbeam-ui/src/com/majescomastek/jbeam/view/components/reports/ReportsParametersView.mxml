@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * @author Gourav Rai
+ * 
+ *
+ * $Revision:: 3                        $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/ReportsParametersView.m $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/ReportsParametersView $
+ * 
+ * 3     4/25/10 7:54p Gourav.rai
+ * 
+ * 2     4/12/10 6:53p Gourav.rai
+ * Srinivas is going to work on it.
+ * 
+ * 1     4/07/10 12:00p Gourav.rai
+ * Added by Gourav Rai
+ * 
+ * 
+ --> 
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" autoLayout="true" 
+	disabledOverlayAlpha="0" currentState="BASE" 
+	xmlns:flexcontrols="com.majescomastek.flexcontrols.*" 
+	xmlns:reports="com.majescomastek.jbeam.view.components.reports.*" 
+	xmlns:vo="com.majescomastek.jbeam.model.vo.*" width="100%">
+	<mx:Script source="../../scripts/reports/ReportsParametersViewScript.as"/>
+	<mx:states>
+		<mx:State name="BASE">
+			<mx:RemoveChild target="{containerId}"/>
+			<mx:RemoveChild target="{controlBarId}"/>
+			<mx:SetProperty target="{panelId}" name="width" value="310"/>
+			<!--<mx:RemoveChild target="{btnRunReport}"/>
+			<mx:RemoveChild target="{but2}"/>
+			<mx:RemoveChild target="{but3}"/>
+			<mx:SetProperty target="{panelId}" name="percentHeight" value="0"/>-->
+		</mx:State>
+		<mx:State name="{OFFLINE}">
+			<mx:SetProperty target="{but3}" name="enabled" value="true"/>
+			<mx:SetProperty target="{schDateId}" name="enabled" value="true"/>
+			<mx:SetProperty target="{schTimeId}" name="enabled" value="true"/>
+			<!--<mx:SetProperty target="{destTypeId}" name="enabled" value="true"/>-->
+		</mx:State>
+		<mx:State name="{OFFLINE_NO_REPORT_PARAMETERS}" basedOn="{OFFLINE}">
+			<mx:RemoveChild target="{reportParameterId}"/>
+		</mx:State>
+		<mx:State name="{ONLINE_NO_REPORT_PARAMETER}">
+			<mx:RemoveChild target="{reportParameterId}"/>
+		</mx:State>
+		
+		<mx:State name="DEFAULT">
+			
+		</mx:State>
+		<mx:State name="DAY">
+			<mx:SetProperty target="{this}" name="enableDays" value="false"/>
+		</mx:State>
+		<mx:State name="FOURTH_MTH">
+			
+		</mx:State>
+		<mx:State name="FIRST_MTH">
+			
+		</mx:State>
+		<mx:State name="REN_ADMIN">
+			
+		</mx:State>
+		<mx:State name="HOUR">
+			<mx:SetProperty target="{startTimeOnlyId}" name="enabled" value="true"/>
+			<mx:SetProperty target="{endTimeOnlyId}" name="enabled" value="true"/>
+		</mx:State>
+		<mx:State name="LDMONTH">
+			<mx:SetProperty target="{this}" name="enableDays" value="false"/>
+		</mx:State>
+		<mx:State name="LAST_MTH">
+			
+		</mx:State>
+		<mx:State name="THIRD_MTH">
+			
+		</mx:State>	
+		<mx:State name="MINUTE">
+			<mx:SetProperty target="{startTimeOnlyId}" name="enabled" value="true"/>
+			<mx:SetProperty target="{endTimeOnlyId}" name="enabled" value="true"/>
+		</mx:State>
+		<mx:State name="MONTH">
+			<mx:SetProperty target="{this}" name="enableDays" value="false"/>
+		</mx:State>
+		<mx:State name="PREDEFINED" enterState="onPredefined()">
+			
+		</mx:State>
+		<mx:State name="SECOND_MTH">
+			
+		</mx:State>
+		<mx:State name="WEEK">
+			
+		</mx:State>
+		<mx:State name="YEAR">
+			<mx:SetProperty target="{this}" name="enableDays" value="false"/>
+		</mx:State>
+		<mx:State name="FIRST_YR">
+			
+		</mx:State>
+		<mx:State name="SECOND_YR">
+			
+		</mx:State>
+		<mx:State name="THIRD_YR">
+			
+		</mx:State>
+		<mx:State name="FOURTH_YR">
+			
+		</mx:State>
+		<mx:State name="LAST_YR">
+			
+		</mx:State>
+	</mx:states>
+	<mx:NumberValidator id="freqValId" source="{frequencyId}" minValue="1" property="selectedIndex" 
+		requiredFieldError="{resourceManager.getString('jbeam', 'valid_entry')}" 
+		lowerThanMinError="{resourceManager.getString('jbeam', 'valid_entry')}"
+		required="true" enabled="false"/>
+	<mx:StringValidator id="recurEveryValId" source="{recurEveryId}" minLength="1" property="text" required="true" enabled="false"/>
+	<mx:RadioButtonGroup id="dayGroupId"/>
+	<mx:EmailValidator id="emailValId" source="{emailIds}" enabled="false" required="true" property="text"/>
+	
+	<mx:DateValidator id="schDtValId" source="{schDateId}" enabled="false"
+		inputFormat="MM/DD/YYYY"
+		requiredFieldError="{resourceManager.getString('jbeam','valid_date_msg')}"
+		formatError="{resourceManager.getString('jbeam','valid_date_msg')}"
+		invalidCharError="{resourceManager.getString('jbeam','valid_date_msg')}"
+		wrongLengthError="{resourceManager.getString('jbeam','valid_date_msg')}"
+		property="text"/>
+	
+	<mx:HBox styleName="innerContainer" width="100%">
+		<mx:Panel id="panelId" title="{resourceManager.getString('jbeam', 'exe_rep')}" styleName="boxStyle" 
+			verticalGap="3" width="50%" height="20%" left="5">
+			<mx:HBox width="100%" styleName="main">
+				<mx:Label text="{resourceManager.getString('jbeam', 'select_rep')} :" styleName="popupLabel"/>
+				<flexcontrols:SelectOneComboBox id="repId" 
+					dataProvider="{reports}" 
+					labelFunction="reportDropDownLabel" 
+					change="onReportChange(event)" 
+					width="{repId.text.length * 10}" 
+					dropdownWidth="{repId.width>120?repId.width:120}" 
+					toolTip="{repId.text}"/>
+			</mx:HBox>		
+			<mx:HBox id="containerId" styleName="innerContainer" width="100%">
+				<mx:VBox id="vcontainerId" styleName="innerContainer" width="100%">
+				<mx:Panel id="reportParameterId" title="{resourceManager.getString('jbeam', 'rep_params')}" styleName="boxStyle"
+					verticalGap="3" height="100%" width="100%">
+					<mx:Form verticalGap="2" horizontalGap="8" indicatorGap="14" paddingTop="6" styleName="main" height="100%" width="100%">
+						<mx:Repeater id="rptId" dataProvider="{reportParameters}">
+							<reports:BaseParameterContainer id="baseParamContId" parameter="{rptId.currentItem}" labelStyleName="popupLabel"/>
+						</mx:Repeater>
+					</mx:Form>
+				</mx:Panel>
+				<mx:Panel id="schContainerId" title="{resourceManager.getString('jbeam', 'schedule_report')}"  styleName="boxStyle"
+					verticalGap="3" height="100%" width="100%">
+					<mx:Form verticalGap="2" horizontalGap="8" indicatorGap="14" paddingTop="6" height="100%" styleName="main" width="100%">
+						<mx:FormItem labelStyleName="popupLabel" label="{resourceManager.getString('jbeam','exe_rep')} :">
+							<mx:ComboBox id="exeRepId" labelField="description" change="performByExeRep(event)">
+								<mx:dataProvider>
+									<mx:ArrayCollection>
+										<!--<vo:ConfigParameter subCode="{ONLINE}" description="Select"/>-->
+										<vo:ConfigParameter subCode="{OFFLINE}" description="Offline"/>
+									</mx:ArrayCollection>
+								</mx:dataProvider>
+							</mx:ComboBox>
+						</mx:FormItem>						
+						<mx:FormItem label="{resourceManager.getString('jbeam','dest_format')} :" labelStyleName="popupLabel">
+							<flexcontrols:SelectOneComboBox id="repType" dataProvider="{reportFormats}" 
+									labelField="description"/>
+						</mx:FormItem>
+						<mx:FormItem label="{resourceManager.getString('jbeam','schedule_date')} :" labelStyleName="popupLabel" required="true">
+							<mx:HBox width="100%">
+								<flexcontrols:LocaleRestrictedDateField id="schDateId" enabled="false" width="160" formatString="MM/DD/YYYY" />
+								<mx:Label text="(MM/DD/YYYY)"/>								
+							</mx:HBox>
+						</mx:FormItem>
+						<mx:FormItem label="{resourceManager.getString('jbeam','schedule_time')} :" labelStyleName="popupLabel">
+							<reports:ReportHourMinuteSecField id="schTimeId" enabled="false"/>
+						</mx:FormItem>
+						<mx:FormItem label="{resourceManager.getString('jbeam','email_ids')} :" labelStyleName="popupLabel" required="true">
+							<mx:TextInput id="emailIds" text=""/>
+						</mx:FormItem>
+					</mx:Form>
+				</mx:Panel>
+				</mx:VBox>		
+			</mx:HBox>		
+			<mx:HBox width="100%" horizontalAlign="right" id="controlBarId">			
+				<mx:Button id="btnRunReport" label="{resourceManager.getString('jbeam', 'run_rep')}" 
+					styleName="mainButton" click="onRunReport(event)" visible="{runReportVisible}"/>
+				<!--<mx:Button id="but2" label="{resourceManager.getString('jbeam', 'sch_his')}" 
+					styleName="mainButton" click="attachedScheduleHistory('SCHEDULE_HISTORY')"/>-->
+				<mx:Button id="but3" label="{resourceManager.getString('jbeam', 'attach_sch')}" 
+					styleName="mainButton" click="attachedSchedule()"/>
+			</mx:HBox>
+		</mx:Panel>
+		<mx:Panel id="schPanelId" 
+			title="{resourceManager.getString('jbeam', 'schedule')} - {resourceManager.getString('jbeam', 'req_status_enquiry')}" 
+			styleName="boxStyle" verticalGap="3" visible="{attachScheduleVisible}" right="5">
+		<mx:Form verticalGap="4" horizontalGap="8" indicatorGap="14" paddingTop="6" width="100%" styleName="main" height="100%">			
+			<mx:FormItem labelStyleName="popupLabel" label="{resourceManager.getString('jbeam','frequency')} :"
+						 required="true">
+				<flexcontrols:SelectOneComboBox id="frequencyId" dataProvider="{frequecies}" labelField="description" 
+						change="onFrequencyChange(event)"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','recur_every')} :" labelStyleName="popupLabel" required="true">
+				<mx:TextInput id="recurEveryId" restrict="0-9"/>
+			</mx:FormItem>		
+			<reports:EndOnComponent id="endOnId" executeReport="{executeReport}" required="true"/>			
+			<mx:FormItem label="{resourceManager.getString('jbeam','future_sch')} :" labelStyleName="popupLabel" direction="horizontal">
+				<mx:RadioButtonGroup id="groupId"/>
+				<mx:RadioButton id="yesId" group="{groupId}" name="Y" label="{resourceManager.getString('jbeam','yes')}" selected="true"/>
+				<mx:RadioButton id="noId" group="{groupId}" name="N" label="{resourceManager.getString('jbeam','no')}"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','week_day')} :" labelStyleName="popupLabel" direction="horizontal">				
+				<mx:VBox>
+					<mx:HBox>
+						<mx:CheckBox id="chkSunday" label="Sunday" />
+						<mx:CheckBox id="chkMonday" label="Monday" />
+						<mx:CheckBox id="chkTuesday" label="Tuesday" />
+						<mx:CheckBox id="chkWednesday" label="Wednesday" />
+					</mx:HBox>
+					<mx:HBox>
+						<mx:CheckBox id="chkThursday" label="Thursday" />
+						<mx:CheckBox id="chkFriday" label="Friday" />
+						<mx:CheckBox id="chkSaturday" label="Saturday" />
+					</mx:HBox>
+				</mx:VBox>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','start_time')} :" labelStyleName="popupLabel" direction="horizontal">
+				<reports:ReportHourMinuteSecField id="startTimeOnlyId" enabled="false" hhIndex="0" mmIndex="0" ssIndex="0"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','end_time')} :" labelStyleName="popupLabel" direction="horizontal">
+				<reports:ReportHourMinuteSecField id="endTimeOnlyId" enabled="false" hhIndex="0" mmIndex="0" ssIndex="0"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','skip_flag')} :" labelStyleName="popupLabel" direction="horizontal">
+				<mx:ComboBox id="comboSkipFlag" labelField="flagObject"
+										dataProvider="{skipFlagList}"
+										selectedIndex="0" change="showCalendar(event)" />
+			</mx:FormItem>
+			<mx:FormItem id="lblCalendar" label="{resourceManager.getString('jbeam','calendar')} :" labelStyleName="popupLabel" direction="horizontal">
+				<mx:Text id="txtBatchCalendar" text="Batch Calendar" styleName="pageLabel" />
+			</mx:FormItem>			
+		</mx:Form>
+		<mx:HBox width="100%" horizontalAlign="right" id="schControlBarId">			
+			<mx:Button label="{resourceManager.getString('jbeam', 'back')}" click="onBack(event)"/>
+			<mx:Spacer width="100%"/>
+			<mx:Button id="btnScheduleReport" click="onRunReport(event)" label="{resourceManager.getString('jbeam', 'schedule_report')}" 
+				styleName="mainButton"/>			
+		</mx:HBox>
+	</mx:Panel>
+	</mx:HBox>
+</mx:VBox>

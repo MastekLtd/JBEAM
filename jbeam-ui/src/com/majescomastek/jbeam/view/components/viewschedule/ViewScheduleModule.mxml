@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml"
+		   xmlns:flexcontrols="com.majescomastek.flexcontrols.*"
+		   xmlns:dg="com.majescomastek.flexcontrols.dg.*"
+		   width="100%" height="100%" creationComplete="onCreationComplete(event)"
+		   implements="com.majescomastek.jbeam.view.IModule" layout="horizontal">
+	<mx:Script source="../../scripts/viewschedule/ViewScheduleModuleScript.as"/>
+	
+	<mx:VBox width="100%" height="100%" paddingBottom="10" paddingLeft="10" paddingRight="10"
+			 paddingTop="10" styleName="innerCanvas">		
+		<mx:Panel width="100%" height="100%" styleName="styleA" 
+				  title="{resourceManager.getString('jbeam','view_schedule_title')}">
+				<mx:HBox width="100%" height="20%" borderThickness="0" horizontalGap="0"
+						 paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10"
+						 styleName="outerContainer">
+					<mx:VBox width="100%" height="100%" paddingBottom="5" paddingLeft="5"
+							 paddingRight="5" paddingTop="5" styleName="innerCanvas" verticalGap="0">
+						<mx:Canvas left="5" right="5" top="5" bottom="5" width="100%" height="100%">
+							<mx:Label x="160" y="10" fontWeight="bold" 
+									  text="{resourceManager.getString('jbeam','select_schedule')}"/>
+							<mx:Label x="10" y="10" fontWeight="bold" 
+									  text="{resourceManager.getString('jbeam','lbl_freq')}"/>
+							<mx:Label x="85" y="10" fontWeight="bold" 
+									  text="{resourceManager.getString('jbeam','val_freq')}"/>
+							<mx:ComboBox id="comboScheduleTypes" x="300" y="10"
+										 change="showSchedules(event)"
+										 dataProvider="{scheduleTypesList}" labelField="name"/>
+							<mx:Button id="btnRefresh" x="700" y="10" 
+									   label="{resourceManager.getString('jbeam','btn_refresh')}"
+									   click="refreshClick(event)" textAlign="center"/>
+							<mx:Button id="btnCancelSelected" x="800" y="10" 
+									   label="{resourceManager.getString('jbeam','btn_cancel_selected')}"
+									   click="cancelSelectedSchedules(event)" textAlign="center"/>
+						</mx:Canvas>
+					</mx:VBox>
+				</mx:HBox>
+			<mx:ControlBar width="20%" height="10%">
+				<mx:Spacer width="100%" />
+			</mx:ControlBar>
+			<mx:DataGrid id="dgActiveSchedules" width="100%" height="100%">
+				<mx:columns>
+					
+					<mx:DataGridColumn width="7" dataField="schId"
+									   headerText="{resourceManager.getString('jbeam','sch_id')}"
+									   headerWordWrap="true" sortable="true" textAlign="center"
+									   wordWrap="true"/>
+									   <!--itemRenderer="com.majescomastek.jbeam.view.components.viewschedule.ScheduleLinkComponent" />-->
+					<mx:DataGridColumn width="25" dataField="batchName"
+									   headerText="{resourceManager.getString('jbeam','batch_name')}"
+									   headerWordWrap="true" sortable="true" textAlign="center"
+									   wordWrap="true"/>
+					<mx:DataGridColumn width="13" dataField="schStat"
+									   headerText="{resourceManager.getString('jbeam','sch_stat')}"
+									   headerWordWrap="true"
+									   itemRenderer="com.majescomastek.jbeam.view.components.viewschedule.ScheduleStatusComponent"
+									   sortable="true" textAlign="center" />
+					<!--<mx:DataGridColumn width="10" dataField="freqType"
+									   headerText="{resourceManager.getString('jbeam','freq_type')}"
+									   headerWordWrap="true" sortable="true" textAlign="center"/>	-->				
+					<!--<mx:DataGridColumn width="11" dataField="occurCounter"
+									   headerText="{resourceManager.getString('jbeam','occur_counter')}"
+									   headerWordWrap="true" sortable="true" textAlign="center"/>-->				
+					<mx:DataGridColumn width="17" dataField="startDt"
+									   headerText="{resourceManager.getString('jbeam','start_date')}"
+									   headerWordWrap="true"
+									   itemRenderer="com.majescomastek.jbeam.view.components.viewschedule.StartDateComponent"
+									   sortable="true" textAlign="center"/>								
+					<mx:DataGridColumn width="17" dataField="endDt"
+									   headerText="{resourceManager.getString('jbeam','end_on_date')}"
+									   headerWordWrap="true"
+									   itemRenderer="com.majescomastek.jbeam.view.components.viewschedule.EndOnDateComponent"
+									   sortable="true" textAlign="center"/>								
+					<!--<mx:DataGridColumn width="10" dataField="endOccur"
+									   headerText="{resourceManager.getString('jbeam','end_on_occurrance')}"
+									   headerWordWrap="true" sortable="true" textAlign="center"/>				-->	
+					<mx:DataGridColumn width="27" dataField="onWeekDay"
+									   headerText="{resourceManager.getString('jbeam','week_days')}"
+									   headerWordWrap="true"
+									   itemRenderer="com.majescomastek.jbeam.view.components.viewschedule.WeekDayComponent"
+									   textAlign="left"/>					
+					<mx:DataGridColumn width="20" dataField="skipFlag"
+									   headerText="{resourceManager.getString('jbeam','skip_sch')}"
+									   headerWordWrap="true"
+									   itemRenderer="com.majescomastek.jbeam.view.components.viewschedule.SkipScheduleComponent"
+									   sortable="true" textAlign="center" />					
+					<mx:DataGridColumn width="6"
+									   headerText="{resourceManager.getString('jbeam','keep_alive')}"
+									   dataField="keepAlive" textAlign="center"
+									   itemRenderer="com.majescomastek.jbeam.view.components.viewschedule.KeepAliveFlagComponent"
+									   headerWordWrap="true" />			
+					<mx:DataGridColumn width="15" dataField="userId"
+									   headerText="{resourceManager.getString('jbeam','user_id')}"
+									   headerWordWrap="true" wordWrap="true" 
+									   sortable="true" textAlign="center"/>				
+					<mx:DataGridColumn width="8" dataField="endReason"
+									   headerText="{resourceManager.getString('jbeam','end_reason')}"
+									   headerWordWrap="true" 
+									   itemRenderer="com.majescomastek.jbeam.view.components.viewschedule.EndReasonComponent"
+									   textAlign="center"/>				
+					<dg:BaseDataGridColumn width="3" textAlign="center"
+									   itemRenderer="com.majescomastek.jbeam.view.components.viewschedule.CancelScheduleCheckBox" 
+									   headerRenderer="com.majescomastek.jbeam.view.components.viewschedule.HeaderCancelCheckBox" />	
+					
+				</mx:columns>
+			</mx:DataGrid>
+		</mx:Panel>		
+	</mx:VBox>
+</mx:Module>

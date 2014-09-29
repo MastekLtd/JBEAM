@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%"
+	height="76" xmlns:model="com.majescomastek.jbeam.model.screenvo.*"
+	xmlns:flexcontrols="com.majescomastek.flexcontrols.*" 
+	creationComplete="loadFile()">
+	
+	<mx:Script source="../../scripts/shell/TopBannerScript.as" />
+	
+	<mx:ArrayCollection id="headerLinks">
+		<model:ShellScreenVO label="{resourceManager.getString('Login', 'home')}"
+			code="{Shell.HOME}" />
+		<model:ShellScreenVO label="{resourceManager.getString('Login', 'logout')}"
+			code="{Shell.LOGOUT}" />
+	</mx:ArrayCollection>
+	
+	<mx:Box id="boxStrip" height="5" width="100%" styleName="bannerStrip" />
+
+	<mx:Canvas width="100%" height="71" left="0" top="5">
+		<mx:Image source="{resourceManager.getString('Image', 'top_bar')}"
+			maintainAspectRatio="false" width="100%" height="21.005436" x="423" />
+		<mx:Image source="{resourceManager.getString('Image', 'fire_flame')}"
+			x="155" y="0" />
+		<mx:Image x="16" y="10"
+			source="{clientLogo}" />
+		<mx:LinkBar styleName="headerLinkBar" top="1" right="10"
+			dataProvider="{headerLinks}" itemClick="linkClickHandler(event)">
+		</mx:LinkBar>
+		<mx:HBox styleName="hboxCommon" x="350" y="30" width="220">
+			<mx:Text text="{resourceManager.getString('Login', 'user_name')}"
+				styleName="pageLabel1" width="50%" textAlign="right" />
+			<mx:Text text="" id="userHeader" styleName="pageContent1"
+				width="50%" textAlign="left" />
+		</mx:HBox>
+		<mx:HBox styleName="hboxCommon" x="350" y="50" width="220">
+			<mx:Text text="{resourceManager.getString('Login', 'inst_code')}"
+				id="instHeader" styleName="pageLabel1" visible="{instHeaderVisible}" 
+				width="50%" textAlign="right" />
+			<mx:Text id="instValue" styleName="pageContent1"
+				 visible="{instValueVisible}" width="50%" textAlign="left" />
+		</mx:HBox>
+
+		<mx:HBox styleName="hboxCommon" right="58" y="30" width="180">
+			<mx:Text text="Desktop :"
+					 styleName="pageLabel1" textAlign="right"/>
+			<flexcontrols:DigitalClock styleName="pageLabel1" id="digitalClock"
+				width="120" textAlign="left" />
+		</mx:HBox>
+		<mx:HBox styleName="hboxCommon" right="55" y="50" width="210">
+			<mx:Text id="serverDateHeader" styleName="pageLabel1" 
+					 visible="{serverDateHeaderVisible}" textAlign="right" />
+			<flexcontrols:DigitalClock styleName="pageLabel1" id="serverDateTime"
+				width="120" visible="{serverDateValueVisible}" textAlign="left" />
+		</mx:HBox>
+	</mx:Canvas>
+</mx:Canvas>

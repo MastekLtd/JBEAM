@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<Pod xmlns="com.majescomastek.common.containers.dashboard.*"
+	xmlns:flexcontrols="com.majescomastek.flexcontrols.*"
+	xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%">
+	
+	<mx:Script source="../../scripts/batchdetails/ObjectExecutionGraphPodScript.as" />
+	<mx:DateFormatter id="formatDateTimeUSD" formatString="{resourceManager.getString('jbeam','date_format')}" />
+	
+	<mx:VBox label="ObjectExecutionGraph" width="100%" height="100%"
+		verticalGap="1" id="vbObjectExecutionGraph">
+		<mx:Canvas y="0" name="cvObjectExecutionGraph" width="100%"	height="100%">
+			<flexcontrols:FieldSet
+				horizontalScrollPolicy="off" styleName="jbeamFieldSet" id="fsObjectExecutionGraph"
+				verticalScrollPolicy="off" name="fsObjectExecutionGraph" x="0" y="0"
+				width="100%" height="100%">
+				<mx:Spacer width="100%"/>
+				<mx:ViewStack x="25" y="40"	id="viewStack"					
+					creationPolicy="all" width="100%" height="100%">						
+					<mx:Canvas width="100%" height="100%" id="lineChartCanvas" />
+				</mx:ViewStack>			
+			</flexcontrols:FieldSet>
+		</mx:Canvas>
+	</mx:VBox>
+</Pod>

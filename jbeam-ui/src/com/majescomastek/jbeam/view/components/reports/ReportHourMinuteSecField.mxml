@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * @author Gourav Rai
+ * 
+ *
+ * $Revision:: 3                        $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/ReportHourMinuteSecFiel $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/ReportHourMinuteSecFi $
+ * 
+ * 3     4/25/10 7:54p Gourav.rai
+ * 
+ * 2     4/12/10 6:53p Gourav.rai
+ * Srinivas is going to work on it.
+ * 
+ * 1     4/07/10 12:00p Gourav.rai
+ * Added by Gourav Rai
+ * 
+ * 
+ --> 
+<BaseParameterChild xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="com.majescomastek.jbeam.view.components.reports.*" creationComplete="init(event)">
+	<mx:Script>
+		<![CDATA[
+			[Bindable]private var hrs:Array = null;
+			[Bindable]private var min_sec:Array = null;
+			
+			private var _hhIndex:int = 0;
+			private var _mmIndex:int = 0;
+			private var _ssIndex:int = 0;
+			
+			//[Bindable("HH_INDEX")]
+			public function get hhIndex():int
+			{
+				return this._hhIndex;
+			}
+			public function set hhIndex(value:int):void
+			{
+				this._hhIndex = value;
+				if(hrIndexId!=null)
+				{
+					hrIndexId.selectedIndex = _hhIndex+1;
+				}				
+				//dispatchEvent(new Event("HH_INDEX"));
+			}
+			
+			//[Bindable("MM_INDEX")]
+			public function get mmIndex():int
+			{
+				return this._mmIndex;
+			}
+			public function set mmIndex(value:int):void
+			{
+				this._mmIndex = value;
+				if(mmIndexId!=null)
+				{
+					mmIndexId.selectedIndex = _mmIndex+1;
+				}
+				//dispatchEvent(new Event("MM_INDEX"));
+			}
+			
+			//[Bindable("SS_INDEX")]
+			public function get ssIndex():int
+			{
+				return this._ssIndex;
+			}
+			public function set ssIndex(value:int):void
+			{
+				this._ssIndex = value;
+				if(ssIndexId!=null)
+				{
+					ssIndexId.selectedIndex = _ssIndex+1;
+				}
+				//dispatchEvent(new Event("SS_INDEX"));
+			}
+			
+			
+			
+			private function init(event:Event):void
+			{
+				hrs = new Array();
+//				hrs.push("--");
+				min_sec = new Array();
+//				min_sec.push("--");
+				for(var idx:int = 0; idx<60; idx++)
+				{
+					if(idx<10)
+					{
+						hrs.push("0"+idx);
+						min_sec.push("0"+idx);
+					}
+					else
+					{
+						min_sec.push(idx);
+					}
+					if(idx>9 && idx<24)
+					{
+						hrs.push(idx);
+					}
+				}
+			}
+			
+			private function setHrs(event:Event):void
+			{
+				_hhIndex = event.currentTarget.selectedIndex==0?0:event.currentTarget.selectedItem;
+			}
+			private function setMins(event:Event):void
+			{
+				_mmIndex = event.currentTarget.selectedIndex==0?0:event.currentTarget.selectedItem;
+			}
+			private function setSecs(event:Event):void
+			{
+				_ssIndex = event.currentTarget.selectedIndex==0?0:event.currentTarget.selectedItem;
+			}
+			
+			public function setTime(hr:int,mm:int,ss:int):void
+			{
+				hhIndex = isNaN(hr)?0:hr;
+				mmIndex = isNaN(mm)?0:mm;
+				ssIndex = isNaN(ss)?0:ss;
+				hrIndexId.selectedIndex = hhIndex+1;
+				mmIndexId.selectedIndex = mmIndex+1;
+				ssIndexId.selectedIndex = ssIndex+1;
+			}
+			
+			public function setStringTime(hr:String,mm:String,ss:String):void
+			{
+				hhIndex = isNaN(int(hr))?-1:int(hr);
+				mmIndex = isNaN(int(mm))?-1:int(mm);
+				ssIndex = isNaN(int(ss))?-1:int(ss);
+								
+				hrIndexId.selectedIndex = hhIndex+1;
+				mmIndexId.selectedIndex = mmIndex+1;
+				ssIndexId.selectedIndex = ssIndex+1;
+			}
+			
+			public function getStringValue():String
+			{
+				var value:String = null;
+				var hh:String = "";
+				var mm:String = "";
+				var ss:String = "";
+				if(hhIndex!=-1 && mmIndex!=-1 && ssIndex!=-1)
+				{
+					if(hhIndex<10)
+					{
+						hh = "0"+hhIndex;
+					}
+					else
+					{
+						hh = hhIndex.toString();
+					}
+					
+					if(mmIndex<10)
+					{
+						mm = "0"+mmIndex;
+					}
+					else
+					{
+						mm = mmIndex.toString();
+					}
+					
+					if(ssIndex<10)
+					{
+						ss = "0"+ssIndex;
+					}
+					else
+					{
+						ss = ssIndex.toString();
+					}
+					
+					value = hh+":"+mm+":"+ss;					
+				}
+				else
+				{
+					value = null;
+				}
+				return value;
+			}
+		]]>
+	</mx:Script>
+	<mx:ComboBox id="hrIndexId" dataProvider="{hrs}" valueCommit="setHrs(event)"/>
+	<mx:ComboBox id="mmIndexId" dataProvider="{min_sec}" valueCommit="setMins(event)"/>
+	<mx:ComboBox id="ssIndexId" dataProvider="{min_sec}" valueCommit="setSecs(event)"/>
+	<mx:Label text="(hh:mi:ss)"/>
+</BaseParameterChild>

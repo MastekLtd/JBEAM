@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * @author Gourav Rai
+ *
+ * $Revision:: 1                                                                                                       $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/Rep $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/Rep $
+ * 
+ * 1     4/25/10 7:55p Gourav.rai
+ * Added by Gourav Rai
+ * 
+ *
+ -->
+<mx:LinkButton xmlns:mx="http://www.adobe.com/2006/mxml" click="handleClick(event)"
+	 styleName="LinkButton" textDecoration="underline" disabledColor="#000000">	
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.common.events.CustomDataEvent;
+			import com.majescomastek.jbeam.common.CommonConstants;
+			import mx.controls.dataGridClasses.DataGridListData;
+			import com.majescomastek.jbeam.common.CommonConstants;
+			import mx.controls.listClasses.BaseListData;
+			import com.majescomastek.jbeam.model.vo.ReportParameter;
+			public static const LINK_CLICK:String = "LINK_CLICK_CUSTOM_LINK_BUTTON";
+			
+			/** The field used to hold the data field for this column */
+			private var _dataField:String;
+			
+			private function handleClick(event:Event):void
+			{
+				var object:Object = new Object();
+				object["dataField"] = _dataField;
+				object["data"] = this.data;
+				dispatchEvent(new CustomDataEvent(LINK_CLICK,object,true));
+			}
+			
+			
+			
+			override public function set data(value:Object):void
+			{		
+				super.data = value;						
+				if(_dataField!=null && value!=null)
+				{
+					try
+					{
+						switch(_dataField)
+						{
+							case "requestId":
+								this.label = value.requestId;
+							break;
+							case "userId":
+								this.label = value.userId;
+							break;
+							case "menuId":
+								this.label = value.menuId;
+							break;
+							case "scheduleId":
+								this.label = value.scheduleId;
+							break;
+							case "reqLogFileName":
+								if(value.reqLogFileName==null)
+								{
+									this.label = ""
+									this.enabled = false;
+								}
+								else
+								{
+									this.enabled = true;
+									this.label = value.requestId+'.log';
+								}								
+							break;
+							case "requestState":
+								if(value.requestState=='Queued')
+								{
+									this.enabled = true;
+									this.setStyle("textDecoration","underline");
+									this.setStyle("fontWeight","bold");
+								}
+								else
+								{
+									this.enabled = false;
+									this.setStyle("textDecoration","none");
+									this.setStyle("fontWeight","normal");
+								}
+								this.label = value.requestState;
+							break;					
+							default:
+								this.label = CommonConstants.BLANK_STRING;
+							break;
+						}	
+					}
+					catch(e:Error)
+					{
+						this.label = CommonConstants.BLANK_STRING;
+					}
+				}						
+			}
+			
+			override public function set listData(value:BaseListData):void
+			{
+				super.listData = value;
+			
+				if(value)
+				{
+					_dataField = (value as DataGridListData).dataField;
+				}
+			}
+		]]>
+	</mx:Script>
+</mx:LinkButton>

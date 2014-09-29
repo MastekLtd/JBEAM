@@ -1,0 +1,1082 @@
+
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+mx|Alert {
+	modalTransparencyBlur: 2;
+    modalTransparency: 0.6;
+    modalTransparencyColor: #000000;
+    modalTransparencyDuration: 200;
+    background-color:#EEEEEE;
+	color:#000000;
+	borderColor: #900000;
+	borderStyle: solid;
+	roundedBottomCorners: true;
+	borderThickness: 8;
+	titleStyleName: alertTitle;
+}
+/*Billing CSR - Start*/
+/* for login start*/
+mx|Text.loginHeader1
+{
+	color: #FFFFA8; 
+	font-size: 22;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+
+mx|Text.loginHeader2
+{
+	color: #FFFFA8; 
+	font-size: 28;
+	font-weight: bold;
+	font-family: "Gill Sans Ultra Bold";
+}
+
+mx|Label.loginLabel
+{
+	color: #652002;
+	font-size: 11;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+mx|Text.boldText6
+{
+	color: #0b333c;
+	font-size: 11;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+mx|Text.footerText
+{
+	color: #FFFFFF; 
+	font-size: 11;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+mx|Canvas.footerCanvas
+{
+	background-color: #F7CB33;
+	
+}
+mx|TextInput.textInput
+{
+	border-color: #793A02;
+	roll-over-color: #793A02;
+	
+}
+mx|Button.loginButton
+{
+	fill-colors: #B34402, #B34402, #B34402, #B34402;
+	color: #FFFFFF;
+	fontSize: 10;
+	fontWeight: bold;
+	fontFamily: "Trebuchet MS";
+	border-color: #793A02;
+	roll-over-color: #009dff;
+	corner-radius: 3;
+	fillAlphas: 1.0, 1.0, 1.0, 1.0;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor: #F4190E;
+	themeColor: #615844;
+}
+mx|ComboBox.loginComboBox
+{
+	borderColor: #793A02;
+	themeColor: #615844;
+}
+mx|Panel.loginPanel
+{
+	color: #652002;
+	font-size: 12;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+	border-thickness-bottom: 0;
+	border-thickness-left: 0;
+	border-thickness-right: 0;
+	shadow-distance: 10;
+	horizontal-align: left;
+	background-size: "100%";
+	border-style: solid;
+	background-alpha: 0.45;
+	corner-radius: 11;
+}
+mx|Canvas.searchEntity{
+	background-color: #DFD8BC;
+}
+
+mx|Canvas.searchCanvas
+{
+	font-family:"Trebuchet MS";
+	font-size:11;
+	border-style:solid;
+	border-color:#782800; /*615844*/
+	corner-radius:3;
+}
+mx|Canvas.headerCanvas
+{
+	background-color:#39291B;
+	border-color:haloBlue;
+	border-style:none;
+	
+	fontSize: 10;
+	fontFamily: "Trebuchet MS";
+	corner-radius:3;
+}
+mx|Text.searchHeaderText
+{
+	color: #FFFFFF; 
+	font-size: 14;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+/* for login  end*/
+/* for dash board start*/
+mx|CalendarLayout.calender{
+		color: #000000;
+		font-family: 'Trebuchet MS';
+		font-weight: bold;
+		vertical-gap: 1;
+		horizontal-gap: 5;
+		font-size: 12;
+		roll-over-color: #ffde02;
+		selection-color: #ffde02;
+	}
+mx|Canvas.dashBoard{
+	
+	background-gradient-colors:#F3D499, #E5DBC6;
+}
+mx|Canvas.iconMenu{
+	background-color: #292929;
+} 
+mx|ComboBox.dbComboBox
+{
+	borderColor: #793A02;
+	themeColor: #615844;
+	dropdownStyleName: comboBoxDropdown;
+	fillAlphas: 1.0, 1.0;
+	fillColors: #FDFDFD, #FDFDFD;
+}
+mx|LinkButton.dbMenuLink
+{
+	color: #FFFFFF;
+	fontSize: 11;
+	fontWeight:bold;
+	textDecoration: underline;
+	fontFamily: "Trebuchet MS";
+	roll-over-color:#F6EDAE;
+	theme-color: #716721;
+	text-roll-over-color:#000000;
+	text-selected-color: #000000;
+}
+
+mx|Text.dbMenuTip{
+		font-family: 'Trebuchet MS';
+		font-weight: bold;
+		text-indent: 0;
+		padding-bottom: 0;
+		padding-right: 0;
+		padding-left: 0;
+		text-align: center;
+		font-size: 11;
+		color: #00D2FF;
+		vertical-gap: 0;
+		leading: 0;
+	}
+mx|Text.dbPolicyInfo{
+	font-family: 'Trebuchet MS';
+	font-weight: normal;
+	text-indent: 0;
+	padding-bottom: 0;
+	padding-right: 0;
+	padding-left: 0;
+	font-size: 14;
+	color: #FFFFFF;
+	vertical-gap: 0;
+	leading: 0;
+}
+	mx|Text.dbCallInfo{
+		font-family: 'Trebuchet MS';
+		font-weight: normal;
+		text-indent: 0;
+		padding-bottom: 0;
+		padding-right: 0;
+		padding-left: 0;
+		font-size: 12;
+		color: #FFFFFF;
+		vertical-gap: 0;
+		leading: 0;
+	}
+	mx|Text.dbTitle{
+		color: #02D0FC;
+		font-family: 'Trebuchet MS';
+		font-weight: bold;
+	}
+mx|Panel.dbPanel{
+		background-color: #2F2F2C;
+		border-thickness-left: 0;
+		border-thickness-right: 0;
+		font-family: 'Trebuchet MS';
+		border-thickness-bottom: 0;
+		header-height: 15;
+		vertical-gap: 0;
+		border-color: #8a886f;
+		color: #03D1FD;
+	}
+mx|Panel.dbPanel1{
+		background-color: #2F2F2C;
+		border-thickness-left: 0;
+		border-thickness-right: 0;
+		font-family: 'Trebuchet MS';
+		border-thickness-bottom: 0;
+		header-height: 0;
+		vertical-gap: 0;
+		border-color: #8a886f;
+		color: #03D1FD;
+	}
+	mx|TextArea.dbPresentCall{
+		color: #ffffff;
+		width: 348;
+		background-color: #ffffff;
+		background-alpha: 0.3;
+		theme-color: #939CA1;
+	}	
+mx|LinkButton.dbLink{
+		color:#03D1FD;
+		theme-color: #716721;
+		font-family: 'Trebuchet MS';
+		text-roll-over-color:#000000;
+		text-selected-color: #000000;
+	}
+	mx|Canvas.cvDashBoard1{
+		background-color: #292929;
+	}
+mx|Button.dbButton{
+		color: #ffffff;
+		text-roll-over-color: #000000;
+		text-selected-color: #000000;
+		padding-left: 0;
+		padding-right: 0;
+	}
+/* for dash board end*/
+mx|TabNavigator.myTabStyle {
+    tab-style-name: "myTabs";
+    background-color: #DADAEE;
+    selected-tab-text-style-name: "MySelectedTab";
+	font-family: "Trebuchet MS";
+	background-alpha: 1.0;
+	border-style: inset;
+	border-color: #015793;
+	border-thickness: 1;
+	first-tab-style-name: tabNavigatorFirstTab;
+	background-size: auto;
+	tab-width:111;
+}
+.myTabs {
+	background-color: d3d3e9;
+    corner-radius: 15;
+    color: #000000;
+	selected-tab-text-style-name: tabNavigatorSelectedTabText;
+	tab-style-name: tabNavigatorTab;
+	fill-alphas: 1.0, 1.0, 1.0, 1.0;
+	theme-color: #CC0000;
+	border-color: #015793;
+	fill-colors: #009DFF, #FFFFFF, #009DFF, #009DFF;
+	text-roll-over-color: #CC0000;
+	text-selected-color: #CC0000;
+	leading: 2;
+}
+
+.MySelectedTab {
+            background-color: haloBlue;
+            color: #000000;
+            text-roll-over-color: #CC0000;
+            background-skin: black;
+            button-height: 25;
+			font-style: normal;
+			font-size: 11;
+        }
+
+.tabNavigatorSelectedTabText
+{
+}
+.tabNavigatorTab
+{
+}
+.tabNavigatorFirstTab
+{
+	corner-radius: 15;
+	fill-alphas: 1.0, 1.0;
+	fill-colors: #009DFF, #FFFFFF, #009DFF, #009DFF;
+	border-color: #015793;
+	text-selected-color: #015793;
+	text-roll-over-color: #015793;
+	theme-color: #CC0000;
+}
+mx|VBox.vBox1
+{
+	
+	background-color: #F3D499;
+
+	background-gradient-colors: #F3D499, #F3D499; 
+}
+mx|VBox.vBox2
+{
+	
+	background-color: #020202;
+}
+mx|VBox.vBox3
+{
+	
+	background-color: #969595;
+}
+mx|VScrollBar.vscrollbar 
+{
+   theme-color: #fc0000;
+   border-color: #cc0000;
+   icon-color: #cc0000;
+}
+mx|VBox.vbMain{
+	backgroundColor:#000000;
+	
+}
+.innerFrame
+{
+	background-color: #CAE1EE;
+	
+	background-gradient-colors:#DFD8BC, #DFD8BC; 
+	font-family:"Trebuchet MS";
+
+}
+mx|Canvas.mainFrame
+{
+	background-color: #CAE1EE;
+	
+	background-gradient-colors:#A5A6B1, #A5A6B1; 
+	font-family:"Trebuchet MS";
+}
+mx|Canvas.searchHeader
+{
+	font-size:11;
+	border-style:solid;
+	border-color:#009DFF;
+}
+mx|HBox.searchHeader
+{
+	font-size:11;
+	border-style:solid;
+	border-color:#009DFF;
+}
+mx|Canvas.outerCanvas
+{
+	font-family:"Trebuchet MS";
+	font-size:11; 
+	border-color:#009DFF; 
+	border-style:solid;
+}
+mx|Canvas.policyHeader
+{
+	background-color:#19625A;
+	border-color:haloBlue;
+	border-style:none;
+	
+	fontSize: 10;
+	fontFamily: "Trebuchet MS";
+}
+mx|Canvas.accountHeader
+{
+	background-color:#1A3733;
+	border-color:haloBlue;
+	border-style:solid;
+	
+}
+mx|Canvas.fieldset
+{
+	border-style:solid;
+	border-color:#51B4F9;
+	border-thickness:2;
+	corner-radius:5;
+	color:#f4b475;
+	font-size: 11;
+	font-weight: bold;
+}
+mx|Canvas.titleWindowHeader
+{
+	background-color:#6B5139;
+	border-color:#91730D;
+	border-thickness:1;
+	border-style:solid;
+	
+}
+mx|Canvas.titleWindowCanvas
+{
+	border-color: #51B4F9;
+	border-style:solid;
+}
+mx|Canvas.menu
+{
+	background-color: #312C2C;
+	corner-radius: 7;
+	border-style: solid;
+	border-color: #BFC8CE;
+	
+}
+mx|Canvas.title
+{
+	background-color: #6B5139;
+}
+mx|VBox.vbox2{
+	backgroundColor:#F3D499;
+	vertical-gap: 0;
+}
+mx|LinkButton.menuLink
+{
+	color: #4343D8;
+	fontSize: 11;
+	fontWeight:bold;
+	fontFamily: "Trebuchet MS";
+	padding-top:0;
+	padding-bottom:2;
+	rollOverColor: #5B5B5B;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor: #FFFFFF;
+	selectionColor: #31998E;
+	text-decoration: underline;
+	
+}
+mx|LinkButton.linkButton
+{
+	color: #000000;
+	fontSize: 11;
+	fontWeight:normal;
+	fontFamily: "Trebuchet MS";
+	padding-top:0;
+	padding-bottom:2;
+}
+mx|Panel.dbPanel3{
+		/*background-color: #5799cc; 2F2F2C*/
+		background-color: #ffffff;
+		border-thickness-left: 0;
+		border-thickness-right: 0;
+		font-family: 'Trebuchet MS';
+		border-thickness-bottom: 0;
+		header-height: 3;
+		vertical-gap: 0;
+		border-color: #2F2F2C;
+		
+		color: #000000;
+		
+		
+		roundedBottomCorners: true;
+		cornerRadius: 5;
+		shadow-direction:right;
+	}
+mx|Button.button3
+{
+	fill-colors: #AE4A4A, #8C1313, #8C1313, #AE4A4A;
+	color: #FFFFFF;
+	fontSize: 10;
+	fontWeight: bold;
+	fontFamily: "Trebuchet MS";
+	border-color: #000000;
+	roll-over-color: #009dff;
+	corner-radius: 4;
+	fillAlphas: 1.0, 1.0, 1.0, 1.0;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor: #F4190E;
+	themeColor: #ffffff;
+}
+mx|ComboBox.comboBox1
+{
+	borderColor: #000000;
+	themeColor: #93D6AC;
+	dropdownStyleName: comboBoxDropdown;
+	fillAlphas: 1.0, 1.0;
+	fillColors: #D9ECE0, #FDFDFD;
+}
+mx|Text.Legend{
+	color: #000000;
+	font-weight:bold;
+	font-size: 10;
+}
+mx|Text.legRed{
+	color: #FB0D01;
+	font-weight:bold;
+	font-size: 10;
+}
+mx|Text.legBurgundy{
+	color: #7D01A1;
+	font-weight:bold;
+	font-size: 10;
+}
+mx|Text.legBlack{
+	color: #000000;
+	font-weight:bold;
+	font-size: 10;
+}
+mx|Text.legGreen{
+	color: #118005;
+	font-weight:bold;
+	font-size: 10;
+}
+mx|LinkButton.transactionFullView
+{
+	rollOverColor:#CC0000;
+	selectionColor:#CC0000;
+	textRollOverColor:#FFFFFF;
+	textSelectedColor:#FFFFFF;
+	color: #FFFFFF;
+	fontSize: 11;
+	fontWeight:bold;
+	textDecoration: underline;
+	fontFamily: "Trebuchet MS";
+	themeColor: #000000; 
+}
+mx|LinkButton.linkButton1
+{
+	rollOverColor:#CC0000;
+	selectionColor:#CC0000;
+	textRollOverColor:#FFFFFF;
+	textSelectedColor:#FFFFFF;
+	color: #000000;
+	fontSize: 11;
+	fontWeight:bold;
+	textDecoration: underline;
+	fontFamily: "Trebuchet MS";
+	themeColor: #000000; 
+}
+mx|LinkButton.positiveAmount
+{
+	rollOverColor:#CBF0EE;
+	selectionColor:#CBF0EE;
+	textRollOverColor:#000000;
+	textSelectedColor:#000000;
+	color: #FFFFFF;
+	fontSize: 11;
+	fontWeight:bold;
+	textDecoration: underline;
+	fontFamily: "Trebuchet MS";
+	themeColor: #000000;
+	disabledColor: #B0B9B9; 
+}
+mx|LinkButton.nagativeAmount
+{
+	rollOverColor:#CBF0EE;
+	selectionColor:#CBF0EE;
+	textRollOverColor:#000000;
+	textSelectedColor:#000000;
+	color: #ddfe00;
+	fontSize: 11;
+	fontWeight:bold;
+	textDecoration: underline;
+	fontFamily: "Trebuchet MS";
+	themeColor: #000000;
+}
+mx|LinkButton.linkButton3
+{
+	rollOverColor:#CBF0EE;
+	selectionColor:#CBF0EE;
+	textRollOverColor:#000000;
+	textSelectedColor:#000000;
+	padding-bottom: 0;
+	padding-top: 0;
+	color: #FFFFFF;
+	fontSize: 11;
+	fontWeight:bold;
+	textDecoration: underline;
+	fontFamily: "Trebuchet MS";
+	themeColor: #FF8500;
+}
+
+mx|Text.boldText1
+{
+	color: #1ff5f2;
+	font-size: 11;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+mx|Text.boldText2
+{
+	color: #000000;
+	font-size: 12;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+mx|Text.boldText3
+{
+	color: #FFFFFF; 
+	font-size: 13;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+mx|Text.boldText4
+{
+	color: #FF8500;
+	font-size: 11;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+mx|Text.boldText5
+{
+	color: #000000;
+	font-size: 11;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+mx|RadioButton.radioButton
+{
+	color: #FFFFFF;
+	font-size: 11;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+	borderColor: #175B8A;
+	fillAlphas: 1.0, 1.0;
+	fillColors: #C2F3E6, #C2F3E6;
+	textRollOverColor: #FDFDFD;
+	textSelectedColor: #FEFEFE;
+	disabledColor: #CAD8D8;
+}
+mx|Text.menuText
+{
+	color: #08F5ED;
+	font-size: 12;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+mx|Text.headerText2
+{
+	color: #f4b475;
+	font-size: 11;
+	padding-bottom: 0;
+	padding-top: 0;
+	font-weight: bold;
+	text-align: right;
+	font-family: "Trebuchet MS";
+}
+mx|Text.headerText3
+{
+	color: #FF8500;
+	font-size: 11;
+	padding-bottom: 0;
+	padding-top: 0;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+mx|Text.titleText
+{
+	color: #ffffff;
+	font-size: 13;
+	padding-bottom: 0;
+	padding-top: 0;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+mx|Text.headerText1
+{
+	color: #FFFFFF; 
+	font-size: 11;
+	padding-bottom: 0;
+	padding-top: 0;
+	font-weight: normal;
+	font-family: "Trebuchet MS";
+}
+mx|Text.normalText1
+{
+	color: #FFFFFF;
+	font-size: 11;
+	font-weight: normal;
+	font-family: "Trebuchet MS";
+}
+
+mx|Text.normalText2
+{
+	color: #FFFFFF;
+	font-size: 11;
+	font-weight: normal;
+	font-family: "Trebuchet MS";
+}
+
+
+mx|Text.rightAlignText
+{
+	color: #FFFFFF;
+	font-size: 11;
+	font-weight: normal;
+	font-family: "Trebuchet MS";
+	text-align:right;
+}
+mx|ComboBox.localeCombobox
+{
+	borderColor: #793A02;
+	themeColor: #615844;
+	dropdownStyleName: comboDropDown;
+	fillAlphas: 1.0, 1.0;
+	fillColors: #54CECF, #FDFDFD;
+}
+.comboDropDown{
+	alternatingItemColors: #71D0B6, #F2DD88;
+	rollOverColor: #020202;
+	selectionColor: #000000;
+	verticalScrollBarStyleName: listBaseVerticalScrollBar;
+	
+}
+mx|DataGrid.dataGrid {
+    fontFamily: "Trebuchet MS";
+    fontSize: 11;
+    headerStyleName: dataGridHeader;
+	alternatingItemColors: #467078, #6B7E7B;
+	selectionColor: #144A54;
+	textSelectedColor: #FFFFFF;
+	textRollOverColor: #FFFFFF;
+	color: #FFFFFF;
+	themeColor:#176BA0;
+	headerColors: #1b7971, #1b7971;
+	rollOverColor: #135561;
+	background-alpha: .15;
+}
+
+.dataGridHeader {
+   fontFamily: "Trebuchet MS";
+   text-roll-over-color: #000000;
+   fontWeight: bold;
+   fontSize: 11;
+   fontStyle: normal;
+   textDecoration: none;
+   color: #FFFFFF;
+}
+mx|FormItem.menuItem
+{
+	background-color: #969595;
+	
+}
+mx|TitleWindow.titleWindow1
+{
+	border-color: #E7E7EF;
+	background-color: #E7E7EF;
+	border-thickness-bottom: 0;	
+	border-thickness-left: 0;
+	border-thickness-right:0;
+	borderAlpha: 1.0;
+	title-style-name: "titleStyle";
+	roundedBottomCorners: true;
+	header-height: 0;
+	cornerRadius: 20;
+	controlBarStyleName: titleWindowControlBar;
+	statusStyleName: titleWindowStatus;
+	borderThicknessTop: 0;
+	
+}
+mx|TitleWindow.titleWindow
+{
+	backgroundColor:#233624;
+	
+	themeColor:#1B7971;
+	border-color: #1B7971;
+	background-color: #FFFFFF;
+	border-thickness-bottom: 0;	
+	border-thickness-left: 0;
+	border-thickness-right:0;
+	
+	title-style-name: "titleStyle";
+	roundedBottomCorners: false;
+	header-height: 20;
+	background-image: 'images/base-background.jpg';
+}
+
+.titleStyle
+{
+	backgroundColor:#233624;
+	
+	font-family: "Trebuchet MS";
+	font-weight: bold;
+	font-size: 15;
+	padding-top:0;
+	padding-bottom:0;
+	vertical-align: middle;
+}
+
+mx|Button.button
+{
+	fill-colors: #AE4A4A, #8C1313, #8C1313, #AE4A4A;
+	color: #FFFFFF;
+	fontSize: 10;
+	fontWeight: bold;
+	fontFamily: "Trebuchet MS";
+	border-color: #000000;
+	roll-over-color: #009dff;
+	corner-radius: 4;
+	fillAlphas: 1.0, 1.0, 1.0, 1.0;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor: #F4190E;
+	themeColor: #ffffff;
+}
+mx|Button.button1
+{
+	fill-colors: #CDFA44, #CFF461, #CDFA44, #CDFA44;
+	fontSize: 11;
+	fontWeight: normal;
+	fontFamily: "Trebuchet MS";
+	border-color: #b7babc;
+	roll-over-color: #009dff;
+	corner-radius: 3;
+	color: #000000;
+	fillAlphas: 1.0, 1.0;
+	themeColor: #3E5106;
+	textRollOverColor: #000000;
+	textSelectedColor: #000000;
+}
+mx|CheckBox.checkBox
+{
+	padding-bottom:0;
+	padding-left:0;
+	padding-right:0;
+	padding-top:0;
+	label-style-name:"normalTxt";
+	horizontalGap: 1;
+}
+.normalTxt
+{
+	color: #000000;
+	fontSize: 12;
+	fontFamily: "Trebuchet MS";
+}
+mx|CheckBox.checkBox1
+{
+	padding-bottom:0;
+	padding-left:0;
+	padding-right:0;
+	padding-top:0;
+	horizontalGap: 1;
+	color: #FFFFFF;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor: #FFFFFF;
+	fontFamily: "Trebuchet MS";
+	fontSize: 11;
+}
+mx|VBox.vbStyle1
+{
+	background-color: #F1AE58;
+	
+}
+mx|VBox.vbStyle2
+{
+	background-color: #F1AE58;
+	
+}
+mx|VBox.vbStyle3
+{
+	background-color: #F1AE58;
+	
+}
+@font-face
+{
+	fontFamily: "Trebuchet MS";
+	fontWeight: normal;
+	fontStyle: normal;
+	src: local("Trebuchet MS");
+}
+mx|CalendarLayout.calender{
+		color: #000000;
+		font-family: 'Trebuchet MS';
+		font-weight: bold;
+		vertical-gap: 1;
+		horizontal-gap: 5;
+		font-size: 12;
+		roll-over-color: #ffde02;
+		selection-color: #ffde02;
+	}
+
+/*Welcome Page*/
+mx|Panel.Panel1{
+		border-style:inset;
+		background-color: #2F2F2C;
+}
+mx|Canvas.canvasNp{
+	border-style:solid;
+	border-color: #FFFFFF;
+}
+mx|Canvas.canvasNpHeader{
+	background-color: #BC0303;
+	border-color: #FFFFFF;
+	
+}
+mx|Text.boldText7
+{
+	color: #ffffff;
+	font-size: 12;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+	text-align: left;
+}
+mx|Text.normalText3
+{
+	color: #ffffff;
+	font-size: 12;
+	font-weight: normal;
+	font-family: "Trebuchet MS";
+	text-align: left;
+}
+mx|Button.batchinprogress
+{	
+	color: #FFFFFF;
+	fontSize: 10;
+	fontWeight: bold;
+	fontFamily: "Trebuchet MS";
+	border-color: #061956;
+	roll-over-color: #061956;
+	corner-radius: 4;	
+	textRollOverColor: #FFFFFF;
+	textSelectedColor: #D6DBEA;
+	themeColor: #061956;
+	fillAlphas: 1.0, 1.0;
+	fillColors: #FF0000, #061956;
+}
+mx|Button.batchclosed
+{	
+	color: #FFFFFF;
+	fontSize: 10;
+	fontWeight: bold;
+	fontFamily: "Trebuchet MS";
+	border-color: #061956;
+	roll-over-color: #061956;
+	corner-radius: 4;	
+	textRollOverColor: #FFFFFF;
+	textSelectedColor: #FFFFFF;
+	themeColor: #061956;
+	fillAlphas: 1.0, 1.0;
+	fillColors: #061956, #061956;
+}
+.innerCanvas
+{
+	background-color: #DFDFDF;
+}
+.sectionTitle{
+	font-family: Arial;
+	color: #000000;
+	background-color: #DFDFDF;
+	font-size: 11;
+	letter-spacing: .1;
+	font-weight: bold;
+	padding-top: 5;
+	padding-bottom: 5;	
+}
+mx|Text.pageLabel{
+	color: #000000;
+	font-size: 12;
+	font-weight: bold;
+	fontFamily: Arial;
+	text-align: right;
+	padding-top: 0;
+	padding-left: 0;
+	paddingBottom: 0;
+	paddingRight: 0;
+	leading: 0;
+}
+mx|Canvas.outerCanvas
+{
+	fontFamily: Arial;
+	font-size:11; 
+	border-color:#009DFF; 
+	border-style:solid;
+}
+
+
+/* Pod styles Start*/
+.boldText22
+		{
+			color: #111616;
+			font-size: 11;
+			font-weight: bold;
+			font-family: "Trebuchet MS";
+		}
+		.normalText22
+		{
+			color: #111616;
+			font-size: 11;
+			font-weight: normal;
+			font-family: "Trebuchet MS";
+		}
+		.linkButton22
+		{
+			rollOverColor:#FFFFFF;
+			textRollOverColor:#000000;
+			textSelectedColor:#000000;
+			color: #000000;
+			fontSize: 10;
+			fontWeight:bold;
+			textDecoration: underline;
+			fontFamily: "Trebuchet MS";
+			selectionColor: #FFFFFF;
+			textAlign: left;
+		}
+		
+		.linkButtonPrgActTypeEnabled
+		{
+			rollOverColor:#FFFFFF;
+			textRollOverColor:#000000;
+			textSelectedColor:#000000;
+			color: #000000;
+			fontSize: 11;
+			textDecoration: underline;
+			fontFamily: "Trebuchet MS";
+			selectionColor: #FFFFFF;
+			textAlign: left;
+		}
+		.linkButtonPrgActTypeDisabled
+		{
+			rollOverColor:#FFFFFF;
+			textRollOverColor:#000000;
+			textSelectedColor:#000000;
+			color: #000000;
+			fontSize: 11;
+			fontFamily: "Trebuchet MS";
+			selectionColor: #FFFFFF;
+			textAlign: left;
+		}
+		.jbeamFieldSet
+		{
+			border-style: solid;
+			border-color: #073f66;
+			border-thickness: 2;
+			corner-radius: 5;
+			font-size: 11;
+			font-weight:bold;
+			color: #040B3D;
+		}
+		.jbeamDataGrid {
+			alternatingItemColors: #FFFFFF, #EEEEEE;
+			headerColors: #EEEEEE, #CCCCCC;
+			color: #333333;
+			selectionColor: #f6e17f;
+			rollOverColor: #F9EDB2;
+			fontFamily: "Trebuchet MS";
+			horizontalGridLines: true;
+			verticalGridLineColor: #DDDDDD;
+			horizontalGridLineColor: #DDDDDD;
+			headerStyleName: dataGridHeader;
+			iconColor: #660000;
+			verticalAlign: top;
+			fontSize: 11;
+			borderColor: #BBBBBB;
+			disabledColor: #999999;
+			selectionDisabledColor: #DDDDDD;
+			paddingTop: 1;
+			paddingLeft: 1;
+			paddingBottom: 1;
+			leading: 0;
+			font-weight:normal;
+		}		
+		
+		
+		mx|Text.pageContent
+		{
+			color: #000000;
+			font-size: 11;
+			font-weight: normal;
+			fontFamily: "Trebuchet MS";
+			padding-top: -2;
+			padding-left: 0;
+			paddingBottom: -2;
+			paddingRight: 0;
+			leading: 0;
+		}
+	/* Pod Styles End*/

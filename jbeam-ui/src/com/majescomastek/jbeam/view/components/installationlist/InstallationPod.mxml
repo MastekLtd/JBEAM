@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<Pod xmlns="com.majescomastek.common.containers.dashboard.*"
+	xmlns:flexcontrols="com.majescomastek.flexcontrols.*"
+	xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%"
+	title="{installationData.installationCode} | Batch # {installationData.batchNo}:{installationData.batchRevNo}">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.common.CommonUtils;
+		]]>
+	</mx:Script>
+	
+	<mx:Script source="../../scripts/installationlist/InstallationPodScript.as" />
+	
+	<mx:DateFormatter id="formatDateTimeUSD" formatString="{resourceManager.getString('jbeam','date_format')}" />
+	
+	<mx:VBox label="InstallationData" width="100%" height="100%"
+		verticalGap="1" id="vbInstallationData">
+		<mx:Canvas y="0" name="cvInstallationData" width="100%"	height="100%">
+			<flexcontrols:FieldSet label="{installationData.installationCode} | Batch # {installationData.batchNo}:{installationData.batchRevNo}"
+				horizontalScrollPolicy="off" styleName="jbeamFieldSet" id="fsInstallationData"
+				verticalScrollPolicy="off" name="fsInstallationData" x="0" y="0"
+				width="100%" height="100%">
+				<mx:Text x="5" y="20" styleName="boldText22"
+					text="{resourceManager.getString('InstallationProperties','batch_startTime')}" />
+				<mx:Label x="135" y="22" id="Installation_startTime" 
+					text="{installationData.batchStatus != null?CommonUtils.formatDate(installationData.batchStartTime):CommonUtils.formatDate(null)}"
+					styleName="normalText22" height="19" truncateToFit="true" maxWidth="224"
+					width="211" />
+				<mx:Text x="5" y="40" styleName="boldText22"
+					text="{resourceManager.getString('InstallationProperties','batch_endTime')}" />
+				<mx:Label x="135" y="42" id="Installation_endTime" 
+					text="{installationData.batchStatus != null?CommonUtils.formatDate(installationData.batchEndTime):CommonUtils.formatDate(null)}"
+					styleName="normalText22" height="19" truncateToFit="true" maxWidth="224"
+					width="211" />
+				<mx:Label x="5" y="60" styleName="boldText22" id="lblStatus"
+					text="{resourceManager.getString('InstallationProperties','status')}" />
+				<mx:Text x="135" y="62" id="txtPLActivityType" text="{installationData.batchStatus}"
+					styleName="normalText22" />
+				<mx:Text y="62" id="txtPLType" styleName="normalText22"
+					visible="false" />
+				<mx:Text y="62" id="txtPLCycleNo" styleName="normalText23"
+					visible="false" />
+				<mx:Text y="62" id="txtPLBracketClose" text=")" styleName="normalText22"
+					visible="false" />
+				<mx:Text x="5" y="80" styleName="boldText22"
+					text="{resourceManager.getString('InstallationProperties','objNoComp')}" />
+				<mx:Label x="135" y="82" text="{installationData.totalObjects}" id="executedObjCount"
+					styleName="normalText22" height="19" truncateToFit="true" maxWidth="110"
+					width="110" textAlign="right" />
+				<mx:Text x="5" y="100" styleName="boldText22"
+					text="{resourceManager.getString('InstallationProperties','objNoFailed')}" />
+				<mx:LinkButton x="135" y="102" label="{installationData.totalFailedObjects}"
+					id="lBtnFailedObjCount"	styleName="linkButton22" width="110"
+					visible="{failedLinkVisible}" textAlign="right" click="onFailedObjectClick(event)" />
+				<mx:Label x="135" y="102" id="lblFailedObjCount" styleName="normalText22"
+					height="19" truncateToFit="true" width="110" visible="{!failedLinkVisible}"
+					textAlign="right" text="{installationData.totalFailedObjects}" />
+				<mx:Text x="345" y="20.35" styleName="boldText22" id="timeZoneId"
+					text="Clock [ {installationData.timezoneShortName} ]" />
+				<flexcontrols:DigitalClock timezoneOffset="{installationData.timezoneOffset}"
+					styleName="normalText22" height="19" truncateToFit="true" maxWidth="180"
+					width="180" textAlign="left" x="354" y="41.95" />
+				<mx:HBox x="40" y="152" width="216" height="30">
+					<mx:Button enabled="{detailsButtonEnabled}" click="showBatchDetails(event)"
+							id="btnDetails" label="DETAILS" styleName="mainButton" />
+					<mx:Button enabled="{!startButtonEnabled}" visible="{startButtonVisible}" 
+						click="onStartButtonClick(event)"
+						 id="btnBatchStart" label="{startButtonLabel}" />
+					<mx:Button enabled="{stopButtonEnabled}" visible="{stopButtonVisible}" 
+						click="onStopButtonClick(event)"
+						id="btnBatchStop" label="STOP" />
+				</mx:HBox>
+				<mx:ProgressBar id="instProgressBar" x="10" y="125" labelPlacement="center"
+            		minimum="1" maximum="{2}"   
+            		barColor="haloBlue" fontSize="10"
+			        trackColors="[white, haloSilver]" direction="right" mode="manual" width="257"
+            		trackHeight="14"  height="15" visible="{batchProgressBarVisible}"/>
+				<mx:Panel title="Batch Status" x="345" y="62" visible="{batchStatusPanelVisible}"
+					id="pnlBatchStatusData" styleName="styleA" width="600" height="80%">
+					<mx:DataGrid id="dgBatchStatus" width="100%" height="100%"
+						styleName="jbeamDataGrid" dataProvider="{installationData.progressLevelDataList}"						
+						rowHeight="20" >
+						<mx:columns>
+							<mx:DataGridColumn width="10" textAlign="right" dataField="serialNo"
+								headerText="#" headerWordWrap="true" />
+							<mx:DataGridColumn width="18" headerText="Progress Level Type"
+								dataField="prgLevelType" headerWordWrap="true" />
+							<mx:DataGridColumn width="32" textAlign="left" dataField="prgActivityType"
+								wordWrap="true" headerText="Progress Activity Type"
+								itemRenderer="com.majescomastek.jbeam.view.components.installationlist.ProgressActivityLinkComponent"
+								headerWordWrap="true"/>
+							<mx:DataGridColumn width="15" headerText="Cycle #" dataField="cycleNo"
+								textAlign="right" wordWrap="true" headerWordWrap="true" />
+							<mx:DataGridColumn width="20" headerText="Time Taken"
+								dataField="timeTaken" textAlign="right" wordWrap="true"
+								headerWordWrap="true" />
+							<mx:DataGridColumn width="40" headerText="Start Time"								
+								dataField="startDatetime" textAlign="center" />
+							<mx:DataGridColumn width="40" headerText="End Time"
+								dataField="endDatetime" textAlign="center"  />
+						</mx:columns>
+					</mx:DataGrid>
+				</mx:Panel>
+				<mx:Panel id="pnlFailedObjectPieChart" title="Failed Objects"
+					width="300" height="210" y="190" x="10" visible="{failedGraphVisible}">
+					<mx:PieChart id="failedObjectsPieChart" width="100%"
+						height="100%" showDataTips="true" dataProvider="{pieDataProvider}">
+						<mx:series>
+							<mx:PieSeries field="graphValue" nameField="xAxis"
+								labelPosition="callout" />
+						</mx:series>
+					</mx:PieChart>
+				</mx:Panel>				
+			</flexcontrols:FieldSet>
+		</mx:Canvas>
+	</mx:VBox>
+</Pod>

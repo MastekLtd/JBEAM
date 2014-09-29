@@ -1,0 +1,103 @@
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" textAlign="center" width="100%">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.common.AlertBuilder;
+			import com.majescomastek.jbeam.common.CommonConstants;
+			import com.majescomastek.jbeam.model.vo.ProcessRequestScheduleData;
+			import com.majescomastek.jbeam.model.vo.ReqProcessRequestSchedule;
+			
+			import mx.controls.Alert;
+			import mx.events.CloseEvent;
+					
+			private var scheduleData:ProcessRequestScheduleData;
+			
+			/** The enabled status of the Cancel button */			
+			[Bindable]
+			private var cancelButtonEnabled:Boolean;
+			
+			/** The visible status of the Cancel button */			
+			[Bindable]
+			private var cancelButtonVisible:Boolean;
+					
+			override public function set data(value:Object):void
+			{
+				cancelButtonVisible = CommonConstants.HAVE_OPERATOR_ROLE;
+				if(value != null)
+				{
+					super.data = value;
+					if(cancelButtonVisible && data != null)
+					{
+						cancelButtonEnabled = !isScheduleCancelled(data as ProcessRequestScheduleData);						
+					}									
+				}
+			}
+			
+			private function isScheduleCancelled(installationData:ProcessRequestScheduleData):Boolean
+			{
+				// If the batchNo & batchRevNo are null, the batch is invalid.
+				var invalid:Boolean = installationData.schStat == 'C' || installationData.schStat == 'X';
+				return invalid;
+			}
+			
+			/** 
+			 * Display batch details  
+			 */
+			private function cancelSchedule(evt:Event):void
+			{
+				if(this.data != null)
+				{
+					scheduleData = this.data as ProcessRequestScheduleData;
+					if(scheduleData != null)
+					{		
+						Alert.show("Are you sure you want to cancel this schedule ["+ scheduleData.schId+"]?",
+							"Confirm cancellation",Alert.YES|Alert.NO, null, cancelHandler, null, Alert.NO);
+						
+					}			
+					
+				}			
+				
+			}
+			
+			private function cancelHandler(event:CloseEvent):void 
+			{
+				if (event.detail==Alert.YES)
+				{
+//					AlertBuilder.getInstance().show("Cancelling the schedule");
+					fireCancelCommand();
+				}
+				else if(event.detail==Alert.NO)
+				{
+//					AlertBuilder.getInstance().show("No cancelling of the schedule");
+				}
+			} 
+			
+			private function fireCancelCommand():void
+			{
+				var parent:ViewScheduleModule = ViewScheduleModule(this.parentDocument);
+				var reqProcessRequestSchedule:ReqProcessRequestSchedule = new ReqProcessRequestSchedule();
+				reqProcessRequestSchedule.processRequestSchedulesData = scheduleData;
+				reqProcessRequestSchedule.installationCode = parent.getInstallationCode();
+				parent.sendDataEvent(ViewScheduleModule.CANCEL_CLICK, reqProcessRequestSchedule);
+				
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Button visible="{cancelButtonVisible}" enabled="{cancelButtonEnabled}" click="cancelSchedule(event)"
+			   id="btnCancel" label="CANCEL" styleName="mainButton" />
+</mx:HBox>

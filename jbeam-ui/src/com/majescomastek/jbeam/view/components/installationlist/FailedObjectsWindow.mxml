@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<flexcontrols:JbeamNativeWindow xmlns:mx="http://www.adobe.com/2006/mxml"
+	width="800" height="500"
+	xmlns:flexcontrols="com.majescomastek.flexcontrols.*" title="{failedObjectsTitle}" alwaysInFront="true"
+	implements="com.majescomastek.jbeam.view.components.IViewComponent"
+	close="performCleanup(event)">
+	
+	<mx:Script source="../../scripts/installationlist/FailedObjectsWindowScript.as" />
+	
+	<mx:Canvas id="cnvOuter"
+		label="{resourceManager.getString('jbeam','failed_object_details_title')}"
+		width="100%" height="100%" styleName="outerCanvas" horizontalCenter="0"
+		verticalCenter="0">
+		<mx:Panel id="pnlFailedObjects" styleName="styleA"
+			title="{resourceManager.getString('jbeam','failed_object_details_title')}"
+			x="0" y="0" width="100%" height="100%">
+			<mx:ControlBar width="100%">
+				<mx:Spacer width="100%" />
+				<mx:Button id="btnRefresh" label="Refresh" textAlign="center"
+					 enabled="{refreshButtonEnabled}" click="refreshClick(event)" />
+			</mx:ControlBar>
+			<mx:Spacer width="100%" />
+			<mx:DataGrid styleName="dataGrid" id="dgFailedObjects" dataProvider="{failedObjectsList}"
+				width="100%" height="100%">
+				<mx:columns>
+					<mx:DataGridColumn width="15" headerWordWrap="true"
+						textAlign="center"
+						headerText="{resourceManager.getString('jbeam','serial_no')}"
+						dataField="failedObjectNo" />
+					<mx:DataGridColumn width="30" headerWordWrap="true"
+						textAlign="right"
+						headerText="{resourceManager.getString('jbeam','sequence_no')}"
+						dataField="failedObjectSequence" />
+					<mx:DataGridColumn width="80" headerWordWrap="true"
+						textAlign="left" wordWrap="true"
+						headerText="{resourceManager.getString('jbeam','object_name')}"
+						sortable="true" dataField="failedObjectName" />
+					<mx:DataGridColumn width="100" headerWordWrap="true"
+						textAlign="center" wordWrap="true"
+						headerText="{resourceManager.getString('jbeam','task_name')}"
+						dataField="taskName" />
+					<mx:DataGridColumn width="25" headerWordWrap="true"
+						textAlign="right" wordWrap="true"
+						headerText="{resourceManager.getString('jbeam','time_taken')}"
+						dataField="timeTaken" />
+					<mx:DataGridColumn width="50" headerWordWrap="true"
+						textAlign="center"
+						headerText="{resourceManager.getString('jbeam','error_type')}"
+						dataField="errorType" />
+					<mx:DataGridColumn width="160" textAlign="center"
+						headerWordWrap="true" wordWrap="true"
+						headerText="{resourceManager.getString('jbeam','error_description')}"
+						dataField="errorDescription" editorDataField="text" rendererIsEditor="true">
+						<mx:itemRenderer>
+							<mx:Component>
+								<mx:TextArea editable="false" />
+							</mx:Component>
+						</mx:itemRenderer>
+					</mx:DataGridColumn>
+					<mx:DataGridColumn width="35" headerWordWrap="true" textAlign="center"
+						headerText="{resourceManager.getString('jbeam','listener_no')}"
+						dataField="listenerId" />
+				</mx:columns>
+			</mx:DataGrid>
+		</mx:Panel>
+	</mx:Canvas>
+	
+</flexcontrols:JbeamNativeWindow>

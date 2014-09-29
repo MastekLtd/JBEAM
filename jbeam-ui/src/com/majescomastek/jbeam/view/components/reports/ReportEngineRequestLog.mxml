@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * @author Gourav Rai
+ * 
+ *
+ * $Revision:: 2                        $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/ReportEngineRequestLog. $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/ReportEngineRequestLo $
+ * 
+ * 2     4/25/10 7:54p Gourav.rai
+ * 
+ * 1     4/07/10 12:00p Gourav.rai
+ * Added by Gourav Rai
+ * 
+ * 
+ --> 
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%"  
+	disabledOverlayAlpha="0" 
+	xmlns:reports="com.majescomastek.jbeam.view.components.reports.*" 
+	xmlns:vo="com.majescomastek.jbeam.model.vo.*" 
+	xmlns:flexcontrols="com.majescomastek.flexcontrols.*">
+	<mx:Script source="../../scripts/reports/ReportEngineRequestLogScript.as"/>
+	<mx:ArrayCollection id="orderBy">
+		<vo:ConfigParameter charValue="req_id" subCode="req_id" description="Request Id"/>
+		<vo:ConfigParameter charValue="req_dt" subCode="req_dt" description="Request Date"/>
+		<vo:ConfigParameter charValue="req_stat" subCode="req_stat" description="Request Status"/>
+		<vo:ConfigParameter charValue="scheduled_time" subCode="scheduled_time" description="Schedule Date"/>
+		<vo:ConfigParameter charValue="req_start_dt" subCode="req_start_dt" description="Request Start Date"/>
+		<vo:ConfigParameter charValue="req_end_dt" subCode="req_end_dt" description="Request End Date"/>
+		<vo:ConfigParameter charValue="menu_id" subCode="menu_id" description="Process Name"/>
+		<vo:ConfigParameter charValue="sch_id" subCode="sch_id" description="Schedule Id"/>
+	</mx:ArrayCollection>
+	<mx:ArrayCollection id="dispOrder">
+		<vo:ConfigParameter charValue="desc" subCode="desc" description="Descending"/>
+		<vo:ConfigParameter charValue="asc" subCode="asc" description="Ascending"/>
+	</mx:ArrayCollection>
+	<mx:ArrayCollection id="requestStatus">
+		<vo:ConfigParameter charValue="A" subCode="A" description="ALL"/>
+		<vo:ConfigParameter charValue="Q" subCode="Q" description="Queued"/>
+		<vo:ConfigParameter charValue="I" subCode="I" description="Initializing"/>
+		<vo:ConfigParameter charValue="P" subCode="P" description="Processing"/>
+		<vo:ConfigParameter charValue="S" subCode="S" description="Completed"/>
+		<vo:ConfigParameter charValue="E" subCode="E" description="Completed With Fatal Errors"/>
+		<vo:ConfigParameter charValue="C" subCode="C" description="Cancelled by PRE."/>
+		<vo:ConfigParameter charValue="X" subCode="X" description="Cancelled by User"/>
+	</mx:ArrayCollection>
+	<mx:Panel id="panelId" title="{resourceManager.getString('jbeam', 'engine_req_log')} - {resourceManager.getString('jbeam', 'req_status_enquiry')}" styleName="boxStyle" 
+		verticalGap="3">
+		<mx:Form verticalGap="2" horizontalGap="8" indicatorGap="14" paddingTop="6" width="100%" styleName="main">			
+			<mx:FormItem labelStyleName="popupLabel" label="{resourceManager.getString('jbeam','req_id')} :">
+				<mx:TextInput id="requestId" restrict="0-9" maxChars="20"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','sch_id')} :" labelStyleName="popupLabel">
+				<mx:TextInput id="scheduleId"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','user_id')} :" labelStyleName="popupLabel">
+				<mx:TextInput id="userId"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','sch_start_date_time')} :" labelStyleName="popupLabel" direction="horizontal">
+				<flexcontrols:LocaleRestrictedDateField id="schStartDateId" focusOut="onStartDateFocusOut(event)" width="160"/>
+				<reports:ReportHourMinuteSecField id="schStartTimeId"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','sch_end_date_time')} :" labelStyleName="popupLabel" direction="horizontal">
+				<flexcontrols:LocaleRestrictedDateField id="schEndDateId" focusOut="onEndDateFocusOut(event)" width="160"/>
+				<reports:ReportHourMinuteSecField id="schEndTimeId"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','proc_desc')} :" labelStyleName="popupLabel">
+				<mx:TextInput id="procDescId" editable="false"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','req_status')} :" labelStyleName="popupLabel">
+				<mx:ComboBox id="reqStatusId" dataProvider="{requestStatus}" labelField="description"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','no_of_req')} :" labelStyleName="popupLabel">
+				<mx:TextInput id="noOfReqId" textAlign="right" restrict="0-9" maxChars="10" text="25"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','order')} :" labelStyleName="popupLabel">
+				<mx:ComboBox id="orderId" dataProvider="{dispOrder}" labelField="description"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','by')} :" labelStyleName="popupLabel">
+				<mx:ComboBox id="orderById" dataProvider="{orderBy}" labelField="description"/>
+			</mx:FormItem>
+		</mx:Form>
+		<mx:HBox width="100%" horizontalAlign="right" id="controlBarId">			
+			<mx:Button label="{resourceManager.getString('jbeam', 'back')}" click="onBack(event)"/>
+			<mx:Spacer width="100%"/>
+			<mx:Button id="but1" label="{resourceManager.getString('jbeam', 'report')}" styleName="mainButton" click="onReport()"/>			
+		</mx:HBox>
+	</mx:Panel>	
+</mx:VBox>

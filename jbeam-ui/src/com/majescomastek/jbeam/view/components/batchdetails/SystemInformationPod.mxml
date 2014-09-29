@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<Pod xmlns="com.majescomastek.common.containers.dashboard.*"
+	xmlns:flexcontrols="com.majescomastek.flexcontrols.*"
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="100%" height="100%"
+	title="System Information">
+	
+	<mx:Script source="../../scripts/batchdetails/SystemInformationPodScript.as" />	
+	
+	<mx:DateFormatter id="formatDateTimeUSD" formatString="{resourceManager.getString('jbeam','date_format')}" />
+	
+	<mx:VBox label="BatchSummary" width="100%" height="100%"
+		verticalGap="1" id="vbBatchSummary">
+		<mx:Canvas y="0" name="cvBatchSummary" width="100%"	height="100%">
+			<flexcontrols:FieldSet label="System Information - Batch # {batchDetails.batchNo}"
+				horizontalScrollPolicy="off" styleName="jbeamFieldSet" id="fsBatchSummary"
+				verticalScrollPolicy="off" name="fsBatchSummary" x="0" y="0"
+				width="100%" height="100%">										
+					
+					<mx:Text x="5" y="20" styleName="boldText22" id="timeZoneId"
+						text="Clock [ { batchDetails.timezoneShortName } ]" />
+					<flexcontrols:DigitalClock x="118" y="22.6" timezoneOffset="{batchDetails.timezoneOffset}" 
+						styleName="normalText22" height="19" truncateToFit="true" maxWidth="180"
+						width="180" textAlign="left" />	
+					<mx:Text x="5" y="40" styleName="boldText2" 
+						text="Java Version"	/>					
+					<mx:Label x="118" y="42.65" id="javaVer"
+						text="{ systemInformation.javaVersion}" width='100%'
+						styleName="normalText22"/>
+				
+					<mx:Text x="5" y="60" styleName="boldText2" 
+						text="PRE Version"	/>
+					<mx:Label x="118" y="62.65" id="preVer" 
+						text="{ systemInformation.preVersion}" width='100%'
+						styleName="normalText22"/>
+						
+					<mx:Text x="5" y="80" styleName="boldText2" 
+						text="OS Configuration" 
+						/>
+					<mx:Label x="118" y="82.65"  id="cpuConfig"
+						text="{ systemInformation.osConfig}" width="100%"
+						styleName="normalText22"/>
+						
+					<mx:Text x="5" y="100" styleName="boldText2" 
+						text="Output Directory" />
+					<mx:Label x="118" y="102.6"  id="opDir"
+						text="{}" width='100%'
+						styleName="normalText22" />
+						
+					<mx:Text x="5" y="120" styleName="boldText2" 
+						text="Output Memory" />
+					<mx:Label x="118" y="122.6"  id="opFreeMemory"
+						text="" width='100%'
+						styleName="normalText22"/>				
+			</flexcontrols:FieldSet>
+		</mx:Canvas>
+	</mx:VBox>
+</Pod>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" currentState="BASE">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.model.vo.ConfigParameter;
+			import mx.controls.RadioButtonGroup;
+			import com.majescomastek.jbeam.model.vo.ConfigParameter;
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]public var enableDays:Boolean = true;
+			[Bindable]public var group:RadioButtonGroup = null;
+			
+			[Bindable]public var selected:Boolean = false;
+			
+			[Bindable]public var weekDay:ConfigParameter = null;		
+			[Bindable]private var _frequency:ConfigParameter = null;
+			
+			public function set frequency(value:Object):void
+			{
+				//selected = false;
+				this._frequency = value as ConfigParameter;
+				switch(value.subCode)
+				{				
+					case "DEFAULT":
+						setCurrentView("BASE");
+						break;
+					case "DAY":
+						setCurrentView("BASE");
+						break;				
+					case "REN_ADMIN":
+						setCurrentView("BASE");
+						break;
+					case "HOUR":
+						setCurrentView("BASE");
+						break;
+					case "WEEK":
+						setCurrentView("BASE");
+						break;
+					case "YEAR":
+						setCurrentView("BASE");
+						break;				
+					case "LAST_MTH":
+						setCurrentView("RADIO");						
+						break;				
+					case "MINUTE":
+						setCurrentView("BASE");
+						break;
+					case "MONTH":
+						setCurrentView("BASE");
+						break;
+					case "PREDEFINED":
+						setCurrentView("BASE");
+						break;
+					case "FIRST_MTH":
+						setCurrentView("RADIO");
+						break;
+					case "SECOND_MTH":
+						setCurrentView("RADIO");
+						break;
+					case "THIRD_MTH":
+						setCurrentView("RADIO");
+						break;
+					case "FOURTH_MTH":
+						setCurrentView("RADIO");
+						break;				
+					case "LDMONTH":
+						setCurrentView("BASE");
+						break;
+					default:
+						setCurrentView("BASE");
+						break;
+				}
+			}			
+			public function get frequency():Object
+			{
+				return this._frequency;
+			}
+			
+			
+			/* public function set group(value:RadioButtonGroup):void
+			{
+				this._group = value
+				trace("value---"+_group);
+				dispatchEvent(new Event("GROUP"));
+			}
+			[Bindable("GROUP")]
+			public function get group():RadioButtonGroup
+			{
+				trace("_group---"+_group);
+				return this._group;
+			} */
+			
+			
+			
+			/**
+			 * 
+			 * @param value
+			 * 
+			 */
+			private function setCurrentView(value:String):void
+			{
+				this.currentState = value;
+			}
+			
+			private function onChange(event:Event):void
+			{
+				selected = event.currentTarget.selected;
+			}
+			
+		]]>
+	</mx:Script>	
+	<mx:states>
+		<mx:State name="BASE">			
+			<mx:SetProperty target="{rbId}" name="visible" value="false"/>
+			<mx:SetProperty target="{rbId}" name="includeInLayout" value="false"/>
+		</mx:State>
+		<mx:State name="RADIO">			
+			<mx:SetProperty target="{chkId}" name="visible" value="false"/>
+			<mx:SetProperty target="{chkId}" name="includeInLayout" value="false"/>
+		</mx:State>
+	</mx:states>
+	<mx:RadioButton id="rbId" label="{weekDay.description}" enabled="{enableDays}" disabledColor="#000000" change="onChange(event)" selected="{selected}" group="{group}"/>
+	<mx:CheckBox id="chkId" label="{weekDay.description}" enabled="{enableDays}" disabledColor="#000000" change="onChange(event)" selected="{selected}"/>
+</mx:HBox>

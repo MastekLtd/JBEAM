@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml"
+	layout="vertical" width="300" minHeight="100" showCloseButton="true"
+	close="closePopUp()" title="Add &amp; Save your own pods" styleName="titleWindow22"
+	titleStyleName="titleStyle22" headerHeight="25" color="#000000">
+
+	<mx:Style>
+		.titleWindow22 { theme-color:#CCCCCC; border-color: #CCCCCC;
+			background-color: #FFFFFF; border-thickness-bottom: 0;
+			border-thickness-left: 0; border-thickness-right:0; title-style-name:
+			"titleStyle22"; roundedBottomCorners: true; header-height: 20; /*
+			background-image: 'images/base-background.jpg'; */
+		}
+		.titleStyle22 {
+			backgroundColor:#CCCCCC; font-family: "Trebuchet MS"; font-weight:
+			bold; font-size: 15; padding-top:0; padding-bottom:0; vertical-align:
+			middle;
+		}
+		.boldText52 { color: #000000; font-size: 11; font-weight:
+			bold; font-family: "Trebuchet MS";
+		}
+		.checkBox22 { padding-bottom:0;
+			padding-left:0; padding-right:0; padding-top:0;
+			label-style-name:"normalTxt11"; horizontalGap: 1;
+		}
+		.normalTxt11 {
+			color: #000000; fontSize: 12; fontFamily: "Trebuchet MS";
+		}
+	</mx:Style>
+	
+	<mx:Script
+		source="../../scripts/installationlist/ClosedPodListViewScript.as" />
+
+	<mx:Repeater id="closedPods">
+		<mx:HBox name="{closedPods.currentItem.id}">
+			<mx:CheckBox name="{closedPods.currentItem.id}"	styleName="checkBox22" />
+			<mx:Label text="{closedPods.currentItem.title}" styleName="boldText52" />
+		</mx:HBox>
+	</mx:Repeater>
+	<mx:VBox height="25" width="267" paddingLeft="110">
+		<mx:Button id="addPods" label="Save" click="onSaveClick()"	styleName="button" />
+	</mx:VBox>
+</mx:TitleWindow>

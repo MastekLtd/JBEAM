@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<Pod xmlns="com.majescomastek.common.containers.dashboard.*"
+	xmlns:flexcontrols="com.majescomastek.flexcontrols.*"
+	xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%">
+		
+	<mx:Script source="../../scripts/batchdetails/BatchDetailsPodScript.as" />
+	<mx:DateFormatter id="formatDateTimeUSD" formatString="{resourceManager.getString('jbeam','date_format')}" />
+	
+	<mx:VBox label="BatchDetailsData" width="100%" height="100%"
+		verticalGap="1" id="vbBatchDetailsData">
+		<mx:Canvas y="0" name="cvBatchDetailsData" width="100%"	height="100%">
+			<flexcontrols:FieldSet
+				horizontalScrollPolicy="off" styleName="jbeamFieldSet" id="fsBatchDetailsData"
+				verticalScrollPolicy="off" name="fsBatchDetailsData" x="0" y="0"
+				width="100%" height="100%">
+				<mx:Text x="5" y="20" styleName="boldText22"
+					text="{resourceManager.getString('BatchProperties','batch_startTime')}" />
+				<mx:Label x="135" y="22" id="lblBatchStartTime" text="{CommonUtils.formatDate(batchDetails.execStartTime)}"
+					styleName="normalText22" height="19" truncateToFit="true" maxWidth="224"
+					width="211" />
+				<mx:Text x="5" y="40" styleName="boldText22"
+					text="{resourceManager.getString('BatchProperties','batch_endTime')}" />
+				<mx:Label x="135" y="42" id="lblBatchEndTime" text="{CommonUtils.formatDate(batchDetails.execEndTime)}"
+					styleName="normalText22" height="19" truncateToFit="true" maxWidth="224"
+					width="211" />
+				<mx:Label x="5" y="60" styleName="boldText22" id="lblStatus"
+					text="{resourceManager.getString('BatchProperties','status')}" />
+				<mx:Text x="135" y="62" id="txtPLActivityType"
+					styleName="normalText22" />				
+				<mx:Text x="5" y="80" styleName="boldText22"
+					text="{resourceManager.getString('BatchProperties','objNoComp')}" />
+				<mx:Label x="135" y="82" text="{batchDetails.noOfObjects}" id="executedObjCount"
+					styleName="normalText22" height="19" truncateToFit="true" maxWidth="110"
+					width="110" textAlign="right" />
+				
+				<mx:Text x="5" y="100" styleName="boldText22"
+					text="{resourceManager.getString('BatchProperties','objNoFailed')}" />
+				<mx:LinkButton x="135" y="102" label="{batchDetails.noOfObjectsFailed}"
+					id="lBtnFailedObjCount"	styleName="linkButton22" width="110"
+					visible="{failedLinkVisible}" textAlign="right" click="onFailedObjectClick(event)" />
+				<mx:Label x="135" y="102" id="lblFailedObjCount" styleName="normalText22"
+					height="19" truncateToFit="true" width="110" visible="{!failedLinkVisible}"
+					textAlign="right" text="{batchDetails.noOfObjectsFailed}" />
+				
+				<mx:Text x="5" y="120" styleName="boldText22" 
+					text="{resourceManager.getString('BatchProperties','listenersNo')}" />											
+				<mx:Button x="135" y="122" name="btnListenerDetails" id="btnListenerDetails"
+					label="{batchDetails.noOfListners}" styleName="{listenerNoStyle}"
+					click="onListenerButtonClick(event)" />
+								
+				<mx:ProgressBar id="instProgressBar" x="10" y="152" labelPlacement="center"
+            		minimum="1" maximum="{2}"   
+            		barColor="haloBlue" fontSize="10"
+			        trackColors="[white, haloSilver]" direction="right" mode="manual" width="257"
+            		trackHeight="14"  height="15" visible="{batchProgressBarVisible}"/>
+				<mx:Panel title="Batch Status" x="354" y="22"
+					id="pnlBatchPRogressData" styleName="styleA" width="580" height="80%">
+					<mx:DataGrid id="dgBatchStatus" width="100%" height="100%"
+						styleName="jbeamDataGrid" dataProvider="{batchDetails.progressLevelDataList}"
+						rowHeight="20">
+						<mx:columns>
+							<mx:DataGridColumn width="10" textAlign="right" dataField="serialNo"
+								headerText="#" headerWordWrap="true" />
+							<mx:DataGridColumn width="18" headerText="Progress Level Type"
+								dataField="prgLevelType" headerWordWrap="true" />
+							<mx:DataGridColumn width="32" textAlign="left" dataField="prgActivityType"
+								wordWrap="true" headerText="Progress Activity Type"
+								itemRenderer="com.majescomastek.jbeam.view.components.batchdetails.ProgressActivityLinkComponent"
+								headerWordWrap="true"/>
+							<mx:DataGridColumn width="15" headerText="Cycle #" dataField="cycleNo"
+								textAlign="right" wordWrap="true" headerWordWrap="true" />
+							<mx:DataGridColumn width="20" headerText="Time Taken"
+								dataField="timeTaken" textAlign="right" wordWrap="true"
+								headerWordWrap="true" />
+							<mx:DataGridColumn width="40" headerText="Start Time"
+								dataField="startDatetime" textAlign="right" />
+							<mx:DataGridColumn width="40" headerText="End Time"
+								dataField="endDatetime" textAlign="right" />
+						</mx:columns>
+					</mx:DataGrid>
+				</mx:Panel>
+				<mx:Panel id="pnlFailedObjectPieChart" title="Failed Objects"
+					width="300" height="210" y="190" x="10" visible="{failedGraphVisible}">
+					<mx:PieChart id="failedObjectsPieChart" width="100%"
+						height="100%" showDataTips="true" dataProvider="{pieDataProvider}">
+						<mx:series>
+							<mx:PieSeries field="graphValue" nameField="xAxis"
+								labelPosition="callout" />
+						</mx:series>
+					</mx:PieChart>
+				</mx:Panel>
+			</flexcontrols:FieldSet>
+		</mx:Canvas>
+	</mx:VBox>
+</Pod>

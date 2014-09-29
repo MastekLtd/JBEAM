@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * @author Gourav Rai
+ * 
+ *
+ * $Revision:: 1                      $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/RequestStatusPopUp.mxml 1           $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/RequestStatusPopUp.mxml                     $
+ * 
+ * 1     4/25/10 7:55p Gourav.rai
+ * Added by Gourav Rai
+ * 
+ *
+ -->
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" showCloseButton="true" minWidth="500"
+	creationComplete="init();" layout="vertical" styleName="popupWindowBox" close="closeWindow()" 
+	title="{resourceManager.getString('jbeam', 'req_sub_with_fol_pram')}">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.model.vo.ReportParameter;
+			import com.majescomastek.jbeam.model.vo.ExecuteReport;
+			import com.majescomastek.jbeam.model.vo.ExecuteReport;
+			import mx.managers.PopUpManager;
+			import com.majescomastek.jbeam.model.vo.ReportParameter;
+			[Bindable]public var reportParameter:ReportParameter = null;
+			[Bindable]public var cancelRequest:Function = null;
+			public function init():void
+			{
+				PopUpManager.centerPopUp(this);
+			}
+			
+			private function closeWindow():void
+			{
+				PopUpManager.removePopUp(this);
+			}
+						
+			private function onCancelRequest():void
+			{
+				if(cancelRequest!=null)
+				{
+					var executeReport:ExecuteReport = new ExecuteReport();
+					executeReport.userId = reportParameter.userId;
+					executeReport.requestId = reportParameter.requestId;
+					cancelRequest(executeReport);
+				}
+				cancelRequest = null;
+				closeWindow();
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:HBox styleName="main" width="100%">
+		<mx:Label text="{resourceManager.getString('jbeam','request')} #" styleName="popupLabel"/>
+		<mx:Text text="{reportParameter.requestId}"/>
+	</mx:HBox>
+	<mx:Form verticalGap="2" horizontalGap="8" indicatorGap="14" paddingTop="6" width="100%" styleName="main">			
+		<mx:FormItem labelStyleName="popupLabel" label="{resourceManager.getString('jbeam','req_date')} :">
+			<mx:Text id="reqDateId" text="{reportParameter.requestDate}"/>
+		</mx:FormItem>
+		<mx:FormItem label="{resourceManager.getString('jbeam','user_id')} :" labelStyleName="popupLabel">
+			<mx:Text id="userId" text="{reportParameter.userId}"/>
+		</mx:FormItem>
+		<mx:FormItem label="{resourceManager.getString('jbeam','req_status')}:" labelStyleName="popupLabel">
+			<mx:Text id="requestStateId" text="{reportParameter.requestState}"/>
+		</mx:FormItem>
+		<mx:FormItem label="{resourceManager.getString('jbeam','schedule_date')} :" labelStyleName="popupLabel">
+			<mx:Text id="scheduleDateId" text="{reportParameter.scheduleDate}"/>
+		</mx:FormItem>			
+		<mx:FormItem labelStyleName="popupLabel" width="100%" verticalGap="0">
+			<mx:HBox paddingTop="0" paddingBottom="0" horizontalGap="0">
+				<mx:Label text="{resourceManager.getString('jbeam','warning')}" color="#FF0000" styleName="popupLabel"/>
+				<mx:Canvas width="16" height="16" styleName="warning"/>
+			</mx:HBox>
+			<mx:TextArea editable="false" width="100%" height="75" horizontalScrollPolicy="off" verticalScrollPolicy="off" text="{resourceManager.getString('jbeam','warning_text')}"/>
+		</mx:FormItem>
+	</mx:Form>
+	<mx:HBox width="100%" id="controlBarId">			
+		<mx:Button label="{resourceManager.getString('jbeam', 'back')}" click="closeWindow()"/>
+		<mx:Spacer width="100%"/>
+		<mx:Button label="{resourceManager.getString('jbeam', 'cancel_req')}" styleName="mainButton" click="onCancelRequest()"/>			
+	</mx:HBox>
+</mx:TitleWindow>

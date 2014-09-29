@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * @author Gourav Rai
+ * 
+ *
+ * $Revision:: 1                      $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/RequestSubmitWithFollowingPara      $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/RequestSubmitWithFollowingParameterPopUp.mx $
+ * 
+ *
+ -->
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" showCloseButton="true" minWidth="500"
+	creationComplete="init();" layout="vertical" styleName="popupWindowBox" close="closeWindow()" 
+	title="{resourceManager.getString('jbeam', 'cancel')} {resourceManager.getString('jbeam', 'schedule')}" xmlns:reports="com.majescomastek.jbeam.view.components.reports.*">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.model.vo.ExecuteReport;
+			import com.majescomastek.jbeam.model.vo.ConfigParameter;
+			import mx.collections.ArrayCollection;
+			import com.majescomastek.jbeam.model.vo.ExecuteReport;
+			import mx.managers.PopUpManager;
+			
+			[Bindable]public var weekDays:ArrayCollection = null;
+			[Bindable]public var frequecies:ArrayCollection = null;
+			[Bindable]public var executeReport:ExecuteReport = null;
+			[Bindable]public var cancelSchedule:Function = null;
+			
+			public function init():void
+			{
+				PopUpManager.centerPopUp(this);
+				assigneValue(executeReport);
+			}
+			private function assigneValue(_executeReport:ExecuteReport):void
+			{	
+				for each(var item:Object in frequecies)
+				{
+					if(_executeReport.frequency == item.subCode)
+					{
+						frequencyId.text = item.description;
+						break;
+					}
+				}
+				recurEveryId.text = _executeReport.recurrence == null?"--":_executeReport.recurrence;	
+				
+				startDateId.text = _executeReport.startDate;
+				startTimeId.setTime(int(_executeReport.hours),int(_executeReport.minutes),int(_executeReport.seconds));
+				
+				endDateId.text = _executeReport.endDate;
+				endTimeId.setTime(int(_executeReport.toHours),int(_executeReport.toMinutes),int(_executeReport.toSeconds));
+				
+				occurenceId.text = _executeReport.occurence;
+				groupId.selection = _executeReport.futureSchedule == "N"?noId:yesId;
+				schStartTimeId.text = _executeReport.weekStartTime == null?"--":_executeReport.weekStartTime;
+				schEndTimeId.text = _executeReport.weekEndTime == null?"--":_executeReport.weekEndTime;
+				scheduleId.text = _executeReport.scheduleText;				
+				counterId.text = _executeReport.count == null?"--":_executeReport.count;
+				statusId.text = _executeReport.scheduleStatus == null?"--":_executeReport.scheduleStatus;
+				if(_executeReport.scheduleStatus == "Terminated")
+				{
+					this.currentState = "TERMINATED";
+				}
+				else
+				{
+					this.currentState = "";
+				}
+				trace(_executeReport.weekDay.length);				
+				for(var idx:int = 0; _executeReport.weekDay!=null && idx<_executeReport.weekDay.length; idx++)
+				{
+					var value:int = int(_executeReport.scheduleStatus.charAt(idx));
+					if(value == 1)
+					{
+						dayId[idx].selected = true;
+					}
+					else
+					{
+						dayId[idx].selected = false;
+					}
+				}			
+			}
+			private function closeWindow():void
+			{
+				cancelSchedule = null;
+				PopUpManager.removePopUp(this);
+			}
+			
+			private function onCancelSchedule(event:Event):void
+			{
+				if(cancelSchedule!=null)
+				{
+					cancelSchedule(executeReport);
+				}
+				closeWindow();
+			}
+			
+			private function onChangeCancelReq(event:Event):void
+			{
+				executeReport.cancelQueued = event.currentTarget.selected?"Y":"N";
+			}
+		]]>
+	</mx:Script>
+	<mx:states>
+		<mx:State name="TERMINATED">
+			<mx:RemoveChild target="{cancelReqId}"/>
+			<mx:RemoveChild target="{cancelBtId}"/>
+		</mx:State>
+	</mx:states>
+	<mx:Form verticalGap="6" horizontalGap="8" indicatorGap="14" paddingTop="6" width="100%" styleName="main" height="100%">			
+			<mx:FormItem labelStyleName="popupLabel" label="{resourceManager.getString('jbeam','frequency')} :">
+				<mx:Text id="frequencyId"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','recur_every')} :" labelStyleName="popupLabel">
+				<mx:TextInput id="recurEveryId"  editable="false"/>
+			</mx:FormItem>		
+			<mx:FormItem label="{resourceManager.getString('jbeam','start_date')} :" labelStyleName="popupLabel" direction="horizontal">
+				<mx:TextInput id="startDateId" editable="false"/>
+				<reports:ReportHourMinuteSecField id="startTimeId" hhIndex="0" mmIndex="0" ssIndex="0" enabled="false" disabledOverlayAlpha="0"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','end_on')} - {resourceManager.getString('jbeam','date')} :" labelStyleName="popupLabel" direction="horizontal">
+				<mx:TextInput id="endDateId" editable="false"/>
+				<reports:ReportHourMinuteSecField id="endTimeId" hhIndex="0" mmIndex="0" ssIndex="0" enabled="false" disabledOverlayAlpha="0"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','end_on')} - {resourceManager.getString('jbeam','occurence')} :" labelStyleName="popupLabel">
+				<mx:TextInput id="occurenceId" editable="false"/>
+			</mx:FormItem>			
+			<mx:FormItem label="{resourceManager.getString('jbeam','future_sch')} :" labelStyleName="popupLabel" direction="horizontal" enabled="false" disabledOverlayAlpha="0">
+				<mx:RadioButtonGroup id="groupId"/>
+				<mx:RadioButton id="yesId" group="{groupId}" name="Y" label="{resourceManager.getString('jbeam','yes')}" selected="true"/>
+				<mx:RadioButton id="noId" group="{groupId}" name="N" label="{resourceManager.getString('jbeam','no')}"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','week_day')} :" labelStyleName="popupLabel" direction="horizontal">				
+				<mx:Repeater id="rptId" dataProvider="{weekDays}">
+					<mx:CheckBox id="dayId" label="{rptId.currentItem.description}" enabled="false" disabledColor="#000000"/>
+				</mx:Repeater>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','start_time')} :" labelStyleName="popupLabel" direction="horizontal">
+				<mx:Text id="schStartTimeId"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','end_time')} :" labelStyleName="popupLabel" direction="horizontal">
+				<mx:Text id="schEndTimeId"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','schedule')} :" labelStyleName="popupLabel" direction="horizontal" width="100%">
+				<mx:TextArea id="scheduleId" width="100%" height="75" editable="false"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','status')} :" labelStyleName="popupLabel" direction="horizontal">
+				<mx:Text id="statusId"/>
+			</mx:FormItem>
+			<mx:FormItem label="{resourceManager.getString('jbeam','counter')} :" labelStyleName="popupLabel" direction="horizontal">
+				<mx:Text id="counterId"/>
+			</mx:FormItem>
+			<mx:FormItem labelStyleName="popupLabel" direction="horizontal">
+				<mx:CheckBox id="cancelReqId" label="{resourceManager.getString('jbeam','can_que_req')}..?" change="onChangeCancelReq(event)"/>
+			</mx:FormItem>
+		</mx:Form>
+		<mx:HBox width="100%" horizontalAlign="right" id="controlBarId">
+			<mx:Button label="{resourceManager.getString('jbeam', 'back')}" click="closeWindow()"/>
+			<mx:Spacer width="100%"/>
+			<mx:Button id="cancelBtId" label="{this.title}" styleName="mainButton" click="onCancelSchedule(event)"/>
+		</mx:HBox>
+</mx:TitleWindow>

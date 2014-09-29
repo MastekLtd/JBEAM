@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:FormItem xmlns:mx="http://www.adobe.com/2006/mxml" label="{resourceManager.getString('jbeam','end_on')} :" labelStyleName="popupLabel" xmlns:flexcontrols="com.majescomastek.flexcontrols.*" xmlns:reports="com.majescomastek.jbeam.view.components.reports.*"
+	creationComplete="onInit(event)">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.common.events.CustomDataEvent;
+			import com.majescomastek.jbeam.model.vo.ExecuteReport;
+			import mx.utils.ObjectUtil;
+			import com.majescomastek.jbeam.facade.reports.ReportsFacade;
+			import com.majescomastek.jbeam.common.CommonUtils;
+			import com.majescomastek.jbeam.model.vo.ExecuteReport;
+			import mx.controls.RadioButton;			
+			private var _executeReport:ExecuteReport;
+			
+			public function set executeReport(value:ExecuteReport):void
+			{
+				this._executeReport = value;
+				_executeReport.systemDate =	CommonUtils.doStartDateLabelUSD(new Date());
+				_executeReport.hours = CommonUtils.doStartDateLabelHH(new Date());
+				_executeReport.minutes = CommonUtils.doStartDateLabelNN(new Date());
+				_executeReport.seconds = CommonUtils.doStartDateLabelSS(new Date());
+				if(this.executeReport.optionEndDate=="D")
+				{
+					selectCurrentState("DATE");
+				}
+				else
+				{
+					selectCurrentState("OCCURENCE");
+				}
+				dispatchEvent(new Event("ExecuteReport"));
+			}
+			[Bindable("ExecuteReport")]
+			public function get executeReport():ExecuteReport
+			{
+				return this._executeReport;
+			}
+			/**
+			 * param @event
+			 *
+			 */
+			public function onInit(event:Event):void
+			{
+				selectCurrentState(endOnGroupId.selection.name)
+			}
+			
+			/**
+			 * param @event
+			 *
+			 */
+			private function onChangeOfEndOn(event:Event):void
+			{
+				var selection:RadioButton = event.currentTarget.selection as RadioButton;
+				selectCurrentState(selection.name);				
+			}
+			
+			/**
+			 * param @selection
+			 *
+			 */
+			private function selectCurrentState(selection:String):void
+			{
+				this.currentState = selection;
+				clear();
+				if(executeReport!=null)
+				{				
+					occurenceId.text = executeReport.occurence;
+					endDateId.text = executeReport.endDate;
+					var hh:int = isNaN(Number(executeReport.toHours))?0:Number(executeReport.toHours);
+					var mm:int = isNaN(Number(executeReport.toMinutes))?0:Number(executeReport.toMinutes);
+					var ss:int = isNaN(Number(executeReport.toSeconds))?0:Number(executeReport.toSeconds);
+					endTimeId.setTime(hh,mm,ss);
+				}
+				else
+				{
+					occurenceId.text = "";
+					endDateId.text = "";
+					endTimeId.setTime(0,0,0);
+				}
+			}
+			
+			/**
+			 *
+			 */
+			public function isValid():Boolean
+			{
+				var selection:String = endOnGroupId.selection.name;
+				clearValidation();
+//				executeReport.optionEndDate = 
+				endOnGroupId.selection.name=="DATE"?"D":null;
+				if(selection=="DATE")
+				{
+					if(endDateId.isValidDate())
+					{	
+						var isStartLessThanEndDate:Boolean = isStartDateLessThanEndDate();
+						if(endTimeId.hhIndex==-1 || endTimeId.mmIndex==-1 || endTimeId.ssIndex==-1)
+						{
+							executeReport.endDate = null;
+							executeReport.toHours = null;
+							executeReport.toMinutes = null;
+							executeReport.toSeconds = null;
+							executeReport.endTime = null;	
+							sendDataEvent(ReportsFacade.SHOW_ALERT_MESSAGE,"Please select end time (hr:mi:ss).");
+							return false;
+						}
+						else if(!isStartLessThanEndDate)
+						{
+							executeReport.endDate = null;
+							executeReport.toHours = null;
+							executeReport.toMinutes = null;
+							executeReport.toSeconds = null;
+							executeReport.endTime = null;						
+							sendDataEvent(ReportsFacade.SHOW_ALERT_MESSAGE,"End Date to be Greater Than Start Date");
+						}
+						else
+						{
+							executeReport.endDate = endDateId.text;
+							executeReport.toHours = endTimeId.hhIndex.toString();
+							executeReport.toMinutes = endTimeId.mmIndex.toString();
+							executeReport.toSeconds = endTimeId.ssIndex.toString();
+							executeReport.endTime = endTimeId.getStringValue();
+						}
+						return isStartLessThanEndDate;
+					}
+					else
+					{
+						executeReport.endDate = null;
+						executeReport.toHours = null;
+						executeReport.toMinutes = null;
+						executeReport.toSeconds = null;
+						executeReport.endTime = null;						
+						endDateId.errorString = resourceManager.getString('jbeam','valid_date_msg');
+						return false;
+					}
+				}
+				else
+				{
+					if(occurenceId.text=="" || Number(occurenceId.text)<2)
+					{
+						executeReport.occurence = null;
+						occurenceId.errorString = "Please enter only number and number should be greater than 1.";
+						return false;
+					}
+					else
+					{
+						executeReport.occurence = occurenceId.text;						
+						return true;
+					}
+				}
+				return true;
+			}
+			
+			/**
+			 *
+			 */
+			private function clear():void
+			{
+				endDateId.text = "";
+				occurenceId.text = "";
+				endTimeId.setTime(0,0,0);
+				clearValidation();				
+			}
+			
+			public function clearValidation():void
+			{
+				endDateId.errorString = "";
+				occurenceId.errorString = "";
+			}
+			
+			
+			private function isStartDateLessThanEndDate():Boolean
+			{
+				var dateA:Date = CommonUtils.getFormattedDate(executeReport.systemDate, resourceManager.getString('SharedResources','dateFormat'))
+				var dateB:Date = CommonUtils.getFormattedDate(endDateId.text, resourceManager.getString('SharedResources','dateFormat'));
+				var index:int = ObjectUtil.dateCompare(dateB,dateA);
+				if(index>0)
+				{
+					return true;
+				}				
+				else if(index==0)
+				{
+					var hh:int = int(executeReport.hours);
+					var tohh:int = int(endTimeId.hhIndex);
+					if(hh<tohh)
+					{
+						return true;
+					}
+					else
+					{
+						if(hh==tohh)
+						{
+							var mm:int = int(executeReport.minutes);
+							var tomm:int = int(endTimeId.mmIndex);
+							if(mm<tomm)
+							{
+								return true;
+							}
+							else
+							{
+								if(mm==tomm)
+								{
+									var ss:int = int(executeReport.seconds);
+									var toss:int = int(endTimeId.ssIndex);
+									if(ss<toss)
+									{
+										return true;
+									}									
+								}
+								return false;
+							}
+						}
+						return false;
+					}
+				}
+				return false;
+			}
+			
+			/**
+			* Function dispatches event with data.
+			*/
+			private function sendDataEvent(eventName:String, eventData:Object):void
+			{
+				dispatchEvent(new CustomDataEvent(eventName, eventData, true));
+			}
+		]]>
+	</mx:Script>
+	<mx:DateValidator id="dateValId" source="{endDateId}" enabled="false"
+		requiredFieldError="{resourceManager.getString('jbeam','valid_date_msg')}"
+		formatError="{resourceManager.getString('jbeam','valid_date_msg')}"
+		invalidCharError="{resourceManager.getString('jbeam','valid_date_msg')}"
+		wrongLengthError="{resourceManager.getString('jbeam','valid_date_msg')}"
+		property="text"/>
+	<mx:StringValidator id="occurenceValId" source="{occurenceId}" minLength="1" property="text" required="true" enabled="false"/>
+	<mx:states>
+		<mx:State name="BASE">
+			<mx:RemoveChild target="{occurenceId}"/>
+			<mx:RemoveChild target="{dateId}"/>
+		</mx:State>
+		<mx:State name="DATE">
+			<mx:RemoveChild target="{occurenceId}"/>
+			<mx:SetProperty target="{endOnGroupId}" name="selection" value="{dtId}"/>
+		</mx:State>
+		<mx:State name="OCCURENCE">
+			<mx:RemoveChild target="{dateId}"/>
+			<mx:SetProperty target="{endOnGroupId}" name="selection" value="{occId}"/>
+		</mx:State>
+	</mx:states>
+	<mx:HBox>
+		<mx:RadioButtonGroup id="endOnGroupId" change="onChangeOfEndOn(event)"/>
+		<mx:RadioButton id="dtId" group="{endOnGroupId}" name="DATE" label="{resourceManager.getString('jbeam','date')}" selected="true"/>
+		<mx:RadioButton id="occId" group="{endOnGroupId}" name="OCCURENCE" label="{resourceManager.getString('jbeam','occurence')}"/>
+	</mx:HBox>
+	<mx:TextInput id="occurenceId" restrict="0-9" maxChars="10" width="125"/>
+	<mx:VBox id="dateId">
+		<mx:HBox width="100%">
+			<flexcontrols:LocaleRestrictedDateField id="endDateId" width="125" formatString="MM/DD/YYYY" />
+			<mx:Label text="(MM/DD/YYYY)"/>								
+		</mx:HBox>
+		<reports:ReportHourMinuteSecField id="endTimeId" hhIndex="0" mmIndex="0" ssIndex="0"/>
+	</mx:VBox>
+</mx:FormItem>

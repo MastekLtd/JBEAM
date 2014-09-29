@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * @author Gourav Rai
+ * 
+ *
+ * $Revision:: 3                        $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/ReportTextInput.mxml 3  $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/ReportTextInput.mxml  $
+ * 
+ * 3     4/25/10 7:54p Gourav.rai
+ * 
+ * 2     4/12/10 6:53p Gourav.rai
+ * Srinivas is going to work on it.
+ * 
+ * 1     4/07/10 12:00p Gourav.rai
+ * Added by Gourav Rai
+ * 
+ * 
+ --> 
+<BaseParameterChild xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="com.majescomastek.jbeam.view.components.reports.*" creationComplete="onInit(event)">
+	<mx:Script>
+		<![CDATA[
+			import mx.utils.StringUtil;
+			import mx.validators.StringValidator;
+			import mx.validators.Validator;
+			[Bindable]private var defaultValue:String = "";
+			[Bindable]private var maxChars:Number = 0;
+			
+			override public function getValidator():Validator
+			{
+				clearValidation();
+				var validator:StringValidator = null;				
+				if(parameter.mandatoryFlag=="Y" || StringUtil.trim(textId.text).length>0)
+				{
+					validator = new StringValidator();
+					validator.source = textId;
+					validator.required = true;					
+					validator.property = "text";
+					if(parameter.fixedLength!=null && parameter.fixedLength=="Y")
+					{
+						validator.minLength = maxChars;
+					}
+					else
+					{
+						validator.minLength = 0;
+					}
+					validator.maxLength = maxChars;
+				}				
+				return validator;
+			}
+						
+			private function onInit(event:Event):void
+			{
+				if(parameter.fieldMaxlength!=null)
+				{
+					maxChars = Number(parameter.fieldMaxlength);
+				}
+				defaultValue = parameter.defaultValue;
+				switch(parameter.dataType)
+				{
+					/* case "H":						
+						break; */
+					case "L":
+						textId.restrict = "0-9";
+						break;
+					case "I":
+						textId.restrict = "0-9";
+						break;
+					case "D":
+						textId.restrict = "0-9,.";
+						break;
+					default:
+//						trace("Invalid DataType: "+parameter.dataType);
+						break;
+				}
+				
+				assignValue();
+			}
+			
+			private function assignValue():void
+			{
+				if(this.parameter==null)return;
+				var selectedValue:String = StringUtil.trim(textId.text);
+				if(selectedValue!=null && selectedValue.length>0)
+				{
+					this.parameter.paramValue = selectedValue;
+				}
+				else
+				{
+					this.parameter.paramValue = null;
+				}
+			}
+			
+			private function clearValidation():void
+			{
+				textId.errorString = "";
+				textId.filters = [new DropShadowFilter(0,0,0,0,0,0,0,0)];
+			}
+		]]>
+	</mx:Script>
+	<mx:TextInput id="textId" text="{defaultValue}" maxChars="{maxChars}" change="assignValue()"/>
+</BaseParameterChild>

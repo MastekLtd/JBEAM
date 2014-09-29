@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" textAlign="center" width="100%">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.common.CommonUtils;
+			import com.majescomastek.jbeam.common.ProgramNameConstants;
+			import com.majescomastek.jbeam.model.vo.InstallationData;
+			
+			
+			
+			[Bindable]
+			/** The enabled status of the Details button */ 
+			private var detailsButtonEnabled:Boolean;
+			
+			
+			
+			override public function set data(value:Object):void
+			{
+				if(value != null)
+				{
+					super.data = value;
+					if(data != null)
+					{
+						detailsButtonEnabled = !isFreshInstallation(data as InstallationData);
+					}									
+				}
+			}
+			
+			/**
+			 * Determine whether this installation is fresh (newly created) or not based on the 
+			 * batch number and batch revision number.
+			 */
+			private function isFreshInstallation(installationData:InstallationData):Boolean
+			{
+				// If the batchNo & batchRevNo are null, the batch is invalid.
+				var invalid:Boolean = installationData.batchNo == 0 && installationData.batchRevNo == 0;
+				return invalid;
+			}
+			
+			/** 
+			 * Display batch details  
+			 */
+			private function showBatchDetails(evt:Event):void
+			{
+				if(this.data != null)
+				{
+					var installationData:InstallationData = this.data as InstallationData;
+					if(installationData != null)
+					{		
+						CommonUtils.setInstallationData(installationData);		
+						
+						var parent:InstallationModule = InstallationModule(this.parentDocument);
+						var instData:Object = {
+							'installationData': installationData,
+							'programName': ProgramNameConstants.BATCH_DETAILS_MODULE_PROGRAM_NAME
+						};
+						parent.sendDataEvent(InstallationModule.SHOW_BATCH_DETAILS_CLICK, instData);
+					}
+				}
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Button enabled="{detailsButtonEnabled}" click="showBatchDetails(event)"
+			   id="btnDetails" label="DETAILS" styleName="mainButton" />
+</mx:HBox>

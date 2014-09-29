@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * @author Gourav Rai
+ * 
+ *
+ * $Revision:: 1                        $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/ReportsModule.mxml 1    $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/ReportsModule.mxml    $
+ * 
+ * 1     4/07/10 12:00p Gourav.rai
+ * Added by Gourav Rai
+ * 
+ * 
+ --> 
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="100%" height="100%"
+			implements="com.majescomastek.jbeam.view.IModule" disabledOverlayAlpha="0"
+			creationComplete="init()" xmlns:reports="com.majescomastek.jbeam.view.components.reports.*">
+	<mx:Script source="../../scripts/reports/ReportsModuleScript.as" />
+	<mx:VBox width="100%" height="100%" styleName="baseContainer">
+		<mx:Text text="{resourceManager.getString('jbeam','reports')}"
+				styleName="titleTextXL" />
+		<mx:HBox id="hboxAlertMessage" styleName="messageBox" height="5%" minHeight="25" width="100%">
+			<mx:Text styleName="messageText" width="{this.width*0.9}" text="{alertMessage}" maxWidth="800"/>
+		</mx:HBox>
+		<mx:ViewStack id="vsId" width="100%" height="100%">
+			<reports:ReportsParametersView moduleData="{moduleInfo}"/>
+			<reports:ReportEngineRequestLog/>
+			<reports:ReportRequestStatus/>
+			<!--<reports:ReportAttachedSchedule/>-->
+		</mx:ViewStack>
+	</mx:VBox>
+</mx:Module>

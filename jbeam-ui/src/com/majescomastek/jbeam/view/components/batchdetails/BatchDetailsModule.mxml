@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	implements="com.majescomastek.jbeam.view.IModule" width="100%" height="100%"
+	creationComplete="onCreationComplete(event)" xmlns:installationlist="com.majescomastek.jbeam.view.components.installationlist.*">
+	<mx:Script source="../../scripts/batchdetails/BatchDetailsModuleScript.as" />
+	<mx:DateFormatter id="formatDateTime"
+		formatString="{resourceManager.getString('jbeam','date_format')}" />
+	<mx:Canvas width="100%" height="100%" backgroundSize="100%"
+		backgroundColor="#FFFFFF" color="#FFFFFF">
+		<mx:VBox horizontalAlign="left" width="100%" height="100%"
+			backgroundSize="100%">
+			<mx:ViewStack id="viewStack" paddingTop="10"
+				paddingLeft="10" paddingRight="10" width="100%" height="100%">
+				<installationlist:OuterCanvas id="canvasPod" horizontalScrollPolicy="off"
+					verticalScrollPolicy="off" width="100%" height="100%" />
+			</mx:ViewStack>
+			<mx:HBox height="5%" width="100%">
+				<mx:HBox id="addHBox" height="5%" />
+				<mx:LinkButton id="btnCustomize" label="Customize your settings"
+					height="5%" styleName="menuLink" fontSize="15"  click="onCustomizeSettingClick(event)" />
+			</mx:HBox>
+		</mx:VBox>
+	</mx:Canvas>
+</mx:Module>

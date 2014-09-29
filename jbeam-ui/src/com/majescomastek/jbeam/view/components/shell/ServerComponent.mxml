@@ -1,0 +1,139 @@
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:shell="com.majescomastek.jbeam.view.components.shell.*" height="100%"
+	width="90%" styleName="vboxCommon" horizontalAlign="center"
+	implements="com.majescomastek.jbeam.view.components.IViewComponent"
+	verticalAlign="top">
+	
+	<mx:Script source="../../scripts/shell/ServerComponentScript.as" />
+	
+	<shell:ServerTopBanner minHeight="76" id="header" />
+	
+	<mx:StringValidator id="valFileName" required="true"
+		source="{txtUploadedFile}" property="text"
+		requiredFieldError="{resourceManager.getString('ServerConfiguration', 'fileName_required')}" />
+	<mx:StringValidator id="valServerName" required="true"
+		source="{txtServerName}" property="text"
+		requiredFieldError="{resourceManager.getString('ServerConfiguration', 'serverName_required')}" />
+	<mx:StringValidator id="valIPAddress" required="true"
+		source="{txtServerIP}" property="text"
+		requiredFieldError="{resourceManager.getString('ServerConfiguration', 'ip_required')}" />
+	<mx:StringValidator id="valPort" required="true"
+		source="{txtServerPort}" property="text"
+		requiredFieldError="{resourceManager.getString('ServerConfiguration', 'port_required')}" />
+
+	<mx:VBox id="vbox" styleName="vboxCommon" width="100%" height="100%"
+		backgroundColor="#FFFFFF" verticalAlign="top">
+		<mx:Panel id="pnlServerConfiguration" styleName="styleA"
+			title="{resourceManager.getString('ServerConfiguration','pnl_jbeam_server_config')}"
+			minHeight="{vbox.height-header.height-footer.height}" width="100%"
+			height="100%">
+			<mx:Spacer width="100%" height="5%" />
+			<mx:Panel id="pnlUploadServer" styleName="styleA"
+				title="{resourceManager.getString('ServerConfiguration','pnl_upload_server')}"
+				width="60%" height="15%" paddingLeft="10" paddingRight="10">
+				<mx:HBox id="configHBox1" width="100%" height="100%" 
+						paddingTop="10">
+					<mx:TextInput id="txtUploadedFile" width="400" editable="false" />
+					<mx:Button id="btnBrowse" 
+						label="{resourceManager.getString('ServerConfiguration','browse')}" 
+						click="browseWindow()" tabIndex="0" />
+				</mx:HBox>
+				<mx:Spacer width="100%" />
+				<mx:VBox width="100%">
+					<mx:ControlBar width="100%">
+						<mx:Button 
+							label="{resourceManager.getString('ServerConfiguration','clear_server_data')}" 
+							click="clearUploadedFile()" tabIndex="2" />
+						<mx:Spacer width="100%" />
+						<mx:Button id="btnUploadServerData"
+								   label="{resourceManager.getString('ServerConfiguration','upload_csv')}"
+								   styleName="mainButton" click="processContent();" tabIndex="1" />
+					</mx:ControlBar>
+				</mx:VBox>					
+			</mx:Panel>
+			<mx:Spacer width="100%" height="5%" />
+			<mx:Panel id="pnlAddServer" styleName="styleA"
+				title="{resourceManager.getString('ServerConfiguration','pnl_add_server')}"
+				width="60%" height="15%" paddingLeft="10" paddingRight="10">
+				<mx:HBox id="configHBox2" width="100%" height="100%"
+						paddingTop="10">
+					<mx:Label
+						text="{resourceManager.getString('ServerConfiguration','server_name')}"
+						styleName="boldText" />
+					<mx:TextInput id="txtServerName"  width="150" tabIndex="3"/>
+					<mx:Label
+						text="{resourceManager.getString('ServerConfiguration','server_ip')}"
+						styleName="boldText" />
+					<mx:TextInput id="txtServerIP"  width="125" tabIndex="4"/>
+					<mx:Label
+						text="{resourceManager.getString('ServerConfiguration','server_port')}"
+						styleName="boldText" />
+					<mx:TextInput id="txtServerPort" width="60" tabIndex="5" />					
+				</mx:HBox>
+				<mx:Spacer width="100%" />
+				<mx:VBox width="100%">
+					<mx:ControlBar width="100%">
+						<mx:Button 
+							label="{resourceManager.getString('ServerConfiguration','clear_server_data')}" 
+							click="onClearServerDetails()" tabIndex="7" />
+						<mx:Spacer width="100%" />
+						<mx:Button id="btnAddServer"
+							label="{resourceManager.getString('ServerConfiguration','add_server')}"
+							click="onAddServerButtonClicked(event)" styleName="mainButton"
+							tabIndex="6"/>
+					</mx:ControlBar>
+				</mx:VBox>
+			</mx:Panel>
+			<mx:Spacer width="100%" height="5%" />
+			<mx:Panel id="pnlServerList" styleName="styleC"
+				title="{resourceManager.getString('ServerConfiguration','pnl_server_list')}"
+				width="60%" height="40%" paddingLeft="10" paddingRight="10">
+				<mx:DataGrid id="serversDataGrid" width="100%"
+					height="100%" allowMultipleSelection="true"
+					itemClick="itemClickEvent(event);">
+					<mx:columns>
+						<mx:DataGridColumn width="80"
+							headerWordWrap="true" textAlign="left"
+							headerText="{resourceManager.getString('ServerConfiguration','server_name')}"
+							dataField="serverName" />
+						<mx:DataGridColumn width="50"
+							headerWordWrap="true" textAlign="center"
+							headerText="{resourceManager.getString('ServerConfiguration','server_ip')}"
+							dataField="ipAddress" />
+						<mx:DataGridColumn width="40"
+							headerWordWrap="true" textAlign="center"
+							headerText="{resourceManager.getString('ServerConfiguration','server_port')}"
+							dataField="port" />
+					</mx:columns>
+				</mx:DataGrid>
+				<mx:Spacer width="100%" />
+				<mx:VBox width="100%">
+					<mx:ControlBar width="100%">
+						<mx:Button 
+							label="{resourceManager.getString('ServerConfiguration','remove_server')}" 
+							click="onRemoveServerButtonClicked(event)" tabIndex="9" />
+						<mx:Spacer width="100%" />
+						<mx:Button label="{resourceManager.getString('ServerConfiguration','back')}" 
+							click="goBackToLoginScreen();"
+							styleName="mainButton" tabIndex="8" />
+					</mx:ControlBar>
+				</mx:VBox>
+			</mx:Panel>
+		</mx:Panel>
+		<shell:Footer minHeight="70" id="footer"  height="30"/>
+	</mx:VBox>
+</mx:VBox>

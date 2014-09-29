@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:LinkButton xmlns:mx="http://www.adobe.com/2006/mxml" textAlign="left" width="100%"
+	click="activityTypeClickHandler(event)">
+	<mx:Script>
+		<![CDATA[
+			import mx.core.Window;
+			override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
+			{
+				super.updateDisplayList(unscaledWidth, unscaledHeight);
+
+				this.label = data.prgActivityType;
+				if(data != null && data.cycleNo != null && data.prgActivityType == "EXECUTION")
+				{
+					this.styleName = "popupWindow";
+					this.mouseEnabled = true;
+				}
+				else
+				{
+					this.styleName = "pageContent";
+					this.mouseEnabled = false;
+				}
+			}
+			
+			private function activityTypeClickHandler(event:Event):void
+			{
+				if(data != null && data.cycleNo != null && data.prgActivityType == "EXECUTION")
+				{
+					var parent:InstallationPod = InstallationPod(this.parentDocument);
+					var window:BatchObjectWindow = new BatchObjectWindow();
+					(window as Window).open();
+					var data:Object = {
+						'view': window,
+						'progressLevelData': this.data
+					};
+					parent.sendDataEvent(InstallationPod.BATCH_OBJECT_CLICK, data);
+				}								
+			}
+		]]>
+	</mx:Script>
+</mx:LinkButton>

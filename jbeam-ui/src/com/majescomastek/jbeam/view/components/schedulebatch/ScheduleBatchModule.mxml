@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	implements="com.majescomastek.jbeam.view.IModule"
+	xmlns:flexcontrols="com.majescomastek.flexcontrols.*"
+	width="100%" height="100%"
+	creationComplete="onCreationComplete(event)">
+	<mx:Script source="../../scripts/schedulebatch/ScheduleBatchModuleScript.as" />
+	
+	<mx:DateFormatter id="dateFormatterDB" formatString="DD-MMM-YYYY" />
+	<mx:DateFormatter id="formatDateTimeHHNNSS" formatString="HH:NN:SS" />
+	<mx:DateFormatter id="formatDateTimeHH" formatString="HH" />
+	<mx:DateFormatter id="formatDateTimeNN" formatString="NN" />
+	<mx:DateFormatter id="formatDateTimeSS"	formatString="SS" />
+	<mx:DateFormatter id="formatDateTimeUSD" formatString="MM/DD/YYYY" />
+	<mx:DateFormatter id="formatDateTimeIND" formatString="DD/MM/YYYY"/>
+	
+	<mx:DateValidator id="strBatchDate" 
+        source="{txtBatchDate}" property="text" 
+        inputFormat="MM/DD/YYYY"
+        allowedFormatChars="*#~/"/>
+	<mx:DateValidator id="strStartDate" 
+        source="{txtStartDate}" property="text" 
+        inputFormat="MM/DD/YYYY"
+        allowedFormatChars="*#~/"/>
+	<mx:DateValidator id="strEndOnDate" 
+        source="{dcEndOnDate}" property="text" 
+        inputFormat="MM/DD/YYYY"
+        allowedFormatChars="*#~/"/>
+
+	<mx:StringValidator id="valBatchDate" required="true"
+		source="{txtBatchDate}" property="text"
+		requiredFieldError="{resourceManager.getString('StartBatchProperties', 'batch_date_required')}" />
+	<mx:StringValidator id="valStartDate" required="true"
+		source="{txtStartDate}" property="text"
+		requiredFieldError="{resourceManager.getString('StartBatchProperties', 'batch_date_required')}" />
+	<mx:StringValidator id="valEndOnDate" required="true"
+		source="{dcEndOnDate}" property="text"
+		requiredFieldError="{resourceManager.getString('StartBatchProperties', 'end_on_date_required')}" />
+	<!--<mx:StringValidator id="valEndOnOccurence" required="true"
+		source="{endOnOccuranceStepper.t}" property="text"
+		requiredFieldError="{resourceManager.getString('StartBatchProperties', 'end_on_occurance_required')}" />-->
+	<mx:HBox width="100%" height="100%">
+		<mx:Canvas width="45%" height="100%">
+			<mx:Panel id="mainPanel" styleName="styleC" width="100%"
+				height="53%" x="10" y="9" title="Start Batch" layout="horizontal">
+				<mx:HBox styleName="outerContainer" width="100%" height="90%"
+					borderThickness="0" paddingLeft="10" paddingTop="10" paddingBottom="10"
+					paddingRight="10" horizontalGap="0" id="searchSection">
+					<mx:VBox height="100%" width="100%" styleName="innerCanvas"
+						borderThickness="1">
+						<mx:Grid horizontalGap="0" verticalGap="0" paddingTop="5"
+							height="100%" width="90%">
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left"
+									width="20%">
+									<mx:FormItem label="Installation Code" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:Text text="{instCode}" 
+										styleName="pageLabel" id="installationCode" />									
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem label="Batch Name" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:TextInput id="txtBatchName" width="130"
+										styleName="textInput" maxChars="25" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem label="* Batch Date" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:DateField id="txtBatchDate" width="80"
+										showToday="true" formatString="MM/DD/YYYY"										
+										styleName="pageLabel" textAlign="left" yearNavigationEnabled="true"
+										editable="true" />								
+									<mx:Label text="(MM/DD/YYYY)" styleName="pageLabel" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem label="End Time" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:TextInput id="txtEndTime" width="50"
+										styleName="textInput" maxChars="25" />
+									<mx:Label id="lblEndTimeType" width="130" styleName="pageLabel"
+										textAlign="left" height="19" text="minutes" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem label="* Execute On Date" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:DateField id="txtStartDate" width="80"
+										showToday="true" formatString="MM/DD/YYYY"
+										styleName="pageLabel" textAlign="left" yearNavigationEnabled="true"
+										editable="true" />
+									<mx:Label text="(MM/DD/YYYY)" styleName="pageLabel" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem label="* Execute On Time" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:HBox width="180">
+										<mx:ComboBox id="comboStartDateHr" labelField="object"
+											dataProvider="{endOnTimeList}"
+											width="45" />
+										<mx:Label text=":" width="2" />
+										<mx:ComboBox id="comboStartDateMM" labelField="object"
+											dataProvider="{endOnTimeMinList}"
+											width="45" />
+										<mx:Label text=":" width="2" />
+										<mx:ComboBox id="comboStartDateSS" labelField="object"
+											dataProvider="{endOnTimeMinList}"
+											width="45" />
+									</mx:HBox>
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem label="Date Run" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:CheckBox id="chkDateRun" click="handleBatchParameters(event)" />
+								</mx:GridItem>
+							</mx:GridRow>
+						</mx:Grid>
+					</mx:VBox>
+				</mx:HBox>
+				<mx:ControlBar>
+					<mx:Spacer width="100%" />
+					<mx:Button id="btnAttachRecurrence" label="Attach Recurrence"
+						styleName="mainButton" click="attachRecurrence()" />
+				</mx:ControlBar>
+			</mx:Panel>
+			<mx:Panel id="batchParamPanel" label="Batch Parameters"
+				styleName="styleC" top="295" width="100%" height="55%" x="10"
+				title="Batch Parameters">
+				<mx:HBox styleName="outerContainer" width="100%" height="90%"
+					borderThickness="0" paddingLeft="10" paddingTop="10" paddingBottom="10"
+					paddingRight="10" horizontalGap="0" id="batchParams">
+					<mx:VBox height="100%" width="100%" styleName="innerCanvas"
+						borderThickness="0">
+						<mx:Grid horizontalGap="0" verticalGap="0" paddingTop="5"
+							height="100%" width="100%">
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem label="Business Date" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:DateField id="txtBusDate" width="80"
+												  showToday="true" formatString="MM/DD/YYYY"
+												  styleName="pageLabel" textAlign="left" yearNavigationEnabled="true"
+												  editable="true" />
+									<mx:Label text="(MM/DD/YYYY)" styleName="pageLabel" />
+								</mx:GridItem>
+							</mx:GridRow>							
+							<mx:GridRow height="21%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left"
+									width="12%">
+									<mx:FormItem label="Entity" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:ComboBox id="comboEntity" dataProvider="{entityDataProvider}" 
+										change="enityComboChangeHandler(event)"
+										fontSize="12" borderColor="#307EB5" cornerRadius="5" alpha="0.82" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<!--<mx:GridRow height="21%" width="100%" visible="{comboEntity.selectedIndex >0 ? true:false}"
+										includeInLayout="{comboEntity.selectedIndex >0 ? true:false}">
+								<mx:GridItem borderStyle="none" horizontalAlign="left"
+											 width="12%">
+									<mx:FormItem label="Hint" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none" colSpan="2">
+									<mx:Label text="{comboEntity.selectedIndex > 0?comboEntity.selectedItem.desc:''}"   width="253"/>
+								</mx:GridItem>
+							</mx:GridRow>-->
+							<mx:GridRow height="21%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left"
+									width="12%">
+									<mx:FormItem label="Value" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none" width="70%">
+									<mx:TextInput id="txtBatchParam" width="80%"
+										styleName="textInput" maxChars="25" 
+										focusOut="batchParamFoucsOutHandler(event)"  
+										focusIn="batchParamFocusInHandler(event)"/>
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:LinkButton width="10%" label="Add To List"
+										styleName="linkButton22" click="addToParamsList(event);" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="50%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left"
+									width="12%">
+									<mx:FormItem label="Parameter List" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none" width="50%">
+									<mx:List width="100%" height="100%" rowHeight="20"
+										id="lstParamList" change="selectParams(event)"
+										allowMultipleSelection="true" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:LinkButton width="5%" label="Remove Item"
+										styleName="linkButton22" click="clearParams()" />
+								</mx:GridItem>
+							</mx:GridRow>
+						</mx:Grid>
+					</mx:VBox>
+				</mx:HBox>
+				<mx:ControlBar>
+					<mx:Button label="Clear" styleName="subButton" left="10"
+						top="10" click="clearAllParams()" />
+					<mx:Spacer width="100%" />
+					<mx:Button id="btnRun" label="Run" styleName="mainButton"
+						click="runBatch(event)" />
+				</mx:ControlBar>
+			</mx:Panel>
+			<mx:Label id="paramListData" visible="false" />
+			<mx:Label id="hBatchType" visible="false" />
+		</mx:Canvas>
+		<mx:Canvas width="53%" height="100%">
+			<mx:Panel id="recurrencePanel" styleName="styleC" width="100%"
+				height="100%" y="9" title="Recurrence" layout="horizontal" visible="false">
+				<mx:HBox styleName="outerContainer" width="100%" height="90%"
+					borderThickness="0" paddingLeft="10" paddingTop="10" paddingBottom="10"
+					paddingRight="10" horizontalGap="0" id="searchSection3">
+					<mx:VBox height="100%" width="100%" styleName="innerCanvas"
+						borderThickness="1">
+						<mx:Grid horizontalGap="0" verticalGap="0" paddingTop="5"
+							height="100%" width="90%">
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left"
+									width="20%">
+									<mx:FormItem label="Frequency" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:Text text="WEEK" styleName="pageLabel" id="txtFrequency" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem label="* Recur Every" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:NumericStepper id="recurrenceStepper"
+										minimum="1" maximum="100" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="10%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem label="* End On" styleName="pageLabel" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:RadioButtonGroup id="radioGroup" />
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:RadioButton id="radEndOnDate" label="Date" change="focusRadEndOnDate()"
+										group="{radioGroup}" width="80" paddingLeft="10" selected="true" />
+								</mx:GridItem>
+								 <mx:GridItem borderStyle="none">			            	
+					                <mx:DateField id="dcEndOnDate" width="100" 
+					                	change="focusRadEndOnDate()" formatString="MM/DD/YYYY"
+					                	styleName="pageLabel" textAlign="left"
+					                	yearNavigationEnabled="true" editable="true" />
+									 <mx:Label text="(MM/DD/YYYY)" styleName="pageLabel" />
+					            </mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+								</mx:GridItem>
+								 <mx:GridItem borderStyle="none">			            	
+					                <mx:HBox>
+					                	<mx:ComboBox id="comboEndOnHr" change="focusRadEndOnDate()"
+					                		dataProvider="{endOnTimeList}"
+						    				labelField="object" width="50" />
+							    		<mx:Label text=":" />
+							    		<mx:ComboBox id="comboEndOnMM" change="focusRadEndOnDate()"
+							    			dataProvider="{endOnTimeMinList}"
+							    			labelField="object" width="50" />
+							    		<mx:Label text=":" />
+							    		<mx:ComboBox id="comboEndOnSS" change="focusRadEndOnDate()" 
+							    			dataProvider="{endOnTimeMinList}"
+							    			labelField="object" width="50" />	
+					                </mx:HBox>
+					            </mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" height="66">
+									<mx:RadioButton id="radEndOnOccurence" label="Occurrence" change="focusRadEndOnOccurence()"
+										group="{radioGroup}" width="100%" paddingLeft="10" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none" height="66">
+									<mx:NumericStepper id="endOnOccuranceStepper"
+										change="focusRadEndOnOccurence()" minimum="1" maximum="100"
+										enabled="false" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="26%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem label="Week Day" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:VBox>
+										<mx:HBox>
+											<mx:CheckBox id="chkSunday" label="Sunday" />
+											<mx:CheckBox id="chkMonday" label="Monday" />
+											<mx:CheckBox id="chkTuesday" label="Tuesday" />
+											<mx:CheckBox id="chkWednesday" label="Wednesday" />
+											<mx:CheckBox id="chkThursday" label="Thursday" />
+										</mx:HBox>
+										<mx:HBox>
+											<mx:CheckBox id="chkFriday" label="Friday" />
+											<mx:CheckBox id="chkSaturday" label="Saturday" />
+										</mx:HBox>
+									</mx:VBox>
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem label="Skip Flag" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:ComboBox id="comboSkipFlag" labelField="description"
+										dataProvider="{skipFlagList}"
+										selectedIndex="0" change="showCalendar(event)" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem id="lblCalendar" label="Calendar"
+										styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:Text id="txtBatchCalendar" text="Batch Calendar"
+										styleName="pageLabel" />
+								</mx:GridItem>
+							</mx:GridRow>
+							<mx:GridRow height="18%" width="100%">
+								<mx:GridItem borderStyle="none" horizontalAlign="left">
+									<mx:FormItem label="Keep Alive" styleName="pageLabel" />
+								</mx:GridItem>
+								<mx:GridItem borderStyle="none">
+									<mx:ComboBox id="comboKeepAlive" labelField="flagObject"
+										dataProvider="{keepAliveList}" selectedIndex="1" />
+								</mx:GridItem>
+							</mx:GridRow>
+						</mx:Grid>
+					</mx:VBox>
+				</mx:HBox>
+				<mx:ControlBar>
+					<mx:Button label="Cancel" styleName="subButton" left="10"
+						top="10" click="cancelRecurrence()" />
+					<mx:Spacer width="100%" />
+					<mx:Button id="btnAttach" label="Submit" styleName="mainButton"
+						click="runBatch(event)" />
+				</mx:ControlBar>
+			</mx:Panel>
+		</mx:Canvas>
+	</mx:HBox>
+</mx:Module>

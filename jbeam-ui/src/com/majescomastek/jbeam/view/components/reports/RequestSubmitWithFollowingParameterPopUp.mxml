@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * @author Gourav Rai
+ * 
+ *
+ * $Revision:: 1                      $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/RequestSubmitWithFollowingPara      $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/billing/view/components/reports/RequestSubmitWithFollowingParameterPopUp.mx $
+ * 
+ * 1     4/25/10 7:55p Gourav.rai
+ * Added by Gourav Rai
+ * 
+ *
+ -->
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" showCloseButton="true" minWidth="500"
+	creationComplete="init();" layout="vertical" styleName="popupWindowBox" close="closeWindow()" 
+	title="{resourceManager.getString('jbeam', 'req_sub_with_fol_pram')}">
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.jbeam.model.vo.ExecuteReport;
+			import com.majescomastek.jbeam.model.vo.ExecuteReport;
+			import mx.managers.PopUpManager;
+			
+			[Bindable]public var executeReport:ExecuteReport = null;
+			public function init():void
+			{
+				PopUpManager.centerPopUp(this);
+			}
+			
+			private function closeWindow():void
+			{
+				PopUpManager.removePopUp(this);
+			}
+		]]>
+	</mx:Script>
+	<mx:Form verticalGap="2" horizontalGap="8" indicatorGap="14" paddingTop="6" width="100%" styleName="main">			
+			<mx:FormItem labelStyleName="popupLabel" labelWidth="170" label="{resourceManager.getString('jbeam','req_id')} :">
+				<mx:Text text="{executeReport.requestId}"/>
+			</mx:FormItem>
+			<mx:FormItem labelStyleName="popupLabel" labelWidth="170" label="{resourceManager.getString('jbeam','sch_id')} :">
+				<mx:Text text="{executeReport.scheduleId}"/>
+			</mx:FormItem>
+			<mx:FormItem labelStyleName="popupLabel" labelWidth="170" label="{resourceManager.getString('jbeam','user_id')} :">
+				<mx:Text text="{executeReport.userId}"/>
+			</mx:FormItem>
+			<mx:Repeater id="rptId" dataProvider="{executeReport.requestReportParameters}" width="100%">
+				<mx:FormItem label="{rptId.currentItem.label} :" labelWidth="170" labelStyleName="popupLabel" width="100%">
+					<mx:Text id="proDateRangeFromId" text="{rptId.currentItem.paramValue}"/>
+				</mx:FormItem>
+			</mx:Repeater>			
+		</mx:Form>
+		<mx:HBox width="100%" id="controlBarId" horizontalAlign="right">			
+			<mx:Button label="{resourceManager.getString('jbeam', 'back')}" click="closeWindow()"/>			
+		</mx:HBox>
+</mx:TitleWindow>

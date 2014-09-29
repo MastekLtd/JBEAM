@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with JBEAM. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author ritesh.umathe
+ *
+ * $Revision:: 6                                                                                                       $
+ *	
+ * $Header:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/common/puremvc/controls/view/compon $	
+ *
+ * $Log:: /Product_Base/Projects/Billing-UI/FLEX UI DEV/src/com/majescomastek/common/puremvc/controls/view/compon $
+ * 
+ * 6     3/19/10 10:33a Sanjay.sharma
+ * Added height="100%" to the PaginatedDatagrid
+ * 
+ * 5     3/18/10 1:53p Sanjay.sharma
+ * Added width="100%" to the PaginatedDatagrid
+ * 
+ * 4     3/18/10 9:10a Sanjay.sharma
+ * Updated CustomDataGridContainer
+ * 
+ * 3     3/17/10 4:29p Ritesh.chavan
+ * assigned height to container of BaseDataGrid
+ * 
+ * 2     3/11/10 12:40p Gourav.rai
+ * 
+ * 1     3/05/10 4:26p Sanjay.sharma
+ * Initial commit of base flex controls and advanced datagrid control
+ * 
+ * 5     3/05/10 2:58p Sanjay.sharma
+ * Renamed BaseDataGrid.mxml to CustomDataGridContainer.mxml
+ * 
+ * 4     3/05/10 9:56a Sanjay.sharma
+ * Renamed component
+ * 
+ * 3     3/04/10 2:34p Sandeepa
+ * fixed scrollbar issue
+ * 
+ * 2     3/03/10 4:34p Sandeepa
+ * to make the file sync
+ * 
+ * 3     2/25/10 7:43p Sanjay.sharma
+ * Fetch label from resource bundle instead of hardcoding
+ * 
+ * 2     2/25/10 7:32p Sanjay.sharma
+ * Added header and moved code to script file
+ * 
+-->
+<containers:BaseVBox xmlns:mx="http://www.adobe.com/2006/mxml"  creationComplete="init(event)"
+	removedFromStage="onRemovedFromStage(event)"
+	xmlns:common="com.majescomastek.common.puremvc.controls.view.components.datagrid.*"
+	xmlns:controls="com.majescomastek.common.controls.framework.*"
+	xmlns:containers="com.majescomastek.common.containers.framework.*"
+	implements="com.majescomastek.jbeam.view.components.IViewComponent">
+	
+	<mx:Metadata>
+	  	   [Event(name="itemClick", type="mx.events.ListEvent")]
+		   [Event(name='fetchData', type="com.majescomastek.common.events.PaginatedDataGridEvent")]
+		   [Event(name='previousClick', type="com.majescomastek.common.events.PaginatedDataGridEvent")]
+		   [Event(name='nextClick', type="com.majescomastek.common.events.PaginatedDataGridEvent")]
+		   [Event(name='pageNoClick', type="com.majescomastek.common.events.PaginatedDataGridEvent")]
+	</mx:Metadata>
+	
+	<mx:Script source="../../scripts/datagrid/CustomDataGridContainerScript.as" />
+
+	<containers:BaseHBox id="dgHeader" visible="{paginationEnabled}" includeInLayout="{paginationEnabled}" paddingTop="0" paddingBottom="0">
+		<controls:BaseText text="{'Search Results:'+ (_startIndex+1)+' - '+_endIndex+' of '+ totalNoOfRows}" styleName="pageContent" />
+	</containers:BaseHBox>
+	
+	<containers:BaseVBox height="100%">
+		<common:PaginatedDataGrid id="dataGridId" columns="{columns}" dataProvider="{this.dataProvider}"   
+			itemClick="{dispatchEvent(event)}" maxWidth="{this.width}" height="100%" styleName="{this.styleName}"
+		 	editable="{this.editable}" maxHeight="{maxHeight}" rowHeight="{this.rowHeight}" width="100%"
+		 	sortableColumns="{this.sortableColumns}" wordWrap="{this.wordWrap}" />
+	</containers:BaseVBox>
+	
+	<containers:BaseHBox visible="{paginationEnabled}" includeInLayout="{paginationEnabled}" id="dgFooter">
+		<common:GoToPageComponent  visible="{gotoPageVisible}"/>
+		<controls:BaseSpacer width="100%"/>
+			<common:PrevNextComp _endIndex="{_endIndex}" _startIndex="{_startIndex}" 
+			  _totalNoOfRows="{totalNoOfRows}"  pageNumbers="{pageNumbers}" _currentPageNo="{_currentPageNo}"
+			   visible="{nextPrevVisible}"/>
+		<controls:BaseSpacer width="100%"/>
+		<common:ItemPerPageComp _currentRowCount="{_rowCount}"  itemPerPageArr="{itemPerPageArr}" 
+			visible="{itemPerPageVisible}"/>
+	</containers:BaseHBox>
+
+</containers:BaseVBox>

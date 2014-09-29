@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:CheckBox xmlns:mx="http://www.adobe.com/2006/mxml" selected="{data.checked}"
+			 enabled="{cancelButtonEnabled}"
+			 textAlign="center" change="selectCancellation(event)">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.majescomastek.flexcontrols.dg.BaseDataGridColumn;
+			import com.majescomastek.jbeam.common.CommonConstants;
+			import com.majescomastek.jbeam.model.vo.ProcessRequestScheduleData;
+			
+			import mx.controls.DataGrid;
+			import mx.events.FlexEvent;
+
+			private var scheduleData:ProcessRequestScheduleData;
+			
+			/** The enabled status of the Cancel button */			
+			[Bindable]
+			private var cancelButtonEnabled:Boolean;
+			
+			/** The visible status of the Cancel button */			
+			[Bindable]
+			private var cancelButtonVisible:Boolean;
+			
+			override public function set data(value:Object):void
+			{
+				if(value != null)
+				{
+					super.data = value;
+					if(data != null && CommonConstants.HAVE_OPERATOR_ROLE)
+					{
+						cancelButtonEnabled = !isScheduleCancelled(data as ProcessRequestScheduleData);						
+						cancelButtonVisible = cancelButtonEnabled; 						
+					}									
+				}
+			}
+			
+			private function isScheduleCancelled(scheduleData:ProcessRequestScheduleData):Boolean
+			{
+				// If the batchNo & batchRevNo are null, the batch is invalid.
+				var invalid:Boolean = scheduleData.schStat != 'A';// || scheduleData.schStat == 'X';
+				return invalid;
+			}
+			private function selectCancellation(evt:Event):void
+			{
+				this.data.checked = evt.currentTarget.selected;
+				headerCheck();
+			}
+			
+			private function headerCheck():void
+			{
+				var dg:DataGrid = listData.owner as DataGrid;
+				var dgc:BaseDataGridColumn = dg.columns[listData.columnIndex] as BaseDataGridColumn;				
+				for each(var item:ProcessRequestScheduleData in  dg.dataProvider)
+				{
+					dgc.selected = item.checked;										
+					if(!item.checked)
+					{
+						break;						
+					}
+				}
+				dgc.dispatchEvent(new FlexEvent(FlexEvent.DATA_CHANGE));
+			}
+		]]>
+	</mx:Script>
+</mx:CheckBox>

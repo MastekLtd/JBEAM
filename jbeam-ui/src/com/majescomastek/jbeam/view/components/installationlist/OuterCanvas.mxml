@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" 
+	horizontalScrollPolicy="off" 
+	verticalScrollPolicy="off" 
+	percentWidth="100"  doubleClickEnabled="true" doubleClick="onDoubleClick(event)"
+	percentHeight="100" 
+	backgroundColor="#FFFFFF">
+	<mx:Script>
+		<![CDATA[
+			private function onDoubleClick(event:Event):void
+			{
+				for each(var d:DisplayObject in this.getChildren())
+				{
+					trace(d);
+				}
+			}
+		]]>
+	</mx:Script>
+</mx:Canvas>

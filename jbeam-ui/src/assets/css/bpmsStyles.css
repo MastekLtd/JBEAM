@@ -1,0 +1,150 @@
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace dashboard "com.majescomastek.common.containers.dashboard.*";
+mx|Alert {
+	modalTransparencyBlur: 2;
+    modalTransparency: 0.6;
+    modalTransparencyColor: #000000;
+    modalTransparencyDuration: 200;
+    background-color:#EEEEEE;
+	color:#000000;
+	borderColor: #900000;
+	borderStyle: solid;
+	roundedBottomCorners: true;
+	borderThickness: 8;
+	titleStyleName: alertTitle;
+}
+.maximizeRestoreButton
+{
+	up-skin:        	Embed("/assets/maximize_up.png");
+	over-skin:      	Embed("/assets/maximize_over.png");
+	down-skin:      	Embed("/assets/maximize_up.png");
+	selected-up-skin:   Embed("/assets/restore_up.png");
+	selected-over-skin: Embed("/assets/restore_over.png");
+	selected-down-skin: Embed("/assets/restore_up.png");
+}
+
+.minimizeButton
+{
+	up-skin:        Embed("/assets/minimize_up.png");
+	over-skin:      Embed("/assets/minimize_over.png");
+	down-skin:      Embed("/assets/minimize_up.png");
+}
+.closeButton
+{
+	up-skin:        Embed("/assets/ico-close.png");
+	over-skin:      Embed("/assets/ico-close.png");
+	down-skin:        Embed("/assets/ico-close.png");
+}
+
+.tabBarButton
+{
+	up-skin:        		Embed("/assets/tab_up.png", scaleGridTop="11", scaleGridBottom="30", scaleGridLeft="10", scaleGridRight="92");
+	over-skin:        		Embed("/assets/tab_up.png", scaleGridTop="11", scaleGridBottom="30", scaleGridLeft="10", scaleGridRight="92");
+	down-skin:        		Embed("/assets/tab_up.png", scaleGridTop="11", scaleGridBottom="30", scaleGridLeft="10", scaleGridRight="92");
+	selected-up-skin:		Embed("/assets/tab_selected.png", scaleGridTop="13", scaleGridBottom="31", scaleGridLeft="9", scaleGridRight="91");
+	selected-over-skin:		Embed("/assets/tab_selected.png", scaleGridTop="13", scaleGridBottom="31", scaleGridLeft="9", scaleGridRight="91");
+	selected-down-skin:		Embed("/assets/tab_selected.png", scaleGridTop="13", scaleGridBottom="31", scaleGridLeft="9", scaleGridRight="91");
+	color: 					#333333;
+	text-roll-over-color:	#858585;
+	font-size:				12px;
+	font-family:			Arial;
+	text-align:				left;
+	padding-left:			10px;
+	padding-right:			20px;
+	padding-top:			-4px;
+}
+
+.tabBarButtonSelected
+{
+	text-roll-over-color:	#003399;
+	color:					#003399;
+}
+dashboard|Pod.testPod
+{
+	padding-top: 11px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	rounded-bottom-corners: false;
+	border-thickness: 1px;
+	border-style: solid;
+	border-color: #FFFFFF;
+	header-colors: #cccccc, #000000;
+	highlight-alphas: .9, 0;
+	background-color: #FFFFFF;
+	background-gradient-alphas:1.0, 1.0;
+	background-gradient-colors:#A5A6B1, #A5A6B1;
+	font-family:"Trebuchet MS";
+	corner-radius: 6px;
+	header-height: 22px;
+	shadow-direction: right;
+	drop-shadow-color: #FFFFFF;
+	
+}
+/* Pod
+{
+	padding-top: 11px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	rounded-bottom-corners: false;
+	border-thickness: 1px;
+	border-style: solid;
+	border-color: #233624;
+	header-colors: #cccccc, #999999;
+	highlight-alphas: .9, 0;
+	background-color: #5B5B5B;
+	background-gradient-alphas:1.0, 1.0;
+	background-gradient-colors:#A5A6B1, #A5A6B1;
+	font-family:"Trebuchet MS";
+	corner-radius: 6px;
+	header-height: 22px;
+	shadow-direction: right;
+	drop-shadow-color: #FFFFFF;
+	
+} */
+
+.podTitle
+{
+	font-size: 12px;
+	font-family: "Trebuchet MS";
+	font-weight: bold;
+	color:#000000;
+	/* background-color:#000000;
+	border-style: solid;
+	border-color: #909090; */
+}
+
+dashboard|DragHighlight
+{
+	border-color: #CCCCCC;
+	border-thickness: 3px;
+	border-style: solid;
+	background-color: #F3F3F3;
+}
+
+.leftArrowButton
+{
+	up-skin:		Embed("/assets/left_arrow_up.gif");
+	over-skin:		Embed("/assets/left_arrow_over.gif");
+	down-skin:		Embed("/assets/left_arrow_up.gif");
+	disabled-skin:	Embed("/assets/left_arrow_disabled.gif");
+}
+
+.rightArrowButton
+{
+	up-skin:		Embed("/assets/right_arrow_up.gif");
+	over-skin:		Embed("/assets/right_arrow_over.gif");
+	down-skin:		Embed("/assets/right_arrow_up.gif");
+	disabled-skin:	Embed("/assets/right_arrow_disabled.gif");
+}
+.podControlBar
+{
+}
+@font-face
+{
+	fontFamily: "Trebuchet MS";
+	fontWeight: normal;
+	fontStyle: normal;
+	src: local("Trebuchet MS");
+}

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ -->
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	implements="com.majescomastek.jbeam.view.IModule" width="100%" height="100%"
+	creationComplete="onCreationComplete(event)">
+	<mx:Script source="../../scripts/calendar/CalendarModuleScript.as" />
+	<mx:DateFormatter id="dateFormater" formatString="{resourceManager.getString('jbeam','date_format')}"/>
+	<mx:HBox horizontalAlign="left" width="100%" height="100%"
+		backgroundSize="100%" id="mainVbox">
+		<mx:VBox horizontalAlign="left" width="25%" height="100%"
+			backgroundSize="100%">
+			<mx:Panel title="Calendar Manager" width="100%" height="40%"
+				id="pnlCalendarManager" styleName="styleA">
+				<mx:DataGrid id="dgCalendarList" width="100%" height="100%"
+					dataProvider="{calendarList}" click="displaySelectedItem(event);">
+					<mx:columns>
+						<mx:DataGridColumn headerText="Calendar Name"
+							dataField="calendarName" />
+						<mx:DataGridColumn headerText="Year" dataField="year" />
+					</mx:columns>
+				</mx:DataGrid>
+				<mx:HBox width="100%" height="10%">
+					<mx:ControlBar width="100%">
+						<mx:Button label="Delete Calendar" styleName="mainButton"
+							visible="false" />
+						<mx:Spacer width="100%" />
+						<mx:Button id="btnNewCalendar" label="New Calendar"
+							styleName="mainButton"
+							click="clearCalendarData()" />
+					</mx:ControlBar>
+				</mx:HBox>
+			</mx:Panel>
+			<mx:Panel title="Calendar Details" width="100%" height="60%"
+				id="pnlCalendarDetails" styleName="styleA">
+				<mx:VBox width="100%" height="100%">
+					<mx:VBox styleName="innerCanvas" paddingLeft="5"
+						paddingTop="5" paddingRight="5" paddingBottom="5" verticalGap="0"
+						width="100%" height="83">
+						<mx:Canvas borderThickness="1" height="100%"
+							left="5" top="5" right="5" bottom="5"
+							width="100%">
+							<mx:Label text="Calendar Type" fontWeight="bold" x="10"
+								y="10" />
+							<mx:Text id="txtCalendarType" text="Batch Calendar"
+								styleName="pageLabelLeft" width="50%" x="104" y="9" />
+							<mx:Label text="Year" fontWeight="bold" x="10" y="43" />
+							<mx:NumericStepper id="nsYear" x="104" y="41"
+											   change="changeCalendarYearEvent(event)"/>
+						</mx:Canvas>
+					</mx:VBox>
+					<mx:HRule x="0" y="42" width="100%" />
+					<mx:DataGrid id="dgDatesList" width="100%" height="100%">
+						<mx:columns>
+							<mx:DataGridColumn headerText="Non Working Days"
+								dataField="rangeDate" />
+							<!--
+								<mx:DataGridColumn headerText="Remark" dataField="remark"
+								editable="true"/>
+							-->
+						</mx:columns>
+					</mx:DataGrid>
+				</mx:VBox>
+				<mx:HBox width="100%" height="10%">
+					<mx:ControlBar width="100%">
+						<!--<mx:Button label="Clear" styleName="subButton" left="10"
+							top="10" click="clearCalendarData()"/>-->
+						<mx:Spacer width="100%" />
+						<mx:Button label="Define" styleName="mainButton" click="defineCalendar(event)" />
+					</mx:ControlBar>
+				</mx:HBox>
+			</mx:Panel>
+		</mx:VBox>
+		<mx:VBox horizontalAlign="left" width="75%" height="100%"
+			backgroundSize="100%">
+			<mx:Panel title="Calendar" width="100%" height="100%"
+				id="pnlCalendar" styleName="styleA">
+				<mx:HBox width="100%" height="90%">
+					<mx:Canvas width="100%" height="100%" id="schedulerCanvas" />
+				</mx:HBox>
+			</mx:Panel>
+		</mx:VBox>
+	</mx:HBox>
+</mx:Module>
