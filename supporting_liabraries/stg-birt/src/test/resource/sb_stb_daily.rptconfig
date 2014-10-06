@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <list-property name="configVars">
+        <structure>
+            <property name="name">__isdisplay__prm_bill_type_15_0</property>
+            <property name="value">ALL</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__prm_oper_company_16_1</property>
+            <property name="value">ALL</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__prm_under_company_17_2</property>
+            <property name="value">ALL</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__prm_execution_date_106_3</property>
+            <property name="value">07/26/2012</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__odaDriverClass_354_4</property>
+            <property name="value">oracle.jdbc.OracleDriver</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__odaURL_355_5</property>
+            <property name="value">jdbc:oracle:thin:@172.16.244.48:1521:cydvin01</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__odaUser_356_6</property>
+            <property name="value">stg_billing</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__odaPassword_357_7</property>
+            <property name="value">stg_billing_1828#</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL_355_8</property>
+            <property name="value">jdbc:oracle:thin:@172.16.244.48:1521:cydvin01</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL_355_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">prm_oper_company_16_9</property>
+            <property name="value">ALL</property>
+        </structure>
+        <structure>
+            <property name="name">prm_oper_company_16_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">prm_execution_date_106_10</property>
+            <property name="value">07/26/2012</property>
+        </structure>
+        <structure>
+            <property name="name">prm_execution_date_106_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser_356_11</property>
+            <property name="value">stg_billing</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser_356_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">prm_under_company_17_12</property>
+            <property name="value">ALL</property>
+        </structure>
+        <structure>
+            <property name="name">prm_under_company_17_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">prm_bill_type_15_13</property>
+            <property name="value">ALL</property>
+        </structure>
+        <structure>
+            <property name="name">prm_bill_type_15_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">odaDriverClass_354_14</property>
+            <property name="value">oracle.jdbc.OracleDriver</property>
+        </structure>
+        <structure>
+            <property name="name">odaDriverClass_354_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword_357_15</property>
+            <property name="value">stg_billing_1828#</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword_357_type_</property>
+            <property name="value">string</property>
+        </structure>
+    </list-property>
+</report>

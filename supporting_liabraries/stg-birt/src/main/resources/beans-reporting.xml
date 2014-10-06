@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans	xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:util="http://www.springframework.org/schema/util"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	
+	<bean id="engineConfiguration" class="com.stgmastek.birt.report.engine.config.EngineConfigWrapper">
+		<property name="properties">
+			<util:map>
+				<entry key="threadPoolSize" value="1" />
+			</util:map>
+		</property>
+	</bean>
+
+	<bean id="reportService" class="com.stgmastek.birt.report.ReportService">
+		<constructor-arg name="configWrapper" type="com.stgmastek.birt.report.engine.config.EngineConfigWrapper">
+			<ref bean="engineConfiguration" />
+		</constructor-arg>		
+	</bean>
+	
+<!-- IReportParameterTypeMapper implementations starts here ... -->
+	<bean id="dateSQLParameterTypeMapper" 	class="com.stgmastek.birt.report.parameters.impl.DateSQLParameterTypeMapper" />
+	<bean id="dateUtilParameterTypeMapper" 	class="com.stgmastek.birt.report.parameters.impl.DateUtilParameterTypeMapper" />
+	<bean id="doubleParameterTypeMapper" 	class="com.stgmastek.birt.report.parameters.impl.DoubleParameterTypeMapper" />
+	<bean id="integerParameterTypeMapper" 	class="com.stgmastek.birt.report.parameters.impl.IntegerParameterTypeMapper" />	
+	<bean id="textParameterTypeMapper" 		class="com.stgmastek.birt.report.parameters.impl.TextParameterTypeMapper" />
+<!-- IReportParameterTypeMapper implementations ends here  -->	
+
+<!-- IReportRenderOptionGenerator implementations starts here ... -->
+	<bean id="hTMLRenderOptionGenerator" 	class="com.stgmastek.birt.report.rendering.types.impl.HTMLRenderOptionGenerator" />
+	<bean id="pDFRenderOptionGenerator" 	class="com.stgmastek.birt.report.rendering.types.impl.PDFRenderOptionGenerator" />
+	<bean id="pSRenderOptionGenerator" 		class="com.stgmastek.birt.report.rendering.types.impl.PSRenderOptionGenerator" />
+	<bean id="eXCELRenderOptionGenerator" 	class="com.stgmastek.birt.report.rendering.types.impl.EXCELRenderOptionGenerator" />
+	<bean id="wORDRenderOptionGenerator" 	class="com.stgmastek.birt.report.rendering.types.impl.WORDRenderOptionGenerator" />
+<!-- IReportRenderOptionGenerator implementations ends here -->
+
+	<bean id="reportGenerator" class="com.stgmastek.birt.report.ReportGenerator">
+		<property name="reportService" ref="reportService" />
+		<property name="reportParameterTypeMappers">
+			<util:map>
+				<entry key="DATE_SQL" 	value-ref="dateSQLParameterTypeMapper" />
+				<entry key="DATE_UTIL" 	value-ref="dateUtilParameterTypeMapper" />
+				<entry key="DOUBLE" 	value-ref="doubleParameterTypeMapper" />
+				<entry key="INTEGER" 	value-ref="integerParameterTypeMapper" />				
+				<entry key="TEXT" 		value-ref="textParameterTypeMapper" />
+			</util:map>
+		</property>
+		<property name="reportRenderOptionGenerators">
+			<util:map>
+				<entry key="HTML" 	value-ref="hTMLRenderOptionGenerator" />
+				<entry key="PDF" 	value-ref="pDFRenderOptionGenerator" />
+				<entry key="PS" 	value-ref="pSRenderOptionGenerator" />
+				<entry key="XLS" 	value-ref="eXCELRenderOptionGenerator" />
+				<entry key="DOC" 	value-ref="wORDRenderOptionGenerator" />				
+			</util:map>
+		</property>
+	</bean>	
+</beans>

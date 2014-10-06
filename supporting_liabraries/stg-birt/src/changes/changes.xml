@@ -1,0 +1,28 @@
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+  <properties>
+    <title>JBEAM-Core</title>
+    <author email="kedar.raybagkar@mastek.com">Kedar Raybagkar</author>
+  </properties>
+  <body>
+  	<release version="3.4" date="Snapshot" description="Bug Fix Release">
+  		<action dev="kedarr" date="8/23/2011" type="add">
+  		IExecutableBatchJob interface API has changed. The existing implementation classes will have to undergo changes
+  		with respect to the new API. There is no backward compatibility. This change was necessary as the old interface
+  		forced the implementor to add class level variables. Now all the variables are passed to methods such as init,
+  		execute and destroy.
+  		</action>
+  		<action issue="83" date="7/22/2011" type="fix" dev="mandarv">
+  		NullPointerException was thrown by CoreComm while doing the validations during the installation. 
+  		Instead of showing what configuration is missing, it threw a NullPointerException. 
+  		Handled the null condition and corrected the code to show the missed configuration. 
+  		</action>
+  	</release>
+  	<release version="3.3" description="Enhancements Release">
+  		<action>
+  			Refer to the ChangeLog.html for all previous releases.
+  		</action>
+  	</release>
+  </body>
+</document>

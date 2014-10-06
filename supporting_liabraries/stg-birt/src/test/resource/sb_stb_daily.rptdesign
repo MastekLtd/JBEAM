@@ -1,0 +1,1044 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 3.7.2.v20120213 Build &lt;3.7.2.v20120214-1408></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">7</property>
+            <expression name="value">params["odaDriverClass"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">7</property>
+            <expression name="value">params["odaURL"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">7</property>
+            <expression name="value">params["odaUser"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">7</property>
+            <expression name="value">params["odaPassword"].value</expression>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="prm_bill_type" id="15">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">ALL</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="prm_oper_company" id="16">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">ALL</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="prm_under_company" id="17">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">ALL</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="prm_execution_date" id="106">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="odaDriverClass" id="354">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="odaURL" id="355">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="odaUser" id="356">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="odaPassword" id="357">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@172.16.244.58:1521:cydvbil1</property>
+            <property name="odaUser">stg_billing</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">c3RnX2JpbGxpbmc=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.SPSelectDataSet" name="Data Set" id="295">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">PRM_EXECUTION_DATE</property>
+                    <property name="nativeName">PRM_EXECUTION_DATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="javascript">params["prm_execution_date"].value</expression>
+                    <property name="isOptional">true</property>
+                    <property name="allowNull">true</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">PRM_BILL_TYPE</property>
+                    <property name="nativeName">PRM_BILL_TYPE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue" type="javascript">params["prm_bill_type"].value</expression>
+                    <property name="isOptional">true</property>
+                    <property name="allowNull">true</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">PRM_OPER_COMPANY</property>
+                    <property name="nativeName">PRM_OPER_COMPANY</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                    <property name="position">3</property>
+                    <expression name="defaultValue" type="javascript">params["prm_oper_company"].value</expression>
+                    <property name="isOptional">true</property>
+                    <property name="allowNull">true</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">PRM_UNDER_COMPANY</property>
+                    <property name="nativeName">PRM_UNDER_COMPANY</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                    <property name="position">4</property>
+                    <expression name="defaultValue" type="javascript">params["prm_under_company"].value</expression>
+                    <property name="isOptional">true</property>
+                    <property name="allowNull">true</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">PRM_CURSOR</property>
+                    <property name="nativeName">PRM_CURSOR</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-10</property>
+                    <property name="position">5</property>
+                    <property name="allowNull">true</property>
+                    <property name="isOutput">true</property>
+                </structure>
+                <structure>
+                    <property name="name">PRM_SUCCESS_FAILURE</property>
+                    <property name="nativeName">PRM_SUCCESS_FAILURE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                    <property name="position">6</property>
+                    <property name="allowNull">true</property>
+                    <property name="isOutput">true</property>
+                </structure>
+                <structure>
+                    <property name="name">PRM_ERROR_MESSAGE</property>
+                    <property name="nativeName">PRM_ERROR_MESSAGE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                    <property name="position">7</property>
+                    <property name="allowNull">true</property>
+                    <property name="isOutput">true</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">HEADING</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">HEADING1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">SEQ</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">TRANSACTION1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">AMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">AMOUNT_DET</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">HEADING</property>
+                    <property name="nativeName">HEADING</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">HEADING1</property>
+                    <property name="nativeName">HEADING1</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">SEQ</property>
+                    <property name="nativeName">SEQ</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">TRANSACTION1</property>
+                    <property name="nativeName">TRANSACTION1</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">AMOUNT</property>
+                    <property name="nativeName">AMOUNT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">AMOUNT_DET</property>
+                    <property name="nativeName">AMOUNT_DET</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[{call stg_billing.reports_master.spc_sb_stb_daily_rep(?,?,?,?,?,?,?)} ]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>1.0</Version>
+  <design:DataSetParameters>
+    <design:parameterDefinitions>
+      <design:inOutMode>In</design:inOutMode>
+      <design:attributes>
+        <design:name>PRM_EXECUTION_DATE</design:name>
+        <design:position>1</design:position>
+        <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+        <design:precision>0</design:precision>
+        <design:scale>0</design:scale>
+        <design:nullability>Nullable</design:nullability>
+      </design:attributes>
+      <design:inputAttributes>
+        <design:elementAttributes>
+          <design:optional>true</design:optional>
+        </design:elementAttributes>
+      </design:inputAttributes>
+    </design:parameterDefinitions>
+    <design:parameterDefinitions>
+      <design:inOutMode>In</design:inOutMode>
+      <design:attributes>
+        <design:name>PRM_BILL_TYPE</design:name>
+        <design:position>2</design:position>
+        <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+        <design:precision>3</design:precision>
+        <design:scale>0</design:scale>
+        <design:nullability>Nullable</design:nullability>
+      </design:attributes>
+      <design:inputAttributes>
+        <design:elementAttributes>
+          <design:optional>true</design:optional>
+        </design:elementAttributes>
+      </design:inputAttributes>
+    </design:parameterDefinitions>
+    <design:parameterDefinitions>
+      <design:inOutMode>In</design:inOutMode>
+      <design:attributes>
+        <design:name>PRM_OPER_COMPANY</design:name>
+        <design:position>3</design:position>
+        <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+        <design:precision>20</design:precision>
+        <design:scale>0</design:scale>
+        <design:nullability>Nullable</design:nullability>
+      </design:attributes>
+      <design:inputAttributes>
+        <design:elementAttributes>
+          <design:optional>true</design:optional>
+        </design:elementAttributes>
+      </design:inputAttributes>
+    </design:parameterDefinitions>
+    <design:parameterDefinitions>
+      <design:inOutMode>In</design:inOutMode>
+      <design:attributes>
+        <design:name>PRM_UNDER_COMPANY</design:name>
+        <design:position>4</design:position>
+        <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+        <design:precision>20</design:precision>
+        <design:scale>0</design:scale>
+        <design:nullability>Nullable</design:nullability>
+      </design:attributes>
+      <design:inputAttributes>
+        <design:elementAttributes>
+          <design:optional>true</design:optional>
+        </design:elementAttributes>
+      </design:inputAttributes>
+    </design:parameterDefinitions>
+    <design:parameterDefinitions>
+      <design:inOutMode>Out</design:inOutMode>
+      <design:attributes>
+        <design:name>PRM_CURSOR</design:name>
+        <design:position>5</design:position>
+        <design:nativeDataTypeCode>-10</design:nativeDataTypeCode>
+        <design:precision>0</design:precision>
+        <design:scale>0</design:scale>
+        <design:nullability>Nullable</design:nullability>
+      </design:attributes>
+    </design:parameterDefinitions>
+    <design:parameterDefinitions>
+      <design:inOutMode>Out</design:inOutMode>
+      <design:attributes>
+        <design:name>PRM_SUCCESS_FAILURE</design:name>
+        <design:position>6</design:position>
+        <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+        <design:precision>0</design:precision>
+        <design:scale>0</design:scale>
+        <design:nullability>Nullable</design:nullability>
+      </design:attributes>
+    </design:parameterDefinitions>
+    <design:parameterDefinitions>
+      <design:inOutMode>Out</design:inOutMode>
+      <design:attributes>
+        <design:name>PRM_ERROR_MESSAGE</design:name>
+        <design:position>7</design:position>
+        <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+        <design:precision>0</design:precision>
+        <design:scale>0</design:scale>
+        <design:nullability>Nullable</design:nullability>
+      </design:attributes>
+    </design:parameterDefinitions>
+  </design:DataSetParameters>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="AMT" id="303">
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightWidth">thin</property>
+            <list-property name="highlightRules">
+                <structure>
+                    <property name="operator">lt</property>
+                    <property name="color">#FF0000</property>
+                    <expression name="testExpr" type="javascript">row["AMOUNT"]</expression>
+                    <simple-property-list name="value1">
+                        <value type="javascript">0.00</value>
+                    </simple-property-list>
+                </structure>
+                <structure>
+                    <property name="operator">like</property>
+                    <expression name="testExpr" type="javascript">row["TRANSACTION1"]</expression>
+                    <simple-property-list name="value1">
+                        <value type="javascript">"Ending Balance"</value>
+                    </simple-property-list>
+                    <property name="style">BorderStyle</property>
+                </structure>
+            </list-property>
+        </style>
+        <style name="AMT_DET" id="304">
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightWidth">thin</property>
+            <list-property name="highlightRules">
+                <structure>
+                    <property name="operator">lt</property>
+                    <property name="color">#FF0000</property>
+                    <expression name="testExpr" type="javascript">row["AMOUNT_DET"]</expression>
+                    <simple-property-list name="value1">
+                        <value type="javascript">0.00</value>
+                    </simple-property-list>
+                </structure>
+                <structure>
+                    <property name="operator">like</property>
+                    <expression name="testExpr" type="javascript">row["TRANSACTION1"]</expression>
+                    <simple-property-list name="value1">
+                        <value type="javascript">"Ending Balance"</value>
+                    </simple-property-list>
+                    <property name="style">BorderStyle</property>
+                </structure>
+            </list-property>
+        </style>
+        <style name="BorderStyle" id="362">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="showIfBlank">true</property>
+        </style>
+        <style name="BorderBoldStyle" id="364">
+            <property name="fontFamily">"Times New Roman"</property>
+            <property name="fontWeight">bold</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+        <style name="BoldStyle" id="365">
+            <property name="fontWeight">bold</property>
+        </style>
+        <style name="ParentStyle" id="373">
+            <list-property name="highlightRules">
+                <structure>
+                    <property name="operator">like</property>
+                    <expression name="testExpr" type="javascript">row["TRANSACTION1"]</expression>
+                    <simple-property-list name="value1">
+                        <value type="javascript">"Beginning Balance"</value>
+                    </simple-property-list>
+                    <property name="style">BoldStyle</property>
+                </structure>
+                <structure>
+                    <property name="operator">like</property>
+                    <expression name="testExpr" type="javascript">row["TRANSACTION1"]</expression>
+                    <simple-property-list name="value1">
+                        <value type="javascript">"Ending Balance"</value>
+                    </simple-property-list>
+                    <property name="style">BorderBoldStyle</property>
+                </structure>
+            </list-property>
+        </style>
+        <style name="NewStyle" id="375">
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="paddingBottom">1.5pt</property>
+            <list-property name="highlightRules">
+                <structure>
+                    <property name="operator">like</property>
+                    <expression name="testExpr" type="javascript">row["TRANSACTION1"]</expression>
+                    <simple-property-list name="value1">
+                        <value type="javascript">"Beginning Balance"</value>
+                    </simple-property-list>
+                    <property name="style">BoldStyle</property>
+                </structure>
+                <structure>
+                    <property name="operator">like</property>
+                    <expression name="testExpr" type="javascript">row["TRANSACTION1"]</expression>
+                    <simple-property-list name="value1">
+                        <value type="javascript">"Ending Balance"</value>
+                    </simple-property-list>
+                    <property name="style">BorderBoldStyle</property>
+                </structure>
+                <structure>
+                    <property name="operator">in</property>
+                    <expression name="testExpr" type="javascript">row["SEQ"]</expression>
+                    <simple-property-list name="value1">
+                        <value type="javascript">2.1, 3.1,5.1, 6.1, 15.1, 21.1, 22.1, 23.1, 24.1</value>
+                    </simple-property-list>
+                    <property name="style">BlankSpaces</property>
+                </structure>
+            </list-property>
+        </style>
+        <style name="BlankSpaces" id="376">
+            <property name="paddingLeft">21pt</property>
+            <property name="textIndent">0pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="orientation">portrait</property>
+            <property name="leftMargin">0.25in</property>
+            <property name="showHeaderOnFirst">true</property>
+            <property name="showFooterOnLast">true</property>
+            <page-header>
+                <grid id="19">
+                    <property name="canShrink">false</property>
+                    <property name="height">2.5729166666666665in</property>
+                    <property name="width">7.729166666666667in</property>
+                    <list-property name="visibility">
+                        <structure>
+                            <property name="format">all</property>
+                        </structure>
+                    </list-property>
+                    <column id="20">
+                        <property name="width">1.3958333333333333in</property>
+                    </column>
+                    <column id="21">
+                        <property name="width">1.6354166666666667in</property>
+                    </column>
+                    <column id="22">
+                        <property name="width">1.7291666666666667in</property>
+                    </column>
+                    <column id="23">
+                        <property name="width">1.2083333333333333in</property>
+                    </column>
+                    <column id="24">
+                        <property name="width">1.8854166666666667in</property>
+                    </column>
+                    <row id="239">
+                        <property name="height">0.3229166666666667in</property>
+                        <cell id="240"/>
+                        <cell id="241"/>
+                        <cell id="242"/>
+                        <cell id="243"/>
+                        <cell id="244"/>
+                    </row>
+                    <row id="61">
+                        <property name="height">0.3229166666666667in</property>
+                        <cell id="62"/>
+                        <cell id="63"/>
+                        <cell id="64"/>
+                        <cell id="65">
+                            <text id="245">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">1.5pt</property>
+                                <property name="textAlign">right</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Page]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="66">
+                            <grid id="228">
+                                <property name="width">1.7708333333333333in</property>
+                                <column id="229">
+                                    <property name="width">0.4166666666666667in</property>
+                                </column>
+                                <column id="230">
+                                    <property name="width">0.28125in</property>
+                                </column>
+                                <column id="231">
+                                    <property name="width">1.0729166666666667in</property>
+                                </column>
+                                <row id="232">
+                                    <cell id="233">
+                                        <auto-text id="234">
+                                            <property name="fontFamily">"Times New Roman"</property>
+                                            <property name="fontSize">10pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="textAlign">center</property>
+                                            <property name="type">page-number</property>
+                                        </auto-text>
+                                    </cell>
+                                    <cell id="235">
+                                        <text id="236">
+                                            <property name="fontFamily">"Times New Roman"</property>
+                                            <property name="fontSize">10pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="contentType">plain</property>
+                                            <text-property name="content"><![CDATA[of]]></text-property>
+                                        </text>
+                                    </cell>
+                                    <cell id="237">
+                                        <auto-text id="238">
+                                            <property name="fontFamily">"Times New Roman"</property>
+                                            <property name="fontSize">10pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="type">total-page</property>
+                                        </auto-text>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                    <row id="67">
+                        <property name="height">0.6041666666666666in</property>
+                        <cell id="25">
+                            <property name="colSpan">5</property>
+                            <property name="rowSpan">1</property>
+                            <text id="69">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">12pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="textUnderline">underline</property>
+                                <property name="paddingTop">13pt</property>
+                                <property name="textAlign">center</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[SUMMARY TRIAL BALANCE DAILY]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                    <row id="30">
+                        <property name="height">0.22916666666666666in</property>
+                        <cell id="31"/>
+                        <cell id="32"/>
+                        <cell id="33"/>
+                        <cell id="34">
+                            <text id="56">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="textAlign">right</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Process Date :]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="35">
+                            <data id="246">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingLeft">5pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Custom</property>
+                                </structure>
+                                <property name="textAlign">left</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">prm_execution_date</property>
+                                        <expression name="expression" type="javascript">params["prm_execution_date"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">prm_execution_date</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="36">
+                        <property name="height">0.28125in</property>
+                        <cell id="37">
+                            <text id="57">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Operating Company:]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="38">
+                            <data id="107">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">11pt</property>
+                                <property name="fontWeight">bold</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">prm_oper_company</property>
+                                        <expression name="expression" type="javascript">params["prm_oper_company"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">prm_oper_company</property>
+                            </data>
+                        </cell>
+                        <cell id="39"/>
+                        <cell id="40">
+                            <text id="58">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="textAlign">right</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Run Date       :]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="41">
+                            <text id="70">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingLeft">2pt</property>
+                                <property name="textAlign">left</property>
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[&amp;nbsp;<value-of format="MM/dd/yyyy hh:mm:ss a">new Date()</value-of>]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                    <row id="50">
+                        <property name="height">0.6041666666666666in</property>
+                        <cell id="51">
+                            <text id="59">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Underwriting Company:]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="52">
+                            <data id="108">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">11pt</property>
+                                <property name="fontWeight">bold</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">prm_under_company</property>
+                                        <expression name="expression" type="javascript">params["prm_under_company"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">prm_under_company</property>
+                            </data>
+                        </cell>
+                        <cell id="53"/>
+                        <cell id="54">
+                            <text id="60">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="textAlign">right</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Bill Type        :]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="55">
+                            <data id="109">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingLeft">5pt</property>
+                                <property name="textAlign">left</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">prm_bill_type</property>
+                                        <expression name="expression" type="javascript">params["prm_bill_type"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">prm_bill_type</property>
+                            </data>
+                        </cell>
+                    </row>
+                </grid>
+            </page-header>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="250">
+            <property name="masterPage">Simple MasterPage</property>
+            <property name="pageBreakAfter">always</property>
+            <property name="pageBreakBefore">auto</property>
+            <property name="width">7.71875in</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">TRANSACTION1</property>
+                    <text-property name="displayName">TRANSACTION1</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TRANSACTION1"].replace("-", " ")</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">HEADING1</property>
+                    <text-property name="displayName">HEADING1</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["HEADING1"];</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">HEADING</property>
+                    <text-property name="displayName">HEADING</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["HEADING"];</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">AMOUNT</property>
+                    <text-property name="displayName">AMOUNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AMOUNT"];</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">AMOUNT_DET</property>
+                    <text-property name="displayName">AMOUNT_DET</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AMOUNT_DET"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <property name="repeatHeader">true</property>
+            <property name="pageBreakInterval">0</property>
+            <column id="346">
+                <property name="width">2.1458333333333335in</property>
+            </column>
+            <column id="286">
+                <property name="width">2.78125in</property>
+            </column>
+            <column id="288">
+                <property name="width">2.7916666666666665in</property>
+            </column>
+            <group id="315">
+                <property name="groupName">NewTableGroup1</property>
+                <property name="interval">none</property>
+                <property name="sortDirection">asc</property>
+                <expression name="keyExpr" type="javascript">row["HEADING"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["HEADING"]</expression>
+                </structure>
+                <property name="repeatHeader">true</property>
+                <property name="hideDetail">false</property>
+                <property name="pageBreakAfter">auto</property>
+                <property name="pageBreakBefore">auto</property>
+                <property name="pageBreakInside">auto</property>
+                <list-property name="filter">
+                    <structure>
+                        <property name="operator">is-not-null</property>
+                        <expression name="expr" type="javascript">row["HEADING"]</expression>
+                    </structure>
+                </list-property>
+                <header>
+                    <row id="316">
+                        <property name="pageBreakAfter">auto</property>
+                        <property name="pageBreakBefore">auto</property>
+                        <list-property name="visibility">
+                            <structure>
+                                <property name="format">all</property>
+                                <expression name="valueExpr" type="javascript">(Total.count() &lt; 1)</expression>
+                            </structure>
+                        </list-property>
+                        <cell id="339">
+                            <text id="347">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="textAlign">left</property>
+                                <property name="contentType">plain</property>
+                                <text-property name="content"><![CDATA[Operating Company]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="317">
+                            <data id="326">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="resultSetColumn">HEADING</property>
+                            </data>
+                        </cell>
+                        <cell id="319"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="321">
+                        <property name="height">0.2604166666666667in</property>
+                        <property name="pageBreakAfter">auto</property>
+                        <property name="pageBreakBefore">auto</property>
+                        <cell id="344"/>
+                        <cell id="322"/>
+                        <cell id="324"/>
+                    </row>
+                </footer>
+            </group>
+            <group id="327">
+                <property name="groupName">NewTableGroup2</property>
+                <property name="interval">none</property>
+                <property name="sortDirection">asc</property>
+                <expression name="keyExpr" type="javascript">row["HEADING1"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["HEADING1"]</expression>
+                </structure>
+                <property name="repeatHeader">true</property>
+                <property name="hideDetail">false</property>
+                <property name="pageBreakAfter">always</property>
+                <property name="pageBreakBefore">auto</property>
+                <property name="pageBreakInside">auto</property>
+                <list-property name="filter">
+                    <structure>
+                        <property name="operator">is-not-null</property>
+                        <expression name="expr" type="javascript">row["HEADING1"]</expression>
+                    </structure>
+                </list-property>
+                <header>
+                    <row id="328">
+                        <property name="pageBreakAfter">auto</property>
+                        <property name="pageBreakBefore">auto</property>
+                        <cell id="340">
+                            <text id="348">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="textAlign">left</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Underwriting Company]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="329">
+                            <data id="338">
+                                <property name="fontFamily">"Times New Roman"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="resultSetColumn">HEADING1</property>
+                            </data>
+                        </cell>
+                        <cell id="331"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="333">
+                        <property name="height">0.14583333333333334in</property>
+                        <property name="pageBreakAfter">auto</property>
+                        <property name="pageBreakBefore">auto</property>
+                        <cell id="343"/>
+                        <cell id="334"/>
+                        <cell id="336"/>
+                    </row>
+                </footer>
+            </group>
+            <detail>
+                <row id="256">
+                    <property name="height">0.2916666666666667in</property>
+                    <cell id="342">
+                        <data id="374">
+                            <property name="style">NewStyle</property>
+                            <property name="fontFamily">"Times New Roman"</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="paddingLeft">35pt</property>
+                            <structure name="stringFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">^</property>
+                            </structure>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="widows">2</property>
+                            <list-property name="visibility"/>
+                            <property name="resultSetColumn">TRANSACTION1</property>
+                        </data>
+                    </cell>
+                    <cell id="257">
+                        <data id="299">
+                            <property name="style">AMT</property>
+                            <property name="fontFamily">"Times New Roman"</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="color">#000000</property>
+                            <property name="paddingTop">1pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00;(#,##0.00)</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">AMOUNT</property>
+                        </data>
+                    </cell>
+                    <cell id="259">
+                        <data id="301">
+                            <property name="style">AMT_DET</property>
+                            <property name="fontFamily">"Times New Roman"</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00;(#,##0.00)</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">AMOUNT_DET</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="281">
+                    <property name="height">0.2708333333333333in</property>
+                    <property name="pageBreakAfter">auto</property>
+                    <cell id="345"/>
+                    <cell id="282"/>
+                    <cell id="284"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

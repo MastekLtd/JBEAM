@@ -1,0 +1,13 @@
+<MESSAGES>
+	<CancellationMessage>
+		You are notified in accordance with the provisions of the above policy and state law that your insurance 
+		will terminate at and from the hour and date shown above for non-payment of premium. If full payment of 
+		premium due is made before this date, the policy will remain in effect.
+	</CancellationMessage>
+	<PaymentWarningMessage>
+		To avoid delay in posting payments, please return the stub below with your payment to the address listed below.
+	</PaymentWarningMessage>
+	<PaymentMandatoryFieldsMessage>
+		Please indicate payment enclosed and write your POLICY NUMBER on your check.
+	</PaymentMandatoryFieldsMessage>
+</MESSAGES>

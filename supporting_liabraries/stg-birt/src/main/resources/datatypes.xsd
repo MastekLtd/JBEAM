@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" 
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" 
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:ext="http://www.majescomastek.com/stgsdk/xjc-plugins/extends"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+	jaxb:extensionBindingPrefixes="xjc ext" jaxb:version="2.0">
+	<xs:element name="Report">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" name="ID" type="xs:string" />				
+				<xs:element minOccurs="1" maxOccurs="1" name="DesignFileIdentifier" type="xs:string" />
+				<xs:element minOccurs="1" maxOccurs="1" name="FileName" type="xs:string" />
+				<xs:element minOccurs="1" maxOccurs="1" name="GenerationMode" type="ReportGenerationMode" />
+				<xs:element minOccurs="1" maxOccurs="1" name="FilePath" type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" ref="ReportParameters" />
+				<xs:element minOccurs="0" maxOccurs="1" ref="ReportManipulators" />
+				<xs:element minOccurs="1" maxOccurs="1" ref="OutputFormats" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:simpleType name="ReportGenerationMode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Offline">	</xs:enumeration>
+			<xs:enumeration value="Online"> 	</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:element name="ReportParameters">
+		<xs:complexType>
+			<xs:sequence>			
+				<xs:element minOccurs="1" maxOccurs="unbounded" ref="ReportParameter"> </xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="ReportParameter">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="1" name="Name" type="xs:string" />
+				<xs:element minOccurs="1" maxOccurs="1" name="Value" type="xs:string" />
+				<xs:element minOccurs="1" maxOccurs="1" name="ReportParameterType" type="ReportParameterType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ReportParameterType"> 
+		<xs:restriction base="xs:string"> 
+			<xs:enumeration value="Text">		</xs:enumeration>
+			<xs:enumeration value="Date_SQL">	</xs:enumeration> 
+			<xs:enumeration value="Date_Util">	</xs:enumeration>
+			<xs:enumeration value="Integer">	</xs:enumeration>
+			<xs:enumeration value="Double">		</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:element name="OutputFormats">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="unbounded" name="OutputFormat" type="OutputFormat" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="OutputFormat"> 
+		<xs:restriction base="xs:string"> 
+			<xs:enumeration value="html">	</xs:enumeration>
+			<xs:enumeration value="pdf">	</xs:enumeration> 
+			<xs:enumeration value="ps">		</xs:enumeration>			
+			<xs:enumeration value="xls">	</xs:enumeration>
+			<xs:enumeration value="doc">	</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:element name="ReportManipulators">
+		<xs:complexType>
+			<xs:sequence>			
+				<xs:element minOccurs="1" maxOccurs="unbounded" ref="ReportManipulator"> </xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ReportManipulator">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ManipulateFileIdentifier" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>

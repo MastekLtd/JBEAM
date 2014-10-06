@@ -1,0 +1,102 @@
+<DOCUMENT>
+   <OFileHeader>
+      <AppNm>MajescoMastek Billing System</AppNm>
+      <AppDt>2012-01-08T00:00:00.000+05:30</AppDt>
+      <CalDt/>
+      <FileDesc>Cancellation Notice</FileDesc> 
+  </OFileHeader>
+   <OForms>
+      <OForm>
+         <OFormHeader>
+            <FormId/>
+            <FormNm>NoticeOfCancellationOutputForm</FormNm>
+            <FormMailingDt>2012-01-08T00:00:00.000+05:30</FormMailingDt> 
+         </OFormHeader>
+         <OFormCommonData>
+            <MailingEnty>
+               <MailingEntyGrpCd>114073</MailingEntyGrpCd>
+               <MailingEntyGrpNm>INSURED</MailingEntyGrpNm>
+               <MailingEntyAddr>
+                  <MailingEntyFullNm>Tom Hanks</MailingEntyFullNm>
+                  <MailingEntyAddrLn1>mississippi</MailingEntyAddrLn1>
+                  <MailingEntyAddrLn2/>
+                  <MailingEntyCity>mississippi</MailingEntyCity>
+                  <MailingEntyState>MS</MailingEntyState>
+                  <MailingEntyCountry>US</MailingEntyCountry>
+                  <MailingEntyZip>4526666</MailingEntyZip> 
+               </MailingEntyAddr> 
+            </MailingEnty>
+            <PolHldr>
+               <PolHldrAddr>
+                  <PolHldrFullNm>Tom Hanks</PolHldrFullNm>
+                  <PolHldrAddrLn1>mississippi</PolHldrAddrLn1>
+                  <PolHldrAddrLn2/>
+                  <PolHldrCity>mississippi</PolHldrCity>
+                  <PolHldrState>Mississippi</PolHldrState>
+                  <PolHldrCountry>United States of America</PolHldrCountry>
+                  <PolHldrZip>4526666</PolHldrZip> 
+               </PolHldrAddr> 
+            </PolHldr>
+            <Agency>
+               <AgencyEntyCd>107679</AgencyEntyCd>
+               <AgencyEntyAddr>
+                  <AgencyFullNm>abcxyz</AgencyFullNm>
+                  <AgencyAddrLn1>MUMBAI</AgencyAddrLn1>
+                  <AgencyAddrLn2/>
+                  <AgencyCity>WOODVILLE</AgencyCity>
+                  <AgencyState>US</AgencyState>
+                  <AgencyCountry>US</AgencyCountry>
+                  <AgencyZip>400042</AgencyZip>
+                  <AgencyBusPh>25665432</AgencyBusPh>
+                  <AgencyFax>121212</AgencyFax>
+                  <AgencyEMail>abc@test.com</AgencyEMail> 
+               </AgencyEntyAddr> 
+            </Agency>
+            <BillType>DIRECT</BillType>
+            <BillTypeDesc>DIRECT</BillTypeDesc>
+            <AcctNum/>
+            <MktgMsg>-</MktgMsg> 
+         </OFormCommonData>
+         <OFormCustomData>
+            <OFormNCANData>
+               <OLockboxData>
+                  <LockboxFullNm>SUPRIYAC</LockboxFullNm>
+                  <LockboxAdd1>71 NAHUR HWY.</LockboxAdd1>
+                  <LockboxAdd2>2632 STATE RT 274</LockboxAdd2>
+                  <LockboxCity>NEW YORK</LockboxCity>
+                  <LockboxState>COL</LockboxState>
+                  <LockboxCountry>USA</LockboxCountry>
+                  <LockboxZip>1458741</LockboxZip> 
+               </OLockboxData>
+               <OPolData>
+                  <SrcSys>PAS</SrcSys>
+                  <Pol>
+                     <PolNum>POL_ABC</PolNum>
+                     <PolEffDt>2012-03-21T00:00:00.000+05:30</PolEffDt> 
+                  </Pol>
+                  <PolRenewNum>0</PolRenewNum>
+                  <PolExpDt>2013-03-21T00:00:00.000+05:30</PolExpDt>
+                  <ProductCd>D</ProductCd>
+                  <ProductDesc>Watercraft</ProductDesc>
+                  <UwCompNm>002</UwCompNm>
+                  <OpCompNm>01</OpCompNm>
+                  <GovrState>MS</GovrState>
+                  <PmtPlan>S4</PmtPlan>
+                  <PmtPlanDesc>Quarterly</PmtPlanDesc> 
+               </OPolData>
+               <OPolNoticeData>
+                  <AddntlIntrstdPrty>N</AddntlIntrstdPrty>
+                  <CancelEffDt>2012-03-21T00:00:00.000+05:30</CancelEffDt>
+                  <CancelReason/>
+                  <CancelReasonDesc/>
+                  <AcctBal>1000</AcctBal> 
+               </OPolNoticeData>
+               <OPolNoticeAmtsData>
+                  <AmtToRescndOrReinSt>75</AmtToRescndOrReinSt>
+                  <LateFee>250</LateFee> 
+               </OPolNoticeAmtsData> 
+            </OFormNCANData> 
+         </OFormCustomData> 
+      </OForm> 
+  </OForms> 
+</DOCUMENT>
