@@ -1,0 +1,62 @@
+ --------
+Mastek - P&C - Process Request Engine (PRE)
+ --------
+ --------
+27 July 2011
+ --------
+
+PRE
+
+* Introduction
+
+  In case of web applications, time-consuming process leads to browser time-outs. However, the process continues execution on the server 
+  but the user is not aware of the status of the process. The idea for the PRE framework evolved to facilitate the execution of 
+  time-consuming processes, such as Business Logic Programs and reports, in a user-friendly manner. In this framework:
+  
+    * User can submit a request for the process and move on to carry out some other activity
+    
+    * Process runs in the background and the status of the process is periodically updated
+    
+    * User can view the status of the process via a report
+
+* Features
+
+  The features section is elaborated more in the pre.pdf documentation. This sections tries to list all the features available.
+  
+     * Multi-threaded execution of jobs.
+     
+     * Ability to define group versus stand alone jobs.
+     
+     * Can be integrated with any TP JDBC connection pooling mechanism. Defaults with an inbuilt pooling which exhibits
+     
+          * Periodic shrinking of JDBC connections that are idle for a given period.
+          
+          * Traps Connection leaks, Statement leaks, Resultset leaks. A leak is identified as any orphan Connection, Statement or Resultset that was not closed by the borrower.
+          
+          * JDBC Logger available that logs the time taken to execute JDBC queries.
+          
+     * In built scheduler that can schedule a particular job for a recurrence or for a specific time execution.
+     
+     * Intelligent scheduling that auto-increments the dynamic date parameters based on the frequency of the schedule.
+     
+     * In built JOB monitor that warns of a run-away processes. A run away process is a job that goes beyond the stuck thread maximum limit associated with it.
+     
+     * In built JOB termination notification to the job if the job implements an interface called as <ITerminateProcess>.
+     
+     * In built simple SMTP email functionality that helps ease out the email activities either in form of HTML or TEXT format.
+     
+     * Provides an ability to transport email using asynchronous manner. An email policy can be applied to either serialize the emails in case of PRE shutdown and re-load them at startup.
+     
+     * The scheduler provides an ability to define pre-programmed frequencies say a lunar frequency or an accounting month end frequency.
+     
+     * In built simple web server that displays the real time state of processes being executed by PRE.
+     
+     * A soft bounce sequence is available.
+     
+     * A seam less fail over of the jobs in a cluster mode configuration of PRE is available.
+     
+     * A context is available that can share objects across various jobs or for serializing objects over a cluster configuration.
+     
+     * A JOB can be retried in case of failures.
+     
+     * Keep Alive of a schedule is available in case the JOB failed its execution. If keep alive is true then the job is pro-created for the next recurrence.

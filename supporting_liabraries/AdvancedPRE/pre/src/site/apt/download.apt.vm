@@ -1,0 +1,18 @@
+ --------
+Mastek - P&C - Process Request Engine (PRE)
+ --------
+ --------
+27 July 2011
+ --------
+
+Download
+
+* Maven Repository
+
+  Starting with version 30.0.0 all PRE releases are made available via the {{{http://172.16.246.23:8081/artifactory/webapp/search/artifact?5&q=${project.artifactId}}Maven Repository}}.
+  
+  {{{http://172.16.246.23:8081/artifactory/webapp/search/artifact?5&q=${project.artifactId}-${project.version}} Click here to download the specific release version ${project.version}}}
+  
+* All previous releases
+
+  These are stored in the SVN distribution folder and can be downloaded using the given {{{https://ind-mhp1v51lnx09.mastek.com/svn/ProductTools/JavaTools/AdvancedPRE/distribution}link}}

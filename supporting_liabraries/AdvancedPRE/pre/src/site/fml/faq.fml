@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<faqs xmlns="http://maven.apache.org/FML/1.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+	title="Frequently Asked Questions" toplink="true">
+
+	<part id="general">
+		<title>General</title>
+		<faq id="gen-1">
+			<question>Can PRE provide JDBC connection to more than one databases?</question>
+			<answer>
+				<p>Yes. PRE abstracts the pooling mechanism by providing an interface IDataSourceFactory.
+				The default implementation comes with the proprietary JDBCPool that can be configured for
+				one or more databases and/or schemas within one database. Though the PRE queue will always
+				be referred from one database/schema.
+				</p>
+			</answer>
+		</faq>
+		<faq id="gen-2">
+			<question>PRE is unable to pro-create the schedule? It fails with some invalid query exception. How do I resolve it?</question>
+			<answer>
+			     <p>
+			         The PRE, by default, makes use of <font face="courier">stg.pr.engine.scheduler.CRequestScheduler</font> class for generating
+			         the next sequence of the request id. This in turn makes use of the query defined against the property ORACLE.sequence.sql or 
+			         DB2.sequence.sql. This works well in case where underlying database provides sequences. If the sequences are not provided such
+			         as MySQL does not provide it then in that case you can implement a simple interface 
+			         <font face="courier">stg.pr.engine.scheduler.IRequestIdGenerator</font> and can write your own logic to generate the next 
+			         sequence. 
+			     </p>
+			</answer>
+		</faq>
+		<faq id="gen-3">
+			<question>PRE stopped suddenly and is now not starting up! Exception shown is license has expired.</question>
+			<answer>
+			     <p>
+			         This is expected behavior of the PRE. This occurs when the license expires. Though before this happens the PRE issues notices
+			         in the log file as well as through email (if email notification is ON). The property <font face="courier">licenseAlertDaysBeforeExpiry</font>
+			         is used by PRE to calculate the warning start date. So from <font face="courier"><i>license expiry date</i> - licenseAlertDaysBeforeExpiry</font>
+			         till the license expiry date every day the PRE will generate warning.
+			         
+			         <b>It is therefore important to add the correct and valid email address in the mail.properties in order to receive the warnings in email.</b>  
+			     </p>
+			</answer>
+		</faq>
+		<faq id="gen-4">
+			<question>Deleting an entry from the Map returned through method call getParams() throws Unmodifiable exception.</question>
+			<answer>
+			     <p>
+			         Yes, the method getParams() is modified to return an unmodifiable map since version 3.2.1.0.
+			     </p>
+			</answer>
+		</faq>
+	</part>
+</faqs>

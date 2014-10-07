@@ -1,0 +1,16 @@
+ --------
+Mastek - P&C - Process Request Engine (PRE)
+ --------
+ --------
+27 July 2011
+ --------
+
+PRE-Examples
+
+* Introduction
+
+  The project was introduced to provide live examples of various interfaces, extension points of Process Request Engine (PRE).
+  The project does not cater to the java best practices but is intended to help the developer understand the various features of PRE.
+  
+  The source code and compiled jar are made available in the {{{http://172.16.246.23:8081/artifactory/internal/${project.groupId}/${project.artifactId}/${project.version}} Maven Repository}}.
+   

@@ -1,0 +1,61 @@
+ --------
+Mastek - P&C - Process Request Engine (PRE)
+ --------
+ --------
+27 July 2011
+ --------
+
+Read Me
+
+  PRE is a commonly referred name of Process Request Engine. PRE facilitates off-line execution of jobs and provides an 
+  in-built scheduling capability, through which, the jobs can be scheduled for future execution. 
+
+ 
+
+
+
+* DOCUMENTATION
+
+   All documentation with this library is supplied either as
+
+      A UserGuide covering basic use and FAQs, 
+      PRE.pdf,
+      An API documentation generated using Javadoc.
+      
+
+* BUG REPORTS AND SUPPORT
+
+    Bug Reports can be submitted to and kedar.raybagkar@mastek.com. Please include the following information:
+
+        [[a]] The output of "java -version" and the Operating system you're using.
+
+        [[b]] The version number of the library
+
+        [[c]] The error message reported by the library (if applicable)
+
+        [[d]] The console log file (if applicable)
+
+ 
+*  External Dependencies and License Information
+
+*-----------------------------+---------------------------------+---------------------------------------------------+
+| <<Open Source Vendor>>      | <<Jar Name>>                    | <<License Information>>                           |
+*-----------------------------+---------------------------------+---------------------------------------------------+
+| Sun Microsystems            | mail.jar, activation.jar        | http://java.sun.com/products/javamail/            |
+*-----------------------------+---------------------------------+---------------------------------------------------+
+| Apache Logging Services     | log4j                           | http://logging.apache.org/log4j/1.2/license.html  |
+*-----------------------------+---------------------------------+---------------------------------------------------+
+| Apache Commons              | commons-io,commons-configuration| http://commons.apache.org/license.html            |
+*-----------------------------+---------------------------------+---------------------------------------------------+
+| MajescoMastek               | JDBCPool                        |                                                   |
+*-----------------------------+---------------------------------+---------------------------------------------------+
+| Bouncy Castle               | bcprov-*.jar                    | http://bouncycastle.org/licence.html              |
+*-----------------------------+---------------------------------+---------------------------------------------------+
+| Hazelcast                   | hazelcast*.jar                  | http://www.hazelcast.com/                         |
+*-----------------------------+---------------------------------+---------------------------------------------------+
+
+* Version Numbering
+
+   PRE follows the standard version numbering of Maven of Major.Minor.Macro with a slight change in macro version. The macro instead of identifying
+   the testing cycle identifies the cumulative defects fixed in the release. Say there were total of 25 defects found in release say 1.0.0 and in first
+   cycle release 10 were fixed then the release number will be 1.0.10 and in the next cycle all were fixed then it will be 1.0.25.

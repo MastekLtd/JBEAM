@@ -1,0 +1,524 @@
+ --------
+PRE Tutorial
+ --------
+ Kedar Raybagkar
+ --------
+03 August 2011
+ --------
+
+PRE - Process Request Engine
+
+* Create a simple Hello World job
+
+  A Java job is created by extending <stg.pr.engine.ProcessRequestServicer> abstract class and implementing 
+  processRequest() and endProcess() methods.
+  
++------------------------------------------------------------------------------------------------------
+
+public class CHelloWorld extends ProcessRequestServicer {
+
+    /**
+     * Stores the REVISION number of the class from the configuration management tool. 
+     */
+    public static final String REVISION = "$Revision:: 2055              $";
+
+
+
+    /* (non-Javadoc)
+     * @see stg.pr.engine.IProcessRequest#endProcess()
+     */
+    public void endProcess() throws CProcessRequestEngineException {
+        System.out.println("End Process called..");
+        System.out.println("End Process clean activities performed.");
+        super.endProcess();
+    }
+
+    /* (non-Javadoc)
+     * @see stg.pr.engine.IProcessRequest#processRequest()
+     */
+    public boolean processRequest() throws CProcessRequestEngineException {
+        try {
+            System.out.println("Hello World !!");
+            System.out.println("Hello " + getUserId());
+            System.out.println();
+            System.out.println(super.getSource().getDescription());
+            System.out.println("PRE Queue is stored in Database --> " + getConnection().getMetaData().getDatabaseProductName());
+            System.out.println("Request Id --> " + getRequestId());
+            System.out.println("Parameters passed --> " + ((getParams() == null)?0:getParams().size()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+}
+
++-------------------------------------------------------------------------------------------------------
+  
+  The method processRequest() and endProcess() is called by PRE in the respective sequence. In case the processRequest() method throws any
+  exception then too endProcess() is invoked. Thus any clean up activities can be performed in the endProcess() method. As the class extends
+  ProcessRequestServicer the following methods are available for direct use.
+  
+      * getContext() : PREContext
+      
+      * getSource() : REQUEST_SOURCE
+      
+      * getConnection() : Connection
+      
+      * getDataSourceFactory() : IDataSourceFactory
+      
+      * getRequestId() : long
+      
+      * getParams() : Map<String, Serializable>
+      
+      * getUserId() : String
+      
+      * getResponseWriter() : PrintWriter
+      
+      * isFailedOver() : boolean
+
+
+* Creating a job Hello World with parameters
+
+    The getResponseWriter() method creates a PrintWriter object upon its first invocation and then subsequent invocation returns the same object.
+    It is not mandatory to implement endProcess() the super class already has it implemented which closes the PrintWriter object, if it was created.
+         
++--------------------------------------------------------------------------------------------------------
+
+public class CHelloWorldWithParameter extends ProcessRequestServicer {
+
+    /**
+     * Stores the REVISION number of the class from the configuration management tool. 
+     */
+    public static final String REVISION = "$Revision:: 2055              $";
+
+
+
+    /* (non-Javadoc)
+     * @see stg.pr.engine.IProcessRequest#processRequest()
+     */
+    public boolean processRequest() throws CProcessRequestEngineException {
+        PrintWriter pwOut_;
+        try {
+            pwOut_ = getResponseWriter();
+            String myText = (String) super.getParams().get("mytext");
+            pwOut_.println("Hello " + myText);
+            pwOut_.println("Hello " + getUserId());
+            pwOut_.println();
+            pwOut_.println(super.getSource().getDescription());
+            pwOut_.println("PRE Queue is stored in Database -->" +
+                  super.getDataSourceFactory().getDataSource("ST").getConnection().getMetaData().getDatabaseProductName());
+            pwOut_.println("Request Id -->" + super.getRequestId());
+            pwOut_.println("Parameters passed -->" + super.getParams().size());
+            for (Entry<String, Object> entry : super.getParams().entrySet()) {
+                String key = entry.getKey();
+                Object value = entry.getValue();
+                System.out.print("Key# \"" + key + "\" \t");
+                if (value instanceof java.lang.Object[]) {
+                    System.out.println("Array passed. Values are:");
+                    Object[] array = (Object[]) value;
+                    for (int i = 0; i < array.length; i++) {
+                        System.out.print(i+1 + "\t");
+                        printDataValue(array[i]);
+                    }
+                } else {
+                    printDataValue(value);
+                }
+            }
+            String str = (String) getContext().getAttribute("mysetting");
+            if ( str == null) {
+                getContext().setAttribute("mysetting", "myvalue " + super.getRequestId());
+            } else {
+                System.out.println("Got the value as set " + str);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    /**
+     * Prints the data stored within the Object.
+     * @param value Object whose data value needs to be printed.
+     */
+    private void printDataValue(Object value) {
+        if (value instanceof java.lang.String) {
+            System.out.println("Type# String Data# " + value);
+        } else if (value instanceof java.lang.Integer) {
+            System.out.println("Type# Integer Dalue# " + ((Integer)value).intValue());
+        } else if (value instanceof java.lang.Long) {
+            System.out.println("Type# Long Data#" + ((Long)value).longValue());
+        } else if (value instanceof java.lang.Double) {
+            System.out.println("Type# Double Data# " + ((Double)value).doubleValue());
+        } else if (value instanceof java.sql.Date) {
+            System.out.println("Type# java.sql.Date Data# " + ((java.sql.Date)value).toString());
+        } else if (value instanceof java.sql.Timestamp) {
+            System.out.println("Type# java.sql.Timestamp Data# " + ((java.sql.Timestamp)value).toString());
+        } else {
+            System.out.println("Unknown value passed");
+        }
+    }
+    
+}
+
++--------------------------------------------------------------------------------------------------------
+
+* Creating a JOB that demonstrates the EMAIL feature.
+
+    Create an instance of <Email> and set all the respective recipients, subject, body, etc.
+    Email attachments are of two types Large and Small. Small can be transported asynchronously but a large
+    email has to be transported using the method <sendMail(..)>.
+
++--------------------------------------------------------------------------------------------------------
+
+public class EMailUsage extends ProcessRequestServicer {
+
+    public boolean processRequest() throws CProcessRequestEngineException{
+        EMail email = new EMail();
+        try {
+            email.setTORecipient("kedar.raybagkar@mastek.com");
+            email.setSubject("Test");
+            email.setEMailType(TYPE.HTML);
+            email.setMessageBody(getContent());
+            EMailAttachment attachment = new SmallEmailAttachment("jbeam.gif", new File("C:/Users/kedar460043/Pictures/IMAG0017.jpg"));
+            attachment.setDisposition(Part.INLINE);
+            email.getAttachments().add(attachment);
+            email.addAttachment(new File("C:/Users/kedar460043/Pictures/IMAG0017.jpg"));
+            email.setMessageBodyFooter(""); //This forces the default footer to be not present in the email.
+            email.setMessageBodyHeader(""); //This forces the default header to be not present in the email.
+        } catch (AddressException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } 
+        try {
+            CMailer mailer = CMailer.getInstance(CSettings.get("pr.mailtype"));
+            mailer.sendMail(email);
+            mailer.sendAsyncMail(email);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    /**
+     * @return String
+     */
+    public String getContent() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<HTML>");
+        sb.append("   <BODY>");
+        sb.append("       <img alt=\"jbeam.gif\" src=\"jbeam.gif\"/>This is a email with an image");
+        sb.append("   </BODY>");
+        sb.append("</HTML>");
+        return sb.toString();
+    }
+}
+
++--------------------------------------------------------------------------------------------------------
+
+* Creating an EMAIL Policy
+
+    A email policy determines the action that will be taken by PRE if it finds that there are emails lined
+    up in the queue when the shutdown sequence is initiated. The policy determines whether the emails lined
+    up in the queue are to be discarded or serialized. The following shows how to implement <EMailPolicy>
+    class.
+
++--------------------------------------------------------------------------------------------------------
+
+public class SerializeEMailPolicy implements EMailPolicy {
+
+    /**
+     * Stores the REVISION number of the class from the configuration management tool. 
+     */
+    public static final String REVISION = "$Revision:: 1478              $";
+
+
+    /* (non-Javadoc)
+     * @see stg.pr.engine.mailer.EMailPolicy#loadEmails()
+     */
+    public EMail[] loadEmails() throws IOException, ClassNotFoundException {
+        //load the file in which the mails are serialized.
+        Serializer serializer = new Serializer();
+        File file = getEmailStore();
+        if (file == null) {
+            return null;
+        }
+        if (!file.exists()) return null;
+        if (!file.canWrite()) {
+            throw new IOException("Write permission needed on file " + file.getName());
+        }
+        try {
+            return (EMail[]) serializer.load(file);
+        } catch (InvalidKeyException e) {
+            throw new IOException(e);
+        } catch (NoSuchAlgorithmException e) {
+            throw new IOException(e);
+        } catch (NoSuchProviderException e) {
+            throw new IOException(e);
+        } catch (NoSuchPaddingException e) {
+            throw new IOException(e);
+        } catch (InvalidAlgorithmParameterException e) {
+            throw new IOException(e);
+        }
+        
+    }
+
+    /* (non-Javadoc)
+     * @see stg.pr.engine.mailer.EMailPolicy#serializeEmails(stg.pr.engine.mailer.EMail[])
+     */
+    public void serializeEmails(EMail[] emails) throws IOException {
+        File file = getEmailStore();
+        Serializer serializer = new Serializer();
+        try {
+            serializer.serialize(emails, file);
+        } catch (InvalidKeyException e) {
+            throw new IOException(e);
+        } catch (NoSuchAlgorithmException e) {
+            throw new IOException(e);
+        } catch (NoSuchProviderException e) {
+            throw new IOException(e);
+        } catch (NoSuchPaddingException e) {
+            throw new IOException(e);
+        } catch (InvalidAlgorithmParameterException e) {
+            throw new IOException(e);
+        }
+    }
+    
+    /**
+     * Returns the email store file.
+     * @return File
+     */
+    private File getEmailStore() {
+        String strEmailStore = System.getProperty("email.store");
+        if (strEmailStore == null) {
+            return null;
+        }
+        File file = new File(strEmailStore);
+        if (file.isDirectory()) {
+            return null;
+        }
+        return file;
+    }
+
+}
+
++--------------------------------------------------------------------------------------------------------
+
+   The two methods namely <serializeEmails(EMail[] emails)> and <EMail[] : loadEmails()> that returns an array must
+   be implemented. By default the configuration comes with default policy of DiscardEmails. 
+   <<Remember>> to change the property <emailPolicy> in file <mail.properties>.
+
+* Creating a Request ID generator.
+
+   A request id generator class is responsible to generate a non-exists unique number that will be used to denote the 
+   primary key of the pro-creation of a scheduled job. By default the class configured with the PRE is <CRequestScheduler>
+   that makes use of a SQL query to generate the next number. This works well in case the database is Oracle or DB2 but say
+   MySQL does not support a query based generation. Then in that case you may want to write a similar program as given below.
+
++--------------------------------------------------------------------------------------------------------
+
+public class CRequestIdGenerator implements IRequestIdGenerator {
+
+    /**
+     * Stores the REVISION number of the class from the configuration management tool. 
+     */
+    public static final String REVISION = "$Revision:: 1478              $";
+
+
+    private Connection con_;
+
+    /**
+     * Default constructor.
+     *
+     */
+    public CRequestIdGenerator() {
+        super();
+    }
+
+    /* (non-Javadoc)
+     * @see stg.pr.engine.scheduler.IRequestIdGenerator#setConnection(java.sql.Connection)
+     */
+    public void setConnection(Connection con) {
+        con_ = con;
+    }
+
+    /* (non-Javadoc)
+     * @see stg.pr.engine.scheduler.IRequestIdGenerator#generateRequestId()
+     */
+    public long generateRequestId() throws SQLException {
+        long lValue = 0L;
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = con_.createStatement();
+            int i = st.executeUpdate("update request_id_sequence set req_id = LAST_INSERT_ID(req_id+1)");
+            if (i == 0) {
+                st.execute("insert into request_id_sequence values ()");
+                return 1L;
+            }
+            rs = st.executeQuery("SELECT LAST_INSERT_ID()");
+            if (rs.next()) {
+                lValue = rs.getLong(1);
+            }
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (Exception e) {
+                // Do nothing
+            }
+            try {
+                if (st != null) {
+                    st.close();
+                }
+            } catch (Exception e) {
+                // Do nothing
+            }
+        }
+        return lValue;
+    }
+
+}
+
++--------------------------------------------------------------------------------------------------------
+
+   The above class implements <IRequestIdGenerator> interface and in the method generateRequestI(..) you can implement
+   your own logic that returns a non-exists unique number.
+
+* How to maintain state across multiple instances of PRE configured in a cluster mode.
+
+   PREContext is available across all the instances of PRE within the cluster. 
+   The following example demonstrates the use of PREContext.
+   
++--------------------------------------------------------------------------------------------------------
+
+public class MyFirstFailSafeClass extends ProcessRequestServicer {
+
+    private long myNumber = 1L;
+
+    /* (non-Javadoc)
+     * @see stg.pr.engine.IProcessRequest#processRequest()
+     */
+    public boolean processRequest() throws CProcessRequestEngineException {
+        if (getContext().containsKey(getRequestId()+"")) {
+            myNumber = ((State)getContext().getAttribute(getRequestId()+"")).getNumber().longValue(); 
+        }
+        while( myNumber <= 30) {
+            try {
+                Thread.sleep(1000, 100000);
+            } catch (InterruptedException e) {
+                //do nothing
+            }
+            System.out.println("Number is " + myNumber);
+            myNumber++;
+            if (myNumber%2==0) {
+                State state = new State();
+                state.setNumber(new Long(myNumber));
+                getContext().setAttribute(getRequestId()+"", state);
+            }
+        }
+        getContext().removeAttribute(getRequestId()+"");
+        return true;
+    }
+}
+
+public class State implements Serializable {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 3554840900676936550L;
+    
+    private Long number;
+
+    /**
+     * Set the number.
+     * @param number
+     */
+    public void setNumber(Long number) {
+        this.number = number;
+    }
+
+    /**
+     * Returns the number
+     * @return Long
+     */
+    public Long getNumber() {
+        return number;
+    }
+    
+}
+
++--------------------------------------------------------------------------------------------------------
+
+
+* Associate custom program such that the instance is created during PRE startup and the instance is destroyed during the PRE shutdown.
+
+   The following example is given for the BIRT plugin which, is created in the similar fashion. Also, take a look at pre-plugins project. 
+
++--------------------------------------------------------------------------------------------------------
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import stg.pr.engine.PREContext;
+import stg.pr.engine.Service;
+import stg.pr.engine.Singleton;
+import stg.utils.CSettings;
+
+import com.stgmastek.birt.report.IReportGenerator;
+import com.stgmastek.birt.report.IReportService;
+
+public class ReportService implements Service, Singleton<IReportGenerator> {
+
+    public IReportGenerator reportGenerator;
+    private IReportService service;
+    private ClassPathXmlApplicationContext context_;
+
+    /* (non-Javadoc)
+     * @see stg.pr.engine.Service#init(stg.pr.engine.PREContext)
+     */
+    public void init(PREContext context) {
+        if (CSettings.get("pr.reportService", "OFF").equalsIgnoreCase("ON")) {
+            context_ = new ClassPathXmlApplicationContext("beans-reporting.xml");
+            this.reportGenerator = (IReportGenerator) context_.getBean("reportGenerator");
+            this.service = (IReportService) context_.getBean("reportService");
+        }
+    }
+    
+    
+    /* (non-Javadoc)
+     * @see stg.pr.engine.Service#destroy(stg.pr.engine.PREContext)
+     */
+    public void destroy(PREContext context) {
+        if (service != null) {
+            service.shutdown();
+            while (!service.isTerminated()) {
+                //do nothing
+            }
+            service.destroy();
+            context_.close();
+        }
+    }
+
+
+    /* (non-Javadoc)
+     * @see stg.pr.engine.Singleton#getInstance()
+     */
+    public IReportGenerator getInstance() {
+        return reportGenerator;
+    }
+}
+
++--------------------------------------------------------------------------------------------------------
+
+
+=================================================================================================  
+
+  <<<The above code is provided without any warranty and is to be taken as an example provided for educational purpose.
+  The Products Team is not liable for any issues it may cause or bring to your application. You may though use the above code
+  in your programs without any need of any form or consent, either written or verbal, from the Products Team.>>>

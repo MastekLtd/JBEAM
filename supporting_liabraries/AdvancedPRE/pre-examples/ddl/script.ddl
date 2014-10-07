@@ -1,0 +1,191 @@
+/********************************************
+*************   FOR MySQL  ******************
+********************************************/
+CREATE TABLE process_request_schedule (
+    sch_id INT NOT NULL,
+    freq_type VARCHAR(10) NOT NULL,
+    recur INT NOT NULL,
+    start_dt DATETIME NOT NULL,
+    sch_stat VARCHAR(2) NOT NULL,
+    user_id VARCHAR(15) NOT NULL,
+    on_week_day VARCHAR(7),
+    end_dt DATETIME,
+    end_occur INT,
+    entry_dt DATETIME,
+    modify_id VARCHAR(10),
+    modify_dt DATETIME,
+    req_stat VARCHAR(2),
+    occur_counter INT,
+    process_class_nm VARCHAR(500),
+    start_time DATETIME,
+    end_time DATETIME,
+    future_scheduling_only VARCHAR(1),
+    fixed_date VARCHAR(1) DEFAULT 'N' NOT NULL,
+    email_ids VARCHAR(2000),
+    skip_flag VARCHAR(2),
+    weekday_check_flag VARCHAR(2),
+    end_reason varchar(2000),
+    keep_alive varchar(1) default 'N',
+    PRIMARY KEY (sch_id)
+);
+
+CREATE TABLE schedule_event_calendar (
+    sch_id INT NOT NULL,
+    serial_no INT NOT NULL,
+    category VARCHAR(10) NOT NULL,
+    process_class_nm VARCHAR(500),
+    PRIMARY KEY (sch_id,serial_no)
+);
+
+
+CREATE TABLE process_request (
+    req_id INT NOT NULL,
+    req_type VARCHAR(15) DEFAULT general NOT NULL,
+    user_id VARCHAR(15) NOT NULL,
+    req_dt DATETIME NOT NULL,
+    req_stat VARCHAR(2) NOT NULL,
+    process_class_nm VARCHAR(500) NOT NULL,
+    grp_st_ind VARCHAR(2) NOT NULL,
+    req_start_dt DATETIME,
+    req_end_dt DATETIME,
+    grp_id INT,
+    grp_req_seq_no INT,
+    req_logfile_nm VARCHAR(500),
+    job_id VARCHAR(100),
+    job_name VARCHAR(500),
+    scheduled_time DATETIME,
+    sch_id INT,
+    stuck_thread_limit INT,
+    stuck_thread_max_limit INT,
+    priority INT DEFAULT 99 NOT NULL,
+    email_ids VARCHAR(2000),
+    verbose_time_elapsed VARCHAR(100),
+    cal_scheduled_time DATETIME,
+    text1 VARCHAR(50),
+    text2 VARCHAR(50),
+    num1 DOUBLE(12,2),
+    num2 DOUBLE(12,2),
+    retry_times INT,
+    retry_time_unit VARCHAR(10),
+    retry_time INT,
+    retry_cnt INT,
+    PRIMARY KEY (req_id)
+);
+
+
+CREATE TABLE process_req_params (
+	req_id INT NOT NULL,
+	param_no INT NOT NULL,
+	param_fld VARCHAR(100) NOT NULL,
+	param_val VARCHAR(100),
+	param_data_type VARCHAR(3) NOT NULL,
+	static_dynamic_flag VARCHAR(2),
+	PRIMARY KEY (req_id,param_no)
+);
+
+CREATE TABLE request_id_sequence (
+	req_id INT NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (req_id)
+);
+
+
+ALTER TABLE process_req_params ADD CONSTRAINT process_req_params_ibfk_1 FOREIGN KEY (req_id)
+	REFERENCES process_request (req_id);
+
+ALTER TABLE process_request ADD CONSTRAINT process_request_ibfk_1 FOREIGN KEY (sch_id)
+	REFERENCES process_request_schedule (sch_id);
+
+/********************************************
+*************  FOR ORACLE  ******************
+********************************************/
+CREATE TABLE "PROCESS_REQUEST_SCHEDULE" 
+(	"SCH_ID" NUMBER(12,0) NOT NULL ENABLE, 
+	"FREQ_TYPE" VARCHAR2(10 BYTE) NOT NULL ENABLE, 
+	"RECUR" NUMBER(10,0) NOT NULL ENABLE, 
+	"START_DT" DATE NOT NULL ENABLE, 
+	"SCH_STAT" VARCHAR2(2 BYTE) NOT NULL ENABLE, 
+	"USER_ID" VARCHAR2(15 BYTE) NOT NULL ENABLE, 
+	"ON_WEEK_DAY" VARCHAR2(7 BYTE), 
+	"END_DT" DATE, 
+	"END_OCCUR" NUMBER(12,0), 
+	"ENTRY_DT" DATE, 
+	"MODIFY_ID" VARCHAR2(10 BYTE), 
+	"MODIFY_DT" DATE, 
+	"REQ_STAT" VARCHAR2(2 BYTE), 
+	"OCCUR_COUNTER" NUMBER(12,0), 
+	"PROCESS_CLASS_NM" VARCHAR2(500 BYTE), 
+	"START_TIME" DATE, 
+	"END_TIME" DATE, 
+	"FUTURE_SCHEDULING_ONLY" VARCHAR2(1 BYTE) DEFAULT 'Y', 
+	"FIXED_DATE" VARCHAR2(1 BYTE) DEFAULT 'N', 
+	"EMAIL_IDS" VARCHAR2(2000 BYTE), 
+	"SKIP_FLAG" VARCHAR2(2 BYTE) DEFAULT NULL, 
+	"WEEKDAY_CHECK_FLAG" VARCHAR2(2 BYTE) DEFAULT NULL, 
+	"END_REASON" VARCHAR2(2000 BYTE) DEFAULT NULL,
+	"KEEP_ALIVE" VARCHAR2(1 BYTE) DEFAULT 'N', 
+	 CONSTRAINT "PK_PROCESS_REQUEST_SCHEDULE" PRIMARY KEY ("SCH_ID")
+);
+ 
+
+CREATE TABLE "PROCESS_REQUEST" 
+(	"REQ_ID" NUMBER(12,0) NOT NULL ENABLE, 
+	"USER_ID" VARCHAR2(15 BYTE) NOT NULL ENABLE, 
+	"REQ_DT" DATE NOT NULL ENABLE, 
+	"REQ_STAT" VARCHAR2(2 BYTE) NOT NULL ENABLE, 
+	"PROCESS_CLASS_NM" VARCHAR2(500 BYTE) NOT NULL ENABLE, 
+	"GRP_ST_IND" VARCHAR2(2 BYTE) NOT NULL ENABLE, 
+	"REQ_START_DT" DATE, 
+	"REQ_END_DT" DATE, 
+	"GRP_ID" NUMBER(12,0), 
+	"GRP_REQ_SEQ_NO" NUMBER(12,0), 
+	"REQ_LOGFILE_NM" VARCHAR2(500 BYTE), 
+	"JOB_ID" VARCHAR2(100 BYTE), 
+	"SCHEDULED_TIME" DATE DEFAULT sysdate, 
+	"SCH_ID" NUMBER(12,0), 
+	"STUCK_THREAD_LIMIT" NUMBER(10,0) DEFAULT 2, 
+	"STUCK_THREAD_MAX_LIMIT" NUMBER(10,0) DEFAULT 10, 
+	"REQ_TYPE" VARCHAR2(20 BYTE) DEFAULT 'GENERAL' NOT NULL ENABLE, 
+	"PRIORITY" NUMBER(3,0) DEFAULT 999 NOT NULL ENABLE, 
+	"EMAIL_IDS" VARCHAR2(2000 BYTE), 
+	"VERBOSE_TIME_ELAPSED" VARCHAR2(200 BYTE), 
+	"CAL_SCHEDULED_TIME" DATE, 
+	"JOB_NAME" VARCHAR2(100 BYTE), 
+	"TEXT1" VARCHAR2(50 BYTE), 
+	"TEXT2" VARCHAR2(50 BYTE), 
+	"NUM1" NUMBER(12,2), 
+	"NUM2" NUMBER(12,2), 
+	"RETRY_TIMES" NUMBER(10,0) DEFAULT 0, 
+	"RETRY_TIME_UNIT" VARCHAR2(10 BYTE) DEFAULT 'MINUTES', 
+	"RETRY_TIME" NUMBER(3,0) DEFAULT 0, 
+	"RETRY_CNT" NUMBER(3,0) DEFAULT 0, 
+	CONSTRAINT "PK_PROCESS_REQUEST" PRIMARY KEY ("REQ_ID"),
+	CONSTRAINT "PROCESS_REQUEST_PRS_FK1" FOREIGN KEY ("SCH_ID")
+	  		REFERENCES "BPMS_CORE"."PROCESS_REQUEST_SCHEDULE" ("SCH_ID") ENABLE
+);
+ 
+
+CREATE TABLE "PROCESS_REQ_PARAMS" 
+(	"REQ_ID" NUMBER(12,0) NOT NULL ENABLE, 
+	"PARAM_NO" NUMBER(12,0) NOT NULL ENABLE, 
+	"PARAM_FLD" VARCHAR2(100 BYTE) NOT NULL ENABLE, 
+	"PARAM_VAL" VARCHAR2(1000 BYTE), 
+	"PARAM_DATA_TYPE" VARCHAR2(2 BYTE) NOT NULL ENABLE, 
+	"STATIC_DYNAMIC_FLAG" VARCHAR2(1 BYTE) DEFAULT 'S', 
+	 CONSTRAINT "PK_PROCESS_REQ_PARAMS" PRIMARY KEY ("REQ_ID", "PARAM_NO")
+) ;
+
+ 
+
+CREATE TABLE "SCHEDULE_EVENT_CALENDAR" 
+(	"SCH_ID" NUMBER NOT NULL ENABLE, 
+	"SERIAL_NO" NUMBER NOT NULL ENABLE, 
+	"CATEGORY" VARCHAR2(10 BYTE) NOT NULL ENABLE, 
+	"PROCESS_CLASS_NM" VARCHAR2(500 BYTE), 
+	 CONSTRAINT "PK4_1" PRIMARY KEY ("SCH_ID", "SERIAL_NO")
+);
+
+
+CREATE SEQUENCE  "PROCESS_REQ_SEQ"  
+	MINVALUE 1 
+	MAXVALUE 999999999999999999999999999 
+	INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="${project.artifactId}">
+  <body>
+	<menu ref="parent" />    
+
+    <menu name="${project.artifactId}">
+      <item name="Overview" href="/index.html" />
+      <item name="FAQ" href="/faq.html"/>
+      <item name="Tutorial" href="/tutorial.html"/>
+      <item name="Download" href="/download.html"/>
+      <item name="Old Change Log" href="/ChangeLog.html"/>
+    </menu>
+
+	<menu ref="reports" />    
+  </body>
+</project>

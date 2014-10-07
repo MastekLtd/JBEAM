@@ -1,0 +1,54 @@
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+	<properties>
+		<title>PRE</title>
+		<author email="kedar.raybagkar@mastek.com">Kedar Raybagkar</author>
+	</properties>
+	<body>
+		<release version="30.2.2.0" date="2014-09-24" description="Fixes and Enhancements">
+			<action dev="kedarr" type="add">
+				Provided mechanism to propagate the status change of the request to the
+				interested listeners. Listeners need to register themselves to listen
+				to status change updates
+			</action>
+			<action dev="kedarr" type="fix">
+				Changes made to work in cluster using the CLUSTER_MAP.
+				Due to use of 2 different map names at 2 different location the clustering
+				was failing. Fixed the issue. 
+			</action>
+		</release>
+		<release version="30.2.1.0" date="2014-07-10" description="Fixes and Enhancements">
+			<action dev="kedarr" type="fix">
+				SimpleDateFormat being used as class variable introduced in 30.2.0.0 resulted into concurrency issue as
+				the class is not thread safe. Fixed the concurrency issue. 
+			</action>
+			<action dev="kedarr" type="add">
+				getParams() method signature has been changed from HashMap to Map. Also it now returns an unmodifiable map.
+			</action>
+		</release>
+		<release version="30.2.0.0" date="2013-07-30" description="Enhancements">
+			<action dev="kedarr" date="06/26/2013" type="add">
+				Removed licensing requirement completely from PRE.
+  		</action>
+			<action dev="kedarr" date="8/23/2012" type="add">
+				Two new API in form of interfaces exposed namely Singleton and Service.	New plug-in framework is created by these
+				interfaces as any startup programs can now be associated with the property startUpClasses defined in pr.properties.
+				The values can be in the following format key:className;key:className etc. where key is the id by which the class
+				instance can be accessed through the PREContext. A new method is provided in the PREContext to retrieve the singleton
+				class. Only those classes that implement Singleton are made accessible through the PREContext. It is not mandatory to
+				add key and if left blank the fully qualified className will be considered as the key.
+
+				The plug-in project is created separately.
+
+				The BIRT integration that was part and parcel of PRE earlier has now been externalized and will not be part of PRE. For this
+				you will have to get hold of the birt plugin project and its deliverables.
+  		</action>
+		</release>
+		<release version="30.0.x" description="Refer to change log.">
+			<action>
+				Refer to the ChangeLog.html for all previous releases.
+  		</action>
+		</release>
+	</body>
+</document>
