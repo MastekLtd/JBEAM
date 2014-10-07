@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<!-- $Revision: 25 $ -->
+<!-- ====================================================================== 
+     Dec 18, 2004 8:00:27 PM                                                        
+
+     JDBCPool    
+                   
+     Administrator                                                                
+     ====================================================================== -->
+<project name="JDBCPool" default="Build" basedir="../">
+	<description>
+            JDBC Pool
+    </description>
+
+	<target name="init" description="Initialize the property files.">
+		<propertyfile file="ant/build.properties">
+			<entry key="Bundle-Dir-Date" type="date" value="now" pattern="yyyyMMddHHmmss" />
+			<entry key="Bundled-On" type="date" value="now" pattern="yyyyMMdd HH:mm:ss" />
+		</propertyfile>
+		<property file="ant/build.properties" prefix="build" />
+		<property name="revision" value="${build.Major-Version}.${build.Minor-Version}.${build.Build-Number-Prefix}${build.Build-Number}" />
+		<property name="jar-name" value="${build.Bundle-SymbolicName}${revision}_org.jar" />
+		<property name="deploy-jar-name" value="${build.Bundle-SymbolicName}${revision}.jar" />
+		<property name="zip-name" value="${build.Bundle-SymbolicName}${revision}.${build.Bundle-Dir-Date}.zip" />
+		<property name="distribution-dir" value="distribution" />
+		<property name="temp-dir" value="${distribution-dir}/temp${revision}" />
+		<property name="class-dir" value="${temp-dir}/bin/" />
+		<property name="source-dir" value="${temp-dir}/src/" />
+		<property name="doc-dir" value="doc/" />
+		<property name="findbugs-report" value="${temp-dir}/findbugs${revision}.html" />
+		<property name="my-classpath" value="${build.lib}" />
+		<property name="test-classpath" value="${my-classpath}${path.separator}${basedir}/${class-dir}${path.separator}${basedir}/junit-bin" />
+		<property name="test-results" value="TestResults${revision}" />
+		<property name="test-dir" value="${temp-dir}/${test-results}" />
+		<property name="test-dir-rawdata" value="${test-dir}/data" />
+		<property name="test-src" value="${basedir}/junit-source" />
+		<mkdir dir="${distribution-dir}" />
+		<mkdir dir="${temp-dir}" />
+		<mkdir dir="${source-dir}" />
+		<mkdir dir="${class-dir}" />
+		<mkdir dir="${test-dir}" />
+		<mkdir dir="${test-dir-rawdata}" />
+		<!-- clean all the classes so ant compiles them again 
+		<delete dir="${class-dir}/com" />
+		<delete dir="${class-dir}/jdbc" />
+		-->
+		<path id="svn.classpath">
+			<pathelement location="E:/svnant-1.3.0/lib/svnClientAdapter.jar"/>
+			<pathelement location="E:/svnant-1.3.0/lib/svnant.jar"/>
+			<pathelement location="E:/svnant-1.3.0/lib/svnjavahl.jar"/>
+			<pathelement location="E:/svnant-1.3.0/lib/javasvn.jar"/>
+		</path>
+		<taskdef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="svn.classpath"/>
+		<property name="svn.javahl" value="E:/svnant-1.3.0/lib/svnjavahl.jar"/>
+		<property name="svn.tag.message" value="Tagging Project ${ant.project.name} with tag name ${revision} from trunk "/>
+		<property name="svn.src.url"  value="${build.svn.repository.url}/${ant.project.name}/trunk/"/>
+		<property name="svn.dest.url" value="${build.svn.repository.url}/${ant.project.name}/tags/${revision}"/>
+		
+		<echo>${my-classpath}</echo>
+		<echo>${build.zipset}</echo>
+	</target>
+
+	<target name="Build" depends="makezip" description="Builds the JDBCPool">
+		<propertyfile file="ant/build.properties">
+			<entry key="Build-Number" type="int" default="1" operation="+" pattern="000" />
+		</propertyfile>
+		<antcall target="tagSVNRelease" />
+	</target>
+
+	<target name="makezip" depends="obfuscate" description="Make the zip file containing all related documents.">
+		<zip destfile="${distribution-dir}/${zip-name}" update="true">
+			<zipfileset file="${build.readme}" />
+			<zipfileset dir="${temp-dir}/${doc-dir}" prefix="doc" />
+			<zipfileset dir="${test-dir}" prefix="${test-results}" />
+			<!-- <zipfileset file="${distribution-dir}/${jar-name}" prefix="" /> -->
+			<zipfileset file="${temp-dir}/${deploy-jar-name}" prefix="" />
+			<zipfileset file="${findbugs-report}" prefix="" />
+			<zipfileset file="src/config/*.xml" prefix="config" />
+			<zipfileset file="src/config/*.properties" prefix="config" />
+			<zipfileset includes="${build.zipset}" dir="${build.lib-directory}" prefix="lib" />
+			<zipfileset includes="${build.extrazipset}" dir="${build.lib-directory}/forjdk1.3" prefix="lib/forjdk1.3" />
+			<zipfileset includes="${build.addlib}" dir="" prefix="lib/" />
+			<zipfileset dir="junit-source/" prefix="junit-src/" />
+		</zip>
+		<antcall target="clean-up">
+		</antcall>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: makejar                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="makejar" depends="makedoc" description="Create Jar file. But first create manifest file.">
+		<mkdir dir="${temp-dir}/META-INF/" />
+		<manifest file="${temp-dir}/META-INF/manifest.mf">
+			<attribute name="Bundle-SymbolicName" value="${build.Bundle-SymbolicName}" />
+			<attribute name="Bundle-Name" value="${build.Bundle-Name}" />
+			<attribute name="Main-Class" value="${build.Main-Class}" />
+			<attribute name="Bundle-Version" value="${revision}" />
+			<attribute name="Major-Version" value="${build.Major-Version}" />
+			<attribute name="Minor-Version" value="${build.Minor-Version}" />
+			<attribute name="Build-Number" value="${build.Build-Number}" />
+			<attribute name="Bundle-Vendor" value="${build.Bundle-Vendor}" />
+			<attribute name="Bundled-By" value="${user.name}" />
+			<attribute name="Bundled-On" value="${build.Bundled-On}" />
+		</manifest>
+		<jar destfile="${temp-dir}/${jar-name}" basedir="${class-dir}" compress="true" update="true" excludes="jdbc/logger/package.html,jdbc/pool/package.html,jdbc/tuning/package.html,config/*,test/*" manifest="${temp-dir}/META-INF/manifest.mf">
+		</jar>
+	</target>
+
+	<target name="compile" depends="checkOut">
+		<antcall target="replaceRevisionAndDatetime" />
+		<javac verbose="true" failonerror="true" classpath="${my-classpath}" destdir="${class-dir}" srcdir="${source-dir}" excludes="**/test*" source="1.3" optimize="true">
+		</javac>
+	</target>
+
+	<target name="checkOut" depends="init">
+		<svn javahl="${svn.javahl}" username="${build.svn.username}" password="${build.svn.password}">
+			<checkout  url="${svn.src.url}/src" destpath="${source-dir}" />
+		</svn>
+	</target>
+
+	<!-- ================================= 
+		      target: clean-up              
+		     ================================= -->
+	<target name="clean-up" description="--> Cleans up the directories">
+		<delete dir="${temp-dir}" />
+		<!-- 
+		<delete dir="${temp-dir}/${doc-dir}" />
+		<delete file="${temp-dir}/${jar-name}" />
+		<delete file="${temp-dir}/${deploy-jar-name}" />
+		<delete dir="${temp-dir}/META-INF" />
+		<delete dir="${test-dir}" />
+		<delete dir="${test-dir-rawdata}" />
+		-->
+	</target>
+
+	<target name="obfuscate" depends="findbugs" description="Obfuscate all the necessary classes.">
+		<antcall target="proguard">
+		</antcall>
+	</target>
+
+
+	<target name="replaceRevisionAndDatetime" depends="checkIfProductionBuild" if="isProductionBuild" description="Replace the @datetime and @revision in the changelog.html">
+		<replace file="${build.readme}" token="@datetime" value="${build.Bundled-On}">
+		</replace>
+		<replace file="${build.readme}" token="@revision" value="${revision}">
+		</replace>
+	</target>
+
+	<target name="tagSVNRelease" depends="checkIfProductionBuild" if="isProductionBuild" description="${svn.tag.message}">
+		<svn javahl="${svn.javahl}" username="${build.svn.username}" password="${build.svn.password}">
+			<commit file="${build.readme}" message="Commiting the changes done in ${build.readme}" />
+			<commit file="${build.obfuscator-log}" message="Commiting the changes done in ${build.obfuscator-log}" />
+		</svn>
+		<svn javahl="${svn.javahl}" username="${build.svn.username}" password="${build.svn.password}">
+			<copy srcUrl="${svn.src.url}" destUrl="${svn.dest.url}" message="${svn.tag.message}"/>
+		</svn>
+	</target>
+
+	<target name="checkIfProductionBuild">
+		<condition property="isProductionBuild">
+			<equals arg1="${build.Build-Number-Prefix}" arg2="P" />
+		</condition>
+	</target>
+
+	<target name="test" description="Executes the test cases." depends="compile">
+		
+		<junit showoutput="true" printSummary="yes" haltonerror="false" haltonfailure="false" fork="true">
+			<classpath path="${test-classpath}" />
+			<sysproperty key="jdbc.home" value="E:/jdbcpool/logs" />
+			<sysproperty key="log4jfile" value="${build.test-log4jfile}" />
+			<sysproperty key="poolconfigfile" value="${build.test-poolconfigfile}" />
+
+			<formatter type="xml" />
+			<batchtest todir="${test-dir-rawdata}">
+				<fileset dir="${test-src}">
+					<include name="**/*Test.java" />
+					<exclude name="**/LoadTest.java" />
+					<exclude name="**/JDBCPoolOracleConnectionTest.java" />
+					<exclude name="**/JDBCPoolTestCase.java" />
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+
+	<target name="generatetestreports" depends="test" description="Generates JUnit Test Reports.">
+		<junitreport todir="${test-dir-rawdata}" description="JDBCPool Version ${revision} Test Results">
+			<fileset dir="${test-dir-rawdata}">
+				<include name="TEST*.xml" />
+				<exclude name="LoadTest*.xml" />
+				<exclude name="JDBCPoolOracleConnectionTest*.xml" />
+				<exclude name="**/JDBCPoolTestCase.java" />
+			</fileset>
+			<report todir="${test-dir}" styledir="${basedir}/ant/junit-etc" format="frames">
+				<param name="title" expression="${build.Bundle-SymbolicName}${revision}" />
+				<param name="copyright" expression="${build.copyright}" />
+				<param name="bundled-on" expression="${build.Bundle-Dir-Date}" />
+			</report>
+		</junitreport>
+		<!-- <antcall target="testreport-pdf" /> -->
+	</target>
+
+	<!--
+	<target name="junit-report" depends="init" description="Generates JUnit Test Reports.">
+		<junitreport todir="${test-dir-rawdata}" description="JDBCPool Version ${revision} Test Results">
+			<fileset dir="${test-dir-rawdata}">
+				<include name="TEST*.xml" />
+				<exclude name="LoadTest*.xml" />
+				<exclude name="JDBCPoolOracleConnectionTest*.xml" />
+			</fileset>
+			<report todir="${test-dir}" styledir="${basedir}/ant/junit-etc" format="frames">
+				<param name="title" expression="${build.Bundle-SymbolicName}${revision}" />
+				<param name="copyright" expression="${build.copyright}" />
+				<param name="bundled-on" expression="${build.Bundle-Dir-Date}" />
+			</report>
+		</junitreport>
+	</target>
+	<target name="testreport-pdf">
+	  <junitpdfreport todir="${test-dir}" styledir="default"> 
+	    <fileset dir="${test-dir-rawdata}"> 
+	      <include name="TEST-*.xml"/> 
+	    </fileset> 
+	  </junitpdfreport>
+	</target>  
+	-->
+
+	<target name="proguard" description="Obfuscate all the necessary classes with ProGuard.">
+		<taskdef  resource="${build.ant.taskdef.proguard.resource}"
+		         classpath="${build.ant.taskdef.proguard.classpath}" />
+		<proguard>
+                -libraryjars "${build.lib-directory}/ojdbc14.jar"
+                -libraryjars "${build.lib-directory}/log4j-1.2.14.jar"
+                -libraryjars "${build.lib-directory}/commons-collections-3.1.jar"
+                -libraryjars "${build.lib-directory}/commons-configuration-1.4.jar"
+                -libraryjars "${build.lib-directory}/commons-lang-2.4.jar"
+                -libraryjars "${build.lib-directory}/commons-logging-1.1.1.jar"
+                -libraryjars "${build.lib-directory}/bcprov-jdk13-141.jar"
+                -libraryjars "${build.lib-directory}/mysql-connector-java-3.1.12-bin.jar"
+                -libraryjars "${build.lib-directory}/backport-util-concurrent.jar"
+                -libraryjars "${build.lib-directory}/stg-commonsV1.0.000.jar"
+                -libraryjars "E:/junit-4.4/junit-4.4.jar"
+			    -libraryjars "C:/Program Files/Java/jre6/lib/rt.jar"
+			    -libraryjars "C:/Program Files/Java/jre6/lib/jce.jar"
+			    -libraryjars "C:/Program Files/Java/jre6/lib/jsse.jar"
+			    -libraryjars "C:/Program Files/Java/jre6/lib/javaws.jar"
+			    -libraryjars "C:/Program Files/Java/jre6/lib/resources.jar"
+
+                -injars  ${temp-dir}/${jar-name}
+                -outjars     ${temp-dir}/${deploy-jar-name}
+                -printmapping ${build.obfuscator-log}
+
+                -renamesourcefileattribute SourceFile
+                -keepattributes Exceptions,InnerClasses,Signature,Deprecated,
+                                *Annotation*,EnclosingMethod
+    
+                -keep class com.stg.logger.LogLevel { public protected *; }
+                -keep class jdbc.pool.ConnectionPool$CShrinkPoolThread { public *; }
+                -keep class jdbc.pool.ConnectionPool { public protected *; }
+                -keep class jdbc.pool.CXMLManager { public protected *; }
+                -keep class jdbc.pool.CConnectionPoolManager { public protected *; }
+                -keep class jdbc.pool.CPoolStatisticsBean { public protected *; }
+                -keep class jdbc.pool.CStackObjectPool { public protected *; }
+                -keep class jdbc.pool.CPoolAttributeManager { public protected *; }
+                -keep class jdbc.pool.CPropertyManager { public protected *; }
+                -keep class jdbc.pool.CObjectWrapper { public protected *; }
+                -keep class jdbc.pool.IPool { public protected *; }
+                -keep class jdbc.pool.CPoolAttribute { public protected *; }
+                -keep class jdbc.pool.InvalidPoolAttributeException { public protected *; }
+                -keep class jdbc.pool.PoolInUseException { public protected *; }
+                -keep class jdbc.pool.CFIFOObjectPool { public protected *; }
+                -keep class jdbc.tuning.DatabaseMetaDataWrapper { public *; }
+                -keep class jdbc.tuning.SQLArrayWrapper { public *; }
+                -keep class jdbc.tuning.StatementWrapper { public *; }
+                -keep class jdbc.tuning.ResultSetWrapper { public *; }
+                -keep class jdbc.tuning.OpenResultSetException { public *; }
+                -keep class jdbc.tuning.PreparedStatementWrapper { public *; }
+                -keep class jdbc.tuning.JDBCLogger { public *; }
+                -keep class jdbc.tuning.OpenStatementException { public *; }
+                -keep class jdbc.tuning.ConnectionLeakException { public *; }
+                -keep class jdbc.tuning.ConnectionWrapper { public *; }
+                -keep class jdbc.tuning.CallableStatementWrapper { public *; }
+			    -keep class jdbc.pool.JDBCDataSource { public *; }
+            	
+                -keepclassmembers class com.stg.logger.LogLevel { public protected *; }
+                -keepclassmembers class com.stg.crypto.PBEEncryptionRoutine { public *; }
+                -keepclassmembers class com.stg.crypto.PBEEncryptionRoutine$S { public *; }
+                -keepclassmembers class com.stg.crypto.CryptoHelper { public *; }
+                -keepclassmembers class jdbc.pool.ConnectionPool$CShrinkPoolThread { public *; }
+                -keepclassmembers class jdbc.pool.ConnectionPool { public protected *; }
+                -keepclassmembers class jdbc.pool.CXMLManager { public protected *; }
+                -keepclassmembers class jdbc.pool.CConnectionPoolManager { public protected *; }
+                -keepclassmembers class jdbc.pool.CPoolStatisticsBean { public protected *; }
+                -keepclassmembers class jdbc.pool.CStackObjectPool { public protected *; }
+                -keepclassmembers class jdbc.pool.CPoolAttributeManager { public protected *; }
+                -keepclassmembers class jdbc.pool.CPropertyManager { public protected *; }
+                -keepclassmembers class jdbc.pool.CObjectWrapper { public protected *; }
+                -keepclassmembers class jdbc.pool.IPool { public protected *; }
+                -keepclassmembers class jdbc.pool.CPoolAttribute { public protected *; }
+                -keepclassmembers class jdbc.pool.InvalidPoolAttributeException { public protected *; }
+                -keepclassmembers class jdbc.pool.PoolInUseException { public protected *; }
+                -keepclassmembers class jdbc.pool.CFIFOObjectPool { public protected *; }
+                -keepclassmembers class jdbc.tuning.DatabaseMetaDataWrapper { public *; }
+                -keepclassmembers class jdbc.tuning.SQLArrayWrapper { public *; }
+                -keepclassmembers class jdbc.tuning.StatementWrapper { public *; }
+                -keepclassmembers class jdbc.tuning.ResultSetWrapper { public *; }
+                -keepclassmembers class jdbc.tuning.OpenResultSetException { public *; }
+                -keepclassmembers class jdbc.tuning.PreparedStatementWrapper { public *; }
+                -keepclassmembers class jdbc.tuning.JDBCLogger { public *; }
+                -keepclassmembers class jdbc.tuning.OpenStatementException { public *; }
+                -keepclassmembers class jdbc.tuning.ConnectionLeakException { public *; }
+                -keepclassmembers class jdbc.tuning.ConnectionWrapper { public *; }
+                -keepclassmembers class jdbc.tuning.CallableStatementWrapper { public *; }
+                -keepclassmembers class jdbc.pool.JDBCDataSource { public protected *; }
+        </proguard>
+	</target>
+
+	<target name="findbugs" depends="makejar">
+		<taskdef  resource="${build.ant.taskdef.findbugs.resource}"
+		         classpath="${build.ant.taskdef.findbugs.classpath}" />
+		<property name="FindBugs.home" value="E:\findbugs-1.3.8" />
+		<findbugs home="${FindBugs.home}" output="html" outputFile="${findbugs-report}" reportLevel="low" effort="max" jvmargs="-Xms512M -Xmx512M " failonerror="true" projectname="${build.Bundle-Name}">
+			<auxClasspath path="${build.lib}" />
+			<sourcePath path="${basedir}/src" />
+			<class location="${temp-dir}/${jar-name}" />
+		</findbugs>
+	</target>
+
+
+	<target name="makedoc" depends="generatetestreports" description="Generate JavaDoc">
+		<javadoc destdir="${temp-dir}/${doc-dir}/api" access="private" use="true" notree="false" nonavbar="false" noindex="false" splitindex="true" author="true" version="true" nodeprecatedlist="false" nodeprecated="false" sourcepath="${source-dir}" packagenames="${build.bundeled-packages}" classpath="${my-classpath}" doctitle="${build.Bundle-Name}-V${revision}" windowtitle="${build.Bundle-Name}-V${revision}" failonerror="true">
+			<bottom>
+				<![CDATA[<i>Build Date: ${build.Bundle-Dir-Date}</i>
+			<br>]]>
+				<![CDATA[<i>Copyright &copy; ${build.copyright}</i>]]>
+			</bottom>
+	</javadoc>
+</target>
+
+
+</project>
+

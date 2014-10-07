@@ -1,0 +1,88 @@
+This document tries to define the meaning of each statistical data that is being captured by the pool.
+
+Sample Output of the statistical data
+2008-04-25 16:21:34,328 INFO  [JDBC.Pool[FAMI].SelfCheck] Before Self-Check Statistics: Pool Started On,1209154831062, Connections High,10, 
+						Leaked ResultSet,0, Leaked Statements,0, Leaked Connections,0, Current Used Connections,6, Current Free Connections,4, 
+						Bad Connections Found,0, Current Waiters,0, Waiters High,0, Wait Time High,0, Total Wait Time,0, 
+						Average Connection Delay,2859, Connections Total,10, Unavailable Connections,10, Unavailable Connections High,10, 
+						Unavailable Connections High Time,0, Used Memory,44092816, Total Memory,133300224,[ST]Connections Requested,103,
+						[ST]New Connections Requested,1,[ST]Connections Created,10,[ST]Connections Locked,103,[ST]Connections UnLocked,97,
+						[ST]Connections Closed,0
+2008-04-25 16:22:39,156 INFO  [JDBC.Pool[FAMI].SelfCheck] Before Self-Check Statistics: Pool Started On,1209154831062, Connections High,10, 
+						Leaked ResultSet,0, Leaked Statements,0, Leaked Connections,0, Current Used Connections,5, Current Free Connections,5, 
+						Bad Connections Found,0, Current Waiters,0, Waiters High,0, Wait Time High,0, Total Wait Time,0, 
+						Average Connection Delay,2859, Connections Total,10, Unavailable Connections,10, Unavailable Connections High,10, 
+						Unavailable Connections High Time,2484, Used Memory,40350720, Total Memory,133300224,[ST]Connections Requested,102,
+						[ST]New Connections Requested,0,[ST]Connections Created,0,[ST]Connections Locked,102,[ST]Connections UnLocked,103,
+						[ST]Connections Closed,0
+
+Pool Started On
+This number is the Java representation of getTime() method in Calendar.
+
+Connections High
+The highest number of concurrent connections that were in use during the lifetime of the pool.
+
+Leaked Resultset
+The count of Resultsets that were opened but not explicitly closed by calling resultset.close() method during the lifetime of the pool.
+
+Leaked Statements
+The count of Statements that were opened but not explicitly closed by calling statement.close() method during the lifetime of the pool.
+
+Leaked Connections
+The count of Connections that were requested from the pool and not explicitly closed by calling the connection.close() method.  
+
+Current Used Connections
+The count of connections that are in currently in use.
+
+Current Free Connections
+The count of connections that are lying in the pool waiting for service.
+
+Bad Connections Found
+The count of connections that were either killed or had a broken JDBC (TCP/IP) link.
+
+Current Waiters
+The count of requesters waiting for connection to be made available.
+
+Waiters High
+The highest number of requesters waiting for a connection to be made available during the lifetime of the pool.
+
+Wait Time High
+The highest wait time the requester waited for a connection to be made available in the pool.
+
+Total Wait Time
+Total wait time for all the requesters who waited for a connection to be made available in the pool.
+
+Average Connection Delay
+Cumulative time taken by connections to be established divided by total number of connections established.
+
+Connections Total
+Total number of connections in the pool.
+
+Unavailable Connections
+Number of connections that were unavailable for requesters due to the internal pool checks.
+
+Unavailable Connections
+Highest number of Connections not available for requesters due to the internal pool checks.
+
+Unavailable Connections High Time
+Highest time the connections were unavailable for service.
+
+Used Memory
+Memory being used by the JVM (application(s)).
+
+Total Memory
+Total Memory available to the JVM (application(s)).
+
+The following are statistical data collected between two consecutive runs for Self Check mechanism. For subsequent Self Check run the data is reset.
+[ST]Connections Requested
+    Total connections requested by the consumer.
+[ST]New Connections Requested
+    Total number of new connections requested by the POOL to satisfy the consumer.
+[ST]Connections Created
+    Total number of new connections created by the pool (based on capacity increment)
+[ST]Connections Locked
+    Total idle connections locked by the Self Check execution (meaning these connections were not available during the self check period). 
+[ST]Connections UnLocked,103,
+    Total connections unlocked by the self check execution.
+[ST]Connections Closed,0
+    Total connections closed during the self check execution.

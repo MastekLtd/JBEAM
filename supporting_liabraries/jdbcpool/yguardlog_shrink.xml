@@ -1,0 +1,1563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yshrink version="0.1">
+<!-- parsing C:\Documents and Settings\STG\workspace\JDBCPool\distribution\JDBCPool16.02.P012_org.jar -->
+<entrypoints>
+	<class name="jdbc.pool.IPool" />
+	<method signature="java.util.Iterator getIdleObjects()" class="jdbc.pool.IPool" />
+	<method signature="void add(java.lang.Object)" class="jdbc.pool.IPool" />
+	<method signature="void release(java.lang.Object)" class="jdbc.pool.IPool" />
+	<method signature="int getNumIdle()" class="jdbc.pool.IPool" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.IPool" />
+	<method signature="int getNumActive()" class="jdbc.pool.IPool" />
+	<method signature="java.lang.Object[] getAcquiredObjects()" class="jdbc.pool.IPool" />
+	<method signature="void destroy(java.lang.Object)" class="jdbc.pool.IPool" />
+	<method signature="void destroy()" class="jdbc.pool.IPool" />
+	<method signature="java.lang.Object acquire()" class="jdbc.pool.IPool" />
+	<field name="LIFO_ALGORITHM" class="jdbc.pool.IPool" />
+	<field name="FIFO_ALGORITHM" class="jdbc.pool.IPool" />
+	<field name="REVISION" class="jdbc.pool.IPool" />
+	<class name="jdbc.tuning.OpenResultSetException" />
+	<method signature="void &lt;init&gt;(java.lang.String)" class="jdbc.tuning.OpenResultSetException" />
+	<method signature="void &lt;init&gt;(java.lang.String,java.lang.String)" class="jdbc.tuning.OpenResultSetException" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.tuning.OpenResultSetException" />
+	<method signature="void &lt;init&gt;(java.lang.String,java.lang.String,int)" class="jdbc.tuning.OpenResultSetException" />
+	<method signature="void &lt;init&gt;()" class="jdbc.tuning.OpenResultSetException" />
+	<field name="serialVersionUID" class="jdbc.tuning.OpenResultSetException" />
+	<class name="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNClob(int,java.sql.NClob)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBoolean(java.lang.String,boolean)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.net.URL getURL(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Timestamp getTimestamp(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.Object getORAData(int,oracle.sql.ORADataFactory)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setClobAtName(java.lang.String,java.sql.Clob)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.String getNString(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.SQLXML getSQLXML(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCheckBindTypes(boolean)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void defineColumnTypeChars(int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryStream(int,java.io.InputStream,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryDoubleAtName(java.lang.String,oracle.sql.BINARY_DOUBLE)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="byte getByte(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="int getInt(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setURL(int,java.net.URL)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryFloatAtName(java.lang.String,oracle.sql.BINARY_FLOAT)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setFloat(java.lang.String,float)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setObjectAtName(java.lang.String,java.lang.Object)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setIntAtName(java.lang.String,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setRowId(int,java.sql.RowId)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.Object getCustomDatum(int,oracle.sql.CustomDatumFactory)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setDATE(int,oracle.sql.DATE)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerReturnParameter(int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setClob(int,java.io.Reader)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.Object unwrap(java.lang.Class)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCursor(int,java.sql.ResultSet)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.String getRevision()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Blob getBlob(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setTIMESTAMPAtName(java.lang.String,oracle.sql.TIMESTAMP)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.INTERVALDS getINTERVALDS(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="int executeUpdate(java.lang.String,int[])" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setLongAtName(java.lang.String,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setClob(java.lang.String,java.sql.Clob)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.ResultSet getGeneratedKeys()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="int getExecuteBatch()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNCharacterStream(int,java.io.Reader)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="float getFloat(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="byte[] getBytes(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryDouble(int,double)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.math.BigDecimal getBigDecimal(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setStringForClob(java.lang.String,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBLOB(int,oracle.sql.BLOB)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="boolean isNCHAR(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setRAW(int,oracle.sql.RAW)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setArrayAtName(java.lang.String,java.sql.Array)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="short getShort(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void defineParameterType(int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="int getRowPrefetch()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setByte(java.lang.String,byte)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setAsciiStream(int,java.io.InputStream,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.String getNString(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNClob(int,java.io.Reader,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void defineColumnType(int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setTIMESTAMP(int,oracle.sql.TIMESTAMP)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void clearDefines()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNString(java.lang.String,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.math.BigDecimal getBigDecimal(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryFloat(int,oracle.sql.BINARY_FLOAT)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="boolean getMoreResults(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.Datum[] getOraclePlsqlIndexTable(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setORADataAtName(java.lang.String,oracle.sql.ORAData)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setObject(java.lang.String,java.lang.Object)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setINTERVALDS(int,oracle.sql.INTERVALDS)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setINTERVALDSAtName(java.lang.String,oracle.sql.INTERVALDS)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="short getShort(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNClob(java.lang.String,java.io.Reader)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setTimestamp(java.lang.String,java.sql.Timestamp)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="float getFloat(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCHARAtName(java.lang.String,oracle.sql.CHAR)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="boolean execute(java.lang.String,int[])" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setOPAQUE(int,oracle.sql.OPAQUE)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setShort(java.lang.String,short)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="boolean isClosed()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBfile(int,oracle.sql.BFILE)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.jdbc.OracleParameterMetaData OracleGetParameterMetaData()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setTimeAtName(java.lang.String,java.sql.Time)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerOutParameter(java.lang.String,int,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.Object getPlsqlIndexTable(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="int getInt(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.STRUCT getSTRUCT(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setLong(java.lang.String,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="byte getByte(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Timestamp getTimestamp(int,java.util.Calendar)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBytes(java.lang.String,byte[])" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Time getTime(java.lang.String,java.util.Calendar)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerOutParameter(java.lang.String,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.io.Reader getCharacterStream(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryStream(java.lang.String,java.io.InputStream,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="int creationState()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNullAtName(java.lang.String,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNClob(java.lang.String,java.io.Reader,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.ParameterMetaData getParameterMetaData()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setRefType(int,oracle.sql.REF)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBlob(java.lang.String,java.io.InputStream)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBFILEAtName(java.lang.String,oracle.sql.BFILE)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.DATE getDATE(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setStructDescriptorAtName(java.lang.String,oracle.sql.StructDescriptor)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="int executeUpdate(java.lang.String,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setREF(int,oracle.sql.REF)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNull(java.lang.String,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setSTRUCT(int,oracle.sql.STRUCT)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.INTERVALYM getINTERVALYM(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setRowPrefetch(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setUnicodeStreamAtName(java.lang.String,java.io.InputStream,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="byte[] getBytes(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setSTRUCTAtName(java.lang.String,oracle.sql.STRUCT)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerOutParameter(int,int,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setREFAtName(java.lang.String,oracle.sql.REF)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setTIMESTAMPLTZ(int,oracle.sql.TIMESTAMPLTZ)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setFixedCHAR(int,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBlob(int,java.io.InputStream)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setObject(java.lang.String,java.lang.Object,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerOutParameterChars(int,int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.TIMESTAMPLTZ getTIMESTAMPLTZ(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBLOBAtName(java.lang.String,oracle.sql.BLOB)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void defineParameterTypeBytes(int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setAsciiStream(java.lang.String,java.io.InputStream,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBytesForBlob(java.lang.String,byte[])" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBytesAtName(java.lang.String,byte[])" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setExecuteBatch(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.math.BigDecimal getBigDecimal(int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void defineParameterTypeChars(int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setObject(java.lang.String,java.lang.Object,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCustomDatum(int,oracle.sql.CustomDatum)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBytesForBlob(int,byte[])" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBFILE(int,oracle.sql.BFILE)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setInt(java.lang.String,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Timestamp getTimestamp(java.lang.String,java.util.Calendar)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBigDecimalAtName(java.lang.String,java.math.BigDecimal)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="boolean execute(java.lang.String,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.ROWID getROWID(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setDate(java.lang.String,java.sql.Date)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryStream(java.lang.String,java.io.InputStream,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="int sendBatch()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Date getDate(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerReturnParameter(int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setSQLXML(java.lang.String,java.sql.SQLXML)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerOutParameter(int,int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCLOB(int,oracle.sql.CLOB)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setSQLXML(int,java.sql.SQLXML)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCharacterStream(int,java.io.Reader)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.NUMBER getNUMBER(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setPoolable(boolean)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.ResultSet getReturnResultSet()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setObjectAtName(java.lang.String,java.lang.Object,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="int getResultSetHoldability()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setOPAQUEAtName(java.lang.String,oracle.sql.OPAQUE)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setStringForClobAtName(java.lang.String,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Array getArray(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBfileAtName(java.lang.String,oracle.sql.BFILE)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Ref getRef(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setRefAtName(java.lang.String,java.sql.Ref)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Blob getBlob(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="boolean wasNull()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.SQLXML getSQLXML(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryFloat(java.lang.String,oracle.sql.BINARY_FLOAT)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCLOBAtName(java.lang.String,oracle.sql.CLOB)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setObjectAtName(java.lang.String,java.lang.Object,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Ref getRef(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="boolean getBoolean(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void defineColumnType(int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.io.Reader getNCharacterStream(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setROWIDAtName(java.lang.String,oracle.sql.ROWID)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Time getTime(int,java.util.Calendar)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setAsciiStream(java.lang.String,java.io.InputStream,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNClob(java.lang.String,java.sql.NClob)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.Object getObject(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.io.Reader getNCharacterStream(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNCharacterStream(java.lang.String,java.io.Reader,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setTime(java.lang.String,java.sql.Time)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setRAWAtName(java.lang.String,oracle.sql.RAW)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setByteAtName(java.lang.String,byte)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerReturnParameter(int,int,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryFloatAtName(java.lang.String,float)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setDouble(java.lang.String,double)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setStructDescriptor(int,oracle.sql.StructDescriptor)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryDoubleAtName(java.lang.String,double)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setRefTypeAtName(java.lang.String,oracle.sql.REF)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.RowId getRowId(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCustomDatumAtName(java.lang.String,oracle.sql.CustomDatum)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.io.InputStream getBinaryStream(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setARRAYAtName(java.lang.String,oracle.sql.ARRAY)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.BFILE getBFILE(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setTIMESTAMPTZ(int,oracle.sql.TIMESTAMPTZ)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCharacterStream(java.lang.String,java.io.Reader)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setINTERVALYM(int,oracle.sql.INTERVALYM)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryDouble(int,oracle.sql.BINARY_DOUBLE)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setStringForClob(int,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setAsciiStreamAtName(java.lang.String,java.io.InputStream,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="long getLong(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setFormOfUse(int,short)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.Object getObject(int,java.util.Map)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="int executeUpdate(java.lang.String,java.lang.String[])" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setClob(java.lang.String,java.io.Reader,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.io.InputStream getAsciiStream(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Array getArray(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCharacterStream(int,java.io.Reader,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.TIMESTAMPTZ getTIMESTAMPTZ(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNullAtName(java.lang.String,int,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBlob(int,java.io.InputStream,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="boolean execute(java.lang.String,java.lang.String[])" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setRowId(java.lang.String,java.sql.RowId)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNull(java.lang.String,int,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerOutParameter(int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.NClob getNClob(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNString(int,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="long getLong(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerIndexTableOutParameter(int,int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setARRAY(int,oracle.sql.ARRAY)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Clob getClob(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.RAW getRAW(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Date getDate(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.OPAQUE getOPAQUE(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBytesForBlobAtName(java.lang.String,byte[])" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void defineColumnTypeBytes(int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setOracleObjectAtName(java.lang.String,oracle.sql.Datum)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setString(java.lang.String,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="boolean getBoolean(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNUMBER(int,oracle.sql.NUMBER)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.io.Reader getCharacterStream(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.TIMESTAMP getTIMESTAMP(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.ARRAY getARRAY(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Time getTime(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerOutParameterBytes(int,int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setClob(int,java.io.Reader,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBlob(java.lang.String,java.io.InputStream,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.String getString(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerOutParameter(int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.Object getAnyDataEmbeddedObject(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBooleanAtName(java.lang.String,boolean)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setINTERVALYMAtName(java.lang.String,oracle.sql.INTERVALYM)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void closeWithKey(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setTimestampAtName(java.lang.String,java.sql.Timestamp)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNClob(int,java.io.Reader)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBigDecimal(java.lang.String,java.math.BigDecimal)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setURL(java.lang.String,java.net.URL)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setORAData(int,oracle.sql.ORAData)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.Datum getOracleObject(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryFloat(int,float)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setURLAtName(java.lang.String,java.net.URL)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNUMBERAtName(java.lang.String,oracle.sql.NUMBER)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setOracleObject(int,oracle.sql.Datum)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBlob(java.lang.String,java.sql.Blob)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerOutParameter(java.lang.String,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="double getDouble(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.ResultSet getCursor(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setTime(java.lang.String,java.sql.Time,java.util.Calendar)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Timestamp getTimestamp(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.io.InputStream getUnicodeStream(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setDateAtName(java.lang.String,java.sql.Date)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.net.URL getURL(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setFixedCHARAtName(java.lang.String,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Clob getClob(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNCharacterStream(int,java.io.Reader,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.String getString(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setStringAtName(java.lang.String,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Date getDate(int,java.util.Calendar)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="boolean isWrapperFor(java.lang.Class)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setFloatAtName(java.lang.String,float)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.BLOB getBLOB(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.RowId getRowId(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setTimestamp(java.lang.String,java.sql.Timestamp,java.util.Calendar)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setShortAtName(java.lang.String,short)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void &lt;init&gt;(java.sql.CallableStatement,jdbc.tuning.ConnectionWrapper,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryStream(java.lang.String,java.io.InputStream)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.REF getREF(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setDate(java.lang.String,java.sql.Date,java.util.Calendar)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setPlsqlIndexTable(int,java.lang.Object,int,int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setNCharacterStream(java.lang.String,java.io.Reader)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryStreamAtName(java.lang.String,java.io.InputStream,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="boolean isPoolable()" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Time getTime(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void registerOutParameter(java.lang.String,int,int,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setAsciiStream(int,java.io.InputStream)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="double getDouble(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setTIMESTAMPTZAtName(java.lang.String,oracle.sql.TIMESTAMPTZ)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBlobAtName(java.lang.String,java.sql.Blob)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setClob(java.lang.String,java.io.Reader)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setTIMESTAMPLTZAtName(java.lang.String,oracle.sql.TIMESTAMPLTZ)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setResultSetCache(oracle.jdbc.OracleResultSetCache)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setROWID(int,oracle.sql.ROWID)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.Date getDate(java.lang.String,java.util.Calendar)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void defineColumnType(int,int,int,short)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryStream(int,java.io.InputStream)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.Object getPlsqlIndexTable(int,java.lang.Class)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.Object getObject(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCHAR(int,oracle.sql.CHAR)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCursorAtName(java.lang.String,java.sql.ResultSet)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.CHAR getCHAR(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.sql.NClob getNClob(java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="java.lang.Object getObject(java.lang.String,java.util.Map)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setDATEAtName(java.lang.String,oracle.sql.DATE)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCharacterStream(java.lang.String,java.io.Reader,long)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setCharacterStream(java.lang.String,java.io.Reader,int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="oracle.sql.CLOB getCLOB(int)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setDisableStmtCaching(boolean)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void defineColumnType(int,int,java.lang.String)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setBinaryDouble(java.lang.String,oracle.sql.BINARY_DOUBLE)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setDoubleAtName(java.lang.String,double)" class="jdbc.tuning.CallableStatementWrapper" />
+	<method signature="void setAsciiStream(java.lang.String,java.io.InputStream)" class="jdbc.tuning.CallableStatementWrapper" />
+	<field name="realCallableStatement" class="jdbc.tuning.CallableStatementWrapper" />
+	<field name="REVISION" class="jdbc.tuning.CallableStatementWrapper" />
+	<class name="com.stg.crypto.CryptoHelper" />
+	<method signature="java.lang.String toString(byte[])" class="com.stg.crypto.CryptoHelper" />
+	<method signature="void &lt;clinit&gt;()" class="com.stg.crypto.CryptoHelper" />
+	<method signature="java.lang.String toString(byte[],int)" class="com.stg.crypto.CryptoHelper" />
+	<method signature="void &lt;init&gt;()" class="com.stg.crypto.CryptoHelper" />
+	<method signature="byte[] toByteArray(java.lang.String)" class="com.stg.crypto.CryptoHelper" />
+	<class name="jdbc.pool.ConnectionPool" />
+	<method signature="boolean access$4(jdbc.pool.ConnectionPool)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void stopShrinking()" class="jdbc.pool.ConnectionPool" />
+	<method signature="java.sql.Connection getConnection(boolean)" class="jdbc.pool.ConnectionPool" />
+	<method signature="java.lang.String toString()" class="jdbc.pool.ConnectionPool" />
+	<method signature="void recordStatistics(jdbc.pool.CPoolStatisticsBean)" class="jdbc.pool.ConnectionPool" />
+	<method signature="java.lang.String getPoolName()" class="jdbc.pool.ConnectionPool" />
+	<method signature="void recordUnavailableHigh(long)" class="jdbc.pool.ConnectionPool" />
+	<method signature="java.sql.Connection getConnection()" class="jdbc.pool.ConnectionPool" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.ConnectionPool" />
+	<method signature="void setConnectionDelayTime(long)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void initializePool()" class="jdbc.pool.ConnectionPool" />
+	<method signature="java.util.Hashtable getCurrentRunningQueries()" class="jdbc.pool.ConnectionPool" />
+	<method signature="jdbc.pool.IPool access$5(jdbc.pool.ConnectionPool)" class="jdbc.pool.ConnectionPool" />
+	<method signature="jdbc.pool.CPoolAttribute access$1(jdbc.pool.ConnectionPool)" class="jdbc.pool.ConnectionPool" />
+	<method signature="jdbc.pool.CPoolStatisticsBean getStatistics()" class="jdbc.pool.ConnectionPool" />
+	<method signature="void access$3(jdbc.pool.ConnectionPool,jdbc.pool.CPoolStatisticsBean)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void access$2(jdbc.pool.ConnectionPool,org.apache.log4j.Logger)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void &lt;init&gt;(jdbc.pool.CPoolAttribute,jdbc.pool.CConnectionPoolManager)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void addWaiter()" class="jdbc.pool.ConnectionPool" />
+	<method signature="void addConnectionToPool(java.sql.Connection)" class="jdbc.pool.ConnectionPool" />
+	<method signature="jdbc.pool.CPoolAttribute getPoolAttributes()" class="jdbc.pool.ConnectionPool" />
+	<method signature="void setWaitTime(long)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void removeWaiter()" class="jdbc.pool.ConnectionPool" />
+	<method signature="void shrinkPool(org.apache.log4j.Logger)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void addLeakedResultSetCount(int)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void addQuery(java.lang.Thread,jdbc.pool.CObjectWrapper)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void createPooledConnection(long)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void changeAttributes(jdbc.pool.CPoolAttribute)" class="jdbc.pool.ConnectionPool" />
+	<method signature="boolean isActive(java.sql.Connection,org.apache.log4j.Logger)" class="jdbc.pool.ConnectionPool" />
+	<method signature="jdbc.pool.CConnectionPoolManager access$6(jdbc.pool.ConnectionPool)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void closeConnection(java.sql.Connection)" class="jdbc.pool.ConnectionPool" />
+	<method signature="java.util.ArrayList getStatisticsHistory()" class="jdbc.pool.ConnectionPool" />
+	<method signature="void removeQuery(java.lang.Thread)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void startShrinking()" class="jdbc.pool.ConnectionPool" />
+	<method signature="java.lang.Thread access$0(jdbc.pool.ConnectionPool)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void emptyPool(boolean)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void releaseConnection(java.sql.Connection,boolean,int)" class="jdbc.pool.ConnectionPool" />
+	<method signature="void recordUnavailableHighTime(long)" class="jdbc.pool.ConnectionPool" />
+	<field name="iNoOfWaitersHigh_" class="jdbc.pool.ConnectionPool" />
+	<field name="hmConnectionUsage_" class="jdbc.pool.ConnectionPool" />
+	<field name="iNoOfConnectionsClosed_" class="jdbc.pool.ConnectionPool" />
+	<field name="alStatisticsHistory_" class="jdbc.pool.ConnectionPool" />
+	<field name="poolManager_" class="jdbc.pool.ConnectionPool" />
+	<field name="lWaitTimeTotalInMillis_" class="jdbc.pool.ConnectionPool" />
+	<field name="lBadConnectionCount_" class="jdbc.pool.ConnectionPool" />
+	<field name="lLeakedConnections_" class="jdbc.pool.ConnectionPool" />
+	<field name="lNoOfUnavailableConnections_" class="jdbc.pool.ConnectionPool" />
+	<field name="lTotalConnectionDelayTime_" class="jdbc.pool.ConnectionPool" />
+	<field name="bTerminated_" class="jdbc.pool.ConnectionPool" />
+	<field name="REVISION" class="jdbc.pool.ConnectionPool" />
+	<field name="lConnectionsHigh_" class="jdbc.pool.ConnectionPool" />
+	<field name="iNoOfNewConnectionsRequested_" class="jdbc.pool.ConnectionPool" />
+	<field name="bDestroyAttempted_" class="jdbc.pool.ConnectionPool" />
+	<field name="threadShrink" class="jdbc.pool.ConnectionPool" />
+	<field name="lLeakedResultSetCount_" class="jdbc.pool.ConnectionPool" />
+	<field name="iNoOfCurrentWaiters_" class="jdbc.pool.ConnectionPool" />
+	<field name="lWaitTimeHigh_" class="jdbc.pool.ConnectionPool" />
+	<field name="lTotalNoOfConnectionsCreated_" class="jdbc.pool.ConnectionPool" />
+	<field name="myAttributes" class="jdbc.pool.ConnectionPool" />
+	<field name="logger_" class="jdbc.pool.ConnectionPool" />
+	<field name="iNoOfConnectionsUnlocked_" class="jdbc.pool.ConnectionPool" />
+	<field name="lUnavailableConnectionsHighTime_" class="jdbc.pool.ConnectionPool" />
+	<field name="iNoOfConnectionsCreated_" class="jdbc.pool.ConnectionPool" />
+	<field name="lPoolStartTimeInMillis_" class="jdbc.pool.ConnectionPool" />
+	<field name="lLeakedStatementsCount_" class="jdbc.pool.ConnectionPool" />
+	<field name="iNoOfConnectionsLocked_" class="jdbc.pool.ConnectionPool" />
+	<field name="pool_" class="jdbc.pool.ConnectionPool" />
+	<field name="QueryTime_" class="jdbc.pool.ConnectionPool" />
+	<field name="lNoOfUnavailableConnectionsHigh_" class="jdbc.pool.ConnectionPool" />
+	<field name="iNoOfConnectionsRequested_" class="jdbc.pool.ConnectionPool" />
+	<class name="jdbc.tuning.OpenStatementException" />
+	<method signature="void &lt;init&gt;(java.lang.String)" class="jdbc.tuning.OpenStatementException" />
+	<method signature="void &lt;init&gt;(java.lang.String,java.lang.Throwable)" class="jdbc.tuning.OpenStatementException" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.tuning.OpenStatementException" />
+	<method signature="void &lt;init&gt;(java.lang.Throwable)" class="jdbc.tuning.OpenStatementException" />
+	<method signature="void &lt;init&gt;()" class="jdbc.tuning.OpenStatementException" />
+	<field name="REVISION" class="jdbc.tuning.OpenStatementException" />
+	<field name="serialVersionUID" class="jdbc.tuning.OpenStatementException" />
+	<class name="jdbc.tuning.ConnectionWrapper" />
+	<method signature="int getStatementCacheSize()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setUsingXAFlag(boolean)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setImplicitCachingEnabled(boolean)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.PreparedStatement prepareStatement(java.lang.String,int,int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="short getStructAttrCsId()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void purgeImplicitCache()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean getUsingXAFlag()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setDefaultRowPrefetch(int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void closeAllOpenStatements()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.Statement createStatement()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setSessionTimeZone(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.lang.String nativeSQL(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setStmtCacheSize(int,boolean)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean getCreateStatementAsRefCursor()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.PreparedStatement getStatementWithKey(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setTransactionIsolation(int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.lang.Object unwrap(java.lang.Class)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.lang.String getRevision()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean getImplicitCachingEnabled()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.CallableStatement prepareCall(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean getRemarksReporting()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="int getDefaultExecuteBatch()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void rollback(java.sql.Savepoint)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setHoldability(int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="oracle.jdbc.internal.OracleConnection physicalConnectionWithin()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.CallableStatement prepareCall(java.lang.String,int,int,int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.Struct createStruct(java.lang.String,java.lang.Object[])" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="oracle.jdbc.OracleSavepoint oracleSetSavepoint()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.Savepoint setSavepoint()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void archive(int,int,java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean getAutoCommit()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.Statement createStatement(int,int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void removeQuery(java.lang.Thread)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.util.Properties getConnectionAttributes()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.util.Properties getProperties()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setIncludeSynonyms(boolean)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void rollback()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void clearWarnings()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void putDescriptor(java.lang.String,java.lang.Object)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.Savepoint setSavepoint(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.lang.Object getDescriptor(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean isLogicalConnection()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="int pingDatabase(int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.Connection realConnection()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setRestrictGetTables(boolean)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.PreparedStatement prepareStatement(java.lang.String,int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void startup(java.lang.String,int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.PreparedStatement prepareStatement(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.lang.String getCatalog()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setXAErrorFlag(boolean)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.Clob createClob()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.Array createArrayOf(java.lang.String,java.lang.Object[])" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.Statement getOpenStatement(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="int getHoldability()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.CallableStatement prepareCallWithKey(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setPlsqlWarnings(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.util.Map getTypeMap()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void purgeExplicitCache()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setStatementCacheSize(int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean isClosed()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="oracle.jdbc.OracleSavepoint oracleSetSavepoint(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void commit()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.lang.String getClientInfo(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void close()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.CallableStatement getCallWithKey(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setDefaultExecuteBatch(int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.Statement createStatement(int,int,int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.CallableStatement prepareCall(java.lang.String,int,int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.PreparedStatement prepareStatement(java.lang.String,int[])" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void close(int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setAutoClose(boolean)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setExplicitCachingEnabled(boolean)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="short getEndToEndECIDSequenceNumber()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.SQLWarning getWarnings()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setConnectionReleasePriority(int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.lang.String[] getEndToEndMetrics()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setCreateStatementAsRefCursor(boolean)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="long getCriticalOperationTimeLimit()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.lang.String getSQLType(java.lang.Object)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="oracle.jdbc.OracleConnection unwrap()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setClientInfo(java.util.Properties)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.PreparedStatement prepareStatementWithKey(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.SQLXML createSQLXML()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void clearOpenStatement(jdbc.tuning.StatementWrapper)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void addQuery(java.lang.Thread,java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.NClob createNClob()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void close(java.util.Properties)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.Blob createBlob()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean isReadOnly()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setRemarksReporting(boolean)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="int getDefaultRowPrefetch()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setCatalog(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.DatabaseMetaData getMetaData()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.PreparedStatement prepareStatement(java.lang.String,int,int,int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void shutdown(int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean getExplicitCachingEnabled()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setClientInfo(java.lang.String,java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void registerSQLType(java.lang.String,java.lang.Class)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setAutoCommit(boolean)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void registerConnectionCacheCallback(oracle.jdbc.pool.OracleConnectionCacheCallback,java.lang.Object,int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean isValid(int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setWrapper(oracle.jdbc.OracleConnection)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setReadOnly(boolean)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="org.apache.log4j.Logger getLogger()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean isWrapperFor(java.lang.Class)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.lang.String getUserName()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void oracleReleaseSavepoint(oracle.jdbc.OracleSavepoint)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean isActive()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setTypeMap(java.util.Map)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.lang.Object getJavaObject(java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean getXAErrorFlag()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void releaseSavepoint(java.sql.Savepoint)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean isProxySession()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.lang.String getCurrentSchema()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setStmtCacheSize(int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void registerSQLType(java.lang.String,java.lang.String)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void &lt;init&gt;(jdbc.pool.ConnectionPool,java.sql.Connection)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void registerTAFCallback(oracle.jdbc.OracleOCIFailover,java.lang.Object)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void finalize()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.lang.String getSessionTimeZone()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.util.Properties getClientInfo()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void applyConnectionAttributes(java.util.Properties)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean getRestrictGetTables()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.PreparedStatement prepareStatement(java.lang.String,java.lang.String[])" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="int getStmtCacheSize()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.util.Properties getUnMatchedConnectionAttributes()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean getIncludeSynonyms()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="int getTransactionIsolation()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="java.sql.Connection _getPC()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setEndToEndMetrics(java.lang.String[],short)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void openProxySession(int,java.util.Properties)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="boolean getAutoClose()" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void oracleRollback(oracle.jdbc.OracleSavepoint)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="void setLeakedResultSetCount(int)" class="jdbc.tuning.ConnectionWrapper" />
+	<method signature="int getConnectionReleasePriority()" class="jdbc.tuning.ConnectionWrapper" />
+	<field name="hmOpenStatements_" class="jdbc.tuning.ConnectionWrapper" />
+	<field name="strLoggerName_" class="jdbc.tuning.ConnectionWrapper" />
+	<field name="REVISION" class="jdbc.tuning.ConnectionWrapper" />
+	<field name="pool_" class="jdbc.tuning.ConnectionWrapper" />
+	<field name="OPEN_EXCEPTION" class="jdbc.tuning.ConnectionWrapper" />
+	<field name="bGarbageCollected" class="jdbc.tuning.ConnectionWrapper" />
+	<field name="realConnection" class="jdbc.tuning.ConnectionWrapper" />
+	<field name="iLeakedStatementCount_" class="jdbc.tuning.ConnectionWrapper" />
+	<field name="logger_" class="jdbc.tuning.ConnectionWrapper" />
+	<field name="leakException_" class="jdbc.tuning.ConnectionWrapper" />
+	<field name="LEAK_EXCEPTION" class="jdbc.tuning.ConnectionWrapper" />
+	<field name="bClosed" class="jdbc.tuning.ConnectionWrapper" />
+	<class name="jdbc.pool.CConnectionPoolManager" />
+	<method signature="jdbc.pool.CPoolStatisticsBean getPoolStatistics(java.lang.String)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void &lt;init&gt;(java.lang.String,java.io.File)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="jdbc.pool.CPoolAttribute getPoolAttributes(java.lang.String)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="java.sql.Connection getConnection(java.lang.String)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void createPool(jdbc.pool.CPoolAttribute)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void addNewPool(jdbc.pool.CPoolAttribute)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void main(java.lang.String[])" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="boolean emptyAllPools(boolean)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void destroy(boolean)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void delete(java.lang.String,boolean)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void printVersion()" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void updatePoolAttributes(jdbc.pool.CPoolAttribute,boolean)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void poolDestroyed(java.lang.String)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="java.util.ArrayList getPoolStatisticsHistory(java.lang.String)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="jdbc.pool.CConnectionPoolManager getInstance()" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void finalize()" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void releaseConnection(java.sql.Connection)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="java.util.Enumeration getCurrentRunningQueries(java.lang.String)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void getVersion()" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="java.util.Iterator getAllPoolStatistics()" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void addNewPools(jdbc.pool.CPoolAttribute[])" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="jdbc.pool.CConnectionPoolManager getInstance(java.lang.String,java.io.File)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void emptyPool(java.lang.String,boolean)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void checkPoolAttributes(jdbc.pool.CPoolAttribute)" class="jdbc.pool.CConnectionPoolManager" />
+	<method signature="void updatePoolAttributes(jdbc.pool.CPoolAttribute[],boolean)" class="jdbc.pool.CConnectionPoolManager" />
+	<field name="poolAttributeManager_" class="jdbc.pool.CConnectionPoolManager" />
+	<field name="VERSION" class="jdbc.pool.CConnectionPoolManager" />
+	<field name="REVISION" class="jdbc.pool.CConnectionPoolManager" />
+	<field name="instance_" class="jdbc.pool.CConnectionPoolManager" />
+	<field name="logger_" class="jdbc.pool.CConnectionPoolManager" />
+	<field name="mapPools_" class="jdbc.pool.CConnectionPoolManager" />
+	<field name="myPoolAttributes_" class="jdbc.pool.CConnectionPoolManager" />
+	<class name="com.stg.crypto.PBEEncryptionRoutine$S" />
+	<method signature="byte[] getSalt()" class="com.stg.crypto.PBEEncryptionRoutine$S" />
+	<method signature="int getIterations()" class="com.stg.crypto.PBEEncryptionRoutine$S" />
+	<method signature="void &lt;clinit&gt;()" class="com.stg.crypto.PBEEncryptionRoutine$S" />
+	<method signature="char[] getPass()" class="com.stg.crypto.PBEEncryptionRoutine$S" />
+	<method signature="void &lt;init&gt;()" class="com.stg.crypto.PBEEncryptionRoutine$S" />
+	<field name="SALT" class="com.stg.crypto.PBEEncryptionRoutine$S" />
+	<field name="PASS" class="com.stg.crypto.PBEEncryptionRoutine$S" />
+	<class name="jdbc.pool.CObjectWrapper" />
+	<method signature="java.lang.Object getUnderLyingObject()" class="jdbc.pool.CObjectWrapper" />
+	<method signature="java.lang.String toString()" class="jdbc.pool.CObjectWrapper" />
+	<method signature="long getTime()" class="jdbc.pool.CObjectWrapper" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.CObjectWrapper" />
+	<method signature="int hashCode()" class="jdbc.pool.CObjectWrapper" />
+	<method signature="boolean equals(java.lang.Object)" class="jdbc.pool.CObjectWrapper" />
+	<method signature="void &lt;init&gt;(java.lang.Object)" class="jdbc.pool.CObjectWrapper" />
+	<field name="time_" class="jdbc.pool.CObjectWrapper" />
+	<field name="REVISION" class="jdbc.pool.CObjectWrapper" />
+	<field name="object_" class="jdbc.pool.CObjectWrapper" />
+	<class name="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="java.lang.Object getArray()" class="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="java.lang.Object getArray(java.util.Map)" class="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="java.lang.Object getArray(long,int)" class="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="java.lang.Object getArray(long,int,java.util.Map)" class="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="java.sql.ResultSet getResultSet()" class="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="java.sql.ResultSet getResultSet(long,int)" class="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="java.lang.String getBaseTypeName()" class="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="void free()" class="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="java.sql.ResultSet getResultSet(java.util.Map)" class="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="int getBaseType()" class="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="java.sql.ResultSet getResultSet(long,int,java.util.Map)" class="jdbc.tuning.SQLArrayWrapper" />
+	<method signature="void &lt;init&gt;(java.sql.Array,jdbc.tuning.StatementWrapper,java.lang.String)" class="jdbc.tuning.SQLArrayWrapper" />
+	<field name="realArray" class="jdbc.tuning.SQLArrayWrapper" />
+	<field name="sql" class="jdbc.tuning.SQLArrayWrapper" />
+	<field name="REVISION" class="jdbc.tuning.SQLArrayWrapper" />
+	<field name="parentStatement" class="jdbc.tuning.SQLArrayWrapper" />
+	<class name="jdbc.pool.CPoolAttribute" />
+	<method signature="int getStatisticalHistoryRecordCount()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="int getCapacityIncreament()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setCapacityIncreament(int)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setDriver(java.lang.String)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="java.lang.String getURL()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="java.lang.String toString()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setMaxUsagePerJDBCConnection(int)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setMaximumCapacity(int)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="java.lang.String getPoolName()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="int getCriticalOperationTimeLimit()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setPoolName(java.lang.String)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="int getConnectionIdleTimeout()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setUser(java.lang.String)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setPoolAlgorithm(java.lang.String)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="java.lang.String getVendor()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setPassword(java.lang.String)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setURL(java.lang.String)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="boolean reset(jdbc.pool.CPoolAttribute)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setStatisticalHistoryRecordCount(int)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="int getInUseWaitTime()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="java.lang.String getPassword()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="java.lang.String getDriver()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="java.lang.String getPoolAlgorithm()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setShrinkPoolInterval(int)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setVendor(java.lang.String)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="java.lang.String getUser()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="int getInitialPoolSize()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setToBeSaved(boolean)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="boolean isLoadOnStartup()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="java.lang.String encode(java.lang.String)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="boolean isToBeSaved()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="int getMaxUsagePerJDBCConnection()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="int getMaximumCapacity()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setLoadOnStartup(boolean)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setCriticalOperationTimeLimit(int)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="java.lang.Object clone()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="int getShrinkPoolInterval()" class="jdbc.pool.CPoolAttribute" />
+	<method signature="boolean compare(jdbc.pool.CPoolAttribute)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setConnectionIdleTimeout(int)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="java.lang.String decode(java.lang.String)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setInitialPoolSize(int)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void setInUseWaitTime(int)" class="jdbc.pool.CPoolAttribute" />
+	<method signature="void &lt;init&gt;()" class="jdbc.pool.CPoolAttribute" />
+	<field name="maxUsagePerJDBCConnection" class="jdbc.pool.CPoolAttribute" />
+	<field name="maximumCapacity" class="jdbc.pool.CPoolAttribute" />
+	<field name="iStatisticalHistoryRecordCount_" class="jdbc.pool.CPoolAttribute" />
+	<field name="capacityIncreament" class="jdbc.pool.CPoolAttribute" />
+	<field name="shrinkPoolInterval" class="jdbc.pool.CPoolAttribute" />
+	<field name="connectionIdleTimeout" class="jdbc.pool.CPoolAttribute" />
+	<field name="poolName" class="jdbc.pool.CPoolAttribute" />
+	<field name="poolAlgorithm" class="jdbc.pool.CPoolAttribute" />
+	<field name="inUseWaitTime" class="jdbc.pool.CPoolAttribute" />
+	<field name="criticalOperationTimeLimit" class="jdbc.pool.CPoolAttribute" />
+	<field name="vendor" class="jdbc.pool.CPoolAttribute" />
+	<field name="bToBeSaved_" class="jdbc.pool.CPoolAttribute" />
+	<field name="password" class="jdbc.pool.CPoolAttribute" />
+	<field name="loadOnStartup" class="jdbc.pool.CPoolAttribute" />
+	<field name="REVISION" class="jdbc.pool.CPoolAttribute" />
+	<field name="initialPoolSize" class="jdbc.pool.CPoolAttribute" />
+	<field name="driver" class="jdbc.pool.CPoolAttribute" />
+	<field name="URL" class="jdbc.pool.CPoolAttribute" />
+	<field name="user" class="jdbc.pool.CPoolAttribute" />
+	<class name="com.stg.logger.LogLevel" />
+	<method signature="org.apache.log4j.Level toLevel(java.lang.String)" class="com.stg.logger.LogLevel" />
+	<method signature="void &lt;init&gt;(int,java.lang.String,int)" class="com.stg.logger.LogLevel" />
+	<method signature="org.apache.log4j.Level toLevel(java.lang.String,org.apache.log4j.Level)" class="com.stg.logger.LogLevel" />
+	<method signature="void &lt;clinit&gt;()" class="com.stg.logger.LogLevel" />
+	<method signature="org.apache.log4j.Level toLevel(int,org.apache.log4j.Level)" class="com.stg.logger.LogLevel" />
+	<method signature="org.apache.log4j.Level toLevel(int)" class="com.stg.logger.LogLevel" />
+	<field name="NOTICE" class="com.stg.logger.LogLevel" />
+	<field name="FINE" class="com.stg.logger.LogLevel" />
+	<field name="FINEST_INT" class="com.stg.logger.LogLevel" />
+	<field name="FINER_INT" class="com.stg.logger.LogLevel" />
+	<field name="FINEST" class="com.stg.logger.LogLevel" />
+	<field name="FINER" class="com.stg.logger.LogLevel" />
+	<field name="REVISION" class="com.stg.logger.LogLevel" />
+	<field name="serialVersionUID" class="com.stg.logger.LogLevel" />
+	<field name="FINE_INT" class="com.stg.logger.LogLevel" />
+	<field name="NOTICE_INT" class="com.stg.logger.LogLevel" />
+	<class name="jdbc.tuning.JDBCLogger" />
+	<method signature="void startLogSqlQuery(java.lang.Thread,java.lang.String,jdbc.tuning.ConnectionWrapper)" class="jdbc.tuning.JDBCLogger" />
+	<method signature="void endLogSqlQuery(java.lang.Thread,java.lang.String,jdbc.tuning.ConnectionWrapper)" class="jdbc.tuning.JDBCLogger" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.tuning.JDBCLogger" />
+	<method signature="java.lang.String getRevision()" class="jdbc.tuning.JDBCLogger" />
+	<method signature="void startLogSqlNext(java.lang.Thread,java.lang.String,jdbc.tuning.ConnectionWrapper)" class="jdbc.tuning.JDBCLogger" />
+	<method signature="void endLogSqlNext(java.lang.Thread,java.lang.String,jdbc.tuning.ConnectionWrapper)" class="jdbc.tuning.JDBCLogger" />
+	<method signature="void &lt;init&gt;()" class="jdbc.tuning.JDBCLogger" />
+	<field name="QueryTime" class="jdbc.tuning.JDBCLogger" />
+	<field name="REVISION" class="jdbc.tuning.JDBCLogger" />
+	<class name="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsSchemasInPrivilegeDefinitions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean nullPlusNonNullIsNull()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsFullOuterJoins()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxConnections()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsOpenStatementsAcrossCommit()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsExtendedSQLGrammar()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsGroupByBeyondSelect()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsStoredProcedures()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.Object unwrap(java.lang.Class)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsMixedCaseIdentifiers()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxColumnsInTable()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsANSI92IntermediateSQL()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsAlterTableWithDropColumn()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsIntegrityEnhancementFacility()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsPositionedUpdate()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsOuterJoins()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getClientInfoProperties()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.RowIdLifetime getRowIdLifetime()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getExtraNameCharacters()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean storesUpperCaseIdentifiers()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean nullsAreSortedAtEnd()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getNumericFunctions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean isCatalogAtStart()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxProcedureNameLength()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsANSI92FullSQL()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsMinimumSQLGrammar()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean allProceduresAreCallable()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getSuperTables(java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsSubqueriesInExists()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsResultSetHoldability(int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsGetGeneratedKeys()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getTables(java.lang.String,java.lang.String,java.lang.String,java.lang.String[])" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getProcedureColumns(java.lang.String,java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getSchemas(java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsDifferentTableCorrelationNames()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsMultipleOpenResults()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsBatchUpdates()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getDefaultTransactionIsolation()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsResultSetType(int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean allTablesAreSelectable()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxStatements()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxTableNameLength()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getSQLKeywords()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsStoredFunctionsUsingCallSyntax()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getProcedureTerm()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsMultipleTransactions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsColumnAliasing()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean ownUpdatesAreVisible(int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsCatalogsInIndexDefinitions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsUnionAll()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean locatorsUpdateCopy()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsLimitedOuterJoins()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsOrderByUnrelated()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getProcedures(java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean insertsAreDetected(int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxRowSize()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getColumns(java.lang.String,java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean dataDefinitionCausesTransactionCommit()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean nullsAreSortedHigh()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsExpressionsInOrderBy()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean storesMixedCaseQuotedIdentifiers()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsTransactions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean usesLocalFilePerTable()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean updatesAreDetected(int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getCrossReference(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getDatabaseMinorVersion()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsOpenCursorsAcrossCommit()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsGroupBy()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsUnion()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsCatalogsInDataManipulation()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean deletesAreDetected(int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getDriverMajorVersion()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxColumnsInIndex()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsSavepoints()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getExportedKeys(java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsCoreSQLGrammar()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean othersDeletesAreVisible(int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsMultipleResultSets()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsGroupByUnrelated()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxSchemaNameLength()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxBinaryLiteralLength()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getTimeDateFunctions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean doesMaxRowSizeIncludeBlobs()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxTablesInSelect()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getStringFunctions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsOpenStatementsAcrossRollback()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsDataManipulationTransactionsOnly()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getCatalogTerm()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsCatalogsInTableDefinitions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean storesLowerCaseQuotedIdentifiers()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxColumnsInSelect()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxCatalogNameLength()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getIndexInfo(java.lang.String,java.lang.String,java.lang.String,boolean,boolean)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getUDTs(java.lang.String,java.lang.String,java.lang.String,int[])" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsAlterTableWithAddColumn()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="void &lt;init&gt;(java.sql.DatabaseMetaData,jdbc.tuning.ConnectionWrapper)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxStatementLength()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsConvert()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getSearchStringEscape()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxCharLiteralLength()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxColumnNameLength()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsCatalogsInProcedureCalls()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsMixedCaseQuotedIdentifiers()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getSystemFunctions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsSubqueriesInComparisons()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxIndexLength()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean isReadOnly()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean othersInsertsAreVisible(int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean nullsAreSortedLow()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean storesUpperCaseQuotedIdentifiers()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsTableCorrelationNames()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsStatementPooling()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsSchemasInProcedureCalls()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxColumnsInGroupBy()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean storesLowerCaseIdentifiers()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getDatabaseProductVersion()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getDatabaseMajorVersion()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getCatalogSeparator()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsNamedParameters()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getCatalogs()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean dataDefinitionIgnoredInTransactions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean nullsAreSortedAtStart()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getSuperTypes(java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsResultSetConcurrency(int,int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getDatabaseProductName()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean othersUpdatesAreVisible(int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsCatalogsInPrivilegeDefinitions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsNonNullableColumns()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxColumnsInOrderBy()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean ownDeletesAreVisible(int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getDriverName()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getURL()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean isWrapperFor(java.lang.Class)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean autoCommitFailureClosesAllResultSets()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsSubqueriesInIns()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getBestRowIdentifier(java.lang.String,java.lang.String,java.lang.String,int,boolean)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getVersionColumns(java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getTypeInfo()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getUserName()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.Connection getConnection()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsSubqueriesInQuantifieds()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxCursorNameLength()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getIdentifierQuoteString()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getFunctionColumns(java.lang.String,java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsSelectForUpdate()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsSchemasInIndexDefinitions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getTableTypes()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean storesMixedCaseIdentifiers()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsSchemasInDataManipulation()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsSchemasInTableDefinitions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean ownInsertsAreVisible(int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getAttributes(java.lang.String,java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getJDBCMinorVersion()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getMaxUserNameLength()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getResultSetHoldability()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean usesLocalFiles()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getSchemaTerm()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getPrimaryKeys(java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.lang.String getDriverVersion()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsANSI92EntryLevelSQL()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsDataDefinitionAndDataManipulationTransactions()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsCorrelatedSubqueries()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getColumnPrivileges(java.lang.String,java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsOpenCursorsAcrossRollback()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getSQLStateType()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsPositionedDelete()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getSchemas()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsTransactionIsolationLevel(int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getJDBCMajorVersion()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsLikeEscapeClause()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getImportedKeys(java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getFunctions(java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="boolean supportsConvert(int,int)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="int getDriverMinorVersion()" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<method signature="java.sql.ResultSet getTablePrivileges(java.lang.String,java.lang.String,java.lang.String)" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<field name="connectionParent" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<field name="REVISION" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<field name="realMetadata" class="jdbc.tuning.DatabaseMetaDataWrapper" />
+	<class name="jdbc.pool.CPoolAttributeManager" />
+	<method signature="jdbc.pool.CPoolAttribute getPoolAttribute(java.lang.String)" class="jdbc.pool.CPoolAttributeManager" />
+	<method signature="jdbc.pool.CPoolAttributeManager getPoolAttributeManager(java.io.File)" class="jdbc.pool.CPoolAttributeManager" />
+	<method signature="boolean update(jdbc.pool.CPoolAttribute)" class="jdbc.pool.CPoolAttributeManager" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.CPoolAttributeManager" />
+	<method signature="java.util.Map getAllPoolAttributes()" class="jdbc.pool.CPoolAttributeManager" />
+	<method signature="void save()" class="jdbc.pool.CPoolAttributeManager" />
+	<method signature="boolean create(jdbc.pool.CPoolAttribute)" class="jdbc.pool.CPoolAttributeManager" />
+	<method signature="boolean delete(java.lang.String)" class="jdbc.pool.CPoolAttributeManager" />
+	<method signature="java.io.File getConfigurationFile()" class="jdbc.pool.CPoolAttributeManager" />
+	<method signature="void &lt;init&gt;(java.io.File)" class="jdbc.pool.CPoolAttributeManager" />
+	<field name="file_" class="jdbc.pool.CPoolAttributeManager" />
+	<field name="REVISION" class="jdbc.pool.CPoolAttributeManager" />
+	<class name="jdbc.pool.InvalidPoolAttributeException" />
+	<method signature="void &lt;init&gt;(java.lang.String)" class="jdbc.pool.InvalidPoolAttributeException" />
+	<method signature="void &lt;init&gt;(java.lang.String,java.lang.Throwable)" class="jdbc.pool.InvalidPoolAttributeException" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.InvalidPoolAttributeException" />
+	<method signature="void &lt;init&gt;(java.lang.Throwable)" class="jdbc.pool.InvalidPoolAttributeException" />
+	<method signature="void &lt;init&gt;()" class="jdbc.pool.InvalidPoolAttributeException" />
+	<field name="REVISION" class="jdbc.pool.InvalidPoolAttributeException" />
+	<field name="serialVersionUID" class="jdbc.pool.InvalidPoolAttributeException" />
+	<class name="jdbc.pool.CFIFOObjectPool" />
+	<method signature="void add(java.lang.Object)" class="jdbc.pool.CFIFOObjectPool" />
+	<method signature="java.util.Iterator getIdleObjects()" class="jdbc.pool.CFIFOObjectPool" />
+	<method signature="void release(java.lang.Object)" class="jdbc.pool.CFIFOObjectPool" />
+	<method signature="int getNumIdle()" class="jdbc.pool.CFIFOObjectPool" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.CFIFOObjectPool" />
+	<method signature="int getNumActive()" class="jdbc.pool.CFIFOObjectPool" />
+	<method signature="java.lang.Object[] getAcquiredObjects()" class="jdbc.pool.CFIFOObjectPool" />
+	<method signature="void destroy(java.lang.Object)" class="jdbc.pool.CFIFOObjectPool" />
+	<method signature="void destroy()" class="jdbc.pool.CFIFOObjectPool" />
+	<method signature="void &lt;init&gt;()" class="jdbc.pool.CFIFOObjectPool" />
+	<method signature="java.lang.Object acquire()" class="jdbc.pool.CFIFOObjectPool" />
+	<field name="alLockedObjectPool_" class="jdbc.pool.CFIFOObjectPool" />
+	<field name="REVISION" class="jdbc.pool.CFIFOObjectPool" />
+	<field name="alUnLockedObjectPool_" class="jdbc.pool.CFIFOObjectPool" />
+	<class name="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setNClob(int,java.sql.NClob)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setClobAtName(java.lang.String,java.sql.Clob)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setCharacterStream(int,java.io.Reader,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setCheckBindTypes(boolean)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBinaryStream(int,java.io.InputStream,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void defineColumnTypeChars(int,int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBinaryStream(int,java.io.InputStream,long)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBinaryDoubleAtName(java.lang.String,oracle.sql.BINARY_DOUBLE)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setURL(int,java.net.URL)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setRAWAtName(java.lang.String,oracle.sql.RAW)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBinaryFloatAtName(java.lang.String,oracle.sql.BINARY_FLOAT)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setObjectAtName(java.lang.String,java.lang.Object)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setIntAtName(java.lang.String,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setRowId(int,java.sql.RowId)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setDATE(int,oracle.sql.DATE)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void registerReturnParameter(int,int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setClob(int,java.io.Reader)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setByteAtName(java.lang.String,byte)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void registerReturnParameter(int,int,java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setCursor(int,java.sql.ResultSet)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="java.lang.String getRevision()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setTIMESTAMPAtName(java.lang.String,oracle.sql.TIMESTAMP)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setLongAtName(java.lang.String,long)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBinaryFloatAtName(java.lang.String,float)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="int getExecuteBatch()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="int executeUpdate()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setStructDescriptor(int,oracle.sql.StructDescriptor)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setNCharacterStream(int,java.io.Reader)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBinaryDoubleAtName(java.lang.String,double)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setRefTypeAtName(java.lang.String,oracle.sql.REF)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setDate(int,java.sql.Date)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBinaryDouble(int,double)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setCustomDatumAtName(java.lang.String,oracle.sql.CustomDatum)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBLOB(int,oracle.sql.BLOB)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setShort(int,short)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="boolean isNCHAR(int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setARRAYAtName(java.lang.String,oracle.sql.ARRAY)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setTIMESTAMPTZ(int,oracle.sql.TIMESTAMPTZ)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setRef(int,java.sql.Ref)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setRAW(int,oracle.sql.RAW)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setINTERVALYM(int,oracle.sql.INTERVALYM)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBinaryDouble(int,oracle.sql.BINARY_DOUBLE)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setArrayAtName(java.lang.String,java.sql.Array)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void defineParameterType(int,int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBoolean(int,boolean)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="int getRowPrefetch()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setStringForClob(int,java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setAsciiStreamAtName(java.lang.String,java.io.InputStream,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setByte(int,byte)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setAsciiStream(int,java.io.InputStream,long)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setNClob(int,java.io.Reader,long)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void defineColumnType(int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setFormOfUse(int,short)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setAsciiStream(int,java.io.InputStream,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setTIMESTAMP(int,oracle.sql.TIMESTAMP)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setTimestamp(int,java.sql.Timestamp,java.util.Calendar)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void clearDefines()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setInt(int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setCharacterStream(int,java.io.Reader,long)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setFloat(int,float)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBinaryFloat(int,oracle.sql.BINARY_FLOAT)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setNullAtName(java.lang.String,int,java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBlob(int,java.io.InputStream,long)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setORADataAtName(java.lang.String,oracle.sql.ORAData)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setINTERVALDS(int,oracle.sql.INTERVALDS)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setINTERVALDSAtName(java.lang.String,oracle.sql.INTERVALDS)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setCHARAtName(java.lang.String,oracle.sql.CHAR)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setNString(int,java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="boolean execute()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setOPAQUE(int,oracle.sql.OPAQUE)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setARRAY(int,oracle.sql.ARRAY)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBfile(int,oracle.sql.BFILE)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void clearParameters()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="oracle.jdbc.OracleParameterMetaData OracleGetParameterMetaData()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setString(int,java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setNull(int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setTime(int,java.sql.Time,java.util.Calendar)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBytesForBlobAtName(java.lang.String,byte[])" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setTimeAtName(java.lang.String,java.sql.Time)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void defineColumnTypeBytes(int,int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setOracleObjectAtName(java.lang.String,oracle.sql.Datum)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBytes(int,byte[])" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBigDecimal(int,java.math.BigDecimal)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setNUMBER(int,oracle.sql.NUMBER)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="int creationState()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setNullAtName(java.lang.String,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="java.sql.ParameterMetaData getParameterMetaData()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setRefType(int,oracle.sql.REF)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setClob(int,java.io.Reader,long)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBFILEAtName(java.lang.String,oracle.sql.BFILE)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void addBatch()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setStructDescriptorAtName(java.lang.String,oracle.sql.StructDescriptor)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setREF(int,oracle.sql.REF)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBooleanAtName(java.lang.String,boolean)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setSTRUCT(int,oracle.sql.STRUCT)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setRowPrefetch(int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setUnicodeStreamAtName(java.lang.String,java.io.InputStream,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setINTERVALYMAtName(java.lang.String,oracle.sql.INTERVALYM)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void closeWithKey(java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setTimestampAtName(java.lang.String,java.sql.Timestamp)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setSTRUCTAtName(java.lang.String,oracle.sql.STRUCT)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setREFAtName(java.lang.String,oracle.sql.REF)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setNClob(int,java.io.Reader)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setNull(int,int,java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setTIMESTAMPLTZ(int,oracle.sql.TIMESTAMPLTZ)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void &lt;init&gt;(java.sql.PreparedStatement,jdbc.tuning.ConnectionWrapper,java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setFixedCHAR(int,java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setORAData(int,oracle.sql.ORAData)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBinaryFloat(int,float)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setUnicodeStream(int,java.io.InputStream,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setURLAtName(java.lang.String,java.net.URL)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBlob(int,java.io.InputStream)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setNUMBERAtName(java.lang.String,oracle.sql.NUMBER)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setOracleObject(int,oracle.sql.Datum)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBLOBAtName(java.lang.String,oracle.sql.BLOB)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void defineParameterTypeBytes(int,int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setDateAtName(java.lang.String,java.sql.Date)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setObject(int,java.lang.Object,int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBlob(int,java.sql.Blob)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBytesAtName(java.lang.String,byte[])" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setExecuteBatch(int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setFixedCHARAtName(java.lang.String,java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void defineParameterTypeChars(int,int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setNCharacterStream(int,java.io.Reader,long)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setTimestamp(int,java.sql.Timestamp)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setClob(int,java.sql.Clob)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setCustomDatum(int,oracle.sql.CustomDatum)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBytesForBlob(int,byte[])" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setStringAtName(java.lang.String,java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBFILE(int,oracle.sql.BFILE)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setLong(int,long)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBigDecimalAtName(java.lang.String,java.math.BigDecimal)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setFloatAtName(java.lang.String,float)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setShortAtName(java.lang.String,short)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="int sendBatch()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setArray(int,java.sql.Array)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void registerReturnParameter(int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="java.sql.ResultSetMetaData getMetaData()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setPlsqlIndexTable(int,java.lang.Object,int,int,int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBinaryStreamAtName(java.lang.String,java.io.InputStream,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setObject(int,java.lang.Object,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setTime(int,java.sql.Time)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setCLOB(int,oracle.sql.CLOB)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setAsciiStream(int,java.io.InputStream)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setSQLXML(int,java.sql.SQLXML)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setDate(int,java.sql.Date,java.util.Calendar)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setCharacterStream(int,java.io.Reader)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="java.sql.ResultSet getReturnResultSet()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="java.sql.ResultSet executeQuery()" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setTIMESTAMPTZAtName(java.lang.String,oracle.sql.TIMESTAMPTZ)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setObjectAtName(java.lang.String,java.lang.Object,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBlobAtName(java.lang.String,java.sql.Blob)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setTIMESTAMPLTZAtName(java.lang.String,oracle.sql.TIMESTAMPLTZ)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setResultSetCache(oracle.jdbc.OracleResultSetCache)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setOPAQUEAtName(java.lang.String,oracle.sql.OPAQUE)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setROWID(int,oracle.sql.ROWID)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setStringForClobAtName(java.lang.String,java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBfileAtName(java.lang.String,oracle.sql.BFILE)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setDouble(int,double)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void defineColumnType(int,int,int,short)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setBinaryStream(int,java.io.InputStream)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setRefAtName(java.lang.String,java.sql.Ref)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setCHAR(int,oracle.sql.CHAR)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setCursorAtName(java.lang.String,java.sql.ResultSet)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setDATEAtName(java.lang.String,oracle.sql.DATE)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setCLOBAtName(java.lang.String,oracle.sql.CLOB)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setObjectAtName(java.lang.String,java.lang.Object,int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setDisableStmtCaching(boolean)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void defineColumnType(int,int,java.lang.String)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void defineColumnType(int,int,int)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setROWIDAtName(java.lang.String,oracle.sql.ROWID)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setObject(int,java.lang.Object)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<method signature="void setDoubleAtName(java.lang.String,double)" class="jdbc.tuning.PreparedStatementWrapper" />
+	<field name="con_" class="jdbc.tuning.PreparedStatementWrapper" />
+	<field name="sql" class="jdbc.tuning.PreparedStatementWrapper" />
+	<field name="realPreparedStatement" class="jdbc.tuning.PreparedStatementWrapper" />
+	<field name="REVISION" class="jdbc.tuning.PreparedStatementWrapper" />
+	<class name="jdbc.pool.CXMLManager" />
+	<method signature="jdbc.pool.CPoolAttribute getPoolAttribute(java.lang.String)" class="jdbc.pool.CXMLManager" />
+	<method signature="boolean update(jdbc.pool.CPoolAttribute)" class="jdbc.pool.CXMLManager" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.CXMLManager" />
+	<method signature="jdbc.pool.CPoolAttribute getPoolAttribute(int)" class="jdbc.pool.CXMLManager" />
+	<method signature="java.util.Map getAllPoolAttributes()" class="jdbc.pool.CXMLManager" />
+	<method signature="void save()" class="jdbc.pool.CXMLManager" />
+	<method signature="boolean create(jdbc.pool.CPoolAttribute)" class="jdbc.pool.CXMLManager" />
+	<method signature="boolean delete(java.lang.String)" class="jdbc.pool.CXMLManager" />
+	<method signature="void &lt;init&gt;(java.io.File)" class="jdbc.pool.CXMLManager" />
+	<field name="REVISION" class="jdbc.pool.CXMLManager" />
+	<field name="COMMENT" class="jdbc.pool.CXMLManager" />
+	<field name="xmlPoolConfig" class="jdbc.pool.CXMLManager" />
+	<field name="logger_" class="jdbc.pool.CXMLManager" />
+	<class name="jdbc.pool.CStackObjectPool" />
+	<method signature="void add(java.lang.Object)" class="jdbc.pool.CStackObjectPool" />
+	<method signature="java.util.Iterator getIdleObjects()" class="jdbc.pool.CStackObjectPool" />
+	<method signature="void release(java.lang.Object)" class="jdbc.pool.CStackObjectPool" />
+	<method signature="int getNumIdle()" class="jdbc.pool.CStackObjectPool" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.CStackObjectPool" />
+	<method signature="int getNumActive()" class="jdbc.pool.CStackObjectPool" />
+	<method signature="java.lang.Object[] getAcquiredObjects()" class="jdbc.pool.CStackObjectPool" />
+	<method signature="void destroy(java.lang.Object)" class="jdbc.pool.CStackObjectPool" />
+	<method signature="void destroy()" class="jdbc.pool.CStackObjectPool" />
+	<method signature="void &lt;init&gt;()" class="jdbc.pool.CStackObjectPool" />
+	<method signature="java.lang.Object acquire()" class="jdbc.pool.CStackObjectPool" />
+	<field name="alLockedObjectPool_" class="jdbc.pool.CStackObjectPool" />
+	<field name="REVISION" class="jdbc.pool.CStackObjectPool" />
+	<field name="stackUnLockedObjectPool_" class="jdbc.pool.CStackObjectPool" />
+	<class name="com.stg.crypto.PBEEncryptionRoutine" />
+	<method signature="java.lang.String encode(java.lang.String)" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<method signature="java.lang.String decrypt(byte[],java.lang.String)" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<method signature="java.lang.String decode(java.lang.String)" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<method signature="java.lang.String encrypt(byte[],java.lang.String)" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<method signature="void &lt;clinit&gt;()" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<method signature="void init(char[],byte[],int)" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<method signature="void &lt;init&gt;()" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<field name="encryptCipher" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<field name="iterations" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<field name="REVISION" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<field name="decryptCipher" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<field name="salt" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<field name="pass" class="com.stg.crypto.PBEEncryptionRoutine" />
+	<class name="jdbc.pool.ConnectionPool$CShrinkPoolThread" />
+	<method signature="void run()" class="jdbc.pool.ConnectionPool$CShrinkPoolThread" />
+	<method signature="void &lt;init&gt;(jdbc.pool.ConnectionPool,java.lang.String)" class="jdbc.pool.ConnectionPool$CShrinkPoolThread" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.ConnectionPool$CShrinkPoolThread" />
+	<field name="selfChecklogger_" class="jdbc.pool.ConnectionPool$CShrinkPoolThread" />
+	<field name="this$0" class="jdbc.pool.ConnectionPool$CShrinkPoolThread" />
+	<class name="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="int getNoOfConnectionsClosed()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="java.lang.String getPoolName()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getLeakedStatementCount()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setNoOfConnectionsUnlocked(int)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="int getNoOfConnectionsLocked()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setNoOfConnectionsClosed(int)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getLeakedConnectionCount()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setNoOfConnectionsRequested(int)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getLeakedResultSetCount()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getTotalConnectionsCreated()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setAverageConnectionDelayTimeInMillis(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getTimeStamp()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getCurrentWaitersCount()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setBadConnectionCount(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getPoolStartTimeInMillis()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="int getNoOfConnectionsRequested()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setWaitTimeTotalInMillis(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setNoOfUnavailableConnectionsHigh(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setNoOfConnectionsCreated(int)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getCurrentFreeConnectionCount()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setLeakedStatementCount(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setTotalConnectionsCreated(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setConnectionsHighCount(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setWaitTimeHighInMillis(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void &lt;init&gt;()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setCurrentWaitersCount(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="java.lang.String toString()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getCurrentUsedConnectionCount()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setPoolName(java.lang.String)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setWaitersHighCount(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setPoolStartTimeInMillis(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getWaitTimeTotalInMillis()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setLeakedConnectionCount(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="int getNoOfConnectionsCreated()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setNoOfUnavailableConnections(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setCurrentFreeConnectionCount(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setCurrentUsedConnectionCount(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getBadConnectionCount()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="int getNoOfConnectionsUnlocked()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getUnavailableConnectionsHighTime()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setPrintStatisticalAttributes(boolean)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setNoOfConnectionsLocked(int)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getNoOfUnavailableConnectionsHigh()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getWaitTimeHighInMillis()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setUnavailableConnectionsHighTime(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setLeakedResultSetCount(long)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="void setNoOfNewConnectionsRequested(int)" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getWaitersHighCount()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getConnectionsHighCount()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="int getNoOfNewConnectionsRequested()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getNoOfUnavailableConnections()" class="jdbc.pool.CPoolStatisticsBean" />
+	<method signature="long getAverageConnectionDelayTimeInMillis()" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="timeStamp" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lNoOfCurrentWaiters_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="bPrintStatisticalAttributes_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lLeakedStatementCount_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lCurrentFreeConnectionCount_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lBadConnectionCount_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="noOfConnectionsRequested" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lCurrentUsedConnectionCount_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lNoOfUnavailableConnections_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="REVISION" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lAverageConnectionDelayTimeInMillis_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lConnectionsHighCount_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lLeakedConnectionCount_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lLeakedResultSetCount_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lWaitTimeTotalInMilliSeconds_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lTotalNoOfConnectionsCreated_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="noOfConnectionsLocked" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="noOfNewConnectionsRequested" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lUnavailableConnectionsHighTime_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lPoolStartTimeInMillis_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lWaitTimeHighInMiliSeconds_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="noOfConnectionsCreated" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="strPoolName_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="noOfConnectionsClosed" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lNoOfUnavailableConnectionsHigh_" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="noOfConnectionsUnlocked" class="jdbc.pool.CPoolStatisticsBean" />
+	<field name="lNoOfWaitersHigh_" class="jdbc.pool.CPoolStatisticsBean" />
+	<class name="jdbc.tuning.StatementWrapper" />
+	<method signature="int getUpdateCount()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void setMaxRows(int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int creationState()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void defineColumnTypeChars(int,int,int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="java.sql.Statement realStatement()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int executeUpdate(java.lang.String,int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void setRowPrefetch(int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void setFetchSize(int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="java.lang.Object unwrap(java.lang.Class)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="java.lang.String getRevision()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int executeUpdate(java.lang.String,int[])" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void closeWithKey(java.lang.String)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="java.sql.ResultSet getGeneratedKeys()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void setEscapeProcessing(boolean)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int getFetchDirection()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void clearOpenResultSet(jdbc.tuning.ResultSetWrapper)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int getMaxFieldSize()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="java.lang.String getSqlQuery()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="java.sql.ResultSet getResultSet()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int getMaxRows()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="boolean isNCHAR(int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void setCursorName(java.lang.String)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void &lt;init&gt;(java.sql.Statement,jdbc.tuning.ConnectionWrapper,java.lang.String)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int getRowPrefetch()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void clearWarnings()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void setMaxFieldSize(int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void clearBatch()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int getResultSetConcurrency()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int[] executeBatch()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void defineColumnType(int,int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int executeUpdate(java.lang.String,java.lang.String[])" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void clearDefines()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void addResultSet(jdbc.tuning.ResultSetWrapper,jdbc.tuning.OpenResultSetException)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="boolean execute(java.lang.String,int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int getFetchSize()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="boolean isWrapperFor(java.lang.Class)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="java.sql.Connection getConnection()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="boolean getMoreResults(int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="boolean execute(java.lang.String,java.lang.String[])" class="jdbc.tuning.StatementWrapper" />
+	<method signature="boolean getMoreResults()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void close(boolean)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="boolean execute(java.lang.String)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="boolean isPoolable()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void setQueryTimeout(int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int getResultSetType()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void setPoolable(boolean)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="boolean execute(java.lang.String,int[])" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int getResultSetHoldability()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void setResultSetCache(oracle.jdbc.OracleResultSetCache)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="boolean isClosed()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void defineColumnType(int,int,int,short)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void setFetchDirection(int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void closeAllOpenResultSet()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void defineColumnTypeBytes(int,int,int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void close()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void cancel()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void defineColumnType(int,int,java.lang.String)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int executeUpdate(java.lang.String)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void defineColumnType(int,int,int)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="java.sql.ResultSet executeQuery(java.lang.String)" class="jdbc.tuning.StatementWrapper" />
+	<method signature="int getQueryTimeout()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="java.sql.SQLWarning getWarnings()" class="jdbc.tuning.StatementWrapper" />
+	<method signature="void addBatch(java.lang.String)" class="jdbc.tuning.StatementWrapper" />
+	<field name="connectionParent" class="jdbc.tuning.StatementWrapper" />
+	<field name="lastSql" class="jdbc.tuning.StatementWrapper" />
+	<field name="realStatement" class="jdbc.tuning.StatementWrapper" />
+	<field name="REVISION" class="jdbc.tuning.StatementWrapper" />
+	<field name="OPEN_RESULT_SET_EXCEPTION" class="jdbc.tuning.StatementWrapper" />
+	<field name="hmOpenResultSet_" class="jdbc.tuning.StatementWrapper" />
+	<class name="jdbc.pool.PoolInUseException" />
+	<method signature="void &lt;init&gt;(java.lang.String)" class="jdbc.pool.PoolInUseException" />
+	<method signature="void &lt;init&gt;(java.lang.String,java.lang.Throwable)" class="jdbc.pool.PoolInUseException" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.PoolInUseException" />
+	<method signature="void &lt;init&gt;(java.lang.Throwable)" class="jdbc.pool.PoolInUseException" />
+	<method signature="void &lt;init&gt;()" class="jdbc.pool.PoolInUseException" />
+	<field name="REVISION" class="jdbc.pool.PoolInUseException" />
+	<field name="serialVersionUID" class="jdbc.pool.PoolInUseException" />
+	<class name="jdbc.pool.CPropertyManager" />
+	<method signature="jdbc.pool.CPoolAttribute getPoolAttribute(java.lang.String)" class="jdbc.pool.CPropertyManager" />
+	<method signature="void writeTemplate(java.io.PrintWriter,java.lang.String)" class="jdbc.pool.CPropertyManager" />
+	<method signature="boolean update(jdbc.pool.CPoolAttribute)" class="jdbc.pool.CPropertyManager" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.pool.CPropertyManager" />
+	<method signature="java.util.Map getAllPoolAttributes()" class="jdbc.pool.CPropertyManager" />
+	<method signature="void save()" class="jdbc.pool.CPropertyManager" />
+	<method signature="boolean create(jdbc.pool.CPoolAttribute)" class="jdbc.pool.CPropertyManager" />
+	<method signature="boolean delete(java.lang.String)" class="jdbc.pool.CPropertyManager" />
+	<method signature="void &lt;init&gt;(java.io.File)" class="jdbc.pool.CPropertyManager" />
+	<field name="REVISION" class="jdbc.pool.CPropertyManager" />
+	<field name="properties_" class="jdbc.pool.CPropertyManager" />
+	<field name="logger_" class="jdbc.pool.CPropertyManager" />
+	<class name="jdbc.tuning.ConnectionLeakException" />
+	<method signature="void &lt;init&gt;(java.lang.String)" class="jdbc.tuning.ConnectionLeakException" />
+	<method signature="void &lt;init&gt;(java.lang.String,java.lang.String)" class="jdbc.tuning.ConnectionLeakException" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.tuning.ConnectionLeakException" />
+	<method signature="void &lt;init&gt;(java.lang.String,java.lang.String,int)" class="jdbc.tuning.ConnectionLeakException" />
+	<method signature="void &lt;init&gt;()" class="jdbc.tuning.ConnectionLeakException" />
+	<field name="REVISION" class="jdbc.tuning.ConnectionLeakException" />
+	<field name="serialVersionUID" class="jdbc.tuning.ConnectionLeakException" />
+	<class name="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Timestamp getTimestamp(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.net.URL getURL(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean first()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.lang.String getNString(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.SQLXML getSQLXML(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="byte getByte(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="int getInt(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateRowId(int,java.sql.RowId)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateSQLXML(int,java.sql.SQLXML)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean isFirst()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean isBeforeFirst()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.lang.Object unwrap(java.lang.Class)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Blob getBlob(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateClob(int,java.io.Reader,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNClob(java.lang.String,java.io.Reader)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateShort(int,short)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateSQLXML(java.lang.String,java.sql.SQLXML)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="int getFetchDirection()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="byte[] getBytes(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="float getFloat(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.math.BigDecimal getBigDecimal(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateAsciiStream(java.lang.String,java.io.InputStream,int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateCharacterStream(int,java.io.Reader,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateByte(int,byte)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateClob(int,java.sql.Clob)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="short getShort(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateObject(java.lang.String,java.lang.Object,int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateDate(int,java.sql.Date)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.lang.String getNString(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="int findColumn(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateCharacterStream(java.lang.String,java.io.Reader)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.math.BigDecimal getBigDecimal(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNClob(int,java.sql.NClob)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateTime(java.lang.String,java.sql.Time)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="short getShort(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="float getFloat(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateString(int,java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateRow()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateAsciiStream(java.lang.String,java.io.InputStream,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean isClosed()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateDouble(int,double)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateCharacterStream(int,java.io.Reader,int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNString(java.lang.String,java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void setFetchDirection(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void cancelRowUpdates()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="int getInt(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateClob(java.lang.String,java.io.Reader)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNCharacterStream(int,java.io.Reader)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNClob(int,java.io.Reader,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateObject(int,java.lang.Object)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean last()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Timestamp getTimestamp(int,java.util.Calendar)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="byte getByte(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Time getTime(java.lang.String,java.util.Calendar)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.io.Reader getCharacterStream(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBlob(int,java.io.InputStream)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNull(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBytes(java.lang.String,byte[])" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void deleteRow()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBytes(int,byte[])" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBlob(int,java.sql.Blob)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void setFetchSize(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateCharacterStream(java.lang.String,java.io.Reader,int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="byte[] getBytes(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateDouble(java.lang.String,double)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateCharacterStream(java.lang.String,java.io.Reader,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateAsciiStream(int,java.io.InputStream,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateAsciiStream(int,java.io.InputStream,int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean rowDeleted()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean absolute(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBlob(java.lang.String,java.io.InputStream)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateClob(java.lang.String,java.io.Reader,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNClob(java.lang.String,java.sql.NClob)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateRef(java.lang.String,java.sql.Ref)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.math.BigDecimal getBigDecimal(int,int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.math.BigDecimal getBigDecimal(java.lang.String,int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBoolean(int,boolean)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateTimestamp(int,java.sql.Timestamp)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean isAfterLast()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Timestamp getTimestamp(java.lang.String,java.util.Calendar)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="int getFetchSize()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateObject(java.lang.String,java.lang.Object)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNClob(java.lang.String,java.io.Reader,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Date getDate(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateDate(java.lang.String,java.sql.Date)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void beforeFirst()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean isLast()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBinaryStream(int,java.io.InputStream)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void moveToCurrentRow()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateRef(int,java.sql.Ref)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean rowUpdated()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void afterLast()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Array getArray(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Ref getRef(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNull(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Blob getBlob(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean wasNull()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.SQLXML getSQLXML(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Ref getRef(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean getBoolean(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.io.Reader getNCharacterStream(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBinaryStream(java.lang.String,java.io.InputStream)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Time getTime(int,java.util.Calendar)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.lang.String getCursorName()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.lang.Object getObject(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.io.Reader getNCharacterStream(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void &lt;clinit&gt;()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="int getConcurrency()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="int getType()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.io.InputStream getUnicodeStream(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateByte(java.lang.String,byte)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.RowId getRowId(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.io.InputStream getBinaryStream(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean rowInserted()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateLong(java.lang.String,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void clearWarnings()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBigDecimal(java.lang.String,java.math.BigDecimal)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="long getLong(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateFloat(int,float)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBinaryStream(int,java.io.InputStream,int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBinaryStream(int,java.io.InputStream,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.lang.Object getObject(int,java.util.Map)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.io.InputStream getAsciiStream(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Array getArray(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateAsciiStream(int,java.io.InputStream)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateString(java.lang.String,java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void &lt;init&gt;(java.sql.ResultSet,jdbc.tuning.StatementWrapper,java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateRowId(java.lang.String,java.sql.RowId)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void refreshRow()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void close(boolean)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean relative(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateShort(java.lang.String,short)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateTimestamp(java.lang.String,java.sql.Timestamp)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.NClob getNClob(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="int getHoldability()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Statement getStatement()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNCharacterStream(java.lang.String,java.io.Reader,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="long getLong(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateObject(int,java.lang.Object,int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateAsciiStream(java.lang.String,java.io.InputStream)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Clob getClob(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Date getDate(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBlob(int,java.io.InputStream,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateFloat(java.lang.String,float)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="int getRow()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void close()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateInt(java.lang.String,int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNString(int,java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean getBoolean(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.SQLWarning getWarnings()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.io.Reader getCharacterStream(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Time getTime(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateClob(int,java.io.Reader)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNCharacterStream(java.lang.String,java.io.Reader)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateInt(int,int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBoolean(java.lang.String,boolean)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateClob(java.lang.String,java.sql.Clob)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.lang.String getString(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBlob(java.lang.String,java.sql.Blob)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateLong(int,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateTime(int,java.sql.Time)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean previous()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void insertRow()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="double getDouble(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBlob(java.lang.String,java.io.InputStream,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Timestamp getTimestamp(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.io.InputStream getUnicodeStream(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.net.URL getURL(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBinaryStream(java.lang.String,java.io.InputStream,int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateCharacterStream(int,java.io.Reader)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.io.InputStream getBinaryStream(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Clob getClob(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.lang.String getString(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean next()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Date getDate(int,java.util.Calendar)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateArray(int,java.sql.Array)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateArray(java.lang.String,java.sql.Array)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="boolean isWrapperFor(java.lang.Class)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.RowId getRowId(int)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.io.InputStream getAsciiStream(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.ResultSetMetaData getMetaData()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Time getTime(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="double getDouble(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.Date getDate(java.lang.String,java.util.Calendar)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.lang.Object getObject(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBigDecimal(int,java.math.BigDecimal)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.NClob getNClob(java.lang.String)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNClob(int,java.io.Reader)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateNCharacterStream(int,java.io.Reader,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.lang.Object getObject(java.lang.String,java.util.Map)" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="java.sql.ResultSet realResultSet()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void moveToInsertRow()" class="jdbc.tuning.ResultSetWrapper" />
+	<method signature="void updateBinaryStream(java.lang.String,java.io.InputStream,long)" class="jdbc.tuning.ResultSetWrapper" />
+	<field name="sql" class="jdbc.tuning.ResultSetWrapper" />
+	<field name="REVISION" class="jdbc.tuning.ResultSetWrapper" />
+	<field name="parentStatement" class="jdbc.tuning.ResultSetWrapper" />
+	<field name="realResultSet" class="jdbc.tuning.ResultSetWrapper" />
+</entrypoints>
+
+<!-- writing shrinked C:\Documents and Settings\STG\workspace\JDBCPool\distribution\JDBCPool16.02.P012_org.jar to C:\Documents and Settings\STG\workspace\JDBCPool\distribution\yguard_temp_10271.jar. -->
+<inOutPair in="C:\Documents and Settings\STG\workspace\JDBCPool\distribution\JDBCPool16.02.P012_org.jar" out="C:\Documents and Settings\STG\workspace\JDBCPool\distribution\yguard_temp_10271.jar">
+	<removed-code>
+	</removed-code>
+	<removed-resources>
+	</removed-resources>
+<!-- 	shrinked C:\Documents and Settings\STG\workspace\JDBCPool\distribution\JDBCPool16.02.P012_org.jar BY -2.33%. -->
+<!-- 	size before: 71 KB, size after: 72 KB. -->
+<!-- 	removed 0 classes, 0 methods, 0 fields, 0 resources. -->
+<!-- 	29 classes remaining of 29 total. -->
+</inOutPair>
+</yshrink>
+

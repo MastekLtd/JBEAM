@@ -1,0 +1,1492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yguard version="1.5">
+<!--
+  yGuard Bytecode Obfuscator, v2.2.0, a Product of yWorks GmbH - http://www.yworks.com
+
+  Logfile created on Tue Feb 03 16:32:22 EST 2009
+
+  Jar file to be obfuscated:           yguard_temp_10271.jar
+  Target Jar file for obfuscated code: JDBCPool16.02.P012.jar
+
+-->
+<!--
+  Memory in use after class data structure built: 6159864 bytes
+  Total memory available                        : 11227136 bytes
+-->
+<expose>
+  <class name="com.stg.logger.LogLevel"/>
+  <field class="com.stg.logger.LogLevel" name="FINEST"/>
+  <field class="com.stg.logger.LogLevel" name="REVISION"/>
+  <field class="com.stg.logger.LogLevel" name="FINER"/>
+  <field class="com.stg.logger.LogLevel" name="FINEST_INT"/>
+  <field class="com.stg.logger.LogLevel" name="FINE_INT"/>
+  <field class="com.stg.logger.LogLevel" name="FINE"/>
+  <field class="com.stg.logger.LogLevel" name="NOTICE_INT"/>
+  <field class="com.stg.logger.LogLevel" name="FINER_INT"/>
+  <field class="com.stg.logger.LogLevel" name="NOTICE"/>
+  <method class="com.stg.logger.LogLevel" name="org.apache.log4j.Level toLevel(int, org.apache.log4j.Level)"/>
+  <method class="com.stg.logger.LogLevel" name="org.apache.log4j.Level toLevel(java.lang.String, org.apache.log4j.Level)"/>
+  <method class="com.stg.logger.LogLevel" name="org.apache.log4j.Level toLevel(java.lang.String)"/>
+  <method class="com.stg.logger.LogLevel" name="org.apache.log4j.Level toLevel(int)"/>
+  <class name="com.stg.crypto.PBEEncryptionRoutine"/>
+  <field class="com.stg.crypto.PBEEncryptionRoutine" name="REVISION"/>
+  <method class="com.stg.crypto.PBEEncryptionRoutine" name="java.lang.String decode(java.lang.String)"/>
+  <method class="com.stg.crypto.PBEEncryptionRoutine" name="java.lang.String encode(java.lang.String)"/>
+  <class name="com.stg.crypto.CryptoHelper"/>
+  <method class="com.stg.crypto.CryptoHelper" name="byte[] toByteArray(java.lang.String)"/>
+  <method class="com.stg.crypto.CryptoHelper" name="java.lang.String toString(byte[], int)"/>
+  <method class="com.stg.crypto.CryptoHelper" name="java.lang.String toString(byte[])"/>
+  <class name="jdbc.pool.ConnectionPool$CShrinkPoolThread"/>
+  <method class="jdbc.pool.ConnectionPool$CShrinkPoolThread" name="void run()"/>
+  <class name="jdbc.pool.ConnectionPool"/>
+  <field class="jdbc.pool.ConnectionPool" name="REVISION"/>
+  <method class="jdbc.pool.ConnectionPool" name="void emptyPool(boolean)"/>
+  <method class="jdbc.pool.ConnectionPool" name="void changeAttributes(jdbc.pool.CPoolAttribute)"/>
+  <method class="jdbc.pool.ConnectionPool" name="java.lang.String getPoolName()"/>
+  <method class="jdbc.pool.ConnectionPool" name="java.sql.Connection getConnection()"/>
+  <method class="jdbc.pool.ConnectionPool" name="void releaseConnection(java.sql.Connection, boolean, int)"/>
+  <method class="jdbc.pool.ConnectionPool" name="void addLeakedResultSetCount(int)"/>
+  <method class="jdbc.pool.ConnectionPool" name="void addQuery(java.lang.Thread, jdbc.pool.CObjectWrapper)"/>
+  <method class="jdbc.pool.ConnectionPool" name="java.lang.String toString()"/>
+  <method class="jdbc.pool.ConnectionPool" name="void initializePool()"/>
+  <method class="jdbc.pool.ConnectionPool" name="void removeQuery(java.lang.Thread)"/>
+  <method class="jdbc.pool.ConnectionPool" name="jdbc.pool.CPoolStatisticsBean getStatistics()"/>
+  <method class="jdbc.pool.ConnectionPool" name="java.util.Hashtable getCurrentRunningQueries()"/>
+  <method class="jdbc.pool.ConnectionPool" name="void stopShrinking()"/>
+  <method class="jdbc.pool.ConnectionPool" name="void startShrinking()"/>
+  <method class="jdbc.pool.ConnectionPool" name="java.util.ArrayList getStatisticsHistory()"/>
+  <method class="jdbc.pool.ConnectionPool" name="jdbc.pool.CPoolAttribute getPoolAttributes()"/>
+  <class name="jdbc.pool.CXMLManager"/>
+  <field class="jdbc.pool.CXMLManager" name="REVISION"/>
+  <method class="jdbc.pool.CXMLManager" name="jdbc.pool.CPoolAttribute getPoolAttribute(java.lang.String)"/>
+  <method class="jdbc.pool.CXMLManager" name="void save()"/>
+  <method class="jdbc.pool.CXMLManager" name="java.util.Map getAllPoolAttributes()"/>
+  <method class="jdbc.pool.CXMLManager" name="boolean delete(java.lang.String)"/>
+  <method class="jdbc.pool.CXMLManager" name="boolean update(jdbc.pool.CPoolAttribute)"/>
+  <method class="jdbc.pool.CXMLManager" name="boolean create(jdbc.pool.CPoolAttribute)"/>
+  <class name="jdbc.pool.CConnectionPoolManager"/>
+  <field class="jdbc.pool.CConnectionPoolManager" name="REVISION"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="jdbc.pool.CPoolAttribute getPoolAttributes(java.lang.String)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void destroy(boolean)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="jdbc.pool.CConnectionPoolManager getInstance(java.lang.String, java.io.File)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="jdbc.pool.CConnectionPoolManager getInstance()"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="java.sql.Connection getConnection(java.lang.String)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void poolDestroyed(java.lang.String)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void addNewPool(jdbc.pool.CPoolAttribute)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="java.util.ArrayList getPoolStatisticsHistory(java.lang.String)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void addNewPools(jdbc.pool.CPoolAttribute[])"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="java.util.Enumeration getCurrentRunningQueries(java.lang.String)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void releaseConnection(java.sql.Connection)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void updatePoolAttributes(jdbc.pool.CPoolAttribute, boolean)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void emptyPool(java.lang.String, boolean)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="java.util.Iterator getAllPoolStatistics()"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void main(java.lang.String[])"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="boolean emptyAllPools(boolean)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void delete(java.lang.String, boolean)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void finalize()"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void updatePoolAttributes(jdbc.pool.CPoolAttribute[], boolean)"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="jdbc.pool.CPoolStatisticsBean getPoolStatistics(java.lang.String)"/>
+  <class name="jdbc.pool.CPoolStatisticsBean"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="REVISION"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setAverageConnectionDelayTimeInMillis(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setCurrentUsedConnectionCount(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="int getNoOfNewConnectionsRequested()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getUnavailableConnectionsHighTime()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setLeakedConnectionCount(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getBadConnectionCount()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getWaitTimeTotalInMillis()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setPoolName(java.lang.String)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getLeakedResultSetCount()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="java.lang.String getPoolName()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setUnavailableConnectionsHighTime(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getWaitTimeHighInMillis()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setLeakedStatementCount(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setLeakedResultSetCount(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="int getNoOfConnectionsUnlocked()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getAverageConnectionDelayTimeInMillis()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setWaitTimeHighInMillis(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setBadConnectionCount(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setCurrentWaitersCount(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getConnectionsHighCount()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setWaitersHighCount(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setNoOfUnavailableConnections(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setTotalConnectionsCreated(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="int getNoOfConnectionsLocked()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="java.lang.String toString()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setConnectionsHighCount(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setNoOfUnavailableConnectionsHigh(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="int getNoOfConnectionsClosed()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setPoolStartTimeInMillis(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setWaitTimeTotalInMillis(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setNoOfConnectionsClosed(int)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getCurrentUsedConnectionCount()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="int getNoOfConnectionsCreated()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getCurrentFreeConnectionCount()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getNoOfUnavailableConnections()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setCurrentFreeConnectionCount(long)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="int getNoOfConnectionsRequested()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getLeakedStatementCount()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getWaitersHighCount()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getNoOfUnavailableConnectionsHigh()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setNoOfConnectionsLocked(int)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setNoOfConnectionsRequested(int)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getCurrentWaitersCount()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getPoolStartTimeInMillis()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setNoOfConnectionsCreated(int)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setNoOfNewConnectionsRequested(int)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getTotalConnectionsCreated()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setNoOfConnectionsUnlocked(int)"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getLeakedConnectionCount()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="long getTimeStamp()"/>
+  <method class="jdbc.pool.CPoolStatisticsBean" name="void setPrintStatisticalAttributes(boolean)"/>
+  <class name="jdbc.pool.CStackObjectPool"/>
+  <field class="jdbc.pool.CStackObjectPool" name="REVISION"/>
+  <method class="jdbc.pool.CStackObjectPool" name="void release(java.lang.Object)"/>
+  <method class="jdbc.pool.CStackObjectPool" name="java.lang.Object[] getAcquiredObjects()"/>
+  <method class="jdbc.pool.CStackObjectPool" name="java.lang.Object acquire()"/>
+  <method class="jdbc.pool.CStackObjectPool" name="int getNumActive()"/>
+  <method class="jdbc.pool.CStackObjectPool" name="void destroy()"/>
+  <method class="jdbc.pool.CStackObjectPool" name="int getNumIdle()"/>
+  <method class="jdbc.pool.CStackObjectPool" name="void add(java.lang.Object)"/>
+  <method class="jdbc.pool.CStackObjectPool" name="java.util.Iterator getIdleObjects()"/>
+  <method class="jdbc.pool.CStackObjectPool" name="void destroy(java.lang.Object)"/>
+  <class name="jdbc.pool.CPoolAttributeManager"/>
+  <field class="jdbc.pool.CPoolAttributeManager" name="REVISION"/>
+  <method class="jdbc.pool.CPoolAttributeManager" name="jdbc.pool.CPoolAttributeManager getPoolAttributeManager(java.io.File)"/>
+  <method class="jdbc.pool.CPoolAttributeManager" name="jdbc.pool.CPoolAttribute getPoolAttribute(java.lang.String)"/>
+  <method class="jdbc.pool.CPoolAttributeManager" name="java.io.File getConfigurationFile()"/>
+  <method class="jdbc.pool.CPoolAttributeManager" name="java.util.Map getAllPoolAttributes()"/>
+  <method class="jdbc.pool.CPoolAttributeManager" name="void save()"/>
+  <method class="jdbc.pool.CPoolAttributeManager" name="boolean delete(java.lang.String)"/>
+  <method class="jdbc.pool.CPoolAttributeManager" name="boolean update(jdbc.pool.CPoolAttribute)"/>
+  <method class="jdbc.pool.CPoolAttributeManager" name="boolean create(jdbc.pool.CPoolAttribute)"/>
+  <class name="jdbc.pool.CPropertyManager"/>
+  <field class="jdbc.pool.CPropertyManager" name="REVISION"/>
+  <method class="jdbc.pool.CPropertyManager" name="jdbc.pool.CPoolAttribute getPoolAttribute(java.lang.String)"/>
+  <method class="jdbc.pool.CPropertyManager" name="void save()"/>
+  <method class="jdbc.pool.CPropertyManager" name="java.util.Map getAllPoolAttributes()"/>
+  <method class="jdbc.pool.CPropertyManager" name="boolean delete(java.lang.String)"/>
+  <method class="jdbc.pool.CPropertyManager" name="boolean update(jdbc.pool.CPoolAttribute)"/>
+  <method class="jdbc.pool.CPropertyManager" name="boolean create(jdbc.pool.CPoolAttribute)"/>
+  <class name="jdbc.pool.CObjectWrapper"/>
+  <field class="jdbc.pool.CObjectWrapper" name="REVISION"/>
+  <method class="jdbc.pool.CObjectWrapper" name="boolean equals(java.lang.Object)"/>
+  <method class="jdbc.pool.CObjectWrapper" name="int hashCode()"/>
+  <method class="jdbc.pool.CObjectWrapper" name="long getTime()"/>
+  <method class="jdbc.pool.CObjectWrapper" name="java.lang.String toString()"/>
+  <method class="jdbc.pool.CObjectWrapper" name="java.lang.Object getUnderLyingObject()"/>
+  <class name="jdbc.pool.IPool"/>
+  <field class="jdbc.pool.IPool" name="REVISION"/>
+  <field class="jdbc.pool.IPool" name="LIFO_ALGORITHM"/>
+  <field class="jdbc.pool.IPool" name="FIFO_ALGORITHM"/>
+  <method class="jdbc.pool.IPool" name="void release(java.lang.Object)"/>
+  <method class="jdbc.pool.IPool" name="java.lang.Object[] getAcquiredObjects()"/>
+  <method class="jdbc.pool.IPool" name="java.lang.Object acquire()"/>
+  <method class="jdbc.pool.IPool" name="int getNumActive()"/>
+  <method class="jdbc.pool.IPool" name="void destroy()"/>
+  <method class="jdbc.pool.IPool" name="int getNumIdle()"/>
+  <method class="jdbc.pool.IPool" name="void add(java.lang.Object)"/>
+  <method class="jdbc.pool.IPool" name="java.util.Iterator getIdleObjects()"/>
+  <method class="jdbc.pool.IPool" name="void destroy(java.lang.Object)"/>
+  <class name="jdbc.pool.CPoolAttribute"/>
+  <field class="jdbc.pool.CPoolAttribute" name="REVISION"/>
+  <method class="jdbc.pool.CPoolAttribute" name="java.lang.String getPoolAlgorithm()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setVendor(java.lang.String)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setLoadOnStartup(boolean)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setMaxUsagePerJDBCConnection(int)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setToBeSaved(boolean)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="int getInitialPoolSize()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="java.lang.String getUser()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="int getCriticalOperationTimeLimit()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="int getConnectionIdleTimeout()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setPoolName(java.lang.String)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setCriticalOperationTimeLimit(int)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="java.lang.String getPoolName()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setShrinkPoolInterval(int)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="java.lang.String getPassword()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="java.lang.String getVendor()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="boolean isLoadOnStartup()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setMaximumCapacity(int)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setPassword(java.lang.String)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="int getMaxUsagePerJDBCConnection()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="java.lang.String toString()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="java.lang.String decode(java.lang.String)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="int getCapacityIncreament()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setDriver(java.lang.String)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="java.lang.String getURL()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="int getMaximumCapacity()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="boolean reset(jdbc.pool.CPoolAttribute)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="int getShrinkPoolInterval()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setPoolAlgorithm(java.lang.String)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setUser(java.lang.String)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="boolean isToBeSaved()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setInitialPoolSize(int)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="int getInUseWaitTime()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setInUseWaitTime(int)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setURL(java.lang.String)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="boolean compare(jdbc.pool.CPoolAttribute)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setStatisticalHistoryRecordCount(int)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="int getStatisticalHistoryRecordCount()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="java.lang.String encode(java.lang.String)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setConnectionIdleTimeout(int)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="java.lang.String getDriver()"/>
+  <method class="jdbc.pool.CPoolAttribute" name="void setCapacityIncreament(int)"/>
+  <method class="jdbc.pool.CPoolAttribute" name="java.lang.Object clone()"/>
+  <class name="jdbc.pool.InvalidPoolAttributeException"/>
+  <field class="jdbc.pool.InvalidPoolAttributeException" name="REVISION"/>
+  <class name="jdbc.pool.PoolInUseException"/>
+  <field class="jdbc.pool.PoolInUseException" name="REVISION"/>
+  <class name="jdbc.pool.CFIFOObjectPool"/>
+  <field class="jdbc.pool.CFIFOObjectPool" name="REVISION"/>
+  <method class="jdbc.pool.CFIFOObjectPool" name="void release(java.lang.Object)"/>
+  <method class="jdbc.pool.CFIFOObjectPool" name="java.lang.Object[] getAcquiredObjects()"/>
+  <method class="jdbc.pool.CFIFOObjectPool" name="java.lang.Object acquire()"/>
+  <method class="jdbc.pool.CFIFOObjectPool" name="int getNumActive()"/>
+  <method class="jdbc.pool.CFIFOObjectPool" name="void destroy()"/>
+  <method class="jdbc.pool.CFIFOObjectPool" name="int getNumIdle()"/>
+  <method class="jdbc.pool.CFIFOObjectPool" name="void add(java.lang.Object)"/>
+  <method class="jdbc.pool.CFIFOObjectPool" name="java.util.Iterator getIdleObjects()"/>
+  <method class="jdbc.pool.CFIFOObjectPool" name="void destroy(java.lang.Object)"/>
+  <class name="jdbc.tuning.DatabaseMetaDataWrapper"/>
+  <field class="jdbc.tuning.DatabaseMetaDataWrapper" name="REVISION"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsLimitedOuterJoins()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsCatalogsInPrivilegeDefinitions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsNonNullableColumns()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getPrimaryKeys(java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean usesLocalFilePerTable()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getJDBCMajorVersion()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsStoredFunctionsUsingCallSyntax()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsDataManipulationTransactionsOnly()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxCharLiteralLength()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getProcedures(java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsDifferentTableCorrelationNames()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsCorrelatedSubqueries()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxRowSize()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean isReadOnly()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getNumericFunctions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsDataDefinitionAndDataManipulationTransactions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getSQLKeywords()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getSuperTables(java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxSchemaNameLength()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsSchemasInTableDefinitions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsSelectForUpdate()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsAlterTableWithAddColumn()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getBestRowIdentifier(java.lang.String, java.lang.String, java.lang.String, int, boolean)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean nullsAreSortedHigh()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxColumnNameLength()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsTransactions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getSystemFunctions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean ownUpdatesAreVisible(int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsExpressionsInOrderBy()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsCatalogsInTableDefinitions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsOpenStatementsAcrossRollback()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getDatabaseMajorVersion()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getTableTypes()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean nullsAreSortedAtEnd()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxStatementLength()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getSuperTypes(java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxColumnsInSelect()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getImportedKeys(java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getCatalogSeparator()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxColumnsInGroupBy()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsSubqueriesInIns()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getColumns(java.lang.String, java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getIndexInfo(java.lang.String, java.lang.String, java.lang.String, boolean, boolean)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsResultSetHoldability(int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsMixedCaseIdentifiers()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean ownInsertsAreVisible(int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsOpenStatementsAcrossCommit()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsGetGeneratedKeys()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getDriverMinorVersion()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsOuterJoins()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsConvert(int, int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean insertsAreDetected(int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxCatalogNameLength()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getSchemas()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getColumnPrivileges(java.lang.String, java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsANSI92IntermediateSQL()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean storesLowerCaseQuotedIdentifiers()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsOpenCursorsAcrossRollback()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsNamedParameters()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getProcedureColumns(java.lang.String, java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean isWrapperFor(java.lang.Class)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxTablesInSelect()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsSubqueriesInQuantifieds()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean storesMixedCaseQuotedIdentifiers()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getDatabaseProductVersion()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsGroupByUnrelated()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getDatabaseProductName()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getCrossReference(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean updatesAreDetected(int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxTableNameLength()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.Object unwrap(java.lang.Class)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsUnion()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean storesUpperCaseIdentifiers()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsGroupByBeyondSelect()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsIntegrityEnhancementFacility()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getTypeInfo()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean allProceduresAreCallable()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsMultipleTransactions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsMixedCaseQuotedIdentifiers()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean dataDefinitionCausesTransactionCommit()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getExportedKeys(java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean deletesAreDetected(int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getClientInfoProperties()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxUserNameLength()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsStatementPooling()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getDriverMajorVersion()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsColumnAliasing()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsExtendedSQLGrammar()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsBatchUpdates()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getTables(java.lang.String, java.lang.String, java.lang.String, java.lang.String[])"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsFullOuterJoins()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxColumnsInIndex()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean nullPlusNonNullIsNull()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsCoreSQLGrammar()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsConvert()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getStringFunctions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean othersDeletesAreVisible(int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsANSI92FullSQL()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxColumnsInTable()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean nullsAreSortedAtStart()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsSchemasInProcedureCalls()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsLikeEscapeClause()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getJDBCMinorVersion()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxColumnsInOrderBy()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getTimeDateFunctions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean storesMixedCaseIdentifiers()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getVersionColumns(java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.RowIdLifetime getRowIdLifetime()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean othersUpdatesAreVisible(int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getProcedureTerm()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getFunctionColumns(java.lang.String, java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsMultipleResultSets()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean dataDefinitionIgnoredInTransactions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsMultipleOpenResults()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxBinaryLiteralLength()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsPositionedUpdate()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getFunctions(java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsSchemasInIndexDefinitions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsTableCorrelationNames()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsResultSetType(int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsOpenCursorsAcrossCommit()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getResultSetHoldability()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxConnections()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getCatalogTerm()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean isCatalogAtStart()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean nullsAreSortedLow()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean allTablesAreSelectable()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsSchemasInPrivilegeDefinitions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsCatalogsInIndexDefinitions()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsPositionedDelete()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean storesUpperCaseQuotedIdentifiers()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getSQLStateType()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsOrderByUnrelated()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getSearchStringEscape()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsUnionAll()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsCatalogsInProcedureCalls()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getDriverVersion()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsGroupBy()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getAttributes(java.lang.String, java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean storesLowerCaseIdentifiers()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getURL()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean doesMaxRowSizeIncludeBlobs()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getSchemas(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getCatalogs()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsMinimumSQLGrammar()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getExtraNameCharacters()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsTransactionIsolationLevel(int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getDefaultTransactionIsolation()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsSubqueriesInExists()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getDatabaseMinorVersion()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.Connection getConnection()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsANSI92EntryLevelSQL()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getDriverName()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxCursorNameLength()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getUDTs(java.lang.String, java.lang.String, java.lang.String, int[])"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean othersInsertsAreVisible(int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsSavepoints()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsStoredProcedures()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsAlterTableWithDropColumn()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsSchemasInDataManipulation()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getIdentifierQuoteString()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean autoCommitFailureClosesAllResultSets()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getSchemaTerm()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean usesLocalFiles()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsCatalogsInDataManipulation()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsResultSetConcurrency(int, int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean supportsSubqueriesInComparisons()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.lang.String getUserName()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxStatements()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="java.sql.ResultSet getTablePrivileges(java.lang.String, java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxIndexLength()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean ownDeletesAreVisible(int)"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="boolean locatorsUpdateCopy()"/>
+  <method class="jdbc.tuning.DatabaseMetaDataWrapper" name="int getMaxProcedureNameLength()"/>
+  <class name="jdbc.tuning.SQLArrayWrapper"/>
+  <field class="jdbc.tuning.SQLArrayWrapper" name="REVISION"/>
+  <method class="jdbc.tuning.SQLArrayWrapper" name="java.sql.ResultSet getResultSet(long, int, java.util.Map)"/>
+  <method class="jdbc.tuning.SQLArrayWrapper" name="java.lang.Object getArray(java.util.Map)"/>
+  <method class="jdbc.tuning.SQLArrayWrapper" name="java.sql.ResultSet getResultSet(long, int)"/>
+  <method class="jdbc.tuning.SQLArrayWrapper" name="java.sql.ResultSet getResultSet(java.util.Map)"/>
+  <method class="jdbc.tuning.SQLArrayWrapper" name="java.lang.String getBaseTypeName()"/>
+  <method class="jdbc.tuning.SQLArrayWrapper" name="java.lang.Object getArray(long, int, java.util.Map)"/>
+  <method class="jdbc.tuning.SQLArrayWrapper" name="int getBaseType()"/>
+  <method class="jdbc.tuning.SQLArrayWrapper" name="java.sql.ResultSet getResultSet()"/>
+  <method class="jdbc.tuning.SQLArrayWrapper" name="void free()"/>
+  <method class="jdbc.tuning.SQLArrayWrapper" name="java.lang.Object getArray(long, int)"/>
+  <method class="jdbc.tuning.SQLArrayWrapper" name="java.lang.Object getArray()"/>
+  <class name="jdbc.tuning.StatementWrapper"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void setEscapeProcessing(boolean)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int[] executeBatch()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="boolean isWrapperFor(java.lang.Class)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="java.sql.SQLWarning getWarnings()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="boolean isPoolable()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void defineColumnType(int, int, java.lang.String)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="boolean isNCHAR(int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int executeUpdate(java.lang.String, java.lang.String[])"/>
+  <method class="jdbc.tuning.StatementWrapper" name="boolean execute(java.lang.String, int[])"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int getQueryTimeout()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="java.sql.Connection getConnection()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int getMaxFieldSize()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int executeUpdate(java.lang.String)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void setResultSetCache(oracle.jdbc.OracleResultSetCache)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="boolean getMoreResults()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void defineColumnType(int, int, int, short)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="java.sql.ResultSet getGeneratedKeys()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void clearBatch()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int getMaxRows()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int getFetchDirection()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="boolean execute(java.lang.String, java.lang.String[])"/>
+  <method class="jdbc.tuning.StatementWrapper" name="java.lang.String getSqlQuery()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void setMaxRows(int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void close()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void defineColumnTypeChars(int, int, int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int executeUpdate(java.lang.String, int[])"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void setMaxFieldSize(int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int getResultSetType()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="java.lang.Object unwrap(java.lang.Class)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int getRowPrefetch()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="java.lang.String getRevision()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void defineColumnType(int, int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int getResultSetConcurrency()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void setFetchDirection(int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void defineColumnTypeBytes(int, int, int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int creationState()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void setPoolable(boolean)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int getResultSetHoldability()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void addBatch(java.lang.String)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void setQueryTimeout(int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void setFetchSize(int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="java.sql.ResultSet executeQuery(java.lang.String)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void clearWarnings()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int getUpdateCount()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="java.sql.Statement realStatement()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void closeWithKey(java.lang.String)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void setCursorName(java.lang.String)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void setRowPrefetch(int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="boolean isClosed()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void defineColumnType(int, int, int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="boolean getMoreResults(int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="boolean execute(java.lang.String)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="java.sql.ResultSet getResultSet()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int getFetchSize()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void cancel()"/>
+  <method class="jdbc.tuning.StatementWrapper" name="boolean execute(java.lang.String, int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="int executeUpdate(java.lang.String, int)"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void clearDefines()"/>
+  <class name="jdbc.tuning.ResultSetWrapper"/>
+  <field class="jdbc.tuning.ResultSetWrapper" name="REVISION"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateLong(int, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateCharacterStream(java.lang.String, java.io.Reader)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateObject(int, java.lang.Object, int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateCharacterStream(int, java.io.Reader, int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.io.Reader getNCharacterStream(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateTime(int, java.sql.Time)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.lang.Object getObject(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.io.InputStream getUnicodeStream(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateSQLXML(int, java.sql.SQLXML)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBinaryStream(int, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Date getDate(java.lang.String, java.util.Calendar)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void beforeFirst()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="int getRow()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.math.BigDecimal getBigDecimal(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean rowInserted()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.net.URL getURL(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBinaryStream(java.lang.String, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNull(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNClob(int, java.io.Reader)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Timestamp getTimestamp(java.lang.String, java.util.Calendar)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateCharacterStream(java.lang.String, java.io.Reader, int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateDouble(int, double)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void setFetchDirection(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="double getDouble(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNCharacterStream(java.lang.String, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateString(int, java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void afterLast()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Ref getRef(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateByte(int, byte)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNull(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateAsciiStream(int, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateTimestamp(int, java.sql.Timestamp)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.math.BigDecimal getBigDecimal(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Statement getStatement()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateDate(java.lang.String, java.sql.Date)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateLong(java.lang.String, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.ResultSetMetaData getMetaData()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateInt(int, int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateObject(java.lang.String, java.lang.Object)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean isClosed()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean getBoolean(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBlob(java.lang.String, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="float getFloat(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNClob(java.lang.String, java.sql.NClob)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="int findColumn(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateClob(int, java.io.Reader)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.lang.String getCursorName()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBinaryStream(int, java.io.InputStream)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="long getLong(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateAsciiStream(java.lang.String, java.io.InputStream)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateRowId(int, java.sql.RowId)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateCharacterStream(int, java.io.Reader)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateRowId(java.lang.String, java.sql.RowId)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.net.URL getURL(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="byte getByte(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateArray(java.lang.String, java.sql.Array)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBytes(int, byte[])"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="byte getByte(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateAsciiStream(int, java.io.InputStream)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Time getTime(int, java.util.Calendar)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Date getDate(int, java.util.Calendar)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateInt(java.lang.String, int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateTime(java.lang.String, java.sql.Time)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.io.Reader getNCharacterStream(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.math.BigDecimal getBigDecimal(java.lang.String, int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Blob getBlob(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="long getLong(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.RowId getRowId(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean isWrapperFor(java.lang.Class)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean last()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBlob(int, java.sql.Blob)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.SQLXML getSQLXML(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.io.InputStream getAsciiStream(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNClob(int, java.sql.NClob)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Timestamp getTimestamp(int, java.util.Calendar)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateClob(int, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void clearWarnings()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateObject(java.lang.String, java.lang.Object, int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBlob(int, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.SQLXML getSQLXML(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean wasNull()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Clob getClob(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.RowId getRowId(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.lang.Object unwrap(java.lang.Class)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="byte[] getBytes(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Array getArray(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void deleteRow()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="int getFetchDirection()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNString(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Array getArray(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateAsciiStream(java.lang.String, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void close()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Ref getRef(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean first()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.lang.String getNString(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateClob(int, java.sql.Clob)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateCharacterStream(int, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBlob(int, java.io.InputStream)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean getBoolean(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateByte(java.lang.String, byte)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateDouble(java.lang.String, double)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBinaryStream(int, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateFloat(java.lang.String, float)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.lang.Object getObject(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.io.InputStream getBinaryStream(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.io.InputStream getBinaryStream(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateRef(java.lang.String, java.sql.Ref)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBinaryStream(java.lang.String, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBinaryStream(java.lang.String, java.io.InputStream)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBigDecimal(int, java.math.BigDecimal)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="int getConcurrency()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateTimestamp(java.lang.String, java.sql.Timestamp)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateCharacterStream(java.lang.String, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.io.InputStream getUnicodeStream(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="double getDouble(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="short getShort(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="float getFloat(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean previous()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateArray(int, java.sql.Array)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateShort(int, short)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void setFetchSize(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="short getShort(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNClob(java.lang.String, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void moveToInsertRow()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean isAfterLast()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateDate(int, java.sql.Date)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateAsciiStream(int, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBlob(java.lang.String, java.sql.Blob)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Timestamp getTimestamp(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Clob getClob(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="int getType()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.lang.String getNString(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Timestamp getTimestamp(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateFloat(int, float)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean isFirst()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.lang.Object getObject(int, java.util.Map)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Time getTime(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="byte[] getBytes(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.io.Reader getCharacterStream(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateClob(java.lang.String, java.io.Reader)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.lang.String getString(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void moveToCurrentRow()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.SQLWarning getWarnings()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.lang.String getString(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNCharacterStream(int, java.io.Reader)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.NClob getNClob(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBytes(java.lang.String, byte[])"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNClob(int, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void refreshRow()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean relative(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateSQLXML(java.lang.String, java.sql.SQLXML)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean isBeforeFirst()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="int getFetchSize()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Date getDate(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNString(int, java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateClob(java.lang.String, java.sql.Clob)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateClob(java.lang.String, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Blob getBlob(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNCharacterStream(int, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Time getTime(java.lang.String, java.util.Calendar)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateObject(int, java.lang.Object)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.io.Reader getCharacterStream(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Date getDate(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean absolute(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.io.InputStream getAsciiStream(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBlob(java.lang.String, java.io.InputStream)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateString(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="int getInt(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void insertRow()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBigDecimal(java.lang.String, java.math.BigDecimal)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean isLast()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void cancelRowUpdates()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean rowUpdated()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBoolean(int, boolean)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateBoolean(java.lang.String, boolean)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean rowDeleted()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.lang.Object getObject(java.lang.String, java.util.Map)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNClob(java.lang.String, java.io.Reader)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="int getHoldability()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.ResultSet realResultSet()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="boolean next()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.NClob getNClob(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateShort(java.lang.String, short)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateRow()"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateAsciiStream(java.lang.String, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateNCharacterStream(java.lang.String, java.io.Reader)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void updateRef(int, java.sql.Ref)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.sql.Time getTime(java.lang.String)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="int getInt(int)"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="java.math.BigDecimal getBigDecimal(int, int)"/>
+  <class name="jdbc.tuning.OpenResultSetException"/>
+  <class name="jdbc.tuning.PreparedStatementWrapper"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setDisableStmtCaching(boolean)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBigDecimalAtName(java.lang.String, java.math.BigDecimal)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setClob(int, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setCharacterStream(int, java.io.Reader)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="int executeUpdate()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setRowPrefetch(int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setCustomDatumAtName(java.lang.String, oracle.sql.CustomDatum)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setNCharacterStream(int, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="int getExecuteBatch()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setNUMBER(int, oracle.sql.NUMBER)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setDouble(int, double)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setDate(int, java.sql.Date)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBinaryFloat(int, float)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBLOB(int, oracle.sql.BLOB)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setNullAtName(java.lang.String, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setINTERVALDSAtName(java.lang.String, oracle.sql.INTERVALDS)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="oracle.jdbc.OracleParameterMetaData OracleGetParameterMetaData()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setREFAtName(java.lang.String, oracle.sql.REF)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setSQLXML(int, java.sql.SQLXML)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="boolean isNCHAR(int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void defineParameterType(int, int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setTIMESTAMP(int, oracle.sql.TIMESTAMP)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBoolean(int, boolean)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setORAData(int, oracle.sql.ORAData)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setOracleObjectAtName(java.lang.String, oracle.sql.Datum)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setDATE(int, oracle.sql.DATE)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="java.sql.ResultSet executeQuery()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBooleanAtName(java.lang.String, boolean)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setArrayAtName(java.lang.String, java.sql.Array)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setROWIDAtName(java.lang.String, oracle.sql.ROWID)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setCLOB(int, oracle.sql.CLOB)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setOPAQUEAtName(java.lang.String, oracle.sql.OPAQUE)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setCharacterStream(int, java.io.Reader, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setFixedCHAR(int, java.lang.String)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setUnicodeStreamAtName(java.lang.String, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setLongAtName(java.lang.String, long)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void defineColumnType(int, int, java.lang.String)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setArray(int, java.sql.Array)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setObject(int, java.lang.Object)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBytesForBlob(int, byte[])"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setCHAR(int, oracle.sql.CHAR)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setURL(int, java.net.URL)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="java.sql.ResultSetMetaData getMetaData()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBytes(int, byte[])"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="int sendBatch()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBinaryDouble(int, double)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBinaryStreamAtName(java.lang.String, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void defineColumnType(int, int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBinaryStream(int, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setCheckBindTypes(boolean)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void addBatch()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setSTRUCT(int, oracle.sql.STRUCT)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setClob(int, java.io.Reader)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setTime(int, java.sql.Time, java.util.Calendar)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBFILE(int, oracle.sql.BFILE)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="int creationState()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBinaryDoubleAtName(java.lang.String, oracle.sql.BINARY_DOUBLE)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBlob(int, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setShortAtName(java.lang.String, short)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setRefAtName(java.lang.String, java.sql.Ref)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setClobAtName(java.lang.String, java.sql.Clob)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBFILEAtName(java.lang.String, oracle.sql.BFILE)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBlob(int, java.io.InputStream)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setTime(int, java.sql.Time)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setTIMESTAMPLTZAtName(java.lang.String, oracle.sql.TIMESTAMPLTZ)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setAsciiStream(int, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setTIMESTAMPTZAtName(java.lang.String, oracle.sql.TIMESTAMPTZ)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setARRAY(int, oracle.sql.ARRAY)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setAsciiStream(int, java.io.InputStream)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void defineColumnType(int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setObjectAtName(java.lang.String, java.lang.Object, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setStringAtName(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setCursor(int, java.sql.ResultSet)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBinaryDouble(int, oracle.sql.BINARY_DOUBLE)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setRefType(int, oracle.sql.REF)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setRAWAtName(java.lang.String, oracle.sql.RAW)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setRefTypeAtName(java.lang.String, oracle.sql.REF)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setObjectAtName(java.lang.String, java.lang.Object, int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setOPAQUE(int, oracle.sql.OPAQUE)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setStructDescriptorAtName(java.lang.String, oracle.sql.StructDescriptor)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBfileAtName(java.lang.String, oracle.sql.BFILE)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setObject(int, java.lang.Object, int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBinaryStream(int, java.io.InputStream)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setLong(int, long)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void clearParameters()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="java.sql.ParameterMetaData getParameterMetaData()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setExecuteBatch(int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setORADataAtName(java.lang.String, oracle.sql.ORAData)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setINTERVALDS(int, oracle.sql.INTERVALDS)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="java.lang.String getRevision()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setARRAYAtName(java.lang.String, oracle.sql.ARRAY)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setOracleObject(int, oracle.sql.Datum)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setString(int, java.lang.String)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setNull(int, int, java.lang.String)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setTimeAtName(java.lang.String, java.sql.Time)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBfile(int, oracle.sql.BFILE)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void defineParameterTypeBytes(int, int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setRef(int, java.sql.Ref)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setREF(int, oracle.sql.REF)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void defineColumnTypeBytes(int, int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void clearDefines()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setFloat(int, float)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setShort(int, short)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="boolean execute()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void defineColumnTypeChars(int, int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setTIMESTAMPAtName(java.lang.String, oracle.sql.TIMESTAMP)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setCharacterStream(int, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBinaryFloat(int, oracle.sql.BINARY_FLOAT)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setTimestamp(int, java.sql.Timestamp, java.util.Calendar)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setURLAtName(java.lang.String, java.net.URL)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setNClob(int, java.io.Reader)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBinaryFloatAtName(java.lang.String, float)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBytesForBlobAtName(java.lang.String, byte[])"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setDATEAtName(java.lang.String, oracle.sql.DATE)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setByte(int, byte)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setINTERVALYM(int, oracle.sql.INTERVALYM)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setRAW(int, oracle.sql.RAW)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setFormOfUse(int, short)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setPlsqlIndexTable(int, java.lang.Object, int, int, int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setINTERVALYMAtName(java.lang.String, oracle.sql.INTERVALYM)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void defineParameterTypeChars(int, int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setNString(int, java.lang.String)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBlobAtName(java.lang.String, java.sql.Blob)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setNClob(int, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setResultSetCache(oracle.jdbc.OracleResultSetCache)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setTimestamp(int, java.sql.Timestamp)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setObjectAtName(java.lang.String, java.lang.Object)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setCustomDatum(int, oracle.sql.CustomDatum)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setNull(int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setNullAtName(java.lang.String, int, java.lang.String)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setStructDescriptor(int, oracle.sql.StructDescriptor)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBlob(int, java.sql.Blob)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBinaryStream(int, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void registerReturnParameter(int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBinaryFloatAtName(java.lang.String, oracle.sql.BINARY_FLOAT)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setTIMESTAMPLTZ(int, oracle.sql.TIMESTAMPLTZ)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void defineColumnType(int, int, int, short)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBigDecimal(int, java.math.BigDecimal)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setROWID(int, oracle.sql.ROWID)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setFloatAtName(java.lang.String, float)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setCLOBAtName(java.lang.String, oracle.sql.CLOB)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setCHARAtName(java.lang.String, oracle.sql.CHAR)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setIntAtName(java.lang.String, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setRowId(int, java.sql.RowId)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setStringForClobAtName(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setDoubleAtName(java.lang.String, double)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setInt(int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setStringForClob(int, java.lang.String)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBytesAtName(java.lang.String, byte[])"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setClob(int, java.sql.Clob)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setObject(int, java.lang.Object, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setCursorAtName(java.lang.String, java.sql.ResultSet)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setSTRUCTAtName(java.lang.String, oracle.sql.STRUCT)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="int getRowPrefetch()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setDateAtName(java.lang.String, java.sql.Date)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setTIMESTAMPTZ(int, oracle.sql.TIMESTAMPTZ)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setTimestampAtName(java.lang.String, java.sql.Timestamp)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="java.sql.ResultSet getReturnResultSet()"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setAsciiStream(int, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setAsciiStreamAtName(java.lang.String, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void registerReturnParameter(int, int, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void closeWithKey(java.lang.String)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setNUMBERAtName(java.lang.String, oracle.sql.NUMBER)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBinaryDoubleAtName(java.lang.String, double)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setBLOBAtName(java.lang.String, oracle.sql.BLOB)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setUnicodeStream(int, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setByteAtName(java.lang.String, byte)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setDate(int, java.sql.Date, java.util.Calendar)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setNClob(int, java.sql.NClob)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setFixedCHARAtName(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void registerReturnParameter(int, int, java.lang.String)"/>
+  <method class="jdbc.tuning.PreparedStatementWrapper" name="void setNCharacterStream(int, java.io.Reader)"/>
+  <class name="jdbc.tuning.JDBCLogger"/>
+  <method class="jdbc.tuning.JDBCLogger" name="void startLogSqlQuery(java.lang.Thread, java.lang.String, jdbc.tuning.ConnectionWrapper)"/>
+  <method class="jdbc.tuning.JDBCLogger" name="void endLogSqlNext(java.lang.Thread, java.lang.String, jdbc.tuning.ConnectionWrapper)"/>
+  <method class="jdbc.tuning.JDBCLogger" name="void startLogSqlNext(java.lang.Thread, java.lang.String, jdbc.tuning.ConnectionWrapper)"/>
+  <method class="jdbc.tuning.JDBCLogger" name="void endLogSqlQuery(java.lang.Thread, java.lang.String, jdbc.tuning.ConnectionWrapper)"/>
+  <method class="jdbc.tuning.JDBCLogger" name="java.lang.String getRevision()"/>
+  <class name="jdbc.tuning.OpenStatementException"/>
+  <field class="jdbc.tuning.OpenStatementException" name="REVISION"/>
+  <class name="jdbc.tuning.ConnectionLeakException"/>
+  <field class="jdbc.tuning.ConnectionLeakException" name="REVISION"/>
+  <class name="jdbc.tuning.ConnectionWrapper"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.PreparedStatement prepareStatement(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void registerSQLType(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="int getTransactionIsolation()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setPlsqlWarnings(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void registerTAFCallback(oracle.jdbc.OracleOCIFailover, java.lang.Object)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setConnectionReleasePriority(int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void purgeImplicitCache()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="int getDefaultRowPrefetch()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setSessionTimeZone(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.Connection _getPC()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void oracleReleaseSavepoint(oracle.jdbc.OracleSavepoint)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean getXAErrorFlag()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void oracleRollback(oracle.jdbc.OracleSavepoint)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.PreparedStatement prepareStatementWithKey(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void putDescriptor(java.lang.String, java.lang.Object)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setStatementCacheSize(int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void rollback()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void shutdown(int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.util.Properties getClientInfo()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void releaseSavepoint(java.sql.Savepoint)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setHoldability(int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.SQLWarning getWarnings()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.Blob createBlob()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void startup(java.lang.String, int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setXAErrorFlag(boolean)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setEndToEndMetrics(java.lang.String[], short)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.PreparedStatement prepareStatement(java.lang.String, int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.Statement createStatement(int, int, int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setUsingXAFlag(boolean)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.PreparedStatement prepareStatement(java.lang.String, int[])"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void applyConnectionAttributes(java.util.Properties)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void registerSQLType(java.lang.String, java.lang.Class)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setCreateStatementAsRefCursor(boolean)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.lang.String[] getEndToEndMetrics()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="int getHoldability()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.lang.String getRevision()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setIncludeSynonyms(boolean)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.CallableStatement prepareCallWithKey(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.util.Properties getProperties()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="oracle.jdbc.internal.OracleConnection physicalConnectionWithin()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void clearWarnings()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.util.Properties getUnMatchedConnectionAttributes()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void purgeExplicitCache()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setCatalog(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean getCreateStatementAsRefCursor()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.Savepoint setSavepoint(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setDefaultRowPrefetch(int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.Savepoint setSavepoint()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean isReadOnly()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setAutoClose(boolean)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="oracle.jdbc.OracleSavepoint oracleSetSavepoint()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="int getStmtCacheSize()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setStmtCacheSize(int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.lang.String getUserName()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.lang.String getSQLType(java.lang.Object)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.lang.String getClientInfo(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.Statement createStatement()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.Statement createStatement(int, int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setImplicitCachingEnabled(boolean)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setAutoCommit(boolean)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean isClosed()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.lang.String getCurrentSchema()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean getRemarksReporting()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="short getEndToEndECIDSequenceNumber()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.CallableStatement getCallWithKey(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean isWrapperFor(java.lang.Class)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.Array createArrayOf(java.lang.String, java.lang.Object[])"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void openProxySession(int, java.util.Properties)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.util.Map getTypeMap()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.PreparedStatement prepareStatement(java.lang.String, int, int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="int getConnectionReleasePriority()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean getExplicitCachingEnabled()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.DatabaseMetaData getMetaData()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.PreparedStatement getStatementWithKey(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.lang.Object getDescriptor(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean isLogicalConnection()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void registerConnectionCacheCallback(oracle.jdbc.pool.OracleConnectionCacheCallback, java.lang.Object, int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setExplicitCachingEnabled(boolean)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setTransactionIsolation(int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void close(int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.lang.String getSessionTimeZone()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="oracle.jdbc.OracleSavepoint oracleSetSavepoint(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.lang.Object getJavaObject(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.CallableStatement prepareCall(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="int pingDatabase(int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.Connection realConnection()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setClientInfo(java.util.Properties)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void commit()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="oracle.jdbc.OracleConnection unwrap()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean getImplicitCachingEnabled()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean isActive()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setStmtCacheSize(int, boolean)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setClientInfo(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean getAutoClose()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean isValid(int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.Clob createClob()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="short getStructAttrCsId()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void close(java.util.Properties)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.lang.String nativeSQL(java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void archive(int, int, java.lang.String)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean getIncludeSynonyms()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.Struct createStruct(java.lang.String, java.lang.Object[])"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setDefaultExecuteBatch(int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setWrapper(oracle.jdbc.OracleConnection)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.SQLXML createSQLXML()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.util.Properties getConnectionAttributes()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void clearOpenStatement(jdbc.tuning.StatementWrapper)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void rollback(java.sql.Savepoint)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="int getStatementCacheSize()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.CallableStatement prepareCall(java.lang.String, int, int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.NClob createNClob()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean getUsingXAFlag()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.lang.Object unwrap(java.lang.Class)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean getRestrictGetTables()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void close()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean isProxySession()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.PreparedStatement prepareStatement(java.lang.String, int, int, int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="int getDefaultExecuteBatch()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="boolean getAutoCommit()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setReadOnly(boolean)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.CallableStatement prepareCall(java.lang.String, int, int, int)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.lang.String getCatalog()"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setRemarksReporting(boolean)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.PreparedStatement prepareStatement(java.lang.String, java.lang.String[])"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setTypeMap(java.util.Map)"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setRestrictGetTables(boolean)"/>
+  <class name="jdbc.tuning.CallableStatementWrapper"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setLong(java.lang.String, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setClob(java.lang.String, java.sql.Clob)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCustomDatumAtName(java.lang.String, oracle.sql.CustomDatum)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setClob(int, java.io.Reader)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setREF(int, oracle.sql.REF)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setTimestamp(java.lang.String, java.sql.Timestamp)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNClob(int, java.io.Reader)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setURL(int, java.net.URL)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Timestamp getTimestamp(java.lang.String, java.util.Calendar)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.io.InputStream getAsciiStream(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNCharacterStream(int, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setSTRUCTAtName(java.lang.String, oracle.sql.STRUCT)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Date getDate(int, java.util.Calendar)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="boolean isNCHAR(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="boolean execute(java.lang.String, int[])"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setStringForClob(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Time getTime(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryFloat(java.lang.String, oracle.sql.BINARY_FLOAT)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setAsciiStream(int, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Ref getRef(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerOutParameter(int, int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryStreamAtName(java.lang.String, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setDate(java.lang.String, java.sql.Date)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCharacterStream(int, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerIndexTableOutParameter(int, int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.BLOB getBLOB(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryFloat(int, float)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCustomDatum(int, oracle.sql.CustomDatum)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Array getArray(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.RAW getRAW(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setDATE(int, oracle.sql.DATE)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Timestamp getTimestamp(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBfile(int, oracle.sql.BFILE)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="boolean execute(java.lang.String, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.net.URL getURL(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Timestamp getTimestamp(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerOutParameter(java.lang.String, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBLOB(int, oracle.sql.BLOB)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBLOBAtName(java.lang.String, oracle.sql.BLOB)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Blob getBlob(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.Object unwrap(java.lang.Class)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.RowId getRowId(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setROWIDAtName(java.lang.String, oracle.sql.ROWID)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.CLOB getCLOB(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="int executeUpdate(java.lang.String, java.lang.String[])"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setRowId(java.lang.String, java.sql.RowId)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.io.Reader getNCharacterStream(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.TIMESTAMP getTIMESTAMP(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.INTERVALYM getINTERVALYM(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBlob(int, java.io.InputStream)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="byte[] getBytes(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNUMBERAtName(java.lang.String, oracle.sql.NUMBER)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Timestamp getTimestamp(int, java.util.Calendar)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryStream(java.lang.String, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.ResultSet getGeneratedKeys()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setARRAY(int, oracle.sql.ARRAY)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerOutParameter(java.lang.String, int, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setString(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setClob(java.lang.String, java.io.Reader)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setRAWAtName(java.lang.String, oracle.sql.RAW)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setClobAtName(java.lang.String, java.sql.Clob)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBlob(int, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.math.BigDecimal getBigDecimal(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNString(int, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setRefAtName(java.lang.String, java.sql.Ref)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.BFILE getBFILE(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="double getDouble(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNullAtName(java.lang.String, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="int creationState()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCharacterStream(java.lang.String, java.io.Reader)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setRefType(int, oracle.sql.REF)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setDisableStmtCaching(boolean)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="boolean isPoolable()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="long getLong(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.String getString(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.STRUCT getSTRUCT(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryFloat(int, oracle.sql.BINARY_FLOAT)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="boolean getMoreResults(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCHAR(int, oracle.sql.CHAR)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.Datum[] getOraclePlsqlIndexTable(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.Object getObject(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.io.Reader getCharacterStream(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.io.Reader getCharacterStream(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBlob(java.lang.String, java.sql.Blob)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setByte(java.lang.String, byte)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void defineParameterTypeChars(int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="boolean getBoolean(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.io.InputStream getUnicodeStream(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setPoolable(boolean)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void defineColumnType(int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setObjectAtName(java.lang.String, java.lang.Object, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerReturnParameter(int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCursor(int, java.sql.ResultSet)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.ROWID getROWID(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNClob(int, java.sql.NClob)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.OPAQUE getOPAQUE(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNullAtName(java.lang.String, int, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="long getLong(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="boolean getBoolean(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setTIMESTAMP(int, oracle.sql.TIMESTAMP)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="boolean isClosed()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBytes(java.lang.String, byte[])"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBlob(java.lang.String, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.String getNString(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryStream(int, java.io.InputStream)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNClob(java.lang.String, java.io.Reader)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setTimestampAtName(java.lang.String, java.sql.Timestamp)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setObjectAtName(java.lang.String, java.lang.Object, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setInt(java.lang.String, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryDouble(int, double)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setINTERVALDSAtName(java.lang.String, oracle.sql.INTERVALDS)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.Object getPlsqlIndexTable(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNCharacterStream(int, java.io.Reader)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Time getTime(java.lang.String, java.util.Calendar)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setTIMESTAMPTZAtName(java.lang.String, oracle.sql.TIMESTAMPTZ)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setArrayAtName(java.lang.String, java.sql.Array)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerOutParameterChars(int, int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="byte getByte(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setStringForClobAtName(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.TIMESTAMPTZ getTIMESTAMPTZ(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setURL(java.lang.String, java.net.URL)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.ResultSet getCursor(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setSQLXML(int, java.sql.SQLXML)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.Object getObject(java.lang.String, java.util.Map)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setINTERVALYMAtName(java.lang.String, oracle.sql.INTERVALYM)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setRowPrefetch(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="int getResultSetHoldability()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setObject(java.lang.String, java.lang.Object, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.NUMBER getNUMBER(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.Datum getOracleObject(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setDoubleAtName(java.lang.String, double)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="boolean wasNull()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerOutParameterBytes(int, int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBytesForBlobAtName(java.lang.String, byte[])"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.TIMESTAMPLTZ getTIMESTAMPLTZ(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.DATE getDATE(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNCharacterStream(java.lang.String, java.io.Reader)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.ParameterMetaData getParameterMetaData()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryDouble(int, oracle.sql.BINARY_DOUBLE)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerOutParameter(int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryDouble(java.lang.String, oracle.sql.BINARY_DOUBLE)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setAsciiStream(java.lang.String, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.ARRAY getARRAY(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Ref getRef(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.RowId getRowId(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCLOBAtName(java.lang.String, oracle.sql.CLOB)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryStream(java.lang.String, java.io.InputStream)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.NClob getNClob(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="short getShort(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="int getExecuteBatch()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setPlsqlIndexTable(int, java.lang.Object, int, int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBfileAtName(java.lang.String, oracle.sql.BFILE)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setStructDescriptor(int, oracle.sql.StructDescriptor)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.jdbc.OracleParameterMetaData OracleGetParameterMetaData()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCursorAtName(java.lang.String, java.sql.ResultSet)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setClob(java.lang.String, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setOPAQUE(int, oracle.sql.OPAQUE)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setIntAtName(java.lang.String, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setObjectAtName(java.lang.String, java.lang.Object)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBFILE(int, oracle.sql.BFILE)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setTime(java.lang.String, java.sql.Time)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setClob(int, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="byte[] getBytes(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCharacterStream(java.lang.String, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setFloatAtName(java.lang.String, float)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNClob(int, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.math.BigDecimal getBigDecimal(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerReturnParameter(int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setObject(java.lang.String, java.lang.Object)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBooleanAtName(java.lang.String, boolean)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void defineColumnType(int, int, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Array getArray(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setSQLXML(java.lang.String, java.sql.SQLXML)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Clob getClob(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBigDecimalAtName(java.lang.String, java.math.BigDecimal)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setINTERVALDS(int, oracle.sql.INTERVALDS)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerOutParameter(int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setORADataAtName(java.lang.String, oracle.sql.ORAData)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.String getString(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNString(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setDate(java.lang.String, java.sql.Date, java.util.Calendar)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBytesForBlob(int, byte[])"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setTimeAtName(java.lang.String, java.sql.Time)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setShortAtName(java.lang.String, short)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="short getShort(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.NClob getNClob(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.SQLXML getSQLXML(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setTIMESTAMPTZ(int, oracle.sql.TIMESTAMPTZ)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setLongAtName(java.lang.String, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.CHAR getCHAR(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryDoubleAtName(java.lang.String, double)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.INTERVALDS getINTERVALDS(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryStream(int, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setStringAtName(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setAsciiStream(int, java.io.InputStream)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerOutParameter(int, int, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Blob getBlob(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryFloatAtName(java.lang.String, oracle.sql.BINARY_FLOAT)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setRowId(int, java.sql.RowId)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setTime(java.lang.String, java.sql.Time, java.util.Calendar)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setDATEAtName(java.lang.String, oracle.sql.DATE)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNClob(java.lang.String, java.sql.NClob)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerOutParameter(java.lang.String, int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setROWID(int, oracle.sql.ROWID)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setShort(java.lang.String, short)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerOutParameter(java.lang.String, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="oracle.sql.REF getREF(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setByteAtName(java.lang.String, byte)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setOracleObjectAtName(java.lang.String, oracle.sql.Datum)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setTIMESTAMPAtName(java.lang.String, oracle.sql.TIMESTAMP)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setREFAtName(java.lang.String, oracle.sql.REF)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCharacterStream(int, java.io.Reader)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void defineColumnTypeChars(int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setAsciiStreamAtName(java.lang.String, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setAsciiStream(java.lang.String, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNClob(java.lang.String, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.Object getAnyDataEmbeddedObject(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="int getInt(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void defineColumnType(int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setExecuteBatch(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="int getInt(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Time getTime(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBytesForBlob(java.lang.String, byte[])"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCLOB(int, oracle.sql.CLOB)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.String getNString(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryDoubleAtName(java.lang.String, oracle.sql.BINARY_DOUBLE)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.String getRevision()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setRefTypeAtName(java.lang.String, oracle.sql.REF)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setTIMESTAMPLTZ(int, oracle.sql.TIMESTAMPLTZ)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBoolean(java.lang.String, boolean)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void defineParameterTypeBytes(int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setUnicodeStreamAtName(java.lang.String, java.io.InputStream, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="byte getByte(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.io.Reader getNCharacterStream(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setOracleObject(int, oracle.sql.Datum)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void clearDefines()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setFloat(java.lang.String, float)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCheckBindTypes(boolean)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setORAData(int, oracle.sql.ORAData)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryFloatAtName(java.lang.String, float)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Clob getClob(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setRAW(int, oracle.sql.RAW)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void defineParameterType(int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCharacterStream(java.lang.String, java.io.Reader, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.io.InputStream getBinaryStream(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="boolean execute(java.lang.String, java.lang.String[])"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="int getRowPrefetch()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setTIMESTAMPLTZAtName(java.lang.String, oracle.sql.TIMESTAMPLTZ)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="boolean isWrapperFor(java.lang.Class)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.net.URL getURL(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setFixedCHAR(int, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="double getDouble(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Time getTime(int, java.util.Calendar)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.math.BigDecimal getBigDecimal(int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBFILEAtName(java.lang.String, oracle.sql.BFILE)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="float getFloat(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setINTERVALYM(int, oracle.sql.INTERVALYM)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNull(java.lang.String, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setSTRUCT(int, oracle.sql.STRUCT)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setURLAtName(java.lang.String, java.net.URL)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.ResultSet getReturnResultSet()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setDateAtName(java.lang.String, java.sql.Date)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.Object getPlsqlIndexTable(int, java.lang.Class)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void defineColumnTypeBytes(int, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBlob(java.lang.String, java.io.InputStream)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setResultSetCache(oracle.jdbc.OracleResultSetCache)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBytesAtName(java.lang.String, byte[])"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNull(java.lang.String, int, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setStringForClob(int, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.Object getCustomDatum(int, oracle.sql.CustomDatumFactory)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.Object getObject(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Date getDate(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setAsciiStream(java.lang.String, java.io.InputStream)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBigDecimal(java.lang.String, java.math.BigDecimal)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setOPAQUEAtName(java.lang.String, oracle.sql.OPAQUE)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void defineColumnType(int, int, int, short)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.Object getORAData(int, oracle.sql.ORADataFactory)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void registerReturnParameter(int, int, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void closeWithKey(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBlobAtName(java.lang.String, java.sql.Blob)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setFixedCHARAtName(java.lang.String, java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setARRAYAtName(java.lang.String, oracle.sql.ARRAY)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Date getDate(java.lang.String, java.util.Calendar)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setBinaryStream(java.lang.String, java.io.InputStream, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setTimestamp(java.lang.String, java.sql.Timestamp, java.util.Calendar)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setDouble(java.lang.String, double)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="int executeUpdate(java.lang.String, int[])"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.SQLXML getSQLXML(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNUMBER(int, oracle.sql.NUMBER)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setNCharacterStream(java.lang.String, java.io.Reader, long)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setStructDescriptorAtName(java.lang.String, oracle.sql.StructDescriptor)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setFormOfUse(int, short)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setObject(java.lang.String, java.lang.Object, int, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="int executeUpdate(java.lang.String, int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.lang.Object getObject(int, java.util.Map)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="java.sql.Date getDate(java.lang.String)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="int sendBatch()"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="float getFloat(int)"/>
+  <method class="jdbc.tuning.CallableStatementWrapper" name="void setCHARAtName(java.lang.String, oracle.sql.CHAR)"/>
+</expose>
+<map>
+  <field class="com.stg.logger.LogLevel" name="serialVersionUID" map="A"/>
+  <class name="com.stg.crypto.PBEEncryptionRoutine$S" map="_A"/>
+  <field class="com.stg.crypto.PBEEncryptionRoutine$S" name="PASS" map="A"/>
+  <field class="com.stg.crypto.PBEEncryptionRoutine$S" name="SALT" map="B"/>
+  <method class="com.stg.crypto.PBEEncryptionRoutine$S" name="int getIterations()" map="A"/>
+  <method class="com.stg.crypto.PBEEncryptionRoutine$S" name="char[] getPass()" map="B"/>
+  <method class="com.stg.crypto.PBEEncryptionRoutine$S" name="byte[] getSalt()" map="C"/>
+  <field class="com.stg.crypto.PBEEncryptionRoutine" name="salt" map="A"/>
+  <field class="com.stg.crypto.PBEEncryptionRoutine" name="iterations" map="B"/>
+  <field class="com.stg.crypto.PBEEncryptionRoutine" name="pass" map="C"/>
+  <field class="com.stg.crypto.PBEEncryptionRoutine" name="encryptCipher" map="D"/>
+  <field class="com.stg.crypto.PBEEncryptionRoutine" name="decryptCipher" map="E"/>
+  <method class="com.stg.crypto.PBEEncryptionRoutine" name="java.lang.String decrypt(byte[], java.lang.String)" map="A"/>
+  <method class="com.stg.crypto.PBEEncryptionRoutine" name="java.lang.String encrypt(byte[], java.lang.String)" map="B"/>
+  <method class="com.stg.crypto.PBEEncryptionRoutine" name="void init(char[], byte[], int)" map="A"/>
+  <field class="jdbc.pool.ConnectionPool$CShrinkPoolThread" name="this$0" map="this$0"/>
+  <field class="jdbc.pool.ConnectionPool$CShrinkPoolThread" name="selfChecklogger_" map="A"/>
+  <field class="jdbc.pool.ConnectionPool" name="lTotalConnectionDelayTime_" map="A"/>
+  <field class="jdbc.pool.ConnectionPool" name="QueryTime_" map="B"/>
+  <field class="jdbc.pool.ConnectionPool" name="threadShrink" map="C"/>
+  <field class="jdbc.pool.ConnectionPool" name="lLeakedResultSetCount_" map="D"/>
+  <field class="jdbc.pool.ConnectionPool" name="iNoOfConnectionsCreated_" map="E"/>
+  <field class="jdbc.pool.ConnectionPool" name="lTotalNoOfConnectionsCreated_" map="F"/>
+  <field class="jdbc.pool.ConnectionPool" name="myAttributes" map="G"/>
+  <field class="jdbc.pool.ConnectionPool" name="alStatisticsHistory_" map="H"/>
+  <field class="jdbc.pool.ConnectionPool" name="iNoOfConnectionsRequested_" map="I"/>
+  <field class="jdbc.pool.ConnectionPool" name="lPoolStartTimeInMillis_" map="J"/>
+  <field class="jdbc.pool.ConnectionPool" name="lLeakedStatementsCount_" map="K"/>
+  <field class="jdbc.pool.ConnectionPool" name="lWaitTimeTotalInMillis_" map="L"/>
+  <field class="jdbc.pool.ConnectionPool" name="lLeakedConnections_" map="M"/>
+  <field class="jdbc.pool.ConnectionPool" name="poolManager_" map="N"/>
+  <field class="jdbc.pool.ConnectionPool" name="lNoOfUnavailableConnectionsHigh_" map="O"/>
+  <field class="jdbc.pool.ConnectionPool" name="hmConnectionUsage_" map="P"/>
+  <field class="jdbc.pool.ConnectionPool" name="bTerminated_" map="Q"/>
+  <field class="jdbc.pool.ConnectionPool" name="iNoOfConnectionsUnlocked_" map="R"/>
+  <field class="jdbc.pool.ConnectionPool" name="lWaitTimeHigh_" map="S"/>
+  <field class="jdbc.pool.ConnectionPool" name="lBadConnectionCount_" map="T"/>
+  <field class="jdbc.pool.ConnectionPool" name="iNoOfCurrentWaiters_" map="U"/>
+  <field class="jdbc.pool.ConnectionPool" name="bDestroyAttempted_" map="V"/>
+  <field class="jdbc.pool.ConnectionPool" name="iNoOfConnectionsLocked_" map="W"/>
+  <field class="jdbc.pool.ConnectionPool" name="logger_" map="X"/>
+  <field class="jdbc.pool.ConnectionPool" name="lNoOfUnavailableConnections_" map="Y"/>
+  <field class="jdbc.pool.ConnectionPool" name="pool_" map="Z"/>
+  <field class="jdbc.pool.ConnectionPool" name="lUnavailableConnectionsHighTime_" map="_"/>
+  <field class="jdbc.pool.ConnectionPool" name="iNoOfWaitersHigh_" map="a"/>
+  <field class="jdbc.pool.ConnectionPool" name="iNoOfNewConnectionsRequested_" map="b"/>
+  <field class="jdbc.pool.ConnectionPool" name="iNoOfConnectionsClosed_" map="c"/>
+  <field class="jdbc.pool.ConnectionPool" name="lConnectionsHigh_" map="d"/>
+  <method class="jdbc.pool.ConnectionPool" name="boolean access$4(jdbc.pool.ConnectionPool)" map="access$4"/>
+  <method class="jdbc.pool.ConnectionPool" name="void access$2(jdbc.pool.ConnectionPool, org.apache.log4j.Logger)" map="access$2"/>
+  <method class="jdbc.pool.ConnectionPool" name="void removeWaiter()" map="A"/>
+  <method class="jdbc.pool.ConnectionPool" name="jdbc.pool.CConnectionPoolManager access$6(jdbc.pool.ConnectionPool)" map="access$6"/>
+  <method class="jdbc.pool.ConnectionPool" name="void shrinkPool(org.apache.log4j.Logger)" map="A"/>
+  <method class="jdbc.pool.ConnectionPool" name="java.sql.Connection getConnection(boolean)" map="A"/>
+  <method class="jdbc.pool.ConnectionPool" name="void setConnectionDelayTime(long)" map="A"/>
+  <method class="jdbc.pool.ConnectionPool" name="void recordUnavailableHighTime(long)" map="B"/>
+  <method class="jdbc.pool.ConnectionPool" name="boolean isActive(java.sql.Connection, org.apache.log4j.Logger)" map="A"/>
+  <method class="jdbc.pool.ConnectionPool" name="void addConnectionToPool(java.sql.Connection)" map="A"/>
+  <method class="jdbc.pool.ConnectionPool" name="void access$3(jdbc.pool.ConnectionPool, jdbc.pool.CPoolStatisticsBean)" map="access$3"/>
+  <method class="jdbc.pool.ConnectionPool" name="void recordUnavailableHigh(long)" map="C"/>
+  <method class="jdbc.pool.ConnectionPool" name="void recordStatistics(jdbc.pool.CPoolStatisticsBean)" map="A"/>
+  <method class="jdbc.pool.ConnectionPool" name="jdbc.pool.CPoolAttribute access$1(jdbc.pool.ConnectionPool)" map="access$1"/>
+  <method class="jdbc.pool.ConnectionPool" name="void closeConnection(java.sql.Connection)" map="B"/>
+  <method class="jdbc.pool.ConnectionPool" name="void createPooledConnection(long)" map="D"/>
+  <method class="jdbc.pool.ConnectionPool" name="void addWaiter()" map="B"/>
+  <method class="jdbc.pool.ConnectionPool" name="jdbc.pool.IPool access$5(jdbc.pool.ConnectionPool)" map="access$5"/>
+  <method class="jdbc.pool.ConnectionPool" name="void setWaitTime(long)" map="E"/>
+  <method class="jdbc.pool.ConnectionPool" name="java.lang.Thread access$0(jdbc.pool.ConnectionPool)" map="access$0"/>
+  <field class="jdbc.pool.CXMLManager" name="logger_" map="D"/>
+  <field class="jdbc.pool.CXMLManager" name="COMMENT" map="E"/>
+  <field class="jdbc.pool.CXMLManager" name="xmlPoolConfig" map="F"/>
+  <method class="jdbc.pool.CXMLManager" name="jdbc.pool.CPoolAttribute getPoolAttribute(int)" map="A"/>
+  <field class="jdbc.pool.CConnectionPoolManager" name="logger_" map="A"/>
+  <field class="jdbc.pool.CConnectionPoolManager" name="poolAttributeManager_" map="B"/>
+  <field class="jdbc.pool.CConnectionPoolManager" name="instance_" map="C"/>
+  <field class="jdbc.pool.CConnectionPoolManager" name="VERSION" map="D"/>
+  <field class="jdbc.pool.CConnectionPoolManager" name="mapPools_" map="E"/>
+  <field class="jdbc.pool.CConnectionPoolManager" name="myPoolAttributes_" map="F"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void getVersion()" map="A"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void createPool(jdbc.pool.CPoolAttribute)" map="A"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void printVersion()" map="B"/>
+  <method class="jdbc.pool.CConnectionPoolManager" name="void checkPoolAttributes(jdbc.pool.CPoolAttribute)" map="B"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="noOfConnectionsCreated" map="A"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lCurrentUsedConnectionCount_" map="B"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lLeakedResultSetCount_" map="C"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lTotalNoOfConnectionsCreated_" map="D"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="bPrintStatisticalAttributes_" map="E"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lWaitTimeTotalInMilliSeconds_" map="F"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="noOfConnectionsClosed" map="G"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lConnectionsHighCount_" map="H"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lLeakedConnectionCount_" map="I"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lLeakedStatementCount_" map="J"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lPoolStartTimeInMillis_" map="K"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="timeStamp" map="L"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lCurrentFreeConnectionCount_" map="M"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lNoOfUnavailableConnectionsHigh_" map="N"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lNoOfCurrentWaiters_" map="O"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="noOfNewConnectionsRequested" map="P"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lWaitTimeHighInMiliSeconds_" map="Q"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lAverageConnectionDelayTimeInMillis_" map="R"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="noOfConnectionsUnlocked" map="S"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="noOfConnectionsRequested" map="T"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lBadConnectionCount_" map="U"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lNoOfWaitersHigh_" map="V"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lNoOfUnavailableConnections_" map="W"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="strPoolName_" map="X"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="lUnavailableConnectionsHighTime_" map="Y"/>
+  <field class="jdbc.pool.CPoolStatisticsBean" name="noOfConnectionsLocked" map="Z"/>
+  <field class="jdbc.pool.CStackObjectPool" name="stackUnLockedObjectPool_" map="C"/>
+  <field class="jdbc.pool.CStackObjectPool" name="alLockedObjectPool_" map="D"/>
+  <field class="jdbc.pool.CPoolAttributeManager" name="file_" map="A"/>
+  <field class="jdbc.pool.CPropertyManager" name="logger_" map="B"/>
+  <field class="jdbc.pool.CPropertyManager" name="properties_" map="C"/>
+  <method class="jdbc.pool.CPropertyManager" name="void writeTemplate(java.io.PrintWriter, java.lang.String)" map="A"/>
+  <field class="jdbc.pool.CObjectWrapper" name="object_" map="A"/>
+  <field class="jdbc.pool.CObjectWrapper" name="time_" map="B"/>
+  <field class="jdbc.pool.CPoolAttribute" name="initialPoolSize" map="A"/>
+  <field class="jdbc.pool.CPoolAttribute" name="password" map="B"/>
+  <field class="jdbc.pool.CPoolAttribute" name="loadOnStartup" map="C"/>
+  <field class="jdbc.pool.CPoolAttribute" name="shrinkPoolInterval" map="D"/>
+  <field class="jdbc.pool.CPoolAttribute" name="poolAlgorithm" map="E"/>
+  <field class="jdbc.pool.CPoolAttribute" name="URL" map="F"/>
+  <field class="jdbc.pool.CPoolAttribute" name="driver" map="G"/>
+  <field class="jdbc.pool.CPoolAttribute" name="capacityIncreament" map="H"/>
+  <field class="jdbc.pool.CPoolAttribute" name="connectionIdleTimeout" map="I"/>
+  <field class="jdbc.pool.CPoolAttribute" name="maximumCapacity" map="J"/>
+  <field class="jdbc.pool.CPoolAttribute" name="criticalOperationTimeLimit" map="K"/>
+  <field class="jdbc.pool.CPoolAttribute" name="poolName" map="L"/>
+  <field class="jdbc.pool.CPoolAttribute" name="inUseWaitTime" map="M"/>
+  <field class="jdbc.pool.CPoolAttribute" name="iStatisticalHistoryRecordCount_" map="N"/>
+  <field class="jdbc.pool.CPoolAttribute" name="vendor" map="O"/>
+  <field class="jdbc.pool.CPoolAttribute" name="maxUsagePerJDBCConnection" map="P"/>
+  <field class="jdbc.pool.CPoolAttribute" name="bToBeSaved_" map="Q"/>
+  <field class="jdbc.pool.CPoolAttribute" name="user" map="R"/>
+  <field class="jdbc.pool.InvalidPoolAttributeException" name="serialVersionUID" map="A"/>
+  <field class="jdbc.pool.PoolInUseException" name="serialVersionUID" map="A"/>
+  <field class="jdbc.pool.CFIFOObjectPool" name="alUnLockedObjectPool_" map="A"/>
+  <field class="jdbc.pool.CFIFOObjectPool" name="alLockedObjectPool_" map="B"/>
+  <field class="jdbc.tuning.DatabaseMetaDataWrapper" name="realMetadata" map="A"/>
+  <field class="jdbc.tuning.DatabaseMetaDataWrapper" name="connectionParent" map="B"/>
+  <field class="jdbc.tuning.SQLArrayWrapper" name="parentStatement" map="A"/>
+  <field class="jdbc.tuning.SQLArrayWrapper" name="realArray" map="B"/>
+  <field class="jdbc.tuning.SQLArrayWrapper" name="sql" map="C"/>
+  <field class="jdbc.tuning.StatementWrapper" name="REVISION" map="A"/>
+  <field class="jdbc.tuning.StatementWrapper" name="hmOpenResultSet_" map="B"/>
+  <field class="jdbc.tuning.StatementWrapper" name="realStatement" map="C"/>
+  <field class="jdbc.tuning.StatementWrapper" name="lastSql" map="D"/>
+  <field class="jdbc.tuning.StatementWrapper" name="connectionParent" map="E"/>
+  <field class="jdbc.tuning.StatementWrapper" name="OPEN_RESULT_SET_EXCEPTION" map="F"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void addResultSet(jdbc.tuning.ResultSetWrapper, jdbc.tuning.OpenResultSetException)" map="A"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void clearOpenResultSet(jdbc.tuning.ResultSetWrapper)" map="A"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void close(boolean)" map="A"/>
+  <method class="jdbc.tuning.StatementWrapper" name="void closeAllOpenResultSet()" map="A"/>
+  <field class="jdbc.tuning.ResultSetWrapper" name="parentStatement" map="A"/>
+  <field class="jdbc.tuning.ResultSetWrapper" name="realResultSet" map="B"/>
+  <field class="jdbc.tuning.ResultSetWrapper" name="sql" map="C"/>
+  <method class="jdbc.tuning.ResultSetWrapper" name="void close(boolean)" map="A"/>
+  <field class="jdbc.tuning.OpenResultSetException" name="serialVersionUID" map="A"/>
+  <field class="jdbc.tuning.PreparedStatementWrapper" name="REVISION" map="G"/>
+  <field class="jdbc.tuning.PreparedStatementWrapper" name="realPreparedStatement" map="H"/>
+  <field class="jdbc.tuning.PreparedStatementWrapper" name="sql" map="I"/>
+  <field class="jdbc.tuning.PreparedStatementWrapper" name="con_" map="J"/>
+  <field class="jdbc.tuning.JDBCLogger" name="REVISION" map="A"/>
+  <field class="jdbc.tuning.JDBCLogger" name="QueryTime" map="B"/>
+  <field class="jdbc.tuning.OpenStatementException" name="serialVersionUID" map="A"/>
+  <field class="jdbc.tuning.ConnectionLeakException" name="serialVersionUID" map="A"/>
+  <field class="jdbc.tuning.ConnectionWrapper" name="LEAK_EXCEPTION" map="A"/>
+  <field class="jdbc.tuning.ConnectionWrapper" name="logger_" map="B"/>
+  <field class="jdbc.tuning.ConnectionWrapper" name="hmOpenStatements_" map="C"/>
+  <field class="jdbc.tuning.ConnectionWrapper" name="strLoggerName_" map="D"/>
+  <field class="jdbc.tuning.ConnectionWrapper" name="bGarbageCollected" map="E"/>
+  <field class="jdbc.tuning.ConnectionWrapper" name="REVISION" map="F"/>
+  <field class="jdbc.tuning.ConnectionWrapper" name="iLeakedStatementCount_" map="G"/>
+  <field class="jdbc.tuning.ConnectionWrapper" name="leakException_" map="H"/>
+  <field class="jdbc.tuning.ConnectionWrapper" name="realConnection" map="I"/>
+  <field class="jdbc.tuning.ConnectionWrapper" name="OPEN_EXCEPTION" map="J"/>
+  <field class="jdbc.tuning.ConnectionWrapper" name="pool_" map="K"/>
+  <field class="jdbc.tuning.ConnectionWrapper" name="bClosed" map="L"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void closeAllOpenStatements()" map="A"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void addQuery(java.lang.Thread, java.lang.String)" map="A"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="java.sql.Statement getOpenStatement(java.lang.String)" map="A"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void removeQuery(java.lang.Thread)" map="A"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="long getCriticalOperationTimeLimit()" map="B"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="org.apache.log4j.Logger getLogger()" map="C"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void setLeakedResultSetCount(int)" map="A"/>
+  <method class="jdbc.tuning.ConnectionWrapper" name="void finalize()" map="finalize"/>
+  <field class="jdbc.tuning.CallableStatementWrapper" name="REVISION" map="K"/>
+  <field class="jdbc.tuning.CallableStatementWrapper" name="realCallableStatement" map="L"/>
+</map>
+</yguard>
