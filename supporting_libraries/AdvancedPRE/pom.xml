@@ -5,7 +5,7 @@
 	<groupId>com.mmpnc.scheduler</groupId>
 	<artifactId>AdvancedPRE</artifactId>
 	<packaging>pom</packaging>
-	<version>30.2.2.0-SNAPSHOT</version>
+	<version>30.2.1.0</version>
 	<description>Advanced Process Request Engine is a scheduler that acts like a server and helps to automate the scheduling of off-line jobs.</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
