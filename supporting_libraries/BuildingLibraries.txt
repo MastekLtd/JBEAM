@@ -1,0 +1,23 @@
+
+Building dependency projects:
+
+AdvancedPre:
+1. from command line go to .../JBEAM/supporting_liabraries/AdvancedPRE
+2. execute below mentioned command
+	mvn clean compile install
+This will install the PRE dependency into your local repository.
+
+jdbcpool:
+1. from command line go to .../JBEAM/supporting_liabraries/jdbcpool
+2. execute below mentioned command
+	mvn clean compile install
+This will install the jdbcpool dependency into your local repository.
+
+stg-birt:
+1. from command line go to .../JBEAM/supporting_liabraries/stg-birt
+2. execute below mentioned command
+	mvn clean compile install
+This will install the stg-birt dependency into your local repository.
+
+
+Once done you can build main Jbeam components.
