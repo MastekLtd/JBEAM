@@ -19,13 +19,18 @@ This section describes some of the basics to developers and contributors new to 
 
 How to build
 ------------
+
 To build JBEAM core components:
 
- ` git clone git://github.com/MastekLtd/JBEAM.git`
- 
+` git clone git://github.com/MastekLtd/JBEAM.git`
+
+First build the [supporting libraries] (https://github.com/MastekLtd/JBEAM/blob/master/supporting_libraries/) required for JBEAM by following the [instructions] (https://github.com/MastekLtd/JBEAM/blob/master/supporting_libraries/BuildingLibraries.txt)
+
+After building supporting libraries use following commands to build JBEAM core components
+
  ` cd jbeam\jbeam-core-components`
  
- ` mvn clean install`
+ ` mvn clean compile install`
 
 To build JBEAM UI components, refer to [Developer guide] ()
 
