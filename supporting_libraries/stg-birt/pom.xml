@@ -631,10 +631,10 @@
 
 	<scm>
 		<developerConnection>
-			scm:svn:https://ind-mhp1v51lnx09.mastek.com/svn/ProductTools/JavaTools/BIRT-Report/tags/stg-birt-1.3.5
+			scm:git:https://github.com/MastekLtd/JBEAM/tree/master/supporting_libraries/stg-birt
 		</developerConnection>
 		<connection>
-			scm:svn:https://ind-mhp1v51lnx09.mastek.com/svn/ProductTools/JavaTools/BIRT-Report/tags/stg-birt-1.3.5
+			scm:git:https://github.com/MastekLtd/JBEAM/tree/master/supporting_libraries/stg-birt
 		</connection>
 	</scm>
 

@@ -197,8 +197,8 @@
 	</build>
 
 	<scm>
-		<connection>scm:svn:https://ind-mhp1v51lnx09.mastek.com/svn/ToolsRepository/JavaTools/JDBCPool/tags/jdbcpool-16.7.0</connection>
-		<developerConnection>scm:svn:https://ind-mhp1v51lnx09.mastek.com/svn/ToolsRepository/JavaTools/JDBCPool/tags/jdbcpool-16.7.0</developerConnection>
+		<connection>scm:git:https://github.com/MastekLtd/JBEAM/tree/master/supporting_libraries/jdbcpool</connection>
+		<developerConnection>scm:git:https://github.com/MastekLtd/JBEAM/tree/master/supporting_libraries/jdbcpool</developerConnection>
 	</scm>
 
 	<distributionManagement>

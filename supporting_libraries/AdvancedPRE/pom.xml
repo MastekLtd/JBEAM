@@ -206,8 +206,8 @@
 		</developer>
 	</developers>
 	<scm>
-		<connection>scm:svn:https://ind-mhp1v51lnx09.mastek.com/svn/ToolsRepository/JavaTools/AdvancedPRE/trunk</connection>
-		<developerConnection>scm:svn:https://ind-mhp1v51lnx09.mastek.com/svn/ToolsRepository/JavaTools/AdvancedPRE/trunk</developerConnection>
+		<connection>scm:git:https://github.com/MastekLtd/JBEAM/tree/master/supporting_libraries/AdvancedPRE</connection>
+		<developerConnection>scm:git:https://github.com/MastekLtd/JBEAM/tree/master/supporting_libraries/AdvancedPRE</developerConnection>
 	</scm>
 	<distributionManagement>
 		<repository>
