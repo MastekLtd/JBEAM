@@ -32,13 +32,13 @@ After building supporting libraries use following commands to build JBEAM core c
  
  ` mvn clean compile install`
 
-To build JBEAM UI components, refer to [Developer guide] ()
+To build JBEAM UI components, refer to [Developer guide] (https://github.com/MastekLtd/JBEAM/blob/master/documentation/developer%20guide/JBEAM%20Developer%20Guide.docx)
 
 
 Working with JBEAM Source
 -------------------------
 
-Refer to the [Developer guide] () for detail help on 
+Refer to the [Developer guide] (https://github.com/MastekLtd/JBEAM/blob/master/documentation/developer%20guide/JBEAM%20Developer%20Guide.docx) for detail help on 
    * setting up workspace
    * sample code on writing new batch jobs and batch execution handlers.
    * important classes of the framework and it's significance
