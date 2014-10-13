@@ -1,18 +1,9 @@
 /**
- * Copyright (c) 2014 Mastek Ltd. All rights reserved.
- * 
- * This file is part of JBEAM. JBEAM is free software: you can
- * redistribute it and/or modify it under the terms of the GNU Lesser
- * General Public License as published by the Free Software Foundation.
- *
- * JBEAM is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
- * Public License for the specific language governing permissions and 
- * limitations.
+ * This file forms part of the System Task Group International Limited      
+ * Copyright (c) Keystone Solutions plc. 2001 - 2002.  All  rights reserved 
  *
  *
- * $Revision: 31105 $
+ * $Revision: 2717 $
  *
  * $Header: http://192.100.194.241:8080/svn/ProductTools/JavaTools/AdvancedPRE/trunk/src/stg/pr/engine/scheduler/ICalendar.java 1402 2010-05-06 11:14:41Z kedar $
  *
@@ -31,7 +22,7 @@ package stg.pr.engine.scheduler;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Map;
+import java.util.HashMap;
 
 import stg.pr.beans.ProcessRequestEntityBean;
 import stg.pr.beans.ProcessRequestScheduleEntityBean;
@@ -45,7 +36,7 @@ import stg.utils.Day;
  * A Calendar is primarily used for checking whether or not the given day is a valid day for scheduling a job.
  *
  * @author Kedar Raybagkar
- * @version $Revision: 31105 $
+ * @version $Revision: 2717 $
  * @since V1.0P23.02.x  
  */
 public interface ICalendar {
@@ -53,7 +44,7 @@ public interface ICalendar {
     /**
      * Stores the REVISION number of the class from the configuration management tool. 
      */
-    public static final String REVISION = "$Revision:: 31105             $";
+    public static final String REVISION = "$Revision:: 2717              $";
 
     /**
      * Sets the java.sql.Connection object.
@@ -100,7 +91,7 @@ public interface ICalendar {
      * @param phmParameters HashMap
      * @since V1.0R28.x
      */
-    public void setRequestParameters(Map<String, Object> phmParameters);
+    public void setRequestParameters(HashMap<String, Object> phmParameters);
     
     /**
      * PRE will set the PREContext object.

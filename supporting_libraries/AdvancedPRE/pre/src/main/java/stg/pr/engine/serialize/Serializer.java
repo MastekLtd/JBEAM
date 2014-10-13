@@ -1,18 +1,9 @@
-/**
- * Copyright (c) 2014 Mastek Ltd. All rights reserved.
- * 
- * This file is part of JBEAM. JBEAM is free software: you can
- * redistribute it and/or modify it under the terms of the GNU Lesser
- * General Public License as published by the Free Software Foundation.
- *
- * JBEAM is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
- * Public License for the specific language governing permissions and 
- * limitations.
+/*
+ * This file forms part of the Mastek Ltd. 
+ * Copyright (c). All  rights reserved.    
  *
  *
- * $Revision: 31105 $
+ * $Revision: 2980 $
  *
  * $Header: http://192.100.194.241:8080/svn/ProductTools/JavaTools/AdvancedPRE/trunk/src/stg/pr/engine/serialize/Serializer.java 1402 2010-05-06 11:14:41Z kedar $
  *
@@ -23,6 +14,7 @@ package stg.pr.engine.serialize;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
@@ -31,6 +23,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -53,7 +46,7 @@ import com.stg.crypto.IOObfuscationUtility;
  * output stream.
  *
  * @author Kedar Raybagkar
- * @version $Revision: 31105 $
+ * @version $Revision: 2980 $
  * @since V1.0R28.x
  *
  */
@@ -142,11 +135,13 @@ public class Serializer {
         IOObfuscationUtility obfuscator = new IOObfuscationUtility();
         
         FileInputStream objFIS = null;
-        DataInputStream objDIN = null;
+        InputStream is = null;
+        DataInput objDIN;
         try {
         	//Get the datainput stream to the underlying file.
         	objFIS = new FileInputStream(file);
-			objDIN = new DataInputStream(obfuscator.getObfuscatedInputStream(objFIS,Cipher.DECRYPT_MODE));
+			is = obfuscator.getObfuscatedInputStream(objFIS,Cipher.DECRYPT_MODE);
+			objDIN = new DataInputStream(is);
         	List<Serializable> alist = new ArrayList<Serializable>();
         	while (true) {
         		int size;
@@ -188,9 +183,9 @@ public class Serializer {
 				}
         	}
 		} finally {
-		    if (objDIN != null) {
-		        objDIN.close();
-		    }
+			if (is != null) {
+				is.close();
+			}
 			if (objFIS != null) {
 				objFIS.close();
 			}

@@ -1,17 +1,8 @@
-/**
- * Copyright (c) 2014 Mastek Ltd. All rights reserved.
- * 
- * This file is part of JBEAM. JBEAM is free software: you can
- * redistribute it and/or modify it under the terms of the GNU Lesser
- * General Public License as published by the Free Software Foundation.
- *
- * JBEAM is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
- * Public License for the specific language governing permissions and 
- * limitations.
- *
-* $Revision: 32975 $
+/*
+* This file forms part of the STGIL
+* Copyright (c) GMac.plc. 2002 - 2002 All rights reserved.
+*
+* $Revision: 3370 $
 *
 */
 
@@ -30,8 +21,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.mail.internet.AddressException;
@@ -53,8 +44,8 @@ import stg.pr.beans.ProcessRequestScheduleController;
 import stg.pr.beans.ProcessRequestScheduleEntityBean;
 import stg.pr.beans.ScheduleEventCalendarController;
 import stg.pr.beans.ScheduleEventCalendarEntityBean;
-import stg.pr.engine.IProcessRequest.REQUEST_STATUS;
 import stg.pr.engine.PREContext;
+import stg.pr.engine.IProcessRequest.REQUEST_STATUS;
 import stg.pr.engine.datasource.IDataSourceFactory;
 import stg.pr.engine.mailer.CMailer;
 import stg.pr.engine.mailer.EMail;
@@ -110,7 +101,7 @@ import com.stg.logger.LogLevel;
 * @see stg.pr.engine.scheduler.IScheduleEvent
 * @see stg.pr.engine.scheduler.IRequestIdGenerator
 * 
-* @version $Revision:: 32975                  $
+* @version $Revision:: 3370                   $
 * @author   Kedar C. Raybagkar
 * 
 **/
@@ -125,7 +116,7 @@ public class CRequestScheduler
      * This indicates the version of the class.
      * Comment for <code>REVISION</code>
      */
-    public static final String REVISION = "$Revision: 32975 $";
+    public static final String REVISION = "$Revision: 3370 $";
 
     //public instance variables
 
@@ -230,7 +221,7 @@ public class CRequestScheduler
      * 
      * Comment for <code>hmParameters_</code>
      */
-    private Map<String, Object> hmParameters_;
+    private HashMap<String, Object> hmParameters_;
     
     /**
      * Instance of logger.
@@ -353,28 +344,27 @@ public class CRequestScheduler
      * @param plSchId Schedule id to be scheduled.
      * @param objPREB {@link ProcessRequestEntityBean}
      * @param phmParameters HashMap containing associated parameters for a request.
-     * @param paramSimpleDateFormat Date Format as stored in properties file.
-     * @param paramSimpleTimeFormat Time Format as stored in properties file.
-     * @param paramSimpleDateTimeFormat
+     * @param pstrDateFormat Date Format as stored in properties file.
+     * @param pstrTimeFormat Time Format as stored in properties file.
      * @param context Context
      */
     public CRequestScheduler(
         long plSchId,
         ProcessRequestEntityBean objPREB,
-        Map<String, Object> phmParameters,
-        String paramSimpleDateFormat,
-        String paramSimpleTimeFormat,
-        String paramSimpleDateTimeFormat,
+        HashMap<String, Object> phmParameters,
+        SimpleDateFormat pstrDateFormat,
+        SimpleDateFormat pstrTimeFormat,
+        SimpleDateFormat pstrDateTimeFormat,
         PREContext context)
     {
         this(); //instantiates bytes_ and pwException variables.
         lSchId_ = plSchId;
         this.objPREB_ = objPREB;
-        paramDateFormat_ = new SimpleDateFormat(paramSimpleDateFormat);
-//        paramTimeFormat_ = new SimpleDateFormat(paramSimpleTimeFormat);
-        dateTimeFormat_ = new SimpleDateFormat(paramSimpleDateTimeFormat);
+        paramDateFormat_ = pstrDateFormat;
+//        paramTimeFormat_ = new SimpleDateFormat(pstrTimeFormat);
         hmParameters_ = phmParameters;
         logger_ = Logger.getLogger("Scheduler");
+        dateTimeFormat_ = pstrDateTimeFormat;
         context_ = context;
     }
 
@@ -2550,7 +2540,7 @@ public class CRequestScheduler
     /* (non-Javadoc)
      * @see stg.pr.engine.scheduler.ISchedule#setRequestParameters(java.util.HashMap)
      */
-    public void setRequestParameters(Map<String, Object> phmParameters)
+    public void setRequestParameters(HashMap<String, Object> phmParameters)
     {
         //do nothing
     }

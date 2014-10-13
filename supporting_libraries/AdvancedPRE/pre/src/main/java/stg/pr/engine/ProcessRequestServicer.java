@@ -1,18 +1,9 @@
 /**
- * Copyright (c) 2014 Mastek Ltd. All rights reserved.
- * 
- * This file is part of JBEAM. JBEAM is free software: you can
- * redistribute it and/or modify it under the terms of the GNU Lesser
- * General Public License as published by the Free Software Foundation.
- *
- * JBEAM is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
- * Public License for the specific language governing permissions and 
- * limitations.
+ * This file forms part of the System Task Group International Limited      
+ * Copyright (c) Keystone Solutions plc. 2001 - 2002.  All  rights reserved 
  *
  *
- * $Revision: 31105 $
+ * $Revision: 2958 $
  *
  * $Header: http://172.16.209.156:8080/svn/ProductTools/JavaTools/AdvancedPRE/trunk/src/stg/pr/engine/ProcessRequestServicer.java 1402 2010-05-06 11:14:41Z kedar $
  *
@@ -28,7 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.util.Map;
+import java.util.HashMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -50,7 +41,7 @@ public abstract class ProcessRequestServicer implements IProcessRequest {
     /**
      * Stores the REVISION number of the class from the configuration management tool. 
      */
-    public static final String REVISION = "$Revision:: 31105             $";
+    public static final String REVISION = "$Revision:: 2958              $";
     
 	private boolean failedOver;
 
@@ -58,7 +49,7 @@ public abstract class ProcessRequestServicer implements IProcessRequest {
 
 	private long requestId;
 
-	private Map<String, Object> params;
+	private HashMap<String, Object> params;
 
 	private String userId;
 
@@ -124,7 +115,7 @@ public abstract class ProcessRequestServicer implements IProcessRequest {
      * 
      * @param hmParams
      */
-    public final void setParams(Map<String, Object> hmParams) {
+    public final void setParams(HashMap<String, Object> hmParams) {
     	this.params = hmParams;
     }
     
@@ -147,7 +138,7 @@ public abstract class ProcessRequestServicer implements IProcessRequest {
 	/* (non-Javadoc)
 	 * @see stg.pr.engine.IProcessRequest#getParams()
 	 */
-	public Map<String, Object> getParams() {
+	public HashMap<String, Object> getParams() {
 		return params;
 	}
 

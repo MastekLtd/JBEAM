@@ -1,18 +1,9 @@
 /**
- * Copyright (c) 2014 Mastek Ltd. All rights reserved.
- * 
- * This file is part of JBEAM. JBEAM is free software: you can
- * redistribute it and/or modify it under the terms of the GNU Lesser
- * General Public License as published by the Free Software Foundation.
- *
- * JBEAM is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
- * Public License for the specific language governing permissions and 
- * limitations.
+ * This file forms part of the System Task Group International Limited      
+ * Copyright (c) Keystone Solutions plc. 2001 - 2002.  All  rights reserved 
  *
  *
- * $Revision: 31105 $
+ * $Revision: 2959 $
  *
  * $Header: /Utilities/PRE/example/com/myapp/preimpl/MyOwnCalendar2.java 1     3/24/09 10:05a Kedarr $
  *
@@ -31,7 +22,7 @@ package com.myapp.preimpl;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Map;
+import java.util.HashMap;
 
 import stg.pr.beans.ProcessRequestEntityBean;
 import stg.pr.beans.ProcessRequestScheduleEntityBean;
@@ -53,7 +44,7 @@ public class MyOwnCalendar2 implements ICalendar {
     /**
      * Stores the REVISION number of the class from the configuration management tool. 
      */
-    public static final String REVISION = "$Revision:: 31105             $";
+    public static final String REVISION = "$Revision:: 2959              $";
 
 
     /* (non-Javadoc)
@@ -89,9 +80,9 @@ public class MyOwnCalendar2 implements ICalendar {
     }
 
     /* (non-Javadoc)
-     * @see stg.pr.engine.scheduler.ICalendar#setRequestParameters(java.util.Map)
+     * @see stg.pr.engine.scheduler.ICalendar#setRequestParameters(java.util.HashMap)
      */
-    public void setRequestParameters(Map<String, Object> phmParameters) {
+    public void setRequestParameters(HashMap<String, Object> phmParameters) {
         
     }
 

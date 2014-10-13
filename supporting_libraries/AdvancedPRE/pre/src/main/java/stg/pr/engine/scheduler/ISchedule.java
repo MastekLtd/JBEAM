@@ -1,18 +1,9 @@
-/**
- * Copyright (c) 2014 Mastek Ltd. All rights reserved.
- * 
- * This file is part of JBEAM. JBEAM is free software: you can
- * redistribute it and/or modify it under the terms of the GNU Lesser
- * General Public License as published by the Free Software Foundation.
- *
- * JBEAM is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
- * Public License for the specific language governing permissions and 
- * limitations.
- *
+/*
+* This file forms part of the Systems Task Group International Limited      $
+* Copyright (c) Keystone Solutions plc. 2001 - 2002.  All  rights reserved $
 *
-* $Revision: 31105 $
+*
+* $Revision: 2958 $
 *
 * $Header: http://192.100.194.241:8080/svn/ProductTools/JavaTools/AdvancedPRE/trunk/src/stg/pr/engine/scheduler/ISchedule.java 1402 2010-05-06 11:14:41Z kedar $
 *
@@ -22,7 +13,7 @@
 package stg.pr.engine.scheduler;
 
 import java.io.PrintWriter;
-import java.util.Map;
+import java.util.HashMap;
 
 import stg.pr.beans.ProcessRequestEntityBean;
 import stg.pr.engine.PREContext;
@@ -39,7 +30,7 @@ public interface ISchedule
     /**
      * Stores the REVISION number of the class from the configuration management tool. 
      */
-    public static final String REVISION = "$Revision:: 31105             $";
+    public static final String REVISION = "$Revision:: 2958              $";
     
     /**
      * Identifier for Dynamic Indicator.
@@ -277,7 +268,7 @@ public interface ISchedule
      * 
      * @param phmParameters HashMap
      */
-    public void setRequestParameters(Map<String, Object> phmParameters);
+    public void setRequestParameters(HashMap<String, Object> phmParameters);
     
     /**
      * PRE will set the PREContext object.

@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>AdvancedPRE</artifactId>
 		<groupId>com.mmpnc.scheduler</groupId>
-		<version>30.2.1.0</version>
+		<version>30.2.0.0</version>
 	</parent>
 
 	<artifactId>pre</artifactId>

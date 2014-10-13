@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.mmpnc.scheduler</groupId>
 		<artifactId>AdvancedPRE</artifactId>
-		<version>30.2.1.0</version>
+		<version>30.2.0.0</version>
 	</parent>
 	<artifactId>pre-full-bundle</artifactId>
 	<packaging>pom</packaging>

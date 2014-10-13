@@ -1,18 +1,9 @@
-/**
- * Copyright (c) 2014 Mastek Ltd. All rights reserved.
- * 
- * This file is part of JBEAM. JBEAM is free software: you can
- * redistribute it and/or modify it under the terms of the GNU Lesser
- * General Public License as published by the Free Software Foundation.
- *
- * JBEAM is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
- * Public License for the specific language governing permissions and 
- * limitations.
- *
+/*
+* This file forms part of the Systems Task Group International Ltd $
+* Copyright (c) Keystone Solutions plc. 2001 - 2002.  All  rights reserved $
 *
-* $Revision: 31105 $
+*
+* $Revision: 3317 $
 *
 * $Header: http://192.100.194.241:8080/svn/ProductTools/JavaTools/AdvancedPRE/trunk/src/stg/pr/engine/IProcessRequest.java 1402 2010-05-06 11:14:41Z kedar $
 *
@@ -92,7 +83,7 @@ package stg.pr.engine;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.util.Map;
+import java.util.HashMap;
 
 import stg.pr.engine.datasource.IDataSourceFactory;
 
@@ -108,7 +99,7 @@ import stg.pr.engine.datasource.IDataSourceFactory;
  * </DL>
  * 
  * @author Kedar C. Raybagkar
- * @version $Revision: 31105 $
+ * @version $Revision: 3317 $
  *
  */
 public interface IProcessRequest
@@ -116,7 +107,7 @@ public interface IProcessRequest
     /**
      * Stores the REVISION number of the class from the configuration management tool. 
      */
-    public final String REVISION = "$Revision: 31105 $";
+    public final String REVISION = "$Revision: 3317 $";
 
     
     /**
@@ -244,7 +235,7 @@ public interface IProcessRequest
      * Returns the associated parameters of the request.
      *  
      */
-    public Map<String, Object> getParams();
+    public HashMap<String, Object> getParams();
 
     /**
      * Returns the response writer.
