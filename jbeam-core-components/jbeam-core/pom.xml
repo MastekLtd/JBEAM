@@ -312,22 +312,12 @@
 			<artifactId>jaxen</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.majescomastek.stgicd</groupId>
-			<artifactId>ICDServiceInvoker</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.majescomastek.stgicd.client</groupId>
-			<artifactId>ICDServiceRouter</artifactId>
-			<type>jar</type>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 	<description>The core framework that is responsible to execute, provide extenssion points and flexibility.</description>
