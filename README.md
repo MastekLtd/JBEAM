@@ -24,7 +24,7 @@ To build JBEAM core components:
 
 ` git clone git://github.com/MastekLtd/JBEAM.git`
 
-First build the [supporting libraries] (https://github.com/MastekLtd/JBEAM/blob/master/supporting_libraries/) required for JBEAM by following the [instructions] (https://github.com/MastekLtd/JBEAM/blob/master/supporting_libraries/BuildingLibraries.txt)
+First build the [supporting libraries] (https://github.com/MastekLtd/JBEAM/blob/master/supporting_libraries/) required for JBEAM by following the [instructions] (https://github.com/MastekLtd/JBEAM/blob/master/supporting_libraries/build_supporting_libraries.md)
 
 After building supporting libraries use following commands to build JBEAM core components
 
