@@ -1,13 +1,22 @@
-/*
-* This file forms part of the Systems Task Group International Ltd $
-* Copyright (c) Keystone Solutions plc. 2001 - 2002.  All  rights reserved $
-*
-*
-* $Revision: 3317 $
-*
-* $Header: http://192.100.194.241:8080/svn/ProductTools/JavaTools/AdvancedPRE/trunk/src/stg/pr/engine/IProcessRequest.java 1402 2010-05-06 11:14:41Z kedar $
-*
-* $Log: /Utilities/PRE/src/stg/pr/engine/IProcessRequest.java $
+/**
+ * Copyright (c) 2014 Mastek Ltd. All rights reserved.
+ * 
+ * This file is part of JBEAM. JBEAM is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU Lesser
+ * General Public License as published by the Free Software Foundation.
+ *
+ * JBEAM is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+ * Public License for the specific language governing permissions and 
+ * limitations.
+ *
+ *
+ * $Revision: 3317 $
+ *
+ * $Header: http://192.100.194.241:8080/svn/ProductTools/JavaTools/AdvancedPRE/trunk/src/stg/pr/engine/IProcessRequest.java 1402 2010-05-06 11:14:41Z kedar $
+ *
+ * $Log: /Utilities/PRE/src/stg/pr/engine/IProcessRequest.java $
  * 
  * 12    9/15/09 9:43a Kedarr
  * Updated javadoc.
