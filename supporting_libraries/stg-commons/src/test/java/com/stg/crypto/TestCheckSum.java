@@ -80,7 +80,7 @@ public class TestCheckSum extends TestCase {
 		try {
 			fis = new FileInputStream(
 					new File(
-							"C:/Users/yashovardhan440076/.m2/repository/org/bouncycastle/bcprov-jdk16/1.46/bcprov-jdk16-1.46.jar"));
+							"src/test/resources/bcprov-jdk16-1.46.jar"));
 			String str = CryptoHelper.generateMD5Checksum(fis);
 			assertEquals("881ce7b0e75a764892eafa63af7e4d38", str);
 		} catch (FileNotFoundException e) {
@@ -94,7 +94,7 @@ public class TestCheckSum extends TestCase {
 		try {
 			FileInputStream fis = new FileInputStream(
 					new File(
-							"C:/Users/yashovardhan440076/.m2/repository/org/bouncycastle/bcprov-jdk16/1.46/bcprov-jdk16-1.46.jar"));
+							"src/test/resources/bcprov-jdk16-1.46.jar"));
 			String str = CryptoHelper.generateSHA1Checksum(fis);
 			assertEquals("ce091790943599535cbb4de8ede84535b0c1260c", str);
 		} catch (FileNotFoundException e) {
@@ -108,7 +108,7 @@ public class TestCheckSum extends TestCase {
 		try {
 			InputStream is = IODigestUtility.getMD5IODigest(new FileInputStream(
 					new File(
-					"C:/Users/yashovardhan440076/.m2/repository/org/bouncycastle/bcprov-jdk16/1.46/bcprov-jdk16-1.46.jar")));
+					"src/test/resources/bcprov-jdk16-1.46.jar")));
 			while(is.available() > 0) {
 				byte[] bytes = new byte[1024*1024];
 				is.read(bytes);
@@ -128,7 +128,7 @@ public class TestCheckSum extends TestCase {
 		try {
 			InputStream is = IODigestUtility.getSHA1IODigest(new FileInputStream(
 					new File(
-					"C:/Users/yashovardhan440076/.m2/repository/org/bouncycastle/bcprov-jdk16/1.46/bcprov-jdk16-1.46.jar")));
+					"src/test/resources/bcprov-jdk16-1.46.jar")));
 			while(is.available() > 0) {
 				byte[] bytes = new byte[1024];
 				is.read(bytes);
@@ -148,7 +148,7 @@ public class TestCheckSum extends TestCase {
 		try {
 			InputStream is = IODigestUtility.getSHA1IODigest(new FileInputStream(
 					new File(
-					"C:/Users/yashovardhan440076/.m2/repository/org/bouncycastle/bcprov-jdk16/1.46/bcprov-jdk16-1.46.jar")));
+					"src/test/resources/bcprov-jdk16-1.46.jar")));
 			while(is.available() > 0) {
 				byte[] bytes = new byte[1024];
 				is.read(bytes);
