@@ -1,0 +1,60 @@
+RandomStringGenerator generator = new RandomStringGenerator("a{kedar}A9a#aA9A", stg.utils.RandomStringGenerator.OPTION.NON_UNIQUE);
+System.out.println( generator.generate());
+
+ (No explicit return value) (No explicit return value) (No explicit return value) (No explicit return value)
+Day day = new Day(1977, 1,31);
+Day day2 = new Day(2012, 1, 30);
+
+return StringUtils.split("Kedar##Raybagkar", '#', '/');
+
+		
+return com.stg.crypto.CryptoHelper.generateSHA1Checksum("Kedar Raybagkar");
+
+
+RandomStringGenerator generator = new RandomStringGenerator("aA9a#aA9A", stg.utils.RandomStringGenerator.OPTION.UNIQUE_INGNORE_CASE_SENSITIVE);
+generator.setSpecialChars(new char[] {'@','#'});
+for (int i = 0; i < 10; i++) {
+	System.out.println(generator.generate());
+}
+
+ 
+Day day = new Day();
+System.out.println(day.getMonth());
+System.out.println(Calendar.getInstance().get(Calendar.MONTH));
+
+CIndent indent = new CIndent();
+System.out.println(indent.format("class T {"));
+System.out.println(indent.format("public static void main(String[] args) {"));
+System.out.println(indent.format("//call some java methods"));
+System.out.println(indent.format("}"));
+System.out.println(indent.format("}"));
+
+String str  = "Kedar  {{ is } a {good} boy";
+System.out.println(StringUtils.extractAllTokens(str, '{', '}', '{'));
+
+
+Day day = new Day(2012, 5, 30);
+day.setFixedDate(true);
+day.advance(Calendar.MONTH, -3);
+System.out.println(day);
+
+ArrayList<String> list = new ArrayList<String>();
+list.add("ab");
+list.add("Ab");
+list.add("AB");
+list.add("aB");
+list.add("ab1");
+list.add("1ab");
+list.add("1ab1");
+list.add("A.ab");
+
+Collections.sort(list, new Comparator {
+    
+})
+System.out.println("ab".hashCode());
+System.out.println("1ab1".hashCode());
+System.out.println("ab1".hashCode());
+System.out.println("1ab".hashCode());
+System.out.println("Ab".hashCode());
+System.out.println("AB".hashCode());
+System.out.println("aB".hashCode());

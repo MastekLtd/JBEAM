@@ -1,0 +1,17 @@
+<document xmlns="http://maven.apache.org/DOCUMENT/1.0.1"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/DOCUMENT/1.0.1 http://maven.apache.org/xsd/document-1.0.1.xsd"
+outputName="maven-pdf-plugin-doc-${project.version}">
+<meta>
+<title>User guide of ${project.name} version ${project.version}</title>
+<author>${project.developers[0].email}</author>
+</meta>
+<toc name="Table of Contents">
+...
+</toc>
+<cover>
+<coverdate>${date}</coverdate> <!-- current date in ISO 8601 format -->
+<!-- <coverdate>${day}/${month}/${year}</coverdate> current date in French format -->
+...
+</cover>
+</document>

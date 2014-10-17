@@ -1,0 +1,45 @@
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+  <properties>
+    <title>STG-Commons</title>
+    <author email="kedar.raybagkar@mastek.com">Kedar Raybagkar</author>
+  </properties>
+  <body>
+    <release version="${project.version}" date="${publishDate}" description="Enhancements">
+        <action dev="kedarr" date="5/30/2013" type="fix">
+        Verbose time difference had a bug. If the time difference between two dates was in milliseconds
+        the verbose time difference used to show in 23H, 59m, etc. Fixed it.
+        </action>
+    </release>
+    <release version="1.12.0" date="5/3/2013" description="Enhancements">
+        <action dev="kedarr" date="5/3/2013" type="add">
+        New API added for immutable Day class.
+        </action>
+    </release>
+    <release version="1.11.0" date="10/1/2012" description="Enhancements">
+        <action dev="kedarr" date="10/1/2012" type="add">
+        StringUtils have new API that helps to replace whole words from a given text.
+        </action>
+    </release>
+    <release version="1.10.0" date="4/17/2012" description="Enhancements">
+        <action dev="kedarr" date="4/17/2011" type="add">
+        New API has been added in CExport. The constructor now works with a java.util.Properties directly.
+        </action>
+    </release>
+    <release version="1.9.0" date="4/1/2012" description="Enhancements">
+        <action dev="kedarr" date="8/23/2011" type="add">
+        RandomStringGenerator API has been refactorred. The class now exhibits new methods and feature of generating unique
+        case sensitive as well as case insensitive random strings based on the given format..
+        </action>
+        <action dev="kedarr" date="4/12/2012" type="update">
+        The PBEEncryptionRoutine class has been modified to handle the ArrayIndexOutOfBounds exception.
+        </action>
+    </release>
+    <release version="1.8.0" description="Enhancements Release">
+        <action>
+            Refer to the ChangeLog.html for all previous releases.
+        </action>
+    </release>
+  </body>
+</document>

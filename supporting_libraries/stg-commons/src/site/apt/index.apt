@@ -1,0 +1,17 @@
+ --------
+Mastek - P&C - Commons
+ --------
+ --------
+09 April 2012
+ --------
+
+Commons
+
+* Introduction
+
+  Commons is a package that collates all common utilities together to form a collection of programs.
+
+* Rationale
+
+  There were various utility tools that were created for generic usage and these were scattered across multiple projects.
+  This project aims at consolidating all such tools/utilities and brings them under a commmons platform.
