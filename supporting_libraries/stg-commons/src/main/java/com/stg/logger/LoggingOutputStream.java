@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with JBEAM. If not, see <http://www.gnu.org/licenses/>.
  */
+package com.stg.logger;
 
 import java.io.*;
 import org.apache.log4j.*;
