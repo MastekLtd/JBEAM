@@ -428,6 +428,6 @@ public class TestDay extends TestCase {
 //	    assertTrue(day.verboseTimeDifference(day2).indexOf("39y 9M 9d 4H") >= 0);
 	    day2 = new Day(2013,5,30, 16,10,02);
 	    System.out.println(day + " \t " + day2);
-	    System.out.println(day.verboseTimeDifference(day2));
+//	    System.out.println(day.verboseTimeDifference(day2));
 	}
 }
