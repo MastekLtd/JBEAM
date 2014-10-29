@@ -96,7 +96,7 @@
 		<dependency>
 			<groupId>com.mmpnc</groupId>
 			<artifactId>stg-commons</artifactId>
-			<version>1.4</version>
+			<version>1.13.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
