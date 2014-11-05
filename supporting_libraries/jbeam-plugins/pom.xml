@@ -26,13 +26,23 @@
 				<role>Product Analyst</role>
 			</roles>
 		</developer>
+		<developer>
+			<id>sh</id>
+			<name>Shantanu Charpe</name>
+			<email>shantanu.charpe@mastek.com</email>
+			<organization>MajescoMastek</organization>
+			<organizationUrl>http://www.majescomastek.com</organizationUrl>
+			<roles>
+				<role>Technical Analyst</role>
+			</roles>
+		</developer>
 	</developers>
 	<properties>
 		<compiler.version>1.6</compiler.version>
 	</properties>
 	<scm>
-		<connection>scm:svn:https://ind-mhp1v51lnx09.mastek.com/svn/ToolsRepository/Batch/Projects/Jbeam-ICD/01.SourceCode/jbeamicd-plugins/tags/jbeam-plugins-5.5.0</connection>
-		<developerConnection>scm:svn:https://ind-mhp1v51lnx09.mastek.com/svn/ToolsRepository/Batch/Projects/Jbeam-ICD/01.SourceCode/jbeamicd-plugins/tags/jbeam-plugins-5.5.0</developerConnection>
+		<connection>scm:git:https://github.com/MastekLtd/JBEAM/tree/master/supporting_libraries/jbeamicd-plugins/tags/jbeam-plugins-5.5.0</connection>
+		<developerConnection>scm:git:https://github.com/MastekLtd/JBEAM/tree/master/supporting_libraries/jbeamicd-plugins/tags/jbeam-plugins-5.5.0</developerConnection>
 	</scm>
 	<organization>
 		<name>MajescoMastek</name>
@@ -66,7 +76,7 @@
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>buildnumber-maven-plugin</artifactId>
-					<version>1.0-beta-4</version>
+					<version>1.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
