@@ -6,6 +6,11 @@
 		<author email="kedar.raybagkar@mastek.com">Kedar Raybagkar</author>
 	</properties>
   	<body>
+  		<release version="5.6.0" date="11/11/2014" description="Enhancement Release">
+  			<action dev="shantanuc" date="11/11/2014" type="Add">
+				Modified stg-birt version to 1.3.6  
+  			</action>
+  		</release>
   		<release version="5.5.0" date="08/06/2014" description="Enhancement and Bug Fix Release">
   			<action dev="shantanuc" date="08/06/2014" type="Add">
 				Added new feature to enable concurrent execution of batches (SPECIAL
