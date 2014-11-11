@@ -3,7 +3,7 @@
   <parent>
     <artifactId>jbeam-plugins</artifactId>
     <groupId>com.mmpnc.icd</groupId>
-    <version>5.5.0</version>
+    <version>5.6.0</version>
    </parent>
   <artifactId>jbeam-monitor-comm-oracle</artifactId>
 </project>
