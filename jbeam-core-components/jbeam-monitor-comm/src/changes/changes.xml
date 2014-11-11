@@ -2,10 +2,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
 	<properties>
-		<title>JBEAM-Core-Comm</title>
+		<title>JBEAM-Monitor-Comm</title>
 		<author email="kedar.raybagkar@mastek.com">Kedar Raybagkar</author>
 	</properties>
-  	<body>
+	<body>
   		<release version="5.6.0" date="11/11/2014" description="Enhancement Release">
   			<action dev="shantanuc" date="11/11/2014" type="Add">
 				Modified stg-birt version to 1.3.6  
@@ -31,73 +31,95 @@
   				jbeam-core - Changes related to SSO for supporting multiple application
   				while running a batch. for eg, PAS and Billing
   			</action>
-  		</release>
-  		<release version="5.3.0" date="10/03/2013" description="Enhancement Release">
-  			<action dev="mandarv" date="10/03/2013" type="Add">
-  				jbeam-core - Addition of Dynamic order by clause while generating query 
-  				which returns the assigned set of jobs for a listener for an entity.
+  			<action dev="shantanuc" date="03/13/2014" type="Add">
+  				jbeam-core - Supporting the use of http connection pooling done in ICDServiceClient 
   			</action>
   		</release>
-  		<release version="5.1.2" date="05/20/2013" description="Enhancement Release">
-  			<action dev="mandarv" date="" type="Add">
-  			JBEAM with SQL Server compatibility     			  			 		
-  			</action>
-  		</release>
+		<release version="5.3.0" date="10/03/2013" description="Enhancement Release">
+			<action dev="mandarv" date="10/03/2013" type="Add">
+				jbeam-core - Addition of Dynamic order by clause while generating query
+				which returns the assigned set of jobs for a listener for an entity.
+			</action>
+		</release>
+		<release version="5.1.2" date="05/20/2013" description="Enhancement Release">
+			<action dev="mandarv" date="" type="Add">
+				JBEAM with SQL Server compatibility     			  			 		
+  		</action>
+		</release>
 		<release version="5.0.7" date="" description="Bug Fix Release">
-  		<action issue="2070" dev="mandarv" date="" type="fix">
-  			"Non working days" set in the calendar is not showing after moving to other screen(other year). 
-  			Changes made in Calendar module of JBEAM UI.    			  			 		
+			<action issue="2070" dev="mandarv" date="" type="fix">
+				"Non working days" set in the calendar is not showing after moving to
+				other screen(other year).
+				Changes made in Calendar module of JBEAM UI.    			  			 		
   		</action>
-	  	</release>
-	  	<release version="5.0.6" date="03/18/2013" description="Internal Release">
-	  		<action>
-	  			Change for the installer in sql scripts and jbeam-pack-config.xml. 			
-	  		</action>
-	  	</release>
-		<release version="5.0.5" date="" description="Bug Fix Release">
-  		<action issue="1253" dev="mandarv" date="" type="fix">
-  			Once the batch is submitted for recurrence, there is no flexiblity for the user to stop the batch prior its execution. He can stop the batch when it starts executing by clicking stop button. This may cause execution of some of the objects scheduled for that day.
-  			Functionality provided to cancel active schedule/s from screen.  			
+		</release>
+		<release version="5.0.6" date="03/18/2013" description="Internal Release">
+			<action>
+				Change for the installer in sql scripts and jbeam-pack-config.xml.
+			</action>
+		</release>
+		<release version="5.0.5" date=""
+			description="Enhancement and Bug Fix Release">
+			<action issue="1253" dev="mandarv" date="" type="fix">
+				Once the batch is submitted for recurrence, there is no flexibility for
+				the user to stop the batch prior its execution. He can stop the
+				batch when it starts executing by clicking stop button. This may
+				cause execution of some of the objects scheduled for that day.
+				Functionality provided to cancel active schedule/s from screen.
+			</action>
+			<action issue="1252" dev="mandarv" date="" type="fix">
+				The batch submitted with recurrence cant be altered i.e. once the date
+				and days of execution are checked and submitted, the user cant alter
+				them later.
+				To resolve this, user need to cancel the whole schedule and create new
+				schedule.
   		</action>
-  		<action issue="1252" dev="mandarv" date="" type="fix">
-  			The batch submitted with recurrence cant be altered i.e. once the date and days of execution are checked and submitted, the user cant alter them later. 
-  			To resolve this, user need to cancel the whole schedule and create new schedule.
+			<action issue="1251" dev="mandarv" date="" type="fix">
+				After submiting the recurrence batch that will execute the objects on
+				regular basis, we are not able to see the details of submiited batch
+				that is in progress.
+				Changes in JBEAM UI, monitor-services, monitor-comm and core-comm.
+				The search batch tab shows the details of batch that are
+				completed/intreputted but not the one that is scheduled.
+				Introduced new screen to show active/non-active schedules.  			  			  			 		
   		</action>
-  		<action issue="1251" dev="mandarv" date="" type="fix">
-  			After submiting the recurrence batch that will execute the objects on regular basis, we are not able to see the details of submiited batch that is in progress. 
-  			Changes in JBEAM UI, monitor-services, monitor-comm and core-comm.  			  			  			 		
-  			The search batch tab shows the details of batch that are completed/intreputted but not the one that is scheduled.  			  			  			 		
-  			Introduced new screen to show active/non-active schedules.  			  			  			 		
+		</release>
+		<release version="5.0.4" date="" description="Bug Fix Release">
+			<action issue="1176" dev="mandarv" date="" type="fix">
+				To end the batch, user has to select any one of the option - End on
+				Date/Occurance. But the recurrence batch gets submitted without
+				accepting the end criteria which is supposed to be mandatory.
+				Changes in JBEAM UI.  			  			 		
   		</action>
-  	</release>
-  	<release version="5.0.4" date="" description="Enhancement and Bug Fix Release">
-  		<action issue="1176" dev="mandarv" date="" type="fix">
-  			To end the batch, user has to select any one of the option - End on Date/Occernce. But the recurrence batch gets submitted without accepting the end criteria which is supposed to be mandatory.
-  			Changes in JBEAM UI.  			  			 		
+			<action issue="1200" dev="mandarv" date="" type="fix">
+				The Occurence under the recurrence of JBEAM takes the no of times the
+				batch will get executed i.e in all the weekdays are selected and the
+				occurence is 5 then the batch will get executed for a week and get
+				finished.
+				Changes in JBEAM UI.  			  			 		
   		</action>
-  		<action issue="1200" dev="mandarv" date="" type="fix">
-  			The Occurence under the recurrence of JBEAM takes the no of times the batch will get executed i.e in all the weekdays are selected and the occurence is 5 then the batch will get executed for a week and get finished. 
-  			Changes in JBEAM UI.  			  			 		
+		</release>
+		<release version="5.0.3" date="" description="Bug Fix Release">
+			<action issue="1149" dev="mandarv" date="" type="fix">
+				User Authentication details not sent via JBEAM to ICDService.
+				Introduced entry of (ICD_Service) UserId and password in
+				bpms_Core.CONFIGURATION table.
+				Changes in Core_Complete.sql, jbeam-core, jbeamicd-impl-jobs-billing,
+				jbeamicd-impl-coreprint-billing for the same.  			  			 		
   		</action>
-  	</release>
-  	<release version="5.0.3" date="" description="Bug Fix Release">
-  		<action issue="1149" dev="mandarv" date="" type="fix">
-  			User Authentication details not sent via JBEAM to ICDService. 
-  			Introduced entry of (ICD_Service) UserId and password in bpms_Core.CONFIGURATION table.
-  			Changes in Core_Complete.sql, jbeam-core, jbeamicd-impl-jobs-billing, jbeamicd-impl-coreprint-billing for the same.  			  			 		
+		</release>
+		<release version="5.0.2" date="" description="Bug Fix Release">
+			<action issue="934" dev="mandarv" date="" type="fix">
+				Batch Report not getting generated on Prod.
+				Solution given in 5.0.1, resolved this defect automatically.  			 		
   		</action>
-  	</release>
-  	<release version="5.0.2" date="" description="Bug Fix Release">
-  		<action issue="934" dev="mandarv" date="" type="fix">
-  			Batch Report not getting generated on Prod.
-  			Solution given in 5.0.1, resolved this defect automatically.  			 		
+		</release>
+		<release version="5.0.1" date="" description="Bug Fix Release">
+			<action issue="863" dev="mandarv" date="" type="fix">
+				Batch Emails were not working
+				Change in jbeam-core to set the ToReciepient using valid condition.
+				(com.stgmastek.core.util.email.EmailAgent)
   		</action>
-  	</release>
-  	<release version="5.0.1" date="" description="Bug Fix Release">
-  		<action issue="863" dev="mandarv" date="" type="fix">
-  			Batch Emails were not working 
-  			Change in jbeam-core to set the ToReciepient using valid condition.  (com.stgmastek.core.util.email.EmailAgent)
-  		</action>
-  	</release>
+		</release>
 	</body>
 </document>
