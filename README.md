@@ -46,3 +46,6 @@ Refer to the [Developer guide] (https://github.com/MastekLtd/JBEAM/blob/master/d
    * debugging tips
    * database design and table structure of core and monitor
    
+Download JBEAM distributable
+-----------------------------
+[Download JBEAM] (https://sourceforge.net/projects/jbeam/files/)
