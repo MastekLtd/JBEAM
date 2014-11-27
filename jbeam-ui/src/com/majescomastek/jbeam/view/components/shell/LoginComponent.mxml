@@ -85,8 +85,6 @@
 			horizontalAlign="center">
 			<mx:Canvas backgroundImage="assets/images/footerDeco.png"
 				width="800" minHeight="80">				
-				<mx:Image id="imgMastekLogo" source="{mastekLogo}"
-					bottom="31" left="605" width="105" />
 				<mx:LinkBar y="58" dataProvider="{parentDocument.linkDetails}"
 					styleName="footerLinkBar" x="16" height="20" />
 				<mx:Text text="{resourceManager.getString('Login', 'copy_right')}"

@@ -45,8 +45,6 @@
 		bottom="0" maintainAspectRatio="false" width="100%" right="0" />
 	<mx:Text text="{resourceManager.getString('Login', 'copy_right')}"
 		styleName="copyRight" right="160" bottom="1" />
-	<mx:Image source="{mastekLogo}"
-		right="5" bottom="0" height="25" />
 	<mx:LinkBar styleName="footerLinkBar" dataProvider="{parentDocument.linkDetails}"
 		left="10" bottom="0">
 	</mx:LinkBar>

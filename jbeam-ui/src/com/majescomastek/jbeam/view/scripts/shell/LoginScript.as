@@ -78,7 +78,7 @@ private  var image_path:String = null;
 private  var defaultImage:String = null;
 private function loadFile():void
 {
-	clientLogo = resourceManager.getString('Image', 'stg_billing_logo');
+	clientLogo = resourceManager.getString('Image', 'stg_billing_logo_small');
 	trace(clientLogo);
 	mastekLogo = resourceManager.getString('Image', 'mastek_logo')
 	
@@ -152,7 +152,6 @@ public function cleanup():void
 
 public function handleMastekLogo(data:Object):void
 {
-	this.imgMastekLogo.source = data as String;
 	mastekLogo = data as String;
 }
 
