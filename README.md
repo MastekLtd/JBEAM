@@ -24,7 +24,7 @@ To build JBEAM core components:
 
 ` git clone git://github.com/MastekLtd/JBEAM.git`
 
-First build the [supporting libraries] (https://github.com/MastekLtd/JBEAM/blob/master/supporting_libraries/) required for JBEAM by following the [instructions] (https://github.com/MastekLtd/JBEAM/blob/master/supporting_libraries/build_supporting_libraries.md)
+First build the [supporting libraries] (https://github.com/MastekLtd/JBEAM/blob/master/supporting_libraries/) required for JBEAM by following the [instructions] (https://github.com/MastekLtd/JBEAM/blob/master/supporting_libraries/build_supporting_libraries.md).
 
 After building supporting libraries use following commands to build JBEAM core components
 
@@ -34,6 +34,7 @@ After building supporting libraries use following commands to build JBEAM core c
 
 To build JBEAM UI components, refer to [Developer guide] (https://github.com/MastekLtd/JBEAM/blob/master/documentation/developer%20guide/JBEAM%20Developer%20Guide.docx)
 
+To integrate your application with JBEAM refer to [JBEAM Integration](https://github.com/MastekLtd/JBEAM/tree/master/supporting_libraries/application_schema_script).
 
 Working with JBEAM Source
 -------------------------
